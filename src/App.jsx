@@ -1,10 +1,11 @@
+import ChangePassword from "./components/ubahpassword"
 import OTPComponent from "./components/ubahpassword-OTP"
 
 
 function App() {
   return (
     <>
-     <OTPComponent></OTPComponent>
+      <ChangePassword></ChangePassword>
     </>
   )
 }
