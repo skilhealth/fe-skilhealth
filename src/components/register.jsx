@@ -18,8 +18,8 @@ const Register = () => {
  return (
     <div className="mb-10 min-h-screen bg-white-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
-      <div className="btn-wrapper text-center">
-          <img alt="..." className="ml-36 flex w-20 h-20" src= {imgSkilhealth} />
+      <div className="btn-wrapper item-center sm:px-10 flex lg:px-8 items-center">
+          <img alt="..." className="ml-36 flex w-20 h-20 items-center" src= {imgSkilhealth} />
        </div>
       <div>
           <h2 className="text-center text-2xl font-bold text-gray-900 font-sans">
@@ -60,9 +60,11 @@ const Register = () => {
             </div>
             <div>
             <h3 className="mt-8 space-y-6 block font-sans text-xl font-bold">Jenis Kelamin</h3>
-              <select  name='jenis kelamin' className='px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm'>
+              <select value={gender}  onChange={(e) => setGender(e.target.value)} name='jenis kelamin' className='px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm'>
+                  <option value="">Pilih jenis kelamin</option>
                   <option value="1">Laki-Laki</option>
                   <option value="2">Perempuan</option>
+                 
               </select>
 
           <div>
@@ -132,7 +134,7 @@ const Register = () => {
           </button>
         </div>
       </form>
-      <a href= "../login" className="text-lg ml-52">Sudah Punya Akun?</a>
+      <a href= "../login" className=" font-sans text-lg ml-52 flex text-right sm:text-right lg:text-right">Sudah Punya Akun?</a>
     </div>
  </div>
 );
