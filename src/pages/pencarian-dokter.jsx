@@ -1,5 +1,10 @@
+import { useNavigate } from "react-router-dom"
 import Backbutton from "../components/backbutton"
 function PencarianDokter() {
+    const navigate = useNavigate()
+    const handlesearch = () =>{
+        navigate("/doctor/result")
+    }
     return (
         <div className="p-4">
             <Backbutton nama="Pencarian Dokter" />
@@ -65,7 +70,7 @@ function PencarianDokter() {
                     </select>
                 </div>
                 <div className="mt-2">
-                    <button className="bg-red-700 rounded-xl font-medium w-full text-lg text-white p-2">Cari</button>
+                    <button className="bg-red-700 rounded-xl font-medium w-full text-lg text-white p-2" onClick={handlesearch}>Cari</button>
                 </div>
             </form>
         </div>
