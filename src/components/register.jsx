@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import imgSkilhealth from "../assets/LogoSkilhealth.png";
 
 const Register = () => {
  const [name, setName] = useState('');
@@ -15,13 +16,17 @@ const Register = () => {
  };
 
  return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="mb-10 min-h-screen bg-white-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
-        <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            Sign Up
+      <div>
+          <h2 className="text-center text-2xl font-bold text-gray-900 font-sans">
+            Selamat Datang di <br></br> Skilhealth !
           </h2>
         </div>
+
+      <div className="btn-wrapper text-center">
+          <img alt="..." className="ml-36 flex w-20 h-20" src= {imgSkilhealth} />
+       </div>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <input type="hidden" name="remember" defaultValue="true" />
           <div className="rounded-md shadow-sm -space-y-px"></div>
