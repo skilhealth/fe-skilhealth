@@ -21,17 +21,17 @@ function Login () {
                                 <form id='form-login' autoComplete='off'>
                                     <div className="relative w-full mb-3">
                                         <label className="block font-sans text-lg font-bold mb-2" htmlFor="grid-password">Username / Email</label>
-                                        <input type="email" className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full" placeholder="Masukan Username/Email" autoFocus required />
+                                        <input type="email" className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full" placeholder="Masukan Username/Email" autoFocus required />
                                     </div>
                                     <div className="relative w-full mb-3">
                                         <label className="block font-sans text-lg font-bold mb-2" htmlFor="grid-password">Password</label>
-                                        <input type="password" className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-inherit text-sm shadow focus:outline-black-200 focus:shadow-outline w-full" placeholder="Masukan Password" required />
+                                        <input type="password" className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline w-full" placeholder="Masukan Password" required />
                                     </div>
                                     <div>
                                         <label className="inline-flex items-center cursor-pointer">
                                             <input id="customCheckLogin" type="checkbox" className="form-checkbox text-gray-800 ml-1 w-5 h-5 ease-linear transition-all duration-150" defaultChecked />
                                             <span className="ml-2 text-lg font-semibold text-black-700">Ingat Saya</span>
-                                            <a href= "" className="text-lg ml-16">Ubah Password</a>
+                                            <a href= "" className="text-lg ml-16">Lupa password</a>
                                         </label>
                                     </div>
                                     <div className="text-center mt-6">
@@ -39,7 +39,7 @@ function Login () {
                                             Login
                                         </button>
                                     </div>
-                                    <a href= "" className="text-lg ml-40">Belum Punya Akun?</a>
+                                    <a href= "../register" className="text-lg ml-40">Belum Punya Akun?</a>
                                 </form>
                             </div>
                     </div>
