@@ -159,12 +159,13 @@ md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 s
         <div>
           <button
             type="submit"
-            className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            className='bg-red-700 text-white text-sm font-bold px-6 py-3 rounded-xl shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150'
           >
-            Sign Up
+            Register
           </button>
         </div>
       </form>
+      <a href= "../login" className="text-lg ml-52">Sudah Punya Akun?</a>
     </div>
  </div>
 );
