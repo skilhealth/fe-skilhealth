@@ -1,11 +1,11 @@
-import Backbutton from "./components/backbutton"
 import Navbar from "./components/navbar"
+import PencarianDokter from "./pages/pencarian-dokter"
 
 function App() {
   return (
     <>
       <Navbar />
-      <Backbutton nama="Halaman Saya" />
+      <PencarianDokter />
     </>
   )
 }
