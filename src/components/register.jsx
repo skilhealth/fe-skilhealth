@@ -18,138 +18,105 @@ const Register = () => {
  return (
     <div className="mb-10 min-h-screen bg-white-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
+      <div className="btn-wrapper text-center">
+          <img alt="..." className="ml-36 flex w-20 h-20" src= {imgSkilhealth} />
+       </div>
       <div>
           <h2 className="text-center text-2xl font-bold text-gray-900 font-sans">
             Selamat Datang di <br></br> Skilhealth !
           </h2>
         </div>
-
-      <div className="btn-wrapper text-center">
-          <img alt="..." className="ml-36 flex w-20 h-20" src= {imgSkilhealth} />
-       </div>
+     
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <input type="hidden" name="remember" defaultValue="true" />
           <div className="rounded-md shadow-sm -space-y-px"></div>
             <div>
-              <label htmlFor="name" className="sr-only">
-                Name
-              </label>
+            <h3 className="mt-8 space-y-6 block font-sans text-xl font-bold">Nama</h3>
               <input
                 id="name"
                 name="name"
                 type="text"
-                autoComplete="name"
-                required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                placeholder="Name"
+                autoComplete="off"
+                autoFocus required
+                className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
+                placeholder="Masukan Nama"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
             <div>
-              <label htmlFor="dateOfBirth" className="sr-only">
-                Date of Birth
-              </label>
+            <h3 className="mt-8 space-y-6 block font-sans text-xl font-bold ">Tanggal Lahir</h3>
               <input
                 id="dateOfBirth"
                 name="dateOfBirth"
                 type="date"
                 autoComplete="dateOfBirth"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2
-
-### Response: border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                placeholder="Date of Birth"
+                className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
+                placeholder="Masukan Tanggal Lahir"
                 value={dateOfBirth}
                 onChange={(e) => setDateOfBirth(e.target.value)}
               />
             </div>
             <div>
-              <label htmlFor="gender" className="sr-only">
-                Gender
-              </label>
-              <input
-                id="gender"
-                name="gender"
-                type="text"
-                autoComplete="gender"
-                required
-                className="appearance-none rounded-none relative block w-full px-3 py-2
+            <h3 className="mt-8 space-y-6 block font-sans text-xl font-bold">Jenis Kelamin</h3>
+              <select  name='jenis kelamin' className='px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm'>
+                  <option value="1">Laki-Laki</option>
+                  <option value="2">Perempuan</option>
+              </select>
 
-### Response: border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                placeholder="Gender"
-                value={gender}
-                onChange={(e) => setGender(e.target.value)}
-              />
           <div>
-            <label htmlFor="phoneNumber" className="sr-only">
-              Phone Number
-            </label>
+          <h3 className="mt-8 space-y-6 block font-sans text-xl font-bold">No.Telepon</h3>
             <input
               id="phoneNumber"
               name="phoneNumber"
               type="tel"
               autoComplete="phoneNumber"
               required
-              className="appearance-none rounded-none relative block w-full px-3 py-2
-
-### Response: border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-              placeholder="Phone Number"
+              className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
+              placeholder="Masukan No.Telepon"
               value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
             />
           </div>
           <div>
-            <label htmlFor="email" className="sr-only">
-              Email address
-            </label>
+          <h3 className="mt-8 space-y-6 block font-sans text-xl font-bold">Email</h3>
             <input
               id="email"
               name="email"
               type="email"
-              autoComplete="email"
+              autoComplete="off"
               required
-              className="appearance-none rounded-none relative block w-full px-3 py-2
-
-### Response: border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-              placeholder="Email address"
+              className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
+              placeholder="Masukan Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div>
-            <label htmlFor="password" className="sr-only">
-              Password
-            </label>
+          <h3 className="mt-8 space-y-6 block font-sans text-xl font-bold ">Password</h3>
             <input
               id="password"
               name="password"
               type="password"
               autoComplete="new-password"
               required
-              className="appearance-none rounded-none relative block w-full px-3 py-2
-
-### Response: border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-
-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-              placeholder="Password"
+              className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
+              placeholder="Masukan Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <div>
-            <label htmlFor="confirmPassword" className="sr-only">
-              Confirm Password
-            </label>
+          <h3 className="mt-8 space-y-6 block font-sans text-xl font-bold">Konfirmasi Password</h3>
             <input
               id="confirmPassword"
               name="confirmPassword"
               type="password"
               autoComplete="new-password"
               required
-              className="appearance-none rounded-none relative block w-full px-3 py-2
-
-### Response: border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-              placeholder="Confirm Password"
+              className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
+              placeholder="Konfirmasi Password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
