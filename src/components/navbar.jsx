@@ -42,10 +42,6 @@ function Navbar() {
                         </div>
                     )
                 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 63c1d4fca848650168efc221cef0b5fa16d7673c
             </ul>
         </nav>
     )
