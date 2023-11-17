@@ -1,5 +1,5 @@
 import Backbutton from "./components/backbutton"
-import Login from "./components/login"
+import Login from "./pages/login-pages"
 
 
 function App() {
@@ -7,6 +7,7 @@ function App() {
     <>
 
     <Backbutton/>
+    <Login></Login>
   
 
     </>
