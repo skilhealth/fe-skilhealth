@@ -7,7 +7,7 @@ function App() {
     <>
 
     <Backbutton/>
-    <Login/>
+  
 
     </>
   )
