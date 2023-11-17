@@ -1,9 +1,10 @@
-import OTPComponent from "./components/ubah-password-otp"
+import OTPComponent from "./pages/ubah-password-otp-pages"
+
 
 function App() {
   return (
     <>
-   <OTPComponent></OTPComponent>
+     <OTPComponent></OTPComponent>
     </>
   )
 }
