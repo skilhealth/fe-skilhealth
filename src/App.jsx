@@ -1,4 +1,5 @@
-import Register from "./components/register"
+import Register from "./pages/register.pages"
+
 
 function App() {
   return (
