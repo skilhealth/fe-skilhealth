@@ -1,10 +1,11 @@
-import ChangePassword from "./components/ubahpassword"
+import ChangePassword from "./pages/ubah-password-page"
+
 
 
 function App() {
   return (
     <>
-      <ChangePassword></ChangePassword>
+     <ChangePassword></ChangePassword>
     </>
   )
 }
