@@ -1,6 +1,7 @@
 import Register from "./pages/register.pages"
 
 
+
 function App() {
   return (
     <>
