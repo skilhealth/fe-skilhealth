@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import imgSkilhealth from "../assets/LogoSkilhealth.png";
+import { Link } from 'react-router-dom';
+
+
 
 const Register = () => {
  const [name, setName] = useState('');
@@ -134,7 +137,7 @@ const Register = () => {
           </button>
         </div>
       </form>
-      <a href= "../Login" className=" font-sans text-lg ml-52 flex text-right sm:text-right lg:text-right">Sudah Punya Akun?</a>
+      <Link to= "../pages/register.pages" className=" font-sans text-lg ml-52 flex text-right sm:text-right lg:text-right">Sudah Punya Akun?</Link>
     </div>
  </div>
 );

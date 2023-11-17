@@ -75,7 +75,7 @@ const Login = () => {
           </button>
         </div>
       </form>
-      <a href= "../register" className=" font-sans ml-52 text-lg flex text-right sm:text-right lg:text-right">Belum Punya Akun?</a>
+      <a href= "../register.pages" className=" font-sans ml-52 text-lg flex text-right sm:text-right lg:text-right">Belum Punya Akun?</a>
       </div>
     </div>
  );
