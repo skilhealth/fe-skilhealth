@@ -1,5 +1,4 @@
 import ChangePassword from "./components/ubahpassword"
-import OTPComponent from "./components/ubahpassword-OTP"
 
 
 function App() {
