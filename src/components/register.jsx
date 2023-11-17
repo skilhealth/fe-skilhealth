@@ -134,7 +134,7 @@ const Register = () => {
           </button>
         </div>
       </form>
-      <a href= "../login" className=" font-sans text-lg ml-52 flex text-right sm:text-right lg:text-right">Sudah Punya Akun?</a>
+      <a href= "../Login" className=" font-sans text-lg ml-52 flex text-right sm:text-right lg:text-right">Sudah Punya Akun?</a>
     </div>
  </div>
 );
