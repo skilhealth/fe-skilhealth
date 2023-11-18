@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
-import Backbutton from '../components/backbutton';
-
+import React, { useEffect, useState } from 'react';
 
 const SearchHospital = () => {
+
+    useEffect(() => {
+        // memanggil/ get rumah sakit
+    }, [])
+
+
  const [hospital, setHospital] = useState('');
 
  const handleChange = (e) => {
@@ -16,7 +20,7 @@ const SearchHospital = () => {
 
  return (
     <div className="container mx-auto">
-    <Backbutton nama=" Rumah Sakit"/>
+    <h1>{hospital}</h1>
       <form onSubmit={handleSubmit} className="w-full max-w-sm mx-auto">
         <div className="rounded-md shadow-sm -space-y-px">
           <input
@@ -27,10 +31,12 @@ const SearchHospital = () => {
             onChange={handleChange}
           />
         </div>
-       
-      </form>
+        </form>
     </div>
+
+
  );
+        
 };
 
 export default SearchHospital;
