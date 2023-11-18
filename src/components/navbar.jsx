@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { useState } from "react"
-import Logo from "/LogoSkilHealth.png"
+import Logo from "../../public/LogoSkilHealth.png"
 function Navbar() {
     const [navbar, setNav] = useState(false)
     const [isLogin, setLogin] = useState(false)
@@ -24,7 +24,7 @@ function Navbar() {
                     <div className="bg-white h-1 w-9"></div>
                 </div>
             </div>
-            <ul className={`w-full text-red-700 flex-col px-4 absolute bg-white ${navbar ? "hidden" : "flex"}`}>
+            <ul className={`w-full text-red-700 flex-col px-4 absolute ${navbar ? "hidden" : "flex"}`}>
                 <li className="py-4 w-full text-center border-slate-200 border-b-2">Home</li>
                 <li className="py-4 w-full text-center border-slate-200 border-b-2">Cari Dokter</li>
                 <li className="py-4 w-full text-center border-slate-200 border-b-2">Forum</li>

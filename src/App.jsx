@@ -1,9 +1,11 @@
 import Navbar from "./components/navbar"
+import SearchHospital from "./pages/Search-rs"
 
 function App() {
   return (
     <>
-    <Navbar></Navbar>
+       <Navbar></Navbar>
+        <SearchHospital></SearchHospital>
     </>
   )
 }
