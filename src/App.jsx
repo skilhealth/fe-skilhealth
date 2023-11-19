@@ -1,10 +1,14 @@
-import Contoh from "./pages/contoh"
+import { Route, Routes } from "react-router-dom"
+import Navbar from "./components/navbar"
+import ListForum from "./pages/list-forum"
+
 
 function App() {
   return (
     <>
-      <h1 className=" text-lg font-bold text-red-500">Hello World!!</h1>
-      <Contoh />
+      <Navbar />
+      <ListForum/>
+  
     </>
   )
 }
