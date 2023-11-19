@@ -1,14 +1,18 @@
 import { Route, Routes } from "react-router-dom"
 import Navbar from "./components/navbar"
-import ListForum from "./pages/list-forum"
+import Diskusi from "./pages/diskusi"
+
+// import ListForum from "./pages/list-forum"
+// import Pertanyaan from "./pages/pertanyaan"
 
 
 function App() {
   return (
     <>
       <Navbar />
-      <ListForum/>
-  
+      {/* <ListForum/> */}
+      {/* <Pertanyaan /> */}
+      <Diskusi />
     </>
   )
 }

@@ -12,12 +12,14 @@ function Paginations() {
         sx={{
           "& .MuiPaginationItem-root": {
             "&:hover": {
-              backgroundColor: "rgb(226 232 240)",
+                color: "white",
+                backgroundColor: "rgb(239 68 68)",
             },
           },
           "& .Mui-selected": {
             color: "white",
             backgroundColor: "rgb(239 68 68)",
+            border: "2px solid black",
           },
         }}
       />
