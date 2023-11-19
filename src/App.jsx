@@ -1,11 +1,11 @@
 import Navbar from "./components/navbar"
-import DataDokter from "./pages/data-doctor-page"
+import Editbooking from "./pages/editbooking"
 
 function App() {
   return (
     <div>
       <Navbar />
-      <DataDokter />
+      <Editbooking />
     </div>
   )
 }
