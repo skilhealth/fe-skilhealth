@@ -1,112 +1,141 @@
-import Backbutton from "../components/backbutton";
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import Backbutton from '../components/backbutton';
+
 
 const EditProfile = () => {
-    const [namaLengkap, setNamaLengkap] = useState('');
-    const [tanggal_lahir, setTanggalLahir] = useState('');
-    const [no_telepon, setNoTelepon] = useState('');
-    const [email, setEmail] = useState('');
-    const [nik, setNik] = useState('');
-    const [alamat, setAlamat] = useState('');
+ const [namaLengkap, setNamaLengkap] = useState('');
+ const [tanggalLahir, setTanggalLahir] = useState('');
+ const [noTelepon, setNoTelepon] = useState('');
+ const [email, setEmail] = useState('');
+ const [nik, setNik] = useState('');
+ const [alamat, setAlamat] = useState('');
+ const [imageSrc, setImageSrc] = useState('');
 
-    const handleSubmit = (e) => {
-        e.preventDefault ();
-        // save data here
-    };
-    return (
-        <div>
-            <Backbutton nama= "Profil Pasien" />
-        <form className="w-full max-w-md mx-auto my-10 mt-8 space-y-6"     autoComplete="off" onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <h1 className="mt-8 space-y-6 block font-sans text-xl font-bold" htmlFor="namaLengkap">
-              Nama Lengkap*
-            </h1>
+ const handleImageChange= () => {
+  setImageSrc('/path/to/default/image.jpg');
+ }
+
+ const handleSubmit = (e) => {
+    e.preventDefault();
+    // Perform validation and API calls here
+ };
+
+ return (
+  
+    <div className="mb-10 min-h-screen bg-white-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-md w-full space-y-8">
+      <div className="ml-36 w-24 h-24 rounded-full bg-gray-100 sm:text-sm">
+        <img  src={imageSrc} alt='' />
+      </div>
+      <div>
+          <button  onClick ={handleImageChange} className="text-center text-lg font-bold text-red-500 font-sans ml-36 sm:text-sm ">
+            Edit Picture
+          </button>
+        </div>
+     
+        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+          <input type="hidden" name="remember" defaultValue="true" />
+          <div className="rounded-md shadow-sm -space-y-px"></div>
+            <div>
+            <h3 className="mt-8 space-y-6 block font-sans text-xl font-bold">Nama Lengkap*</h3>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                autoComplete="off"
+                autoFocus required
+                className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
+                placeholder="Masukan Nama"
+                value={namaLengkap}
+                onChange={(e) => setNamaLengkap(e.target.value)}
+              />
+            </div>
+            <div>
+            <h3 className="mt-8 space-y-6 block font-sans text-xl font-bold ">Tanggal Lahir*</h3>
+              <input
+                id="dateOfBirth"
+                name="dateOfBirth"
+                type="date"
+                autoComplete="dateOfBirth"
+                required
+                className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
+                placeholder="Masukan Tanggal Lahir"
+                value={tanggalLahir}
+                onChange={(e) => setTanggalLahir(e.target.value)}
+              />
+            </div>
+            <div>
+
+          <div>
+          <h3 className="mt-8 space-y-6 block font-sans text-xl font-bold">No.Telepon*</h3>
             <input
-              className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow  focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
-              id="fullName"
-              type="text"
-              placeholder="Masukan Nama"
-         
-              autoFocus required
-              value={namaLengkap}
-              onChange={(e) => setNamaLengkap(e.target.value)}
-            />
-          </div>
-          <div className="mb-4">
-          <h1 className="mt-8 space-y-6 block font-sans text-xl font-bold" htmlFor="tanggal_lahir">
-              Tanggal Lahir*
-            </h1>
-            <input
-              className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
-              id="dateOfBirth"
-              type="date"
-              placeholder=" Masukan Tanggal Lahir"
-              value={tanggal_lahir}
-              onChange={(e) => setTanggalLahir(e.target.value)}
-            />
-          </div>
-          <div className="mb-4">
-          <h1 className="mt-8 space-y-6 block font-sans text-xl font-bold" htmlFor="no_telepon">
-              No.Telepon*
-            </h1>
-            <input
-              className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
               id="phoneNumber"
-              type="text"
-              placeholder="Masukan No. telepon"
-              value={no_telepon}
+              name="phoneNumber"
+              type="tel"
+              autoComplete="phoneNumber"
+              required
+              className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
+              placeholder="Masukan No.Telepon"
+              value={noTelepon}
               onChange={(e) => setNoTelepon(e.target.value)}
             />
           </div>
-          <div className="mb-4">
-          <h1 className="mt-8 space-y-6 block font-sans text-xl font-bold" htmlFor="email">
-              Email*
-            </h1>
+          <div>
+          <h3 className="mt-8 space-y-6 block font-sans text-xl font-bold">Email*</h3>
             <input
-              className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
               id="email"
+              name="email"
               type="email"
-              placeholder=" Masukan Email"
+              autoComplete="off"
+              required
+              className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
+              placeholder="Masukan Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-          <div className="mb-4">
-          <h1 className="mt-8 space-y-6 block font-sans text-xl font-bold" htmlFor="nik">
-              NIK*
-            </h1>
+          <div>
+          <h3 className="mt-8 space-y-6 block font-sans text-xl font-bold ">NIK*</h3>
             <input
-              className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
-              id="nik"
+              id="Nik"
+              name="nik"
               type="text"
-              placeholder="Masukan NIK"
+              autoComplete="off"
+              required
+              className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
+              placeholder="Masukan Nomor Identitas"
               value={nik}
               onChange={(e) => setNik(e.target.value)}
             />
           </div>
-          <div className="mb-4">
-          <h1 className="mt-8 space-y-6 block font-sans text-xl font-bold" htmlFor="alamat">
-              Alamat*
-            </h1>
+          <div>
+          <h3 className="mt-8 space-y-6 block font-sans text-xl font-bold">Alamat*</h3>
             <textarea
+              id="alamat"
+              name="alamat"
+              type="text"
+              required
               className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
-              id="address"
-              placeholder=" Masukan Alamat"
+              placeholder="Masukan alamat"
               value={alamat}
               onChange={(e) => setAlamat(e.target.value)}
             />
           </div>
-          <div className="flex items-center justify-between">
+        </div>
+
+        <div>
           <button
             type="submit"
-            className='bg-red-700 text-white text-sm font-bold px-3 py-3 rounded-xl shadow hover:shadow-lg outline-none focus:outline-none ml-24 w-52  ease-linear transition-all duration-150 sm:text-sm'
+            className='bg-red-700 text-white text-sm font-bold px-6 py-3 rounded-xl shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150'
           >
-            Tambah Profil Lain
+            Simpan
           </button>
-          </div>
-        </form>
-      </div>
-    )
-}
+        </div>
+      </form>
+      
+    </div>
+ </div>
+);
+};
 
-export default EditProfile
+export default EditProfile;
