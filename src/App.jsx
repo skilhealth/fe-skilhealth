@@ -29,7 +29,6 @@ function App() {
         <Route path="/booking/:id/edit" element={<Editbooking />} />
         <Route path="/booking/:id/refund" element={<Refund />} />
       </Routes>
-      
     </>
   )
 }
