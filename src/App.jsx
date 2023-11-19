@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 import Navbar from "./components/navbar"
+import BookingDetailPage from "./pages/booking-detail-page"
 import HasilCariPage from "./pages/hasil-pencarian-page"
 import PencarianDokter from "./pages/pencarian-dokter"
 
@@ -11,6 +12,7 @@ function App() {
         <Route path="/doctor/search" element={<PencarianDokter />} />
         <Route path="/doctor/result" element={<HasilCariPage />} />
         <Route path="/doctor/result/:id" element={<HasilCariPage />} />
+        <Route path="/booking/:id" element={<BookingDetailPage />} />
       </Routes>
       
     </>
