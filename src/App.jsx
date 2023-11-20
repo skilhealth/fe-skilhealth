@@ -7,12 +7,7 @@ import OTPComponent from "./pages/ubah-password-otp-pages";
 function App() {
   return (
     <>
-      <Routes>
-        <Route path="/user/login" element={<Login />} />
-        <Route path="/user/regis" element={<Register />} />
-        <Route path="/user/lupaPasssword" element={<OTPComponent/>} />
-        <Route path="/user/ubahPassword" element={<ChangePassword/>} />
-      </Routes>
+    <ChangePassword></ChangePassword>
     </>
   )
 }

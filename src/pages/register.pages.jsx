@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import imgSkilhealth from "../assets/LogoSkilhealth.png";
-import { Link } from 'react-router-dom';
+import Backbutton from "../components/backbutton";
 
 
 
@@ -20,9 +20,10 @@ const Register = () => {
 
  return (
     <div className="mb-10 min-h-screen bg-white-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
+      <div className="max-w-md w-full space-y-8 mb-14">
+      <Backbutton></Backbutton>
       <div className="btn-wrapper item-center sm:px-10 flex lg:px-8 items-center">
-          <img alt="..." className="ml-36 flex w-20 h-20 items-center" src= {imgSkilhealth} />
+          <img alt="..." className="ml-36 flex w-24 h-24 items-center" src= {imgSkilhealth} />
        </div>
       <div>
           <h2 className="text-center text-2xl font-bold text-gray-900 font-sans">
@@ -137,7 +138,7 @@ const Register = () => {
           </button>
         </div>
       </form>
-      <Link to= "../pages/register.pages" className=" font-sans text-lg ml-52 flex text-right sm:text-right lg:text-right">Sudah Punya Akun?</Link>
+      <a href= ".." className=" font-sans ml-52 text-lg flex text-right sm:text-right lg:text-right">Sudah Punya Akun?</a>
     </div>
  </div>
 );

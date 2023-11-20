@@ -25,7 +25,7 @@ const OTPComponent = () => {
 
  return (
     <div className="mb-96 min-h-screen flex items-center justify-center bg-white-100 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
+      <div className="max-w-md w-full space-y-8 mb-64">
       <div className="btn-wrapper item-center sm:px-10 flex lg:px-8 items-center">
           <img alt="..." className="ml-36 flex w-20 h-20 items-center" src= {imgSkilhealth} />
        </div>
@@ -74,6 +74,16 @@ const OTPComponent = () => {
           </div>
 
           <div>
+           <button
+              type="button"
+              className="font-medium text-red-700 hover:text-red-400 ml-72"
+              onClick={handleSendCode}
+            >
+              Send Code
+            </button>
+            </div>     
+            
+          <div>
             <button
               type="button"
               className="bg-red-700 text-white text-sm font-bold px-6 py-3 rounded-xl shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150 hover:bg-red-600 "
@@ -83,16 +93,7 @@ const OTPComponent = () => {
             </button>
           </div>
 
-           <div>
-           <button
-              type="button"
-              className="font-medium text-red-700 hover:text-red-400"
-              onClick={handleSendCode}
-            >
-              Send Code
-            </button>
-            </div>     
-            
+          
           <div className="text-center text-sm text-gray-500">
             Belum menerima kode OTP?{' '}
             <button
