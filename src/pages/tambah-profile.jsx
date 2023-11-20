@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Backbutton from '../components/backbutton';
 
 
-const EditProfile = () => {
+const TambahProfile = () => {
  const [namaLengkap, setNamaLengkap] = useState('');
  const [tanggalLahir, setTanggalLahir] = useState('');
  const [noTelepon, setNoTelepon] = useState('');
@@ -24,7 +24,7 @@ const EditProfile = () => {
   
     <div className="mb-10 min-h-screen bg-white-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
-      <Backbutton nama= "Edit Profile" />
+      <Backbutton nama= "Tambah Profile" />
       <div className="ml-36 w-24 h-24 rounded-full bg-gray-100 sm:text-sm">
         <img  src={imageSrc} alt='' />
       </div>
@@ -139,4 +139,4 @@ const EditProfile = () => {
 );
 };
 
-export default EditProfile;
+export default TambahProfile ;
