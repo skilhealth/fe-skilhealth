@@ -1,12 +1,14 @@
 import Navbar from "./components/navbar"
 import MenuAmbulance from "./pages/menu-ambulance"
-import TingkatDarurat from "./pages/tingkat-darurat"
+import TingkatBiasa from "./pages/tingkat-biasa"
+
 
 
 function App() {
   return (
     <>
     <Navbar></Navbar>
+    <TingkatBiasa></TingkatBiasa>
       
 
     </>
