@@ -15,21 +15,21 @@ const TingkatBiasa =  () => {
      };
 
     return (
-        <div>
-             <Backbutton nama= "Biasa"></Backbutton>
+        <div className="bg-white-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+           
          <div className=" w-full h-40  bg-gray-100 rounded-lg mt-10 sm:text-sm" >
             <div className="grid grid-cols-3 gap-4 px-4 py-4">
-                 <div className="ml-2">
+                 <div>
                    <img className="w-20 h-20" src={imgambulancebiasa}></img>
                     <h5 className="font-bold ml-5">Biasa</h5>
              </div>
 
               <div>
-                    <h5 className="font-bold">Hubungi Kami</h5>
+                    <h5 className="font-semibold">Hubungi Kami</h5>
                     <h5 className="font-bold">2-200-911</h5>
                 </div>
                 
-                <div className=" ml-10 w-16 h-16 rounded-lg bg-red-700 ">
+                <div className=" ml-12 w-16 h-16 rounded-lg bg-red-700 ">
                     <img className="w-8 h-8 ml-3 mt-4" src={iconTlpn}></img>
                     <h5 className="font-bold mt-8">Telepon</h5>
                 </div>
@@ -75,7 +75,7 @@ const TingkatBiasa =  () => {
             </div>
 
         </div>
-        </div>
+    </div>
     )
 }
 export default TingkatBiasa

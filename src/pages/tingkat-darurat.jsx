@@ -16,17 +16,17 @@ const TingkatDarurat =  () => {
      };
 
     return (
-        <div>
-             <Backbutton nama= "Darurat"></Backbutton>
+        <div className="bg-white-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+             
          <div className=" w-full h-40  bg-gray-100 rounded-lg mt-10 sm:text-sm" >
             <div className="grid grid-cols-3 gap-4 px-4 py-4">
                  <div className="ml-2">
-                   <img className="w-24 h-20" src={imgambulancedarurat}></img>
-                    <h5 className="font-bold ml-5">Darurat</h5>
+                   <img className="w-20 h-20" src={imgambulancedarurat}></img>
+                    <h5 className="font-bold ml-4">Darurat</h5>
              </div>
 
               <div>
-                    <h5 className="font-bold">Hubungi Kami</h5>
+                    <h5 className="font-semibold">Hubungi Kami</h5>
                     <h5 className="font-bold">3-200-911</h5>
                 </div>
                 

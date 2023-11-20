@@ -24,10 +24,12 @@ function MenuAmbulance () {
                     </div>
              </div >
 
-             <h2 className="mt-28 ml-10 font-bold text-lg">Rumah Sakit Terdekat</h2>
+             <h2 className="mt-20 ml-3 font-bold text-lg">Rumah Sakit Terdekat</h2>
+            
              <AmbulanceCard nama= "Skilvul Hospital Jakarta" alamat="JL.Laksada Adisucipto NO.15 Jakarta"></AmbulanceCard>
              <AmbulanceCard></AmbulanceCard>
              <AmbulanceCard></AmbulanceCard>
+
         </div>
     )
 }
