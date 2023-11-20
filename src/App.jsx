@@ -6,7 +6,6 @@ function App() {
   return (
     <>
        <Navbar></Navbar>
-       <Hospital></Hospital>
 
     </>
   )
