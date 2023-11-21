@@ -11,12 +11,13 @@ import MenungguPanggilan from "./pages/menunggu-panggilan-page"
 import Homecare from "./pages/homecare-page"
 import Editbooking from "./pages/editbooking"
 import Refund from "./pages/refund-page"
+import ListUjiLab from "./pages/list-ujilab"
+import UjilabDetail from "./pages/ujilab-detail-page"
 
 function App() {
   return (
     <>
       <Navbar />
-      <UjilabDetail />
       <Routes>
         <Route path="/doctor/search" element={<PencarianDokter />} />
         <Route path="/doctor/" element={<HasilCariPage />} />
@@ -29,6 +30,8 @@ function App() {
         <Route path="/booking/:id/homecare" element={<Homecare />} />
         <Route path="/booking/:id/edit" element={<Editbooking />} />
         <Route path="/booking/:id/refund" element={<Refund />} />
+        <Route path="/ujilab/" element={<ListUjiLab />} />
+        <Route path="/ujilab/:id" element={<UjilabDetail />} />
       </Routes>
     </>
   )

@@ -3,7 +3,7 @@ import Backbutton from "../components/backbutton"
 function PencarianDokter() {
     const navigate = useNavigate()
     const handlesearch = () =>{
-        navigate("/doctor/result")
+        navigate("/doctor/")
     }
     return (
         <div className="p-4">
