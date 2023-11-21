@@ -1,5 +1,9 @@
 import Backbutton from "../components/backbutton"
 function PencarianDokter() {
+    const hari = [["Senin", "Monday"], ["Selasa", "Tuesday"], ["Rabu", "Wednesday"], ["Kamis", "Thursday"], ["Jumat", "Friday"], ["Sabtu", "Satuday"], ["Minggu", "Sunday"]]
+    const area = ["Jakarta", "Jawa Tengah", "Jawa Barat", "Banten", "Jawa Timur", "Kalimantan"]
+    const rs = ["Skilvul Hospital Jakarta", "Skilvul Hospital Bandung", "Skilvul Hospital Surabaya", "Skilvul Hospital Semarang", "Skilvul Hospital Balikpapan"]
+    const spesialist = ["Ahli Jantung", "Ahli Kandungan", "Dokter Umum", "Ahli THT"]
     return (
         <div className="p-4">
             <Backbutton nama="Pencarian Dokter" />
@@ -12,13 +16,11 @@ function PencarianDokter() {
                     </label>
                     <select name="hari" id="hari" className="bg-white border-2 font-regular border-black rounded-lg p-2 px-4 text-base">
                         <option value="">Pilih hari</option>
-                        <option value="Senin">Senin</option>
-                        <option value="Selasa">Selasa</option>
-                        <option value="Rabu">Rabu</option>
-                        <option value="Kamis">Kamis</option>
-                        <option value="Jumat">Jumat</option>
-                        <option value="Sabtu">Sabtu</option>
-                        <option value="Minggu">Minggu</option>
+                        {
+                            hari.map((item) => (
+                                <option value={item[1]}>{item[0]}</option>
+                            ))
+                        }
                     </select>
                 </div>
                 <div className="w-full flex flex-col gap-2 mb-4">
@@ -27,9 +29,11 @@ function PencarianDokter() {
                     </label>
                     <select name="area" id="area" className="bg-white border-2 font-regular border-black rounded-lg p-2 px-4 text-base">
                         <option value="">Pilih Area</option>
-                        <option value="Senin">Jabodetak</option>
-                        <option value="Selasa">Bandung</option>
-                        <option value="Rabu">Jawa Tengah</option>
+                        {
+                            area.map((item) => (
+                                <option value={item}>{item}</option>
+                            ))
+                        }
                     </select>
                 </div>
                 <div className="w-full flex flex-col gap-2 mb-4">
@@ -38,9 +42,11 @@ function PencarianDokter() {
                     </label>
                     <select name="rs" id="rs" className="bg-white border-2 font-regular border-black rounded-lg p-2 px-4 text-base">
                         <option value="">Pilih Rumah Sakit</option>
-                        <option value="rs-skilvul-jakarta">RS.Skilvul Jakarta</option>
-                        <option value="rs-skilvul-bandung">RS.Skilvul Bandung</option>
-                        <option value="rs-skilvul-surabaya">RS.Skilvul Surabaya</option>
+                        {
+                            rs.map((item) => (
+                                <option value={item}>{item}</option>
+                            ))
+                        }
                     </select>
                 </div>
                 <div className="w-full flex flex-col gap-2 mb-4">
@@ -49,13 +55,16 @@ function PencarianDokter() {
                     </label>
                     <select name="specialist" id="specialist" className="bg-white border-2 font-regular border-black rounded-lg p-2 px-4 text-base">
                         <option value="">Pilih Specialist</option>
-                        <option value="ahli-jantung">Ahli Jantung</option>
-                        <option value="ahli-jantung">Ahli Kandungan</option>
+                        {
+                            spesialist.map((item) => (
+                                <option value={item}>{item}</option>
+                            ))
+                        }
                     </select>
                 </div>
                 <div className="w-full flex flex-col gap-2 mb-4">
                     <label htmlFor="metode" className="text-lg font-medium">
-                        Metode 
+                        Metode
                     </label>
                     <select name="metode" id="metode" className="bg-white border-2  font-normal border-black rounded-lg p-2 px-4 text-base">
                         <option value="">Pilih Metode</option>
