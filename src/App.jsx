@@ -16,6 +16,7 @@ function App() {
   return (
     <>
       <Navbar />
+      <UjilabDetail />
       <Routes>
         <Route path="/doctor/search" element={<PencarianDokter />} />
         <Route path="/doctor/" element={<HasilCariPage />} />
