@@ -64,7 +64,7 @@ const Login = () => {
             <label className="inline-flex items-center cursor-pointer">
                 <input id="customCheckLogin" type="checkbox" className="form-checkbox text-gray-800 ml-1 w-5 h-5 ease-linear transition-all duration-150" defaultChecked />
                 <span className="ml-2 text-lg font-semibold text-black-700 ">Ingat Saya</span>
-                <a href= "../ubah-password-otp-pages" className=" font-sans text-lg ml-32">Lupa password?</a>
+                <a href= "../ubah-password-otp-pages" className=" font-sans text-lg ml-32 lg:ml-44">Lupa password?</a>
             </label>
          </div>
 
@@ -77,7 +77,7 @@ const Login = () => {
           </button>
         </div>
       </form>
-          <div className=' flex flex-row gap-1 items-center ml-20'>
+          <div className=' flex flex-row gap-1 items-center ml-20 lg:ml-32'>
             <p>Belum Punya Akun ?</p>
             <a href= "../register.pages" className=" font-sans text-lg text-red-700 hover:text-red-400 font-bold">Register</a>
           </div>
