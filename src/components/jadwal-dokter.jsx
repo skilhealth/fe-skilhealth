@@ -8,7 +8,7 @@ function JadwalDokter({jadwal,useharga}) {
     }
     return (
         <div className="bg-slate-200 lg:bg-transparent w-full p-2">
-            <h3 className="text-lg lg:text-2xl font-bold mb-2 lg:text-center lg:mb-4">Jadwal Praktik</h3>
+            <h3 className="lg:pb-4 lg:border-b-2 border-slate-500 text-lg lg:text-2xl font-bold mb-2 lg:text-center lg:mb-4">Jadwal Praktik</h3>
             <div className="flex text-xs gap-3">
                 {
                     jadwal.map((item,index) => (

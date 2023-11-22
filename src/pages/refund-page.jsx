@@ -2,9 +2,9 @@ import Backbutton from "../components/backbutton"
 
 function Refund(){
     return(
-        <div className="p-4">
+        <div className="p-4 flex flex-col items-center">
             <Backbutton nama="Batalkan Jadwal" />
-            <form className="bg-slate-200 w-full p-4 rounded-lg">
+            <form className="bg-slate-200 w-full p-4 rounded-lg max-w-2xl">
                 <div className="text-lg mb-4">
                     <div className="font-bold">Alasan Pembatalan</div>
                     <select name="" id="" className="w-full p-2 border-2 rounded-lg border-black">
