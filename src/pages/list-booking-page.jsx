@@ -35,7 +35,7 @@ function ListBooking() {
         },
         {
             nama: "Dr. Jaydone Schleifer",
-            img: "/images/dokter/doctor1.png",
+            img:"/images/dokter/doctor1.png",
             spesialis: "Ahli Kandungan",
             rs: "Skivul Hospital Jakarta",
             jadwal: {
@@ -43,29 +43,9 @@ function ListBooking() {
                 date: moment("2023-12-14").format('DD-MM-YYYY')
             }
         },
-        {
+    {
             nama: "Dr. Jaydone Schleifer",
-            img: "/images/dokter/doctor1.png",
-            spesialis: "Ahli Kandungan",
-            rs: "Skivul Hospital Jakarta",
-            jadwal: {
-                tipe: "Daring",
-                date: moment("2023-12-14").format('DD-MM-YYYY')
-            }
-        },
-        {
-            nama: "Dr. Jaydone Schleifer",
-            img: "/images/dokter/doctor1.png",
-            spesialis: "Ahli Kandungan",
-            rs: "Skivul Hospital Jakarta",
-            jadwal: {
-                tipe: "Daring",
-                date: moment("2023-12-14").format('DD-MM-YYYY')
-            }
-        },
-        {
-            nama: "Dr. Jaydone Schleifer",
-            img: "/images/dokter/doctor1.png",
+            img:"/images/dokter/doctor1.png",
             spesialis: "Ahli Kandungan",
             rs: "Skivul Hospital Jakarta",
             jadwal: {
@@ -75,16 +55,14 @@ function ListBooking() {
         }]
     }
     return (
-        <div className="p-4 lg:px-24">
+        <div className="p-4 px-24 flex flex-col items-center">
             <Backbutton nama="Jadwal Janji Temu" />
-            <div className="flex justify-center w-full mt-2">
-                <div className="flex flex-col w-full gap-2 lg:gap-4 lg:flex-row lg:flex-wrap lg:justify-start lg:max-w-[808px]">
-                    {
-                        data.map((item, index) => (
-                            <BookingCard key={index} data={item} />
-                        ))
-                    }
-                </div>
+            <div className="flex flex-col gap-2 max-w-5xl w-full mt-2">
+                {
+                    data.map((item, index) => (
+                        <BookingCard key={index} data={item} />
+                    ))
+                }
             </div>
         </div>
     )

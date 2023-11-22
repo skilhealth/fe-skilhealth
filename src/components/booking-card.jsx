@@ -6,8 +6,8 @@ function BookingCard({ data }) {
         return "bg-red-800 text-white"
     }
     return (
-        <div className="bg-slate-200 w-full lg:max-w-[200px] lg:min-w-max h-36 lg:h-auto flex p-4 gap-3 rounded-xl lg:flex-col lg:items-center">
-            <div className="h-full lg:h-56">
+        <div className="bg-slate-200 w-full h-36 lg:h-40 flex p-4 gap-3 rounded-xl">
+            <div className="h-full">
                 <img src={`${data.img}`} alt="" className="h-full rounded-xl object-cover" />
             </div>
             <div className="flex flex-col">
@@ -15,9 +15,9 @@ function BookingCard({ data }) {
                     <div className={` p-1 rounded-lg ${tipe(data.jadwal.tipe)}`}>{data.jadwal.tipe}</div>
                     12 September 2023
                 </div>
-                <div className="text-xl font-bold">{data.nama}</div>
-                <div className="text-base font-medium">{data.spesialis}</div>
-                <div className="text-base font-regular">{data.rs}</div>
+                <div className="text-xl lg:text-2xl font-bold">{data.nama}</div>
+                <div className="lg:text-lg font-medium">{data.spesialis}</div>
+                <div className="lg:text-lg font-regular">{data.rs}</div>
             </div>
         </div >
     )
