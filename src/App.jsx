@@ -9,6 +9,7 @@ function App() {
   return (
     <>
     <Navbar></Navbar>
+   <ProfilePasien></ProfilePasien>
     </>
   )
 }
