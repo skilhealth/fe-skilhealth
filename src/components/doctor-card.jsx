@@ -1,10 +1,8 @@
-import imgdoctor from "../assets/doctor1.png"
-
 function DoctorCard() {
     return (
         <div className="bg-slate-200 w-full h-40 flex p-5 gap-3">
             <div className="h-full">
-                <img src={imgdoctor} alt="" className="h-full rounded-xl object-cover" />
+                <img src="" alt="" className="h-full rounded-xl object-cover" />
             </div>
             <div className="flex flex-col jus">
                 <div className="flex items-center gap-2">
