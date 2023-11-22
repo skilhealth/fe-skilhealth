@@ -8,13 +8,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <Routes>
-        <Route path="/doctor/search" element={<PencarianDokter />} />
-        <Route path="/doctor/result" element={<HasilCariPage />} />
-        <Route path="/doctor/result/:id" element={<HasilCariPage />} />
-        <Route path="/booking/:id" element={<BookingDetailPage />} />
-      </Routes>
-      
+      <BookingDetailPage />
     </>
   )
 }
