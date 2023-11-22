@@ -22,10 +22,10 @@ const EditProfile = () => {
 
  return (
   
-    <div className="mb-10 min-h-screen bg-white-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
+    <div className="bg-white-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-md w-full space-y-6">
       <Backbutton nama= "Edit Profile" />
-      <div className="ml-36 w-24 h-24 rounded-full bg-gray-100 sm:text-sm">
+      <div className="ml-36 w-24 h-24 rounded-full bg-gray-100">
         <img  src={imageSrc} alt='' />
       </div>
       <div>
