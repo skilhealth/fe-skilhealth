@@ -8,7 +8,7 @@ function MenuAmbulance () {
         <div>
              <Backbutton nama= "Ambulance" />
              <h1 className=" text-center text-xl font-bold">Anda Memanggil, Kami Merespon</h1>
-             <div className=" flex flex-row justify-around mt-10">
+             <div className=" flex flex-row justify-center gap-8 mt-10">
                     <div className="w-24 h-24 rounded-lg bg-red-700 ml-10">
                         <a href="">
                         <img className="w-24 h-24 rounded-lg" src={imgambulancebiasa}></img>
