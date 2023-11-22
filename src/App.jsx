@@ -8,12 +8,8 @@ function App() {
   return (
     <>
       <Navbar />
-      <Routes>
-        <Route path="/ujilab/" element={<ListUjiLab />} />
-        <Route path="/doctor/result" element={<HasilCariPage />} />
-        <Route path="/doctor/result/:id" element={<HasilCariPage />} />
-      </Routes>
-      
+      <ListUjiLab />
+
     </>
   )
 }
