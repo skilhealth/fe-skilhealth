@@ -22,8 +22,8 @@ const ChangePassword = () => {
  return (
   <div className="mb-96 min-h-screen flex items-center justify-center bg-white-100 py-12 px-4 sm:px-6 lg:px-8">
     <div className="max-w-md w-full space-y-8 mb-64">
-    <div className="btn-wrapper item-center sm:px-10 flex lg:px-8 items-center">
-        <img alt="..." className="ml-36 flex w-20 h-20 items-center" src= {imgSkilhealth} />
+    <div className="btn-wrapper item-center sm:text-sm items-center flex ml-10">
+        <img alt="..." className="ml-36 flex w-20 h-20 sm:text-sm items-center" src= {imgSkilhealth} />
      </div>
 
       <div>

@@ -25,8 +25,8 @@ const OTPComponent = () => {
 
  return (
     <div className="mb-96 min-h-screen flex items-center justify-center bg-white-100 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8 mb-64">
-      <div className="btn-wrapper item-center sm:px-10 flex lg:px-8 items-center">
+      <div className="max-w-md w-full space-y-3 mb-64">
+      <div className="btn-wrapper item-center sm:px-10 flex lg:px-8 items-center lg:items-center">
           <img alt="..." className="ml-36 flex w-20 h-20 items-center" src= {imgSkilhealth} />
        </div>
 
@@ -76,7 +76,7 @@ const OTPComponent = () => {
           <div>
            <button
               type="button"
-              className="font-medium text-red-700 hover:text-red-400 ml-72"
+              className="font-medium text-red-700 hover:text-red-400 ml-72 lg:text-right"
               onClick={handleSendCode}
             >
               Send Code
