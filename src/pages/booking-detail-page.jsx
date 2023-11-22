@@ -1,11 +1,31 @@
+import moment from "moment/moment"
 import Backbutton from "../components/backbutton"
 import DoctorDetail from "../components/doctor-detail"
 
 function BookingDetailPage() {
+    const {data} = {
+        data: {
+            nama: "Dr. Jaydon Schleifer",
+            status: "Sedang Dirumah Sakit",
+            spesialis: "Ahli Jantung",
+            rs: "Skilvul Hospital Jakarta",
+            keterangan: "Dr. Jaydon Schleifer adalah seorang spesialis jantung berpengalaman dengan lebih dari 15 tahun praktik medis.Saat ini Beliau praktik di skilvul Hospital Jakarta.",
+            skd: 10297361028361,
+            pengalaman: ["RSD UNI", "RSU ANU"],
+            pendidikan: ["Universitas Singaperbangsa Karawang"],
+            img: "/images/dokter/doctor1.png",
+            jadwal: [{
+                hari: "Senin",
+                tgl: moment("2023-12-14").format("DD-MM-YYYY"),
+                tipe: "Regular",
+                harga: 60000
+            }]
+        }
+    }
     return (
         <div className="p-4">
             <Backbutton nama="Informasi Jadwal" />
-            <DoctorDetail />
+            <DoctorDetail data={data}/>
             <div className=" shadow-2xl w-full  p-4 rounded-xl">
                 <div className="font-medium pb-4 border-b-4">
                     <div className="inline p-2 rounded-lg bg-green-500 text-white">Reguler</div>

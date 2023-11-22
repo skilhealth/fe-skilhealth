@@ -25,7 +25,7 @@ function App() {
         <Route path="/booking/pembayaran" element={<Pembayaran />} />
         <Route path="/booking/" element={<ListBooking />} />
         <Route path="/booking/:id" element={<BookingDetailPage />} />
-        <Route path="/booking/:id/luring" element={<CheckIn />} />
+        <Route path="/booking/:id/reguler" element={<CheckIn />} />
         <Route path="/booking/:id/daring" element={<MenungguPanggilan />} />
         <Route path="/booking/:id/homecare" element={<Homecare />} />
         <Route path="/booking/:id/edit" element={<Editbooking />} />
