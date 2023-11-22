@@ -23,13 +23,13 @@ const TambahProfile = () => {
  return (
   
     <div className="mb-10 min-h-screen bg-white-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
+      <div className="max-w-md w-full space-y-6">
       <Backbutton nama= "Tambah Profile" />
       <div className="ml-36 w-24 h-24 rounded-full bg-gray-100 sm:text-sm">
         <img  src={imageSrc} alt='' />
       </div>
       <div>
-          <button  onClick ={handleImageChange} className="text-center text-lg font-bold text-red-500 font-sans ml-36 sm:text-sm ">
+          <button  onClick ={handleImageChange} className="text-center text-lg font-bold text-red-500 font-sans ml-36 sm:text-sm">
             Edit Picture
           </button>
         </div>
