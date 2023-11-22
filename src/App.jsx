@@ -13,8 +13,14 @@ import Editbooking from "./pages/editbooking"
 import Refund from "./pages/refund-page"
 import ListUjiLab from "./pages/list-ujilab"
 import UjilabDetail from "./pages/ujilab-detail-page"
+import { useRef } from "react"
 
 function App() {
+  const windowWidth = useRef(window.innerWidth);
+  const windowHeight = useRef(window.innerHeight);
+
+  console.log('width: ', windowWidth.current);
+  console.log('height: ', windowHeight.current);
   return (
     <>
       <Navbar />
