@@ -19,17 +19,17 @@ const Register = () => {
  };
 
  return (
-    <div className="mb-10 min-h-screen bg-white-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8 mb-14">
+    <div className=" mb-16 bg-white-100 flex items-center justify-center py-12 px-4 lg:px-8 bottom-32">
+      <div className="max-w-md w-full space-y-2 mb-14">
       <Backbutton></Backbutton>
-      <div className="btn-wrapper item-center sm:px-10 flex lg:px-8 items-center">
-          <img alt="..." className="ml-36 flex w-24 h-24 items-center" src= {imgSkilhealth} />
-       </div>
-      <div>
-          <h2 className="text-center text-2xl font-bold text-gray-900 font-sans">
+         <div>
+          <h2 className="text-center text-xl font-bold text-gray-900 font-sans">
             Selamat Datang di <br></br> Skilhealth !
           </h2>
         </div>
+        <div className="btn-wrapper item-center sm:px-10 flex lg:px-8 items-center">
+          <img alt="..." className="ml-36 flex w-20 h-20 items-center" src= {imgSkilhealth} />
+       </div>
      
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <input type="hidden" name="remember" defaultValue="true" />
@@ -138,7 +138,7 @@ const Register = () => {
           </button>
         </div>
       </form>
-      <a href= ".." className=" font-sans ml-52 text-lg flex text-right sm:text-right lg:text-right">Sudah Punya Akun?</a>
+      <a href= "../register.pages" className=" font-sans ml-52 text-lg flex text-right lg:text-right">Sudah Punya Akun?</a>
     </div>
  </div>
 );
