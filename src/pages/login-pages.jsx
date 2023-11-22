@@ -16,7 +16,7 @@ const Login = () => {
  };
 
  return (
-    <div className="min-h-screen flex justify-center bg-white-q00 py-12 px-4 sm:px-6 items-center lg:px-8">
+    <div className="min-h-screen flex justify-center bg-white-q00 py-12 px-4 sm:px-6 items-center lg:items-center">
       <div className="max-w-md w-full space-y-8 mb-32">
       <Backbutton></Backbutton>
       <div>
@@ -25,10 +25,10 @@ const Login = () => {
           </h2>
         </div>
       <div className="btn-wrapper item-center sm:px-10 flex items-center">
-          <img alt="..." className="ml-28 flex w-40 h-40 items-center" src= {imgSkilhealth} />
+          <img alt="..." className="ml-28 flex w-40 h-40 items-center lg:items-center flex-col" src= {imgSkilhealth} />
        </div>
      
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+        <form className="mt-8 space-y-6 lg:w-full" onSubmit={handleSubmit}>
           <input type="hidden" name="remember" defaultValue="true" />
           <div className="rounded-md shadow-sm -space-y-px">
             <div>
