@@ -23,14 +23,14 @@ const EditProfile = () => {
 
  return (
   
-    <div className="bg-white-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-6">
+    <div className="bg-white-100 flex items-center justify-center py-12 px-4 lg:justify-center">
+      <div className="max-w-md w-full space-y-4">
       <Backbutton nama= "Edit Profile" />
-      <div className="ml-36 w-24 h-24 rounded-full bg-gray-100">
+      <div className="ml-36 w-24 h-24 rounded-full bg-gray-100 lg: justify-center">
         <img src={ftUser} alt='' />
       </div>
       <div>
-          <button  onClick ={handleImageChange} className="text-center text-lg font-bold text-red-500 font-sans ml-36 sm:text-sm ">
+          <button  onClick ={handleImageChange} className="text-center text-lg font-bold text-red-500 font-sans ml-36 lg:justify-center">
             Edit Picture
           </button>
         </div>
