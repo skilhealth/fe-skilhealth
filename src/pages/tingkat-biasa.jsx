@@ -17,9 +17,9 @@ const TingkatBiasa =  () => {
     return (
       <div>
            <Backbutton  nama= "Biasa" />
-           <div className="bg-white-100 flex items-center justify-center py-3 px-2 mr-5 sm:px-5 lg:px-8">
+           <div className="bg-white-100 flex items-center justify-center py-3 px-2 sm:px-5 lg:px-8">
                 <div className="w-full h-40  bg-gray-100 rounded-lg sm:text-sm">
-                    <div className="grid grid-cols-3 gap-4 px-4 py-4 lg: items-center justify-center">
+                    <div className="grid grid-cols-3 gap-4 px-4 py-5 lg: items-center justify-center">
                         <div>
                         <img className="w-20 h-20 " src={imgambulancebiasa}></img>
                         <p className="font-bold ml-5">Biasa</p>
