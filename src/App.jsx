@@ -14,18 +14,37 @@ import Refund from "./pages/refund-page"
 import ListUjiLab from "./pages/list-ujilab"
 import UjilabDetail from "./pages/ujilab-detail-page"
 import { useRef } from "react"
+import { useEffect } from "react"
+import CariHasil from "./pages/cari-hasil-doctor"
 
 function App() {
   const windowWidth = useRef(window.innerWidth);
   const windowHeight = useRef(window.innerHeight);
 
-  console.log('width: ', windowWidth.current);
-  console.log('height: ', windowHeight.current);
+  useEffect(() => {
+    const handleResize = () => {
+      windowWidth.current = window.innerWidth;
+      windowHeight.current = window.innerHeight;
+      console.log('width: ', windowWidth.current);
+      console.log('height: ', windowHeight.current);
+    };
+
+    // Tambahkan event listener untuk mendengarkan perubahan ukuran window
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup event listener pada saat komponen di-unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   return (
+
     <>
       <Navbar />
       <Routes>
-        <Route path="/doctor/search" element={<PencarianDokter />} />
+        {windowWidth.current >= 1024 ?
+          (<Route path="/doctor/search" element={<CariHasil />} />)
+          : (<Route path="/doctor/search" element={<PencarianDokter />} />)}
         <Route path="/doctor/" element={<HasilCariPage />} />
         <Route path="/doctor/:id" element={<DataDokter />} />
         <Route path="/booking/pembayaran" element={<Pembayaran />} />

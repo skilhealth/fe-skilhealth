@@ -5,9 +5,9 @@ function PencarianDokter() {
     const rs = ["Skilvul Hospital Jakarta", "Skilvul Hospital Bandung", "Skilvul Hospital Surabaya", "Skilvul Hospital Semarang", "Skilvul Hospital Balikpapan"]
     const spesialist = ["Ahli Jantung", "Ahli Kandungan", "Dokter Umum", "Ahli THT"]
     return (
-        <div className="p-4">
+        <div className="p-4 lg:px-24 flex-col flex items-center">
             <Backbutton nama="Pencarian Dokter" />
-            <form className=" mt-4 bg-slate-200 flex flex-col p-4 rounded-xl">
+            <form className=" mt-4 bg-slate-200 flex flex-col p-4 rounded-xl max-w-xl w-full">
                 <input type="text" className="bg-white mb-4 border-2 border-black rounded-lg p-2 px-4 text-base text" placeholder="Cari Dokter" />
                 <h3 className="text-lg text-center font-semibold">Pencarian Lanjutan</h3>
                 <div className="w-full flex flex-col gap-2 mb-4">

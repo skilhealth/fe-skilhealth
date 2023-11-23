@@ -20,19 +20,19 @@ function MenungguPanggilan() {
     }
     const hari = data.date
     return (
-        <div className="p-4">
+        <div className="p-4 flex flex-col items-center">
             <Backbutton nama="Menunggu Panggilan" />
-            <div className=" bg-slate-200 w-full font-medium p-4 rounded-lg flex flex-col">
-                <div className=" border-b-4 border-slate-300 py-2 mb-2">
+            <div className=" bg-slate-200 w-full font-medium p-4 rounded-lg flex flex-col max-w-4xl">
+                <div className=" border-b-4 border-slate-300 py-2 mb-2 lg:text-lg">
                     {`Hari ${data.date.format('dddd')}, ${data.date.format('DD-MM-YYYY')}, Jam 20:00 WIB`}
                 </div>
                 <div className="mb-10">
-                    <h2 className="text-2xl font-bold">
+                    <h2 className="text-2xl lg:text-4xl font-bold">
                         {data.dokter.nama}
                     </h2>
-                    <div>{data.dokter.spesialis}</div>
+                    <div className="lg:text-xl">{data.dokter.spesialis}</div>
                 </div>
-                <div className="w-full">
+                <div className="w-full lg:text-lg lg:font-normal">
                     Dokter Sudah berada dipanggilan
                     <button className="bg-red-700 text-white p-4 w-full rounded-lg mt-2">Masuk Panggilan</button>
                 </div>

@@ -21,7 +21,7 @@ function Homecare() {
         },
     }
     return (
-        <div className="p-4">
+        <div className="p-4 lg:px-24">
             <Backbutton nama="Status Dokter" />
             <DoctorCard data={data.dokter} />
         </div>

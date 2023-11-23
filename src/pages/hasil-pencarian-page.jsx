@@ -27,10 +27,20 @@ function HasilCariPage() {
             <Backbutton nama="Hasil Pencarian Dokter " />
             <div className="flex flex-col gap-2">
                 {
-                    dokters.map((item,index) => (
-                        <DoctorCard key={index} data={item} />
-                    ))
+                    dokters === undefined || dokters.length === 0 ? (
+                        <div className="w-full h-full flex justify-center items-center">
+                            <div className="text-lg font-semibold text-slate-300 absolute top-1/2 -translate-y-1/2">
+                                Dokter Tidak Ditemukan
+                            </div>
+                        </div>
+                    ) : (
+                        dokters.map((item, index) => (
+                            <DoctorCard key={index} data={item} />
+                        ))
+                    )
+
                 }
+
             </div>
         </div>
     )
