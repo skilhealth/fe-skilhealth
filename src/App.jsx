@@ -1,20 +1,22 @@
-import { Route, Routes } from "react-router-dom"
-import Navbar from "./components/navbar"
-import Diskusi from "./pages/diskusi"
-
-// import ListForum from "./pages/list-forum"
-// import Pertanyaan from "./pages/pertanyaan"
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/navbar";
+import Forum from "./pages/forum";
+import Pertanyaan from "./pages/pertanyaan";
+import Diskusi from "./pages/diskusi";
 
 function App() {
   return (
-    <>
-      <Navbar />
-      {/* <ListForum/> */}
-      {/* <Pertanyaan /> */}
-      <Diskusi />
-    </>
-  )
+    <Router>
+      <>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Forum />} />
+          <Route path="/pertanyaan" element={<Pertanyaan />} />
+          <Route path="/diskusi" element={<Diskusi />}/>
+        </Routes>
+      </>
+    </Router>
+  );
 }
 
-export default App
+export default App;

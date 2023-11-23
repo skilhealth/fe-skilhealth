@@ -1,3 +1,5 @@
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import Backbutton from "../components/back-button";
 
 function Pertanyaan() {
