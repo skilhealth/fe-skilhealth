@@ -16,9 +16,11 @@ const Login = () => {
  };
 
  return (
-    <div className="min-h-screen flex justify-center bg-white-q00 py-12 px-4 sm:px-6 items-center lg:items-center">
+  <div>
+     <Backbutton></Backbutton>
+     <div className="min-h-screen flex justify-center bg-white-q00 py-12 px-4 sm:px-6 items-center lg:items-center">
       <div className="max-w-md w-full space-y-8 mb-32">
-      <Backbutton></Backbutton>
+     
       <div>
           <h2 className="text-center text-2xl font-bold text-gray-900 font-sans">
             Selamat Datang di <br></br> Skilhealth !
@@ -83,6 +85,7 @@ const Login = () => {
           </div>
       </div>
     </div>
+  </div>
  );
 };
 

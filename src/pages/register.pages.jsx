@@ -3,7 +3,6 @@ import imgSkilhealth from "../assets/LogoSkilhealth.png";
 import Backbutton from "../components/backbutton";
 
 
-
 const Register = () => {
  const [name, setName] = useState('');
  const [dateOfBirth, setDateOfBirth] = useState('');
@@ -19,18 +18,14 @@ const Register = () => {
  };
 
  return (
-    <div className=" mb-16 bg-white-100 flex items-center justify-center py-12 px-4 lg:px-8 bottom-32">
-      <div className="max-w-md w-full space-y-2 mb-14">
+  <div>
       <Backbutton></Backbutton>
-         <div>
+      <div className=" bg-white-100 flex items-center justify-center py-12 px-4 lg:">
+      <div className="max-w-md w-full space-y-2 mb-10">
           <h2 className="text-center text-xl font-bold text-gray-900 font-sans">
             Selamat Datang di <br></br> Skilhealth !
           </h2>
-        </div>
-        <div className="btn-wrapper item-center sm:px-10 flex lg:px-8 items-center">
-          <img alt="..." className="ml-36 flex w-20 h-20 items-center" src= {imgSkilhealth} />
-       </div>
-     
+          <img alt="..." className="ml-36 w-20 h-20 lg:item-center justify-center max-w-xl" src= {imgSkilhealth} />
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <input type="hidden" name="remember" defaultValue="true" />
           <div className="rounded-md shadow-sm -space-y-px"></div>
@@ -138,9 +133,11 @@ const Register = () => {
           </button>
         </div>
       </form>
-      <a href= "../register.pages" className=" font-sans ml-52 text-lg flex text-right lg:text-right">Sudah Punya Akun?</a>
+      <a href= "../register.pages" className=" font-sans ml-52 text-lg lg: text-right">Sudah Punya Akun?</a>
     </div>
  </div>
+  </div>
+    
 );
 };
 
