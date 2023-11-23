@@ -6,7 +6,7 @@ import AmbulanceCard from "../components/ambulance-card";
 function MenuAmbulance () {
     return (
         <div>
-             <Backbutton nama= "Ambulance" />
+             <Backbutton  nama= "Ambulance" />
              <h1 className=" text-center text-xl font-bold">Anda Memanggil, Kami Merespon</h1>
              <div className=" flex flex-row justify-center gap-8 mt-10">
                     <div className="w-24 h-24 rounded-lg bg-red-700 ml-10">
@@ -24,7 +24,7 @@ function MenuAmbulance () {
                     </div>
              </div >
 
-             <h2 className="mt-20 ml-3 font-bold text-lg">Rumah Sakit Terdekat</h2>
+             <h2 className="mt-16 p-2 ml-11 font-bold text-lg lg:px-28">Rumah Sakit Terdekat</h2>
             
              <AmbulanceCard nama= "Skilvul Hospital Jakarta" alamat="JL.Laksada Adisucipto NO.15 Jakarta"></AmbulanceCard>
              <AmbulanceCard></AmbulanceCard>
