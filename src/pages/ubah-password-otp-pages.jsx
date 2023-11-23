@@ -24,13 +24,10 @@ const OTPComponent = () => {
  };
 
  return (
-    <div className="mb-96 min-h-screen flex items-center justify-center bg-white-100 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-3 mb-64">
-      <div className="btn-wrapper item-center sm:px-10 flex lg:px-8 items-center lg:items-center">
-          <img alt="..." className="ml-36 flex w-20 h-20 items-center" src= {imgSkilhealth} />
-       </div>
-
-        <div>
+    <div className="mb-44 flex items-center justify-center bg-white-100 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-md w-full space-y-5 mb-3 lg:justify-center items-center">
+      <div className="item-center justify-center">
+          <img alt="..." className="ml-40 w-20 h-20 lg:" src= {imgSkilhealth} />
           <h2 className="text-center font-sans text-xl font-bold text-gray-900">
             Ubah Password
           </h2>
