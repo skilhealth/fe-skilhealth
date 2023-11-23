@@ -15,39 +15,38 @@ const TingkatBiasa =  () => {
      };
 
     return (
-        <div className="bg-white-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-           
-         <div className=" w-full h-40  bg-gray-100 rounded-lg mt-10 sm:text-sm" >
-            <div className="grid grid-cols-3 gap-4 px-4 py-4">
-                 <div>
-                   <img className="w-20 h-20" src={imgambulancebiasa}></img>
-                    <h5 className="font-bold ml-5">Biasa</h5>
-             </div>
+      <div>
+           <Backbutton  nama= "Biasa" />
+           <div className="bg-white-100 flex items-center justify-center py-3 px-2 mr-5 sm:px-5 lg:px-8">
+                <div className="w-full h-40  bg-gray-100 rounded-lg sm:text-sm">
+                    <div className="grid grid-cols-3 gap-4 px-4 py-4 lg: items-center justify-center">
+                        <div>
+                        <img className="w-20 h-20 " src={imgambulancebiasa}></img>
+                        <p className="font-bold ml-5">Biasa</p>
+                        </div>
+                        <div>
+                        <h5 className="font-semibold">Hubungi Kami</h5>
+                        <h5 className="font-bold">2-200-911</h5>
+                        </div>
+                        <div className="ml-12 mb-6 w-16 h-16 rounded-lg bg-red-700">
+                            <img className="w-8 h-8 ml-3 mt-4" src={iconTlpn}></img>
+                            <p className="font-bold mt-8">Telepon</p>
+                        </div>
+                       
+                    </div>
+                    <h1 className="text-2xl font-bold mt-16">Detail Ambulance</h1>
 
-              <div>
-                    <h5 className="font-semibold">Hubungi Kami</h5>
-                    <h5 className="font-bold">2-200-911</h5>
-                </div>
-                
-                <div className=" ml-12 w-16 h-16 rounded-lg bg-red-700 ">
-                    <img className="w-8 h-8 ml-3 mt-4" src={iconTlpn}></img>
-                    <h5 className="font-bold mt-8">Telepon</h5>
-                </div>
-                
-            </div>
-
-            <h1 className="text-2xl font-bold mt-16">Detail Ambulance</h1>
-
+                    
             <div className="relative w-full h-96 px-4 py-4 bg-gray-100 rounded-lg sm:text-sm">
              <div className="grid grid-cols-2 gap-12">
                 <h5 className="font-bold">Nomor Kendaraan : </h5>
-                <h5>Nomor Kendaraan  </h5>
+                <p>Nomor Kendaraan  </p>
                 <h5 className="font-bold">Tingkat Pelayanan : </h5>
-                <h5>Nomor Kendaraan  </h5>
+                <p>Nomor Kendaraan  </p>
                 <h5 className="font-bold">Paramedis : </h5>
-                <h5>Nomor Kendaraan  </h5>
+                <p>Nomor Kendaraan  </p>
                 <h5 className="font-bold">Perlengkapan Ambulance: </h5>
-                <h5>Nomor Kendaraan  </h5>
+                <p>Nomor Kendaraan  </p>
              </div>
             </div>
 
@@ -74,8 +73,10 @@ const TingkatBiasa =  () => {
           </button>
             </div>
 
-        </div>
-    </div>
+                    
+                </div>
+           </div>
+      </div>
     )
 }
 export default TingkatBiasa
