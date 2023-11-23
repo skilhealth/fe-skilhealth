@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import Backbutton from '../components/backbutton';
-import ftUser from '../assets/user.png';
+import ftdctr from '../assets/dctr1.png'
 
 
-const EditProfile = () => {
+
+const EditProfileDokter = () => {
  const [namaLengkap, setNamaLengkap] = useState('');
- const [tanggalLahir, setTanggalLahir] = useState('');
- const [noTelepon, setNoTelepon] = useState('');
  const [email, setEmail] = useState('');
- const [nik, setNik] = useState('');
- const [alamat, setAlamat] = useState('');
+ const [status, setStatus] = useState('');
+ const [rumahSakit, setRumahSakit] = useState('');
  const [imageSrc, setImageSrc] = useState('');
 
  const handleImageChange= () => {
@@ -27,7 +26,7 @@ const EditProfile = () => {
       <div className="max-w-md w-full space-y-6">
       <Backbutton nama= "Edit Profile" />
       <div className="ml-36 w-24 h-24 rounded-full bg-gray-100">
-        <img src={ftUser} alt='' />
+        <img src={ftdctr} alt='' />
       </div>
       <div>
           <button  onClick ={handleImageChange} className="text-center text-lg font-bold text-red-500 font-sans ml-36 sm:text-sm ">
@@ -113,12 +112,12 @@ const EditProfile = () => {
           <div>
           <h3 className="mt-8 space-y-6 block font-sans text-xl font-bold">Alamat*</h3>
             <textarea
-              id="alamat"
-              name="alamat"
+              id="tentang"
+              name="tentang"
               type="text"
               required
               className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
-              placeholder="Masukan alamat"
+              placeholder="Masukan Tentang Diri"
               value={alamat}
               onChange={(e) => setAlamat(e.target.value)}
             />
@@ -140,4 +139,4 @@ const EditProfile = () => {
 );
 };
 
-export default EditProfile;
+export default EditProfileDokter;
