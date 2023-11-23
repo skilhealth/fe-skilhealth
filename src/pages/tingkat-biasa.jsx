@@ -17,9 +17,9 @@ const TingkatBiasa =  () => {
     return (
       <div>
            <Backbutton  nama= "Biasa" />
-           <div className="bg-white-100 flex items-center justify-center py-3 px-2 sm:px-5 lg:px-8">
-                <div className="w-full h-40  bg-gray-100 rounded-lg sm:text-sm">
-                    <div className="grid grid-cols-3 gap-4 px-4 py-5 lg: items-center justify-center">
+           <div className="bg-white-100 flex items-center justify-center py-12 px-4 sm:px-5 lg:px-8">
+                <div className="w-full h-40 bg-gray-100 rounded-lg sm:text-sm">
+                    <div className="grid grid-cols-3 gap-4 px-4 py-4 lg: items-center justify-center">
                         <div>
                         <img className="w-20 h-20 " src={imgambulancebiasa}></img>
                         <p className="font-bold ml-5">Biasa</p>
@@ -34,19 +34,22 @@ const TingkatBiasa =  () => {
                         </div>
                        
                     </div>
-                    <h1 className="text-2xl font-bold mt-16">Detail Ambulance</h1>
+                    <h1 className="text-2xl font-bold mt-20">Detail Ambulance</h1>
 
                     
             <div className="relative w-full h-96 px-4 py-4 bg-gray-100 rounded-lg sm:text-sm">
-             <div className="grid grid-cols-2 gap-12">
+             <div className="grid grid-cols-2 gap-0">
                 <h5 className="font-bold">Nomor Kendaraan : </h5>
-                <p>Nomor Kendaraan  </p>
+                <p className="font-bold">B 4814 SW</p>
                 <h5 className="font-bold">Tingkat Pelayanan : </h5>
-                <p>Nomor Kendaraan  </p>
+                <p className="font-bold">BLS ( Ambulans Basic Life Support ) </p>
                 <h5 className="font-bold">Paramedis : </h5>
-                <p>Nomor Kendaraan  </p>
+                <p className="font-bold">Sarah Johnson, Daniel Brown, 
+                    David Wilson & Amanda Clark</p>
                 <h5 className="font-bold">Perlengkapan Ambulance: </h5>
-                <p>Nomor Kendaraan  </p>
+                <p className="font-bold">Peralatan Pertolongan Pertama, Oksigen dan Perangkat Pernafasan, Alat Pemantauan Vital, 
+                Defibrilator Otomatis Eksternal (AED), 
+                Perangkat Pemindahan Pasien & Peralatan Tambahan</p>
              </div>
             </div>
 
