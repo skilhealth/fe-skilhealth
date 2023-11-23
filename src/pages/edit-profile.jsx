@@ -22,10 +22,11 @@ const EditProfile = () => {
  };
 
  return (
-  
-    <div className="bg-white-100 flex items-center justify-center py-12 px-4 lg:justify-center">
+    <div>
+         <Backbutton nama= "Edit Profile" />
+      <div className="bg-white-100 flex items-center justify-center py-12 px-4 lg:justify-center">
       <div className="max-w-md w-full space-y-4">
-      <Backbutton nama= "Edit Profile" />
+   
       <div className="ml-36 w-24 h-24 rounded-full bg-gray-100 lg: justify-center">
         <img src={ftUser} alt='' />
       </div>
@@ -135,8 +136,10 @@ const EditProfile = () => {
         </div>
       </form>
       
+      </div>
     </div>
- </div>
+</div>
+   
 );
 };
 
