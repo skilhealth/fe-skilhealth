@@ -7,7 +7,7 @@ import OTPComponent from "./pages/ubah-password-otp-pages";
 function App() {
   return (
     <>
-   <Register></Register>
+  <ChangePassword></ChangePassword>
     </>
   )
 }
