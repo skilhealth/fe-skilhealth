@@ -7,8 +7,8 @@ import Pagination from "../components/pagination";
 function Forum() {
   const navigate = useNavigate();
 
-  const toPertanyaan = () => {
-    navigate("/pertanyaan");
+  const toBuatPertanyaan = () => {
+    navigate("/buat-pertanyaan");
   };
 
   const [currentSudahTerjawabPage, setCurrentSudahTerjawabPage] = useState(1);
@@ -27,72 +27,74 @@ function Forum() {
       judul: "Susah Tidur di Malam Hari",
       user: "Fulan",
       dokter: "Dr. Mira Iskandar",
-      pertanyaan: "Bertanya",
-      jawaban: "Dijawab"
+      pertanyaan:
+        "Dok, saya punya masalah soal tidur. Setiap malam, ntah kenapa walaupun saya ngantuk dan berusaha mau tidur, walaupun udah baring berjam-jam ga tidur-tidur dok. Apakah ada solusi?",
+      jawaban:
+        "Masalah tidur malam dapat disebabkan oleh berbagai faktor, dan solusinya dapat bervariasi tergantung pada penyebab spesifiknya. Cobalah untuk menjaga jadwal tidur yang tetap, bahkan pada akhir pekan. Hal ini membantu mengatur jam biologis tubuh dan meningkatkan kualitas tidur.",
     },
     {
       status: "Belum Terjawab",
       judul: "Merasa Lelah di Pagi Hari",
       user: "Werner",
-      dokter: "Dr. Alexandria",
+      dokter: "",
       pertanyaan: "Bertanya",
-      jawaban: ""
+      jawaban: "",
     },
     {
       status: "Belum Terjawab",
       judul: "Merasa Lelah di Pagi Hari",
       user: "Werner",
-      dokter: "Dr. Alexandria",
+      dokter: "",
       pertanyaan: "Bertanya",
-      jawaban: ""
+      jawaban: "",
     },
     {
       status: "Belum Terjawab",
       judul: "Merasa Lelah di Pagi Hari",
       user: "Werner",
-      dokter: "Dr. Alexandria",
+      dokter: "",
       pertanyaan: "Bertanya",
-      jawaban: ""
+      jawaban: "",
     },
     {
       status: "Belum Terjawab",
       judul: "Merasa Lelah di Pagi Hari",
       user: "Werner",
-      dokter: "Dr. Alexandria",
+      dokter: "",
       pertanyaan: "Bertanya",
-      jawaban: ""
+      jawaban: "",
     },
     {
       status: "Belum Terjawab",
       judul: "Merasa Lelah di Pagi Hari",
       user: "Werner",
-      dokter: "Dr. Alexandria",
+      dokter: "",
       pertanyaan: "Bertanya",
-      jawaban: ""
+      jawaban: "",
     },
     {
       status: "Belum Terjawab",
       judul: "Merasa Lelah di Pagi Hari",
       user: "Werner",
-      dokter: "Dr. Alexandria",
+      dokter: "",
       pertanyaan: "Bertanya",
-      jawaban: ""
+      jawaban: "",
     },
     {
       status: "Belum Terjawab",
       judul: "Merasa Lelah di Pagi Hari",
       user: "Werner",
-      dokter: "Dr. Alexandria",
+      dokter: "",
       pertanyaan: "Bertanya",
-      jawaban: ""
+      jawaban: "",
     },
     {
       status: "Belum Terjawab",
       judul: "Merasa Lelah di Pagi Hari",
       user: "Werner",
-      dokter: "Dr. Alexandria",
+      dokter: "",
       pertanyaan: "Bertanya",
-      jawaban: ""
+      jawaban: "",
     },
     {
       status: "Sudah Terjawab",
@@ -100,7 +102,7 @@ function Forum() {
       user: "Kai",
       dokter: "Dr. Havertz",
       pertanyaan: "Bertanya",
-      jawaban: "Dijawab"
+      jawaban: "Dijawab",
     },
     {
       status: "Sudah Terjawab",
@@ -108,7 +110,7 @@ function Forum() {
       user: "Kai",
       dokter: "Dr. Havertz",
       pertanyaan: "Bertanya",
-      jawaban: "Dijawab"
+      jawaban: "Dijawab",
     },
     {
       status: "Sudah Terjawab",
@@ -116,7 +118,7 @@ function Forum() {
       user: "Kai",
       dokter: "Dr. Havertz",
       pertanyaan: "Bertanya",
-      jawaban: "Dijawab"
+      jawaban: "Dijawab",
     },
     {
       status: "Sudah Terjawab",
@@ -124,7 +126,7 @@ function Forum() {
       user: "Kai",
       dokter: "Dr. Havertz",
       pertanyaan: "Bertanya",
-      jawaban: "Dijawab"
+      jawaban: "Dijawab",
     },
     {
       status: "Sudah Terjawab",
@@ -132,7 +134,7 @@ function Forum() {
       user: "Kai",
       dokter: "Dr. Havertz",
       pertanyaan: "Bertanya",
-      jawaban: "Dijawab"
+      jawaban: "Dijawab",
     },
     {
       status: "Sudah Terjawab",
@@ -140,7 +142,7 @@ function Forum() {
       user: "Kai",
       dokter: "Dr. Havertz",
       pertanyaan: "Bertanya",
-      jawaban: "Dijawab"
+      jawaban: "Dijawab",
     },
     {
       status: "Sudah Terjawab",
@@ -148,7 +150,7 @@ function Forum() {
       user: "Kai",
       dokter: "Dr. Havertz",
       pertanyaan: "Bertanya",
-      jawaban: "Dijawab"
+      jawaban: "Dijawab",
     },
     {
       status: "Sudah Terjawab",
@@ -156,7 +158,7 @@ function Forum() {
       user: "Kai",
       dokter: "Dr. Havertz",
       pertanyaan: "Bertanya",
-      jawaban: "Dijawab"
+      jawaban: "Dijawab",
     },
   ];
 
@@ -228,7 +230,7 @@ function Forum() {
       <Backbutton nama="Forum Chat" />
       <button
         className="bg-red-700 rounded-xl font-medium w-full text-lg text-white p-2 my-4"
-        onClick={toPertanyaan}
+        onClick={toBuatPertanyaan}
       >
         Buat Pertanyaan
       </button>

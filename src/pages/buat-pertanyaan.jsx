@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Backbutton from "../components/back-button";
 
-function Pertanyaan() {
+function BuatPertanyaan() {
   return (
     <main className="p-4">
       <Backbutton nama="Buat Pertanyaan" />
@@ -31,4 +31,4 @@ function Pertanyaan() {
   );
 }
 
-export default Pertanyaan;
+export default BuatPertanyaan;

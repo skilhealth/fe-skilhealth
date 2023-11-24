@@ -1,8 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Pagination = ({ currentPage, totalPages, onPageChange }) => {
-  const pageNumbers = Array.from({ length: totalPages }, (_, index) => index + 1);
+function Pagination({ currentPage, totalPages, onPageChange }) {
+  const pageNumbers = Array.from(
+    { length: totalPages },
+    (_, index) => index + 1
+  );
 
   return (
     <div className="flex mt-4">
@@ -12,7 +15,9 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
             <li key={number}>
               <button
                 className={`${
-                  currentPage === number ? "bg-red-700 text-white" : "bg-white text-red-700 border-red-700 border"
+                  currentPage === number
+                    ? "bg-red-700 text-white"
+                    : "bg-white text-red-700 border-red-700 border"
                 } py-2 px-4 rounded focus:outline-none`}
                 onClick={() => onPageChange(number)}
               >
@@ -24,7 +29,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
       </nav>
     </div>
   );
-};
+}
 
 Pagination.propTypes = {
   currentPage: PropTypes.number.isRequired,
