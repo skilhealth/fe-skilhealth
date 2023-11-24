@@ -20,11 +20,11 @@ const ChangePassword = () => {
  };
 
  return (
-  <div className="mb-44 flex items-center justify-center bg-white-100 py-12 px-4 sm:px-6 lg:px-8">
-    <div className="max-w-md w-full space-y-5 mb-3 lg:justify-center items-center">
-      <div className="item-center justify-center ">
-        <img alt="..." className="ml-40 w-20 h-20 lg:" src= {imgSkilhealth} />
-        <h2 className="text-center font-sans text-xl font-bold text-gray-900">
+  <div className="mb-12 lg:mb-44 flex flex-col items-center justify-center bg-white-100 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="max-w-md w-full space-y-5">
+      <div className="flex flex-col items-center justify-center ">
+        <img alt="..." className="w-20 h-20 lg:w-32 lg:h-32 mb-4 lg:mb-6" src= {imgSkilhealth} />
+        <h2 className="text-center font-sans text-xl lg:text-2xl font-bold text-gray-900">
           Ubah Password
         </h2>
       </div>
