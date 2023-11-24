@@ -21,8 +21,6 @@ const Login = () => {
  const handleSubmit = (e) => {
     e.preventDefault();
     setError(validation(values));
-
-    
  };
 
  return (
