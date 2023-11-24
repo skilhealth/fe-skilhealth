@@ -18,16 +18,15 @@ const Login = () => {
  return (
   <div>
      <Backbutton></Backbutton>
-     <div className="min-h-screen flex justify-center bg-white-q00 py-12 px-4 sm:px-6 items-center lg:items-center">
-      <div className="max-w-md w-full space-y-8 mb-32">
-     
+     <div className=" flex item-center justify-center bg-white-100 py-12 px-4 lg: items-center">
+      <div className="max-w-md w-full space-y-8">
       <div>
           <h2 className="text-center text-2xl font-bold text-gray-900 font-sans">
             Selamat Datang di <br></br> Skilhealth !
           </h2>
         </div>
       <div className="btn-wrapper item-center sm:px-10 flex items-center">
-          <img alt="..." className="ml-28 flex w-40 h-40 items-center lg:items-center flex-col" src= {imgSkilhealth} />
+          <img alt="..." className="mx-auto my-2 w-40" src= {imgSkilhealth} />
        </div>
      
         <form className="mt-8 space-y-6 lg:w-full" onSubmit={handleSubmit}>
@@ -62,11 +61,11 @@ const Login = () => {
               />
             </div>
           </div>
-          <div>
-            <label className="inline-flex items-center cursor-pointer">
+          <div className='flex items-center justify-between'>
+            <label className="flex items-center cursor-pointer">
                 <input id="customCheckLogin" type="checkbox" className="form-checkbox text-gray-800 ml-1 w-5 h-5 ease-linear transition-all duration-150" defaultChecked />
                 <span className="ml-2 text-lg font-semibold text-black-700 ">Ingat Saya</span>
-                <a href= "../ubah-password-otp-pages" className=" font-sans text-lg ml-32 lg:ml-44">Lupa password?</a>
+                <a href= "../ubah-password-otp-pages" className="text-lg font-bold ml-44 lg:justify-center">Lupa password?</a>
             </label>
          </div>
 
@@ -79,9 +78,9 @@ const Login = () => {
           </button>
         </div>
       </form>
-          <div className=' flex flex-row gap-1 items-center ml-20 lg:ml-32'>
+          <div className=' flex justify-center items-center'>
             <p>Belum Punya Akun ?</p>
-            <a href= "../register.pages" className=" font-sans text-lg text-red-700 hover:text-red-400 font-bold">Register</a>
+            <a href= "../register.pages" className="ml-1 text-lg font-bold text-red-700 hover:text-red-400">Register</a>
           </div>
       </div>
     </div>
