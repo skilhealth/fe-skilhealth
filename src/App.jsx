@@ -3,7 +3,6 @@ import Navbar from "./components/navbar";
 import Forum from "./pages/forum";
 import Pertanyaan from "./pages/pertanyaan";
 import Diskusi from "./pages/diskusi";
-import HasilPencarianForum from "./pages/hasil-pencarian-forum";
 
 function App() {
   return (
@@ -14,7 +13,6 @@ function App() {
           <Route path="/" element={<Forum />} />
           <Route path="/pertanyaan" element={<Pertanyaan />} />
           <Route path="/diskusi" element={<Diskusi />}/>
-          <Route path="/hasilpencarianforum" element={<HasilPencarianForum />}/>
         </Routes>
       </>
     </Router>
