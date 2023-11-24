@@ -20,12 +20,12 @@ const Register = () => {
  return (
   <div>
       <Backbutton></Backbutton>
-      <div className=" bg-white-100 flex items-center justify-center py-12 px-4 lg:">
-      <div className="max-w-md w-full space-y-2 mb-10">
+      <div className=" flex item-center justify-center bg-white-100 py-3 px-4 lg: items-center">
+      <div className="max-w-md w-full space-y-4">
+      <img alt="..." className="mx-auto w-16" src= {imgSkilhealth} />
           <h2 className="text-center text-xl font-bold text-gray-900 font-sans">
             Selamat Datang di <br></br> Skilhealth !
           </h2>
-          <img alt="..." className="ml-36 w-20 h-20 lg:item-center justify-center max-w-xl" src= {imgSkilhealth} />
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <input type="hidden" name="remember" defaultValue="true" />
           <div className="rounded-md shadow-sm -space-y-px"></div>
@@ -133,7 +133,7 @@ const Register = () => {
           </button>
         </div>
       </form>
-      <a href= "../register.pages" className=" font-sans ml-52 text-lg lg: text-right">Sudah Punya Akun?</a>
+      <a href= "../register.pages" className=" text-lg lg:text-right">Sudah Punya Akun?</a>
     </div>
  </div>
   </div>
