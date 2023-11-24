@@ -24,15 +24,18 @@ const EditProfileDokter = () => {
     <div>
         <Backbutton nama= "Edit Profile"></Backbutton>
         <div className='bg-white-100 flex items-center justify-center py-12 px-3 lg:justify-center'>
-        <div className="max-w-md w-full space-y-5 mb-32">
-      <div className="ml-36 w-24 h-24 border-rose-800 rounded-full bg-gray-100 lg: justify-center">
-        <img src={ftDokter} alt='' />
-      </div>
-      <div>
-          <button  onClick ={handleImageChange} className="text-center text-lg font-bold text-red-500 font-sans ml-36 lg:justify-center">
+        <div className="max-w-md w-full space-y-4">
+          <div className=' flex justify-center'>
+            <div className=' relative'>
+            <img src={ftDokter} alt='' className='w-24 h-24 rounded-full bg-gray-100' />
+            </div>
+          </div>
+
+          <div className='flex items-center justify-center'>
+          <button  onClick ={handleImageChange} className="text-center font-sans text-lg lg:text-xl font-bold text-red-600">
             Edit Picture
           </button>
-        </div>
+          </div>
      
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <input type="hidden" name="remember" defaultValue="true" />
