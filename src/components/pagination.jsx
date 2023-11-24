@@ -1,29 +1,35 @@
-import * as React from "react";
-import Pagination from "@mui/material/Pagination";
-import Stack from "@mui/material/Stack";
+import React from "react";
+import PropTypes from "prop-types";
 
-function Paginations() {
+const Pagination = ({ currentPage, totalPages, onPageChange }) => {
+  const pageNumbers = Array.from({ length: totalPages }, (_, index) => index + 1);
+
   return (
-    <Stack spacing={2} className="mt-4" sx={{ justifyContent: "flex-end" }}>
-      <Pagination
-        count={10}
-        variant="outlined"
-        shape="rounded"
-        sx={{
-          "& .MuiPaginationItem-root": {
-            "&:hover": {
-                color: "rgb(239 68 68)",
-                backgroundColor: "white",
-            },
-          },
-          "& .Mui-selected": {
-            color: "white",
-            backgroundColor: "rgb(239 68 68)",
-          },
-        }}
-      />
-    </Stack>
+    <div className="flex mt-4">
+      <nav>
+        <ul className="pagination flex space-x-2">
+          {pageNumbers.map((number) => (
+            <li key={number}>
+              <button
+                className={`${
+                  currentPage === number ? "bg-red-700 text-white" : "bg-white text-red-700 border-red-700 border"
+                } py-2 px-4 rounded focus:outline-none`}
+                onClick={() => onPageChange(number)}
+              >
+                {number}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
   );
-}
+};
 
-export default Paginations;
+Pagination.propTypes = {
+  currentPage: PropTypes.number.isRequired,
+  totalPages: PropTypes.number.isRequired,
+  onPageChange: PropTypes.func.isRequired,
+};
+
+export default Pagination;
