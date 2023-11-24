@@ -11,7 +11,8 @@ function Forum() {
     navigate("/pertanyaan");
   };
 
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentSudahTerjawabPage, setCurrentSudahTerjawabPage] = useState(1);
+  const [currentBelumTerjawabPage, setCurrentBelumTerjawabPage] = useState(1);
   const forumsPerPage = 5;
 
   const forum = [
@@ -20,6 +21,48 @@ function Forum() {
       judul: "Susah Tidur di Malam Hari",
       user: "Fulan",
       dokter: "Dr. Mira Iskandar",
+    },
+    {
+      status: "Belum Terjawab",
+      judul: "Merasa Lelah di Pagi Hari",
+      user: "Werner",
+      dokter: "Dr. Alexandria",
+    },
+    {
+      status: "Belum Terjawab",
+      judul: "Merasa Lelah di Pagi Hari",
+      user: "Werner",
+      dokter: "Dr. Alexandria",
+    },
+    {
+      status: "Belum Terjawab",
+      judul: "Merasa Lelah di Pagi Hari",
+      user: "Werner",
+      dokter: "Dr. Alexandria",
+    },
+    {
+      status: "Belum Terjawab",
+      judul: "Merasa Lelah di Pagi Hari",
+      user: "Werner",
+      dokter: "Dr. Alexandria",
+    },
+    {
+      status: "Belum Terjawab",
+      judul: "Merasa Lelah di Pagi Hari",
+      user: "Werner",
+      dokter: "Dr. Alexandria",
+    },
+    {
+      status: "Belum Terjawab",
+      judul: "Merasa Lelah di Pagi Hari",
+      user: "Werner",
+      dokter: "Dr. Alexandria",
+    },
+    {
+      status: "Belum Terjawab",
+      judul: "Merasa Lelah di Pagi Hari",
+      user: "Werner",
+      dokter: "Dr. Alexandria",
     },
     {
       status: "Belum Terjawab",
@@ -74,15 +117,37 @@ function Forum() {
       judul: "Sering Mual saat Sikat Gigi",
       user: "Kai",
       dokter: "Dr. Havertz",
-    }
+    },
   ];
+  //sudah terjawab
+  const totalSudahTerjawabPages = Math.ceil(
+    forum.filter((item) => item.status === "Sudah Terjawab").length /
+      forumsPerPage
+  );
+  const indexOfLastSudahTerjawabForum =
+    currentSudahTerjawabPage * forumsPerPage;
+  const indexOfFirstSudahTerjawabForum =
+    indexOfLastSudahTerjawabForum - forumsPerPage;
+  const currentSudahTerjawabForumsSlice = forum
+    .filter((item) => item.status === "Sudah Terjawab")
+    .slice(indexOfFirstSudahTerjawabForum, indexOfLastSudahTerjawabForum);
 
-  const totalPages = Math.ceil(forum.length / forumsPerPage);
-  const indexOfLastForum = currentPage * forumsPerPage;
-  const indexOfFirstForum = indexOfLastForum - forumsPerPage;
-  const currentForums = forum.slice(indexOfFirstForum, indexOfLastForum);
+  //Belum terjawab
+  const totalBelumTerjawabPages = Math.ceil(
+    forum.filter((item) => item.status === "Belum Terjawab").length /
+      forumsPerPage
+  );
+  const indexOfLastBelumTerjawabForum =
+    currentBelumTerjawabPage * forumsPerPage;
+  const indexOfFirstBelumTerjawabForum =
+    indexOfLastBelumTerjawabForum - forumsPerPage;
+  const currentBelumTerjawabForumsSlice = forum
+    .filter((item) => item.status === "Belum Terjawab")
+    .slice(indexOfFirstBelumTerjawabForum, indexOfLastBelumTerjawabForum);
 
-  const onPageChange = (pageNumber) => setCurrentPage(pageNumber);
+    const onSudahTerjawabPageChange = (pageNumber) => setCurrentSudahTerjawabPage(pageNumber);
+  const onBelumTerjawabPageChange = (pageNumber) =>
+    setCurrentBelumTerjawabPage(pageNumber);
 
   return (
     <main className="p-4">
@@ -94,31 +159,34 @@ function Forum() {
         Buat Pertanyaan
       </button>
 
-      {/*input cari forum */}
       <input
         type="text"
         className="bg-white h-11 w-full mb-8 border-2 border-black rounded-xl px-4 text-base text"
         placeholder="Cari Forum"
       />
 
-<div>
+      <div>
         <label className="text-2xl font-bold">Sudah Terjawab</label>
-        {currentForums
-          .filter((item) => item.status === "Sudah Terjawab")
-          .map((item, index) => (
-            <ForumCard key={index} data={item} />
-          ))}
-        <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={onPageChange} />
+        {currentSudahTerjawabForumsSlice.map((item, index) => (
+          <ForumCard key={index} data={item} />
+        ))}
+        <Pagination
+          currentPage={currentSudahTerjawabPage}
+          totalPages={totalSudahTerjawabPages}
+          onPageChange={onSudahTerjawabPageChange}
+        />
       </div>
 
       <div className="mt-4">
         <span className="text-2xl mt-4 font-bold">Belum Terjawab</span>
-        {forum
-          .filter((item) => item.status === "Belum Terjawab")
-          .map((item, index) => (
-            <ForumCard key={index} data={item} />
-          ))}
-        <Pagination />
+        {currentBelumTerjawabForumsSlice.map((item, index) => (
+          <ForumCard key={index} data={item} />
+        ))}
+        <Pagination
+          currentPage={currentBelumTerjawabPage}
+          totalPages={totalBelumTerjawabPages}
+          onPageChange={onBelumTerjawabPageChange}
+        />
       </div>
     </main>
   );
