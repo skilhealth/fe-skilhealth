@@ -1,16 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Backbutton from "../components/back-button";
-import ForumCard from "../components/forum-card";
 import Pagination from "../components/pagination";
+import ForumCardDokter from "../components/forum-card-dokter";
 
-function Forum() {
-  const navigate = useNavigate();
-
-  const toBuatPertanyaan = () => {
-    navigate("/buat-pertanyaan");
-  };
-
+function ForumDokter() {
   const [currentSudahTerjawabPage, setCurrentSudahTerjawabPage] = useState(1);
   const [currentBelumTerjawabPage, setCurrentBelumTerjawabPage] = useState(1);
   const forumsPerPage = 5;
@@ -222,7 +216,7 @@ function Forum() {
   const sudahTerjawabContent =
     currentSudahTerjawabForumsSlice.length > 0 ? (
       currentSudahTerjawabForumsSlice.map((item, index) => (
-        <ForumCard key={index} data={item} />
+        <ForumCardDokter key={index} data={item} />
       ))
     ) : (
       <p>Tidak Menemukan Topik yang Sesuai</p>
@@ -231,7 +225,7 @@ function Forum() {
   const belumTerjawabContent =
     currentBelumTerjawabForumsSlice.length > 0 ? (
       currentBelumTerjawabForumsSlice.map((item, index) => (
-        <ForumCard key={index} data={item} />
+        <ForumCardDokter key={index} data={item} />
       ))
     ) : (
       <p>Tidak Menemukan Topik yang Sesuai</p>
@@ -245,12 +239,6 @@ function Forum() {
   return (
     <main className="p-4">
       <Backbutton nama="Forum Chat" />
-      <button
-        className="bg-red-700 rounded-xl font-medium w-full text-lg text-white p-2 my-4"
-        onClick={toBuatPertanyaan}
-      >
-        Buat Pertanyaan
-      </button>
 
       <input
         type="text"
@@ -282,4 +270,4 @@ function Forum() {
     </main>
   );
 }
-export default Forum;
+export default ForumDokter;

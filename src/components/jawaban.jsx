@@ -8,7 +8,7 @@ function Jawaban({ data }) {
         <img src={Logo} alt="logo" className="w-8 h-8 object-cover"/>
         <div className="flex flex-col">
           <span className="text-xl font-bold">{data.dokter}</span>
-          <span>Dokter Umum</span>
+          <span>{data.spesialis}</span>
         </div>
       </div>
 
