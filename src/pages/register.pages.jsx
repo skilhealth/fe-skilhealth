@@ -1,21 +1,31 @@
 import React, { useState } from 'react';
 import imgSkilhealth from "../assets/LogoSkilhealth.png";
 import Backbutton from "../components/backbutton";
+import { Link } from 'react-router-dom';
+import Validation from '../components/regisValidation';
 
 
 const Register = () => {
- const [name, setName] = useState('');
- const [dateOfBirth, setDateOfBirth] = useState('');
- const [gender, setGender] = useState('');
- const [phoneNumber, setPhoneNumber] = useState('');
- const [email, setEmail] = useState('');
- const [password, setPassword] = useState('');
- const [confirmPassword, setConfirmPassword] = useState('');
+  const[values, setValues] = useState({
+    nama: '',
+    dateOfBirth: '',
+    gender: '',
+    phoneNumber: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  })
+
+  const[errors, setError] = useState({})
+
+  const handleInput = (e) => {
+      setValues(prev => ({...prev,[e.target.name]: [e.target.value]}))
+  }
 
  const handleSubmit = (e) => {
     e.preventDefault();
-    // Perform validation and API calls here
- };
+    setError(Validation(values));
+ }
 
  return (
   <div>
@@ -33,15 +43,14 @@ const Register = () => {
             <h3 className="mt-8 space-y-6 block font-sans text-xl font-bold">Nama</h3>
               <input
                 id="name"
-                name="name"
+                name="nama"
                 type="text"
                 autoComplete="off"
-                autoFocus required
+                autoFocus
                 className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
                 placeholder="Masukan Nama"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
+                onChange={handleInput} />
+                {errors.nama && <span className='text-red-600'>{errors.nama}</span>}
             </div>
             <div>
             <h3 className="mt-8 space-y-6 block font-sans text-xl font-bold ">Tanggal Lahir</h3>
@@ -50,20 +59,17 @@ const Register = () => {
                 name="dateOfBirth"
                 type="date"
                 autoComplete="dateOfBirth"
-                required
                 className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
                 placeholder="Masukan Tanggal Lahir"
-                value={dateOfBirth}
-                onChange={(e) => setDateOfBirth(e.target.value)}
-              />
+                onChange={handleInput} />
+                {errors.dateOfBirth && <span className='text-red-600'>{errors.dateOfBirth}</span>}
             </div>
             <div>
             <h3 className="mt-8 space-y-6 block font-sans text-xl font-bold">Jenis Kelamin</h3>
-              <select value={gender}  onChange={(e) => setGender(e.target.value)} name='jenis kelamin' className='px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm'>
+              <select onChange={handleInput}name='jenis kelamin' className='px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm '>
                   <option value="">Pilih jenis kelamin</option>
                   <option value="1">Laki-Laki</option>
                   <option value="2">Perempuan</option>
-                 
               </select>
 
           <div>
@@ -73,12 +79,10 @@ const Register = () => {
               name="phoneNumber"
               type="tel"
               autoComplete="phoneNumber"
-              required
               className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
               placeholder="Masukan No.Telepon"
-              value={phoneNumber}
-              onChange={(e) => setPhoneNumber(e.target.value)}
-            />
+              onChange={handleInput} />
+              {errors.phoneNumber && <span className='text-red-600'>{errors.phoneNumber}</span>}
           </div>
           <div>
           <h3 className="mt-8 space-y-6 block font-sans text-xl font-bold">Email</h3>
@@ -87,12 +91,10 @@ const Register = () => {
               name="email"
               type="email"
               autoComplete="off"
-              required
               className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
               placeholder="Masukan Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
+              onChange={handleInput} />
+              {errors.email && <span className='text-red-600'>{errors.email}</span>}
           </div>
           <div>
           <h3 className="mt-8 space-y-6 block font-sans text-xl font-bold ">Password</h3>
@@ -101,12 +103,10 @@ const Register = () => {
               name="password"
               type="password"
               autoComplete="new-password"
-              required
               className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
               placeholder="Masukan Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+              onChange={handleInput} />
+              {errors.password && <span className='text-red-600'>{errors.password}</span>}
           </div>
           <div>
           <h3 className="mt-8 space-y-6 block font-sans text-xl font-bold">Konfirmasi Password</h3>
@@ -115,12 +115,10 @@ const Register = () => {
               name="confirmPassword"
               type="password"
               autoComplete="new-password"
-              required
               className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
               placeholder="Konfirmasi Password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
+              onChange={handleInput} />
+              {errors.confirmPassword && <span className='text-red-600'>{errors.confirmPassword}</span>}
           </div>
         </div>
 
@@ -133,7 +131,7 @@ const Register = () => {
           </button>
         </div>
       </form>
-      <a href= "../register.pages" className=" text-lg lg:text-right">Sudah Punya Akun?</a>
+      <Link to= "/" className=" text-lg lg:text-right">Sudah Punya Akun?</Link>
     </div>
  </div>
   </div>
