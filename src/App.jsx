@@ -9,8 +9,6 @@ function App() {
   return (
     <>
     <Navbar></Navbar>
-    <MenuProfile></MenuProfile>
-
     </>
   )
 }
