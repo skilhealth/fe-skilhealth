@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { getListRumahSakit } from './SearchRs';
 
 const SearchHospital = () => {
 
     useEffect(() => {
-        // memanggil/ get rumah sakit
+        getListRumahSakit()
     }, [])
 
 
