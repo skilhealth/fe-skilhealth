@@ -8,10 +8,8 @@ function BuatUjiLab() {
                 <div className="mt-4">
                     <h3 className="mt-8 space-y-6 block font-sans text-xl font-bold">Status</h3>
                     <select value="" onChange={(e) => setGender(e.target.value)} name='status' className='px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm'>
-                        <option value="">Belum Mulai</option>
-                        <option value="1">Berlangsung</option>
-                        <option value="2">Pengecekan</option>
-                        <option value="2">Selesai</option>
+                        <option value="Belum Mulai">Belum Mulai</option>
+                        <option value="Sudah Selesai">Sudah Selesai</option>
                     </select>
                 </div>
                 <div className="mt-4">
