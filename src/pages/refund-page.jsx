@@ -1,6 +1,7 @@
 import Backbutton from "../components/backbutton"
 
 function Refund(){
+    const {id} = useParams()
     return(
         <div className="p-4 flex flex-col items-center">
             <Backbutton nama="Batalkan Jadwal" />
