@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { getListRumahSakit } from './SearchRs';
+
 
 const SearchHospital = () => {
 
     useEffect(() => {
-        getListRumahSakit()
+        //getListRumahSakit()
     }, [])
 
 

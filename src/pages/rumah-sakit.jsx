@@ -8,9 +8,13 @@ function Hospital() {
             <SearchHospital></SearchHospital>
 
             <HospitalCard jarak= "15KM" name= "Skilvul Hospital Jakarta" area= "Jabodetabek" imghospital= "{imghospital}" alamat= "JL.Laksada Adisucipto NO.15 Jakarta"></HospitalCard>
-            <HospitalCard></HospitalCard>
-            <HospitalCard></HospitalCard>
-            <HospitalCard></HospitalCard>
+            <HospitalCard jarak= "15KM" name= "Skilvul Hospital Jakarta" area= "Jabodetabek" imghospital= "{imghospital}" alamat= "JL.Laksada Adisucipto NO.15 Jakarta"></HospitalCard>
+            <HospitalCard jarak= "15KM" name= "Skilvul Hospital Jakarta" area= "Jabodetabek" imghospital= "{imghospital}" alamat= "JL.Laksada Adisucipto NO.15 Jakarta"></HospitalCard>
+            <HospitalCard jarak= "15KM" name= "Skilvul Hospital Jakarta" area= "Jabodetabek" imghospital= "{imghospital}" alamat= "JL.Laksada Adisucipto NO.15 Jakarta"></HospitalCard>
+            <HospitalCard jarak= "15KM" name= "Skilvul Hospital Jakarta" area= "Jabodetabek" imghospital= "{imghospital}" alamat= "JL.Laksada Adisucipto NO.15 Jakarta"></HospitalCard>
+            <HospitalCard jarak= "15KM" name= "Skilvul Hospital Jakarta" area= "Jabodetabek" imghospital= "{imghospital}" alamat= "JL.Laksada Adisucipto NO.15 Jakarta"></HospitalCard>
+            <HospitalCard jarak= "15KM" name= "Skilvul Hospital Jakarta" area= "Jabodetabek" imghospital= "{imghospital}" alamat= "JL.Laksada Adisucipto NO.15 Jakarta"></HospitalCard>
+            <HospitalCard jarak= "15KM" name= "Skilvul Hospital Jakarta" area= "Jabodetabek" imghospital= "{imghospital}" alamat= "JL.Laksada Adisucipto NO.15 Jakarta"></HospitalCard>
         </div>
     )
 }
