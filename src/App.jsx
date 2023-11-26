@@ -1,12 +1,17 @@
 import Navbar from "./components/navbar"
 import Hospital from "./pages/rumah-sakit"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 
 function App() {
   return (
     <>
        <Navbar></Navbar>
-       <Hospital></Hospital>
+        <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Hospital />}></Route>
+        </Routes>
+        </BrowserRouter>
     </>
   )
 }
