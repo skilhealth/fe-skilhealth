@@ -12,55 +12,55 @@ function CariHasil() {
     const { dokters } = {
         message: "Hallo",
         dokters: [
-            // {
-            //     status: "Sedang Dirumah Sakit",
-            //     img: "/images/dokter/doctor1.png",
-            //     nama: "Dr. Jaydon Schleifer",
-            //     spesialis: "Ahli Jantung",
-            //     rs: "Skilvul Hospital jakarta"
-            // },
-            // {
-            //     status: "Sedang Libur",
-            //     img: "/images/dokter/doctor1.png",
-            //     nama: "Dr. Zain Mango",
-            //     spesialis: "Ahli Jantung",
-            //     rs: "Skilvul Hospital Surabaya"
-            // },
-            // {
-            //     status: "Sedang Libur",
-            //     img: "/images/dokter/doctor1.png",
-            //     nama: "Dr. Zain Mango",
-            //     spesialis: "Ahli Jantung",
-            //     rs: "Skilvul Hospital Surabaya"
-            // },
-            // {
-            //     status: "Sedang Libur",
-            //     img: "/images/dokter/doctor1.png",
-            //     nama: "Dr. Zain Mango",
-            //     spesialis: "Ahli Jantung",
-            //     rs: "Skilvul Hospital Surabaya"
-            // },
-            // {
-            //     status: "Sedang Libur",
-            //     img: "/images/dokter/doctor1.png",
-            //     nama: "Dr. Zain Mango",
-            //     spesialis: "Ahli Jantung",
-            //     rs: "Skilvul Hospital Surabaya"
-            // },
-            // {
-            //     status: "Sedang Libur",
-            //     img: "/images/dokter/doctor1.png",
-            //     nama: "Dr. Zain Mango",
-            //     spesialis: "Ahli Jantung",
-            //     rs: "Skilvul Hospital Surabaya"
-            // },
-            // {
-            //     status: "Sedang Libur",
-            //     img: "/images/dokter/doctor1.png",
-            //     nama: "Dr. Zain Mango",
-            //     spesialis: "Ahli Jantung",
-            //     rs: "Skilvul Hospital Surabaya"
-            // },
+            {
+                status: "Sedang Dirumah Sakit",
+                img: "/images/dokter/doctor1.png",
+                nama: "Dr. Jaydon Schleifer",
+                spesialis: "Ahli Jantung",
+                rs: "Skilvul Hospital jakarta"
+            },
+            {
+                status: "Sedang Libur",
+                img: "/images/dokter/doctor1.png",
+                nama: "Dr. Zain Mango",
+                spesialis: "Ahli Jantung",
+                rs: "Skilvul Hospital Surabaya"
+            },
+            {
+                status: "Sedang Libur",
+                img: "/images/dokter/doctor1.png",
+                nama: "Dr. Zain Mango",
+                spesialis: "Ahli Jantung",
+                rs: "Skilvul Hospital Surabaya"
+            },
+            {
+                status: "Sedang Libur",
+                img: "/images/dokter/doctor1.png",
+                nama: "Dr. Zain Mango",
+                spesialis: "Ahli Jantung",
+                rs: "Skilvul Hospital Surabaya"
+            },
+            {
+                status: "Sedang Libur",
+                img: "/images/dokter/doctor1.png",
+                nama: "Dr. Zain Mango",
+                spesialis: "Ahli Jantung",
+                rs: "Skilvul Hospital Surabaya"
+            },
+            {
+                status: "Sedang Libur",
+                img: "/images/dokter/doctor1.png",
+                nama: "Dr. Zain Mango",
+                spesialis: "Ahli Jantung",
+                rs: "Skilvul Hospital Surabaya"
+            },
+            {
+                status: "Sedang Libur",
+                img: "/images/dokter/doctor1.png",
+                nama: "Dr. Zain Mango",
+                spesialis: "Ahli Jantung",
+                rs: "Skilvul Hospital Surabaya"
+            },
 
         ]
 
