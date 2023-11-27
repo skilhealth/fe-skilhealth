@@ -1,6 +1,9 @@
 import janjiSvg from "/src/assets/janji-temu.svg"
 import Logo from "/LogoSkilHealth.png"
 import forumPng from "/src/assets/forum.png"
+import Ambulan from "/src/assets/ambulan.png"
+import Ujilab from "/src/assets/uji-lab.png"
+import Cekjadwal from "/src/assets/cek-jadwal.png"
 import Dumb from "../components/dumb-forum-card"
 import FooterLanding from "../components/footer"
 
@@ -55,13 +58,29 @@ function LandingPage() {
                 </div>
                 <div className="mt-4">
                     <h3 className="text-center text-lg font-bold mb-4 lg:text-2xl">Fitur</h3>
-                    <div className="flex w-full justify-center gap-4">
+                    <div className="flex flex-wrap justify-center gap-4">
                         <div className="">
                             <div className="p-3 bg-red-700 lg:h-24 rounded-lg aspect-square flex h-20">
                                 <img src={janjiSvg} alt="" />
                             </div>
                             <div className="w-20 text-center font-semibold mt-2">
                                 Janji Temu Pasien
+                            </div>
+                        </div>
+                        <div className="">
+                            <div className="p-3 bg-red-700 lg:h-24 rounded-lg aspect-square flex h-20">
+                                <img src={Ujilab} alt="" />
+                            </div>
+                            <div className="w-20 text-center font-semibold mt-2">
+                                Cek Hasil Rekam Medis
+                            </div>
+                        </div>
+                        <div className="">
+                            <div className="p-3 bg-red-700 lg:h-24 rounded-lg aspect-square flex h-20">
+                                <img src={Ambulan} alt="" />
+                            </div>
+                            <div className="w-20 text-center font-semibold mt-2">
+                                Panggil Ambulan
                             </div>
                         </div>
                         <div className="">
@@ -74,26 +93,10 @@ function LandingPage() {
                         </div>
                         <div className="">
                             <div className="p-3 bg-red-700 lg:h-24 rounded-lg aspect-square flex h-20">
-                                <img src={janjiSvg} alt="" />
+                                <img src={Cekjadwal} alt="" />
                             </div>
                             <div className="w-20 text-center font-semibold mt-2">
-                                Janji Temu Pasien
-                            </div>
-                        </div>
-                        <div className="">
-                            <div className="p-3 bg-red-700 lg:h-24 rounded-lg aspect-square flex h-20">
-                                <img src={janjiSvg} alt="" />
-                            </div>
-                            <div className="w-20 text-center font-semibold mt-2">
-                                Janji Temu Pasien
-                            </div>
-                        </div>
-                        <div className="">
-                            <div className="p-3 bg-red-700 lg:h-24 rounded-lg aspect-square flex h-20">
-                                <img src={janjiSvg} alt="" />
-                            </div>
-                            <div className="w-20 text-center font-semibold mt-2">
-                                Janji Temu Pasien
+                                Cek Jadwal
                             </div>
                         </div>
                     </div>
