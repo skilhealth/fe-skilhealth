@@ -1,11 +1,11 @@
 import Navbar from "./components/navbar"
-import LandingPageDoctor from "./pages/landing-page-doctor"
+import LandingPage from "./pages/landing-page"
 
 function App() {
   return (
     <>
     <Navbar />
-    <LandingPageDoctor />
+    <LandingPage />
     </>
   )
 }
