@@ -24,7 +24,7 @@ function SearchHospital () {
 
  return (
     <div className="container mx-auto">
-      {hospital.length == 0 ? <div>Loading ...</div> : 
+      {hospital.length == 0 ? <div></div> : 
     <div>
       {hospital.map(item => (
          <div>
