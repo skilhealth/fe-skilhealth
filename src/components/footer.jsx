@@ -6,11 +6,11 @@ import LogoPng from "/LogoSkilHealth.png"
 function FooterLanding({ role }) {
     return (
             <footer className="w-full bg-red-900 flex h-52 mt-4 p-4 justify-between text-white">
-                <div className="h-full flex items-center gap-1">
+                <div className="h-full flex items-center gap-1 lg:flex-1">
                     <img src={LogoPng} alt="" className="h-10" />
                     <div className="text-2xl  font-bold">Skilhealth</div>
                 </div>
-                <div className="flex-col flex lg:items-center justify-between items-end lg:flex-row-reverse grow max-w-4xl">
+                <div className="flex-col flex lg:items-center justify-around lg:justify-between items-end lg:flex-row-reverse grow lg:flex-2">
                     <ul className=" underline">
                         {
                             role === "Doctor" ? (
@@ -21,9 +21,7 @@ function FooterLanding({ role }) {
 
                             ) : (
                                 <div>
-                                    <li><a href="http://" target="_blank" rel="noopener noreferrer">Cari Dokter</a> </li>
                                     <li><a href="http://" target="_blank" rel="noopener noreferrer">Cek Jadwal janji</a> </li>
-                                    <li><a href="http://" target="_blank" rel="noopener noreferrer">Cek Hasil UjiLab</a> </li>
                                     <li><a href="http://" target="_blank" rel="noopener noreferrer">Forum Konsultasi</a> </li>
                                 </div>
                             )

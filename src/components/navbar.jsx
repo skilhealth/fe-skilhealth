@@ -4,7 +4,7 @@ import Logo from "/LogoSkilHealth.png"
 function Navbar() {
     const [navbar, setNav] = useState(false)
     const [isLogin, setLogin] = useState(false)
-    const [role,setRole]=useState("pasien");
+    const [role,setRole]=useState("dokter");
 
     useEffect(() => {
         handleNavbar()
