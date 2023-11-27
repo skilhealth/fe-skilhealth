@@ -23,7 +23,7 @@ const EditProfileDokter = () => {
  return(
     <div>
         <Backbutton nama= "Edit Profile"></Backbutton>
-        <div className='bg-white-100 flex items-center justify-center py-12 px-3 lg:justify-center'>
+        <div className='bg-white-100 flex items-center justify-center py-12 px-2 lg:justify-center'>
         <div className="max-w-md w-full space-y-4">
           <div className=' flex justify-center'>
             <div className=' relative'>
