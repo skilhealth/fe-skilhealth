@@ -20,18 +20,18 @@ const TingkatDarurat =  () => {
         <Backbutton  nama= "Darurat" />
         <div className="bg-white-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
              <div className="w-full h-40  bg-gray-100 rounded-lg sm:text-sm">
-                 <div className="grid grid-cols-3 gap-4 px-4 py-4 lg: items-center justify-center">
+                 <div className="grid-cols-3 gap-4 px-4 py-4 items-center lg: flex justify-around">
                      <div>
-                     <img className="w-20 h-20 " src={imgambulancedarurat}></img>
-                     <p className="font-bold ml-5">Biasa</p>
+                     <img className="w-20 h-19 " src={imgambulancedarurat}></img>
+                     <p className="font-bold ml-4">Darurat</p>
                      </div>
                      <div>
                      <h5 className="font-semibold">Hubungi Kami</h5>
-                     <h5 className="font-bold">2-200-911</h5>
+                     <h5 className="font-bold">3-200-911</h5>
                      </div>
                      <div className="ml-12 mb-6 w-16 h-16 rounded-lg bg-red-700">
                          <img className="w-8 h-8 ml-3 mt-4" src={iconTlpn}></img>
-                         <p className="font-bold mt-8">Telepon</p>
+                         <p className="font-bold mt-5">Telepon</p>
                      </div>
                     
                  </div>
