@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/navbar";
-import Forum from "./pages/forum";
 import Diskusi from "./pages/diskusi";
 import BuatPertanyaan from "./pages/buat-pertanyaan";
 import DiskusiDokter from "./pages/diskusi-dokter";
