@@ -11,6 +11,7 @@ function App() {
         <Route path="/" element={<Login />}></Route>
         <Route path="/register" element={<Register />} ></Route>
         <Route path="/LupaPassword" element={<OTPComponent />}></Route>
+        <Route path="/ubahPassword" element={<ChangePassword />}></Route>
       </Routes>
     </BrowserRouter>
    

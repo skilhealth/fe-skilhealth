@@ -131,7 +131,7 @@ const Register = () => {
           </button>
         </div>
       </form>
-      <Link to= "/" className=" text-lg lg:text-right">Sudah Punya Akun?</Link>
+      <Link to= "/" className=" text-lg font-medium text-red-700 hover:text-red-400 lg:text-left">Sudah Punya Akun?</Link>
     </div>
  </div>
   </div>
