@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom"
+import { BrowserRouter,Route, Routes } from "react-router-dom"
 import Navbar from "./components/navbar"
 import BookingDetailPage from "./pages/booking-detail-page"
 import HasilCariPage from "./pages/hasil-pencarian-page"
@@ -17,11 +17,9 @@ import { useRef } from "react"
 import { useEffect } from "react"
 import CariHasil from "./pages/cari-hasil-doctor"
 import Login from "./pages/login-pages"
-import Login from "./pages/login-pages";
 import Register from "./pages/register.pages";
 import ChangePassword from "./pages/ubah-password-page";
 import OTPComponent from "./pages/ubah-password-otp-pages";
-import { BrowserRouter,Routes, Route } from "react-router-dom";
 
 function App() {
   const windowWidth = useRef(window.innerWidth);
@@ -49,6 +47,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         {windowWidth.current >= 1024 ?
           (<Route path="/doctor/search" element={<CariHasil />} />)
           : (<Route path="/doctor/search" element={<PencarianDokter />} />)}

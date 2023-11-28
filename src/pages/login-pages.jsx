@@ -26,7 +26,7 @@ const Login = () => {
  };
 
  return (
-  <div>
+  <div className='p-4'>
      <Backbutton></Backbutton>
      <div className=" flex item-center justify-center bg-white-100 py-12 px-4 lg: items-center">
       <div className="max-w-md w-full space-y-8">
@@ -73,7 +73,6 @@ const Login = () => {
             <label className="flex items-center cursor-pointer">
                 <input id="customCheckLogin" type="checkbox" className="form-checkbox text-gray-800 ml-1 w-5 h-5 ease-linear transition-all duration-150" defaultChecked />
                 <span className="ml-2 text-lg font-semibold text-black-700 ">Ingat Saya</span>
-                <Link to= "/LupaPassword" className="text-lg font-semibold ml-32 lg:ml-44">Lupa password?</Link>
             </label>
             <a href="../ubah-password" className="text-lg">Lupa password?</a>
           </div>
