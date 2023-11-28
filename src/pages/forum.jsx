@@ -4,9 +4,8 @@ import Backbutton from "../components/backbutton";
 import ForumCard from "../components/forum-card";
 import Pagination from "../components/pagination";
 
-function Forum() {
+function Forum({role}) {
   const navigate = useNavigate();
-  const role = "dokte"
 
   const toBuatPertanyaan = () => {
     navigate("tanya");

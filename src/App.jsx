@@ -41,7 +41,7 @@ function App() {
   const windowWidth = useRef(window.innerWidth);
   const windowHeight = useRef(window.innerHeight);
   const [isLogin, setLogin] = useState(true)
-  const [role,setRole]=useState("dokter2");
+  const [role,setRole]=useState("d");
 
   useEffect(() => {
     const handleResize = () => {
@@ -99,8 +99,8 @@ function App() {
 
         <Route path="/rumahsakit" element={<Hospital />} />
 
-        <Route path="/forum" element={<Forum />} />
-        <Route path="/forum/:id" element={<Diskusi />} />
+        <Route path="/forum" element={<Forum role={role} />} />
+        <Route path="/forum/:id" element={<Diskusi role={role} />} />
         <Route path="/forum/tanya" element={<BuatPertanyaan />} />
 
         <Route path="/ambulan" element={<MenuAmbulance />} />
