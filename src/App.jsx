@@ -48,6 +48,8 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/gantipass" element={<ChangePassword />} />
+        <Route path="/otp" element={<OTPComponent />} />
         {windowWidth.current >= 1024 ?
           (<Route path="/doctor/search" element={<CariHasil />} />)
           : (<Route path="/doctor/search" element={<PencarianDokter />} />)}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import imgSkilhealth from "../assets/LogoSkilhealth.png";
+import Backbutton from '../components/backbutton';
 //import {useHistory} from 'react-router-dom'
 
 const OTPComponent = () => {
@@ -33,6 +34,7 @@ const OTPComponent = () => {
 
  return (
     <div className="mb-12 lg:mb-44 flex flex-col items-center justify-center bg-white-100 py-12 px-4 sm:px-6 lg:px-8">
+    <Backbutton />
       <div className="max-w-md w-full space-y-5">
       <div className="flex flex-col items-center justify-center">
           <img alt="..." className="w-20 h-20 lg:w-32 lg:h-32 mb-4 lg:mb-6" src= {imgSkilhealth} />
