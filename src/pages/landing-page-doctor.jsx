@@ -57,7 +57,7 @@ function LandingPageDoctor() {
     ]
     return (
         <div className=" bg-slate-100">
-            <div className="p-4">
+            <div className="p-4 lg:px-24">
                 <div className="w-full flex flex-col lg:flex-row gap-2">
                     <div className="flex w-full p-4 bg-red-700 rounded-lg items-center gap-2 lg:gap-4 h-32 lg:h-60 grow">
                         <div className="rounded-full">

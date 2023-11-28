@@ -33,7 +33,7 @@ function ListJanjiPasien() {
     }
     const pasien = data.pasien
     return (
-        <div className="p-4">
+        <div className="p-4 lg:px-24">
             <Backbutton nama="Hasil Pencarian Dokter " />
             <div className="flex flex-col gap-2">
                 {

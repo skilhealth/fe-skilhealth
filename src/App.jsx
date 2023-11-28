@@ -23,12 +23,15 @@ import OTPComponent from "./pages/ubah-password-otp-pages";
 import LandingPageDoctor from "./pages/landing-page-doctor"
 import LandingPage from "./pages/landing-page"
 import { useState } from "react"
+import ListJanjiPasien from "./pages/list-janji-pasien"
+import HasilUjiLab from "./pages/hasil-ujilab-page.jsx"
+import BuatUjiLab from "./pages/buat-uji-lab"
 
 function App() {
   const windowWidth = useRef(window.innerWidth);
   const windowHeight = useRef(window.innerHeight);
   const [isLogin, setLogin] = useState(true)
-  const [role,setRole]=useState("dokte");
+  const [role,setRole]=useState("dokter");
 
   useEffect(() => {
     const handleResize = () => {
@@ -54,6 +57,10 @@ function App() {
         {role === "dokter" ?(
           (<Route path="/" element={<LandingPageDoctor />} />)
         ):(<Route path="/" element={<LandingPage />} />)}
+        <Route path="/janjipasien" element={<ListJanjiPasien />} />
+        <Route path="/janjipasien/:id" element={<HasilUjiLab />} />
+        <Route path="/janjipasien/:id/add" element={<BuatUjiLab />} />
+        <Route path="/login" element={<ListJanjiPasien />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/gantipass" element={<ChangePassword />} />

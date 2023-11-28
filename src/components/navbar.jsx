@@ -26,7 +26,7 @@ function Navbar({role,isLogin}) {
             </div>
             <ul className={`w-full text-red-700 flex-col px-4 absolute bg-white lg:w-auto lg:bg-transparent lg:text-white lg:relative lg:flex lg:flex-row lg:gap-5 lg:items-center ${navbar ? "hidden" : "flex"}`}>
                 <li className="py-4 lg:px-4 lg:py-2 text-center border-slate-200 lg:border-0 border-b-2">Home</li>
-                <li className="py-4 lg:px-4 lg:py-2 text-center border-slate-200 lg:border-0 border-b-2">{(role ==="pasien")?"Cari Dokter":"Jadwal Janji Temu"}</li>
+                <li className="py-4 lg:px-4 lg:py-2 text-center border-slate-200 lg:border-0 border-b-2">{(role ==="dokter")?"Jadwal Janji Temu":"Cari Dokter"}</li>
                 <li className="py-4 lg:px-4 lg:py-2 text-center border-slate-200 lg:border-0 border-b-2">Forum</li>
                 <li className="py-4 lg:px-4 lg:py-2 text-center border-slate-200 lg:border-2 lg:rounded-lg lg:bg-white lg:text-red-700 border-b-2">{(isLogin)?"Profile":"Register"}</li>
                 <li className="py-4 lg:px-4 lg:py-2 text-center border-slate-200 lg:border-2 lg:rounded-lg border-b-2">{(isLogin)?"Logout":"Login"}</li>
