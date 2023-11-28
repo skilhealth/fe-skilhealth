@@ -35,12 +35,13 @@ import TingkatDarurat from "./pages/tingkat-darurat"
 
 import { Route, Routes } from "react-router-dom"
 import { useRef,useEffect,useState  } from "react"
+import DiskusiDokter from "./pages/diskusi-dokter"
 
 function App() {
   const windowWidth = useRef(window.innerWidth);
   const windowHeight = useRef(window.innerHeight);
   const [isLogin, setLogin] = useState(true)
-  const [role,setRole]=useState("dokte4");
+  const [role,setRole]=useState("dokter");
 
   useEffect(() => {
     const handleResize = () => {
@@ -66,6 +67,7 @@ function App() {
         ):(<Route path="/" element={<LandingPage role={role} />} />)} 
         <Route path="/janjipasien" element={<ListJanjiPasien />} />
         <Route path="/janjipasien/:id" element={<HasilUjiLab />} />
+        <Route path="/janjipasien/:id/add" element={<CatatanMedis />} />
         <Route path="/janjipasien/:id/edit" element={<CatatanMedis />} />
 
         <Route path="/login" element={<Login />} />
@@ -99,9 +101,8 @@ function App() {
 
         <Route path="/forum" element={<Forum />} />
         <Route path="/forum/:id" element={<Diskusi />} />
-        <Route path="/forum/add" element={<BuatPertanyaan />} />
+        <Route path="/forum/tanya" element={<BuatPertanyaan />} />
 
-        <Route path="/forum/add" element={<BuatPertanyaan />} />
         <Route path="/ambulan" element={<MenuAmbulance />} />
         <Route path="/ambulan/biasa" element={<TingkatBiasa />} />
         <Route path="/ambulan/darurat" element={<TingkatDarurat />} />

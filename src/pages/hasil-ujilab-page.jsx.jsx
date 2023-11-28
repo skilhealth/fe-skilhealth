@@ -1,9 +1,18 @@
 import moment from "moment/moment"
 import Backbutton from "../components/backbutton"
 import 'moment/locale/id'
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 function HasilUjiLab() {
     moment.locale('id')
+    const navigate = useNavigate()
+    const [status,setStatus] = useState()
+    const handleEdit = (e) =>{
+        e.preventDefault()
+        navigate(`edit`)
+    }
+
     const data = {
         date: moment("2023-09-05"),
         nama: "Pemeriksaan Fisik Abdomen",
@@ -19,7 +28,7 @@ function HasilUjiLab() {
             <Backbutton nama="Catatan Medis" />
             <div className="w-full mb-4 max-w-5xl">
                 <h3 className="mt-8 space-y-6 block font-sans text-xl font-bold">Status Janji Temu</h3>
-                <select value="" onChange={(e) => setGender(e.target.value)} name='status' className='px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm'>
+                <select value="" onChange={(e) => setStatus(e.target.value)} name='status' className='px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm'>
                     <option value="Belum Mulai">Belum Mulai</option>
                     <option value="Sudah Selesai">Sudah Selesai</option>
                 </select>
@@ -60,7 +69,7 @@ function HasilUjiLab() {
                 </div>
             </div>
             <div className="mt-8 w-full max-w-5xl">
-                <button className="bg-red-700 rounded-xl font-medium w-full text-lg text-white p-2">
+                <button onClick={handleEdit} className="bg-red-700 rounded-xl font-medium w-full text-lg text-white p-2">
                     Edit
                 </button>
             </div>

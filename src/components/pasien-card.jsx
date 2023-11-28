@@ -1,11 +1,15 @@
-import { data } from "browserslist"
 import moment from "moment/moment"
 import "moment/locale/id"
+import { useNavigate } from "react-router-dom"
 
 function PasienCard({data}) {
-    console.log(data.tipe)
+    const navigate = useNavigate()
+    const toJanjiDetail = (e) =>{
+        e.preventDefault()
+        navigate(`/janjipasien/${data.id}`)
+    }
     return (
-        <div className="bg-slate-200 w-full h-28 lg:h-40 flex p-4 gap-3 rounded-xl">
+        <div onClick={toJanjiDetail} className="bg-slate-200 w-full h-28 lg:h-40 flex p-4 gap-3 rounded-xl">
             <div className="h-full">
                 <img src={`${data.img}`} alt="" className="h-full rounded-xl object-cover" />
             </div>

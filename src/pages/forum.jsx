@@ -9,7 +9,7 @@ function Forum() {
   const role = "dokte"
 
   const toBuatPertanyaan = () => {
-    navigate("add");
+    navigate("tanya");
   };
 
   const [currentSudahTerjawabPage, setCurrentSudahTerjawabPage] = useState(1);
@@ -123,7 +123,7 @@ function Forum() {
       dokter: "Dr. Havertz",
       spesialis: "Dokter Umum",
       pertanyaan: "Bertanya",
-      jawaban: "Dijawab",
+      jawaban: "",
     },
     {
       id:11,
@@ -133,7 +133,7 @@ function Forum() {
       dokter: "Dr. Havertz",
       pertanyaan: "Bertanya",
       spesialis: "Dokter Umum",
-      jawaban: "Dijawab",
+      jawaban: "",
     },
     {
       id:12,
@@ -143,7 +143,7 @@ function Forum() {
       dokter: "Dr. Havertz",
       spesialis: "Dokter Umum",
       pertanyaan: "Bertanya",
-      jawaban: "Dijawab",
+      jawaban: "",
     },
     {
       id:13,
@@ -153,7 +153,7 @@ function Forum() {
       dokter: "Dr. Havertz",
       spesialis: "Dokter Umum",
       pertanyaan: "Bertanya",
-      jawaban: "Dijawab",
+      jawaban: "",
     },
     {
       id:14,
@@ -163,7 +163,7 @@ function Forum() {
       dokter: "Dr. Havertz",
       spesialis: "Dokter Umum",
       pertanyaan: "Bertanya",
-      jawaban: "Dijawab",
+      jawaban: "",
     },
     {
       id:15,
@@ -173,7 +173,7 @@ function Forum() {
       dokter: "Dr. Havertz",
       spesialis: "Dokter Umum",
       pertanyaan: "Bertanya",
-      jawaban: "Dijawab",
+      jawaban: "",
     },
     {
       id:16,
@@ -183,7 +183,7 @@ function Forum() {
       dokter: "Dr. Havertz",
       spesialis: "Dokter Umum",
       pertanyaan: "Bertanya",
-      jawaban: "Dijawab",
+      jawaban: "",
     },
     {
       id:17,
@@ -193,7 +193,7 @@ function Forum() {
       dokter: "Dr. Havertz",
       spesialis: "Dokter Umum",
       pertanyaan: "Bertanya",
-      jawaban: "Dijawab",
+      jawaban: "",
     },
   ];
 
