@@ -14,7 +14,7 @@ const TingkatBiasa =  () => {
      };
 
     return (
-        <div>
+        <div className="p-4 lg:px-24">
         <Backbutton  nama= "Biasa" />
         <div className="bg-white-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
              <div className="w-full h-40  bg-gray-100 rounded-lg sm:text-sm">

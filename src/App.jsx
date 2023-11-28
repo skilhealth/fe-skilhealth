@@ -33,6 +33,9 @@ import Hospital from "./pages/rumah-sakit"
 import Forum from "./pages/forum"
 import Diskusi from "./pages/diskusi"
 import BuatPertanyaan from "./pages/buat-pertanyaan"
+import MenuAmbulance from "./pages/menu-ambulance"
+import TingkatBiasa from "./pages/tingkat-biasa"
+import TingkatDarurat from "./pages/tingkat-darurat"
 
 function App() {
   const windowWidth = useRef(window.innerWidth);
@@ -100,6 +103,11 @@ function App() {
         <Route path="/forum" element={<Forum />} />
         <Route path="/forum/:id" element={<Diskusi />} />
         <Route path="/forum/add" element={<BuatPertanyaan />} />
+
+        <Route path="/forum/add" element={<BuatPertanyaan />} />
+        <Route path="/ambulance" element={<MenuAmbulance />} />
+        <Route path="/ambulance/biasa" element={<TingkatBiasa />} />
+        <Route path="/ambulance/darurat" element={<TingkatDarurat />} />
       </Routes>
     </div >
   )
