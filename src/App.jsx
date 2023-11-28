@@ -1,4 +1,4 @@
-import { BrowserRouter,Route, Routes } from "react-router-dom"
+import { Route, Routes } from "react-router-dom"
 import Navbar from "./components/navbar"
 import BookingDetailPage from "./pages/booking-detail-page"
 import HasilCariPage from "./pages/hasil-pencarian-page"
@@ -25,15 +25,17 @@ import LandingPage from "./pages/landing-page"
 import { useState } from "react"
 import ListJanjiPasien from "./pages/list-janji-pasien"
 import HasilUjiLab from "./pages/hasil-ujilab-page.jsx"
-import BuatUjiLab from "./pages/buat-uji-lab"
 import MenuProfile from "./pages/menu-profile-page"
 import EditProfile from "./pages/edit-profile"
+import CatatanMedis from "./pages/buat-uji-lab"
+import EditProfileDokter from "./pages/Edit-profile -Dokter"
+import Hospital from "./pages/rumah-sakit"
 
 function App() {
   const windowWidth = useRef(window.innerWidth);
   const windowHeight = useRef(window.innerHeight);
   const [isLogin, setLogin] = useState(true)
-  const [role,setRole]=useState("dokter");
+  const [role,setRole]=useState("dokte");
 
   useEffect(() => {
     const handleResize = () => {
@@ -61,20 +63,24 @@ function App() {
         ):(<Route path="/" element={<LandingPage />} />)}
         <Route path="/janjipasien" element={<ListJanjiPasien />} />
         <Route path="/janjipasien/:id" element={<HasilUjiLab />} />
-        <Route path="/janjipasien/:id/add" element={<BuatUjiLab />} />
-        <Route path="/login" element={<ListJanjiPasien />} />
+        <Route path="/janjipasien/:id/edit" element={<CatatanMedis />} />
+
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/gantipass" element={<ChangePassword />} />
         <Route path="/otp" element={<OTPComponent />} />
         <Route path="/profile" element={<MenuProfile />} />
-        <Route path="/profile/:id" element={<EditProfile />} />
+        {role === "dokter" ?(
+          (<Route path="/profile/:id" element={<EditProfileDokter />} />)
+        ):(<Route path="/profile/:id" element={<EditProfile />} />)}
+        
         {windowWidth.current >= 1024 ?
           (<Route path="/doctor/search" element={<CariHasil />} />)
           : (<Route path="/doctor/search" element={<PencarianDokter />} />)}
         <Route path="/doctor/" element={<HasilCariPage />} />
         <Route path="/doctor/:id" element={<DataDokter />} />
         <Route path="/booking/pembayaran" element={<Pembayaran />} />
+
         <Route path="/booking/" element={<ListBooking />} />
         <Route path="/booking/:id" element={<BookingDetailPage />} />
         <Route path="/booking/:id/reguler" element={<CheckIn />} />
@@ -82,8 +88,11 @@ function App() {
         <Route path="/booking/:id/homecare" element={<Homecare />} />
         <Route path="/booking/:id/edit" element={<Editbooking />} />
         <Route path="/booking/:id/refund" element={<Refund />} />
+
         <Route path="/ujilab/" element={<ListUjiLab />} />
         <Route path="/ujilab/:id" element={<UjilabDetail />} />
+
+        <Route path="/rumahsakit" element={<Hospital />} />
       </Routes>
     </>
   )

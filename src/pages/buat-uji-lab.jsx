@@ -1,6 +1,6 @@
 import Backbutton from "../components/backbutton"
 
-function BuatUjiLab() {
+function CatatanMedis() {
     return (
         <main className="p-4 flex flex-col items-center">
             <Backbutton nama="Catatan janji Temu" />
@@ -48,4 +48,4 @@ function BuatUjiLab() {
         </main>
     )
 }
-export default BuatUjiLab
+export default CatatanMedis

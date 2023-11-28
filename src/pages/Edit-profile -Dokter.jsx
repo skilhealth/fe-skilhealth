@@ -21,7 +21,7 @@ const EditProfileDokter = () => {
  };
 
  return(
-    <div>
+    <div className='p-4 lg:px-24'>
         <Backbutton nama= "Edit Profile"></Backbutton>
         <div className='bg-white-100 flex items-center justify-center py-12 px-2 lg:justify-center'>
         <div className="max-w-md w-full space-y-4">
@@ -47,7 +47,7 @@ const EditProfileDokter = () => {
               name="email"
               type="email"
               disabled
-              className="px-4 py-6 bg-gray-400 font-bold rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
+              className="px-4 py-6 bg-gray-200 font-bold rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
               value= "andrewwl@gmail.com"
             />
           </div>

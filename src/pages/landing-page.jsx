@@ -46,7 +46,7 @@ function LandingPage() {
         <div className="">
             <div className="p-4 lg:px-24 lg:py-7">
                 <div className="flex w-full pl-4 bg-red-700 rounded-lg items-center  h-48 lg:pl-20 lg:h-80 justify-between overflow-hidden">
-                    <div className="text-white w-full max-w-[168px] lg:max-w-lg flex flex-col gap-10 justify-between">
+                    <div className="text-white w-full max-w-[168px] lg:max-w-lg flex flex-col gap-4">
                         <p className="text-lg font-semibold lg:text-4xl lg:leading-relaxed">Bisa Atur Janji Temu Dokter Skilvul Hospital di SkilHealth</p>
                         <div>
                             <button className="bg-white text-red-700 rounded-lg p-2 font-semibold mt-auto lg:text-xl lg:p-3">Cari Dokter</button>
@@ -124,7 +124,6 @@ function LandingPage() {
                 </div>
             </div>
             <FooterLanding role={akun.role} />
-
         </div>
     )
 }
