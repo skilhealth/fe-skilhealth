@@ -55,7 +55,7 @@ function ListBooking() {
         }]
     }
     return (
-        <div className="p-4 px-24 flex flex-col items-center">
+        <div className="p-4 lg:px-24 flex flex-col items-center w-full">
             <Backbutton nama="Jadwal Janji Temu" />
             <div className="flex flex-col gap-2 max-w-5xl w-full mt-2">
                 {

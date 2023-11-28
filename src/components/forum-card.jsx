@@ -5,22 +5,22 @@ function ForumCard({ data }) {
   const navigate = useNavigate();
 
   const toDiskusi = () => {
-    navigate(`${data.id}`, { state: { data } });
+    navigate(`/forum/${data.id}`, { state: { data } });
   };
 
   return (
     <section
-      className="bg-slate-200 w-full h-32 flex px-4 py-2 mt-2 rounded-xl"
+      className="bg-slate-100 w-full flex p-4 rounded-xl lg:min-w-[370px] flex-1"
       onClick={toDiskusi}
     >
-      <div className="flex flex-col justify-between">
+      <div className="flex flex-col justify-center">
         <div className="flex flex-col">
           {/* status */}
           <span
             className={
               data.status === "Sudah Terjawab"
-                ? "text-green-500 font-semibold"
-                : "text-red-500 font-semibold"
+                ? "text-green-500 font-semibold text-xs"
+                : "text-red-500 font-semibold text-xs"
             }
           >
             {data.status}
@@ -34,7 +34,8 @@ function ForumCard({ data }) {
           <span className="">Oleh: {data.user}</span>
 
           {/* answer */}
-          <span className="">Dijawab: {data.dokter}</span>
+          
+          <span className={`${data.dokter?"":"hidden"}`}>Dijawab: {data.dokter}</span>
         </div>
       </div>
     </section>

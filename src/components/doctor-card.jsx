@@ -1,6 +1,12 @@
+import { useNavigate } from "react-router-dom"
+
 function DoctorCard({data}) {
+    const navigate = useNavigate()
+    const  toDetail = () =>{
+        navigate(`/doctor/${data.id}`)
+    }
     return (
-        <div className="bg-slate-200 w-full h-36 flex p-2 gap-3 rounded-xl">
+        <div className="bg-slate-200 w-full h-36 flex p-2 gap-3 rounded-xl" onClick={toDetail}>
             <div className="h-full">
                 <img src={`${data.img}`} alt="" className="h-full rounded-xl object-cover" />
             </div>

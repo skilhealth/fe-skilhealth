@@ -261,10 +261,10 @@ function Forum() {
     setCurrentBelumTerjawabPage(pageNumber);
 
   return (
-    <main className="p-4 lg:px-24">
+    <main className="p-4 lg:px-24 flex flex-col items-center w-full">
       <Backbutton nama="Forum Chat" />
       <button
-        className={`bg-red-700 rounded-xl font-medium w-full text-lg text-white p-2 my-4 ${role === "dokter"?"hidden":""}`}
+        className={`bg-red-700 rounded-xl font-medium w-full  max-w-3xl text-lg text-white p-2 my-4 ${role === "dokter"?"hidden":""}`}
         onClick={toBuatPertanyaan}
       >
         Buat Pertanyaan
@@ -272,12 +272,12 @@ function Forum() {
 
       <input
         type="text"
-        className="bg-white h-11 w-full mb-8 border-2 border-black rounded-xl px-4 text-base text"
+        className="bg-white h-11 w-full mb-8 border-2 border-black rounded-xl px-4 text-base  max-w-3xl"
         placeholder="Cari Forum"
         value={searchTerm}
         onChange={handleSearchChange}
       />
-      <div className={`flex ${role === "dokter"? "flex-col-reverse":"flex-col"}`}>
+      <div className={`flex w-full max-w-3xl ${role === "dokter"? "flex-col-reverse":"flex-col"}`}>
         <div>
           <label className="text-2xl font-bold">Sudah Terjawab</label>
           {sudahTerjawabContent}

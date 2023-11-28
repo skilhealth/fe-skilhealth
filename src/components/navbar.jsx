@@ -1,7 +1,8 @@
 import { useEffect } from "react"
 import { useState } from "react"
+import { Link } from "react-router-dom"
 import Logo from "/LogoSkilHealth.png"
-function Navbar({role,isLogin}) {
+function Navbar({ role, isLogin }) {
     const [navbar, setNav] = useState(false)
 
     useEffect(() => {
@@ -12,7 +13,7 @@ function Navbar({role,isLogin}) {
         (navbar) ? setNav(false) : setNav(true)
     }
     return (
-        <nav className=" bg-red-700 w-full h-20 text-lg lg:text-base font-bold lg:px-24 lg:flex">
+        <nav className=" bg-red-700 w-full h-20 text-lg lg:text-base font-bold lg:px-24 lg:flex z-50">
             <div className="w-full h-full flex justify-between p-4 lg:justify-start lg:gap-4 lg:w-min lg:flex-1">
                 <div className="h-full aspect-square">
                     <img src={Logo} alt="logo" className="w-auto h-full object-cover" />
@@ -25,11 +26,21 @@ function Navbar({role,isLogin}) {
                 </div>
             </div>
             <ul className={`w-full text-red-700 flex-col px-4 absolute bg-white lg:w-auto lg:bg-transparent lg:text-white lg:relative lg:flex lg:flex-row lg:gap-5 lg:items-center ${navbar ? "hidden" : "flex"}`}>
-                <li className="py-4 lg:px-4 lg:py-2 text-center border-slate-200 lg:border-0 border-b-2">Home</li>
-                <li className="py-4 lg:px-4 lg:py-2 text-center border-slate-200 lg:border-0 border-b-2">{(role ==="dokter")?"Jadwal Janji Temu":"Cari Dokter"}</li>
-                <li className="py-4 lg:px-4 lg:py-2 text-center border-slate-200 lg:border-0 border-b-2">Forum</li>
-                <li className="py-4 lg:px-4 lg:py-2 text-center border-slate-200 lg:border-2 lg:rounded-lg lg:bg-white lg:text-red-700 border-b-2">{(isLogin)?"Profile":"Register"}</li>
-                <li className="py-4 lg:px-4 lg:py-2 text-center border-slate-200 lg:border-2 lg:rounded-lg border-b-2">{(isLogin)?"Logout":"Login"}</li>
+                <Link to="/" >
+                    <li className="py-4 lg:px-4 lg:py-2 text-center border-slate-200 lg:border-0 border-b-2">Home</li>
+                </Link>
+                <Link to={`${role === "dokter" ? "/janjipasien" : "/doctor/search"}`}>
+                    <li className="py-4 lg:px-4 lg:py-2 text-center border-slate-200 lg:border-0 border-b-2">{(role === "dokter") ? "Jadwal Janji Temu" : "Cari Dokter"}</li>
+                </Link>
+                <Link to="/forum">
+                    <li className="py-4 lg:px-4 lg:py-2 text-center border-slate-200 lg:border-0 border-b-2">Forum</li>
+                </Link>
+                <Link to={`${isLogin ? "/profile" : "/register"}`}>
+                    <li className="py-4 lg:px-4 lg:py-2 text-center border-slate-200 lg:border-2 lg:rounded-lg lg:bg-white lg:text-red-700 border-b-2">{(isLogin) ? "Profile" : "Register"}</li>
+                </Link>
+                <Link to={`${isLogin ? "/" : "/login"}`}>
+                    <li className="py-4 lg:px-4 lg:py-2 text-center border-slate-200 lg:border-2 lg:rounded-lg border-b-2">{(isLogin) ? "Logout" : "Login"}</li>
+                </Link>
             </ul>
         </nav>
     )

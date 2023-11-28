@@ -1,4 +1,3 @@
-import { Route, Routes } from "react-router-dom"
 import Navbar from "./components/navbar"
 import BookingDetailPage from "./pages/booking-detail-page"
 import HasilCariPage from "./pages/hasil-pencarian-page"
@@ -13,8 +12,6 @@ import Editbooking from "./pages/editbooking"
 import Refund from "./pages/refund-page"
 import ListUjiLab from "./pages/list-ujilab"
 import UjilabDetail from "./pages/ujilab-detail-page"
-import { useRef } from "react"
-import { useEffect } from "react"
 import CariHasil from "./pages/cari-hasil-doctor"
 import Login from "./pages/login-pages"
 import Register from "./pages/register.pages";
@@ -22,13 +19,12 @@ import ChangePassword from "./pages/ubah-password-page";
 import OTPComponent from "./pages/ubah-password-otp-pages";
 import LandingPageDoctor from "./pages/landing-page-doctor"
 import LandingPage from "./pages/landing-page"
-import { useState } from "react"
 import ListJanjiPasien from "./pages/list-janji-pasien"
 import HasilUjiLab from "./pages/hasil-ujilab-page.jsx"
 import MenuProfile from "./pages/menu-profile-page"
 import EditProfile from "./pages/edit-profile"
 import CatatanMedis from "./pages/buat-uji-lab"
-import EditProfileDokter from "./pages/Edit-profile -Dokter"
+import EditProfileDokter from "./pages/Edit-profile-Dokter"
 import Hospital from "./pages/rumah-sakit"
 import Forum from "./pages/forum"
 import Diskusi from "./pages/diskusi"
@@ -37,18 +33,19 @@ import MenuAmbulance from "./pages/menu-ambulance"
 import TingkatBiasa from "./pages/tingkat-biasa"
 import TingkatDarurat from "./pages/tingkat-darurat"
 
+import { Route, Routes } from "react-router-dom"
+import { useRef,useEffect,useState  } from "react"
+
 function App() {
   const windowWidth = useRef(window.innerWidth);
   const windowHeight = useRef(window.innerHeight);
   const [isLogin, setLogin] = useState(true)
-  const [role,setRole]=useState("dokte");
+  const [role,setRole]=useState("dokte4");
 
   useEffect(() => {
     const handleResize = () => {
       windowWidth.current = window.innerWidth;
       windowHeight.current = window.innerHeight;
-      console.log('width: ', windowWidth.current);
-      console.log('height: ', windowHeight.current);
     };
 
     // Tambahkan event listener untuk mendengarkan perubahan ukuran window
@@ -61,12 +58,12 @@ function App() {
   }, []);
   return (
 
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col w-full">
       <Navbar role={role} isLogin={isLogin} />
       <Routes>
         {role === "dokter" ?(
-          (<Route path="/" element={<LandingPageDoctor />} />)
-        ):(<Route path="/" element={<LandingPage />} />)}
+          (<Route path="/" element={<LandingPageDoctor role={role} />} />)
+        ):(<Route path="/" element={<LandingPage role={role} />} />)} 
         <Route path="/janjipasien" element={<ListJanjiPasien />} />
         <Route path="/janjipasien/:id" element={<HasilUjiLab />} />
         <Route path="/janjipasien/:id/edit" element={<CatatanMedis />} />
@@ -75,7 +72,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/gantipass" element={<ChangePassword />} />
         <Route path="/otp" element={<OTPComponent />} />
-        <Route path="/profile" element={<MenuProfile />} />
+        <Route path="/profile" element={<MenuProfile role={role} />} />
         {role === "dokter" ?(
           (<Route path="/profile/:id" element={<EditProfileDokter />} />)
         ):(<Route path="/profile/:id" element={<EditProfile />} />)}
@@ -105,9 +102,9 @@ function App() {
         <Route path="/forum/add" element={<BuatPertanyaan />} />
 
         <Route path="/forum/add" element={<BuatPertanyaan />} />
-        <Route path="/ambulance" element={<MenuAmbulance />} />
-        <Route path="/ambulance/biasa" element={<TingkatBiasa />} />
-        <Route path="/ambulance/darurat" element={<TingkatDarurat />} />
+        <Route path="/ambulan" element={<MenuAmbulance />} />
+        <Route path="/ambulan/biasa" element={<TingkatBiasa />} />
+        <Route path="/ambulan/darurat" element={<TingkatDarurat />} />
       </Routes>
     </div >
   )

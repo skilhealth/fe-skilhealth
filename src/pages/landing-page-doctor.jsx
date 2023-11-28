@@ -1,14 +1,10 @@
 import listSvg from "/src/assets/list-janji.svg"
 import TotalSvg from "/src/assets/total-pasien.svg"
-import janjiSvg from "/src/assets/janji-temu.svg"
-
-import forumPng from "/src/assets/forum.png"
-import Dumb from "../components/dumb-forum-card"
 import FooterLanding from "../components/footer"
-import ListJanjiPasien from "./list-janji-pasien"
 import moment from "moment/moment"
+import ForumCard from "../components/forum-card"
 
-function LandingPageDoctor() {
+function LandingPageDoctor({role}) {
     const data = [{
         status: "Belum Terjawab",
         user: "fulan",
@@ -29,7 +25,7 @@ function LandingPageDoctor() {
         spesialis: "Ahli Jantung",
         antrian: 8,
         total_pasien: 243,
-        role: "Dokter"
+        role: role
     }
     const pasien = [
         {
@@ -112,13 +108,13 @@ function LandingPageDoctor() {
                     </div>
                     <div className="flex-1 p-2 lg:p-4 rounded-2xl border-black bg-white">
                         <div className="flex justify-between">
-                            <h3 className="text-lg font-bold lg:text-2xl mb-2">Forum yang Belum Terjawab</h3>
+                            <h3 className="text-lg font-bold lg:text-2xl mb-2">Forum Belum Terjawab</h3>
                             <div className="font-semibold underline text-base text-red-700">Forum Lainnya</div>
                         </div>
                         <div className="flex flex-col border-none lg:flex-row gap-1 flex-wrap border justify-center">
                             {
                                 data.map((item) => (
-                                    <Dumb data={item} />
+                                    <ForumCard data={item} />
                                 ))
                             }
                         </div>

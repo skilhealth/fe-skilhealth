@@ -1,6 +1,12 @@
+import { useNavigate } from "react-router-dom"
+
 function DoctorCardDesk({data}) {
+    const navigate = useNavigate()
+    const  toDetail = () =>{
+        navigate(`/${data.id}`)
+    }
     return (
-        <div className="bg-slate-100 border-2 max-w-[198px] w-full h-max flex p-2 gap-3 flex-col items-center rounded-lg">
+        <div onClick={toDetail} className="bg-slate-100 border-2 max-w-[198px] w-full h-max flex p-2 gap-3 flex-col items-center rounded-lg">
             <div className="w-full">
                 <img src={`${data.img}`} alt="" className="rounded-xl h-full " />
             </div>
