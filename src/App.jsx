@@ -30,6 +30,9 @@ import EditProfile from "./pages/edit-profile"
 import CatatanMedis from "./pages/buat-uji-lab"
 import EditProfileDokter from "./pages/Edit-profile -Dokter"
 import Hospital from "./pages/rumah-sakit"
+import Forum from "./pages/forum"
+import Diskusi from "./pages/diskusi"
+import BuatPertanyaan from "./pages/buat-pertanyaan"
 
 function App() {
   const windowWidth = useRef(window.innerWidth);
@@ -55,7 +58,7 @@ function App() {
   }, []);
   return (
 
-    <>
+    <div className="flex flex-col h-screen">
       <Navbar role={role} isLogin={isLogin} />
       <Routes>
         {role === "dokter" ?(
@@ -93,8 +96,12 @@ function App() {
         <Route path="/ujilab/:id" element={<UjilabDetail />} />
 
         <Route path="/rumahsakit" element={<Hospital />} />
+
+        <Route path="/forum" element={<Forum />} />
+        <Route path="/forum/:id" element={<Diskusi />} />
+        <Route path="/forum/add" element={<BuatPertanyaan />} />
       </Routes>
-    </>
+    </div >
   )
 }
 export default App

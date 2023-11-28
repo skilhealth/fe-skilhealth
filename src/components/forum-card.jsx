@@ -5,7 +5,7 @@ function ForumCard({ data }) {
   const navigate = useNavigate();
 
   const toDiskusi = () => {
-    navigate("/diskusi", { state: { data } });
+    navigate(`${data.id}`, { state: { data } });
   };
 
   return (

@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Backbutton from "../components/back-button";
+import Backbutton from "../components/backbutton";
 import ForumCard from "../components/forum-card";
 import Pagination from "../components/pagination";
 
 function Forum() {
   const navigate = useNavigate();
+  const role = "dokte"
 
   const toBuatPertanyaan = () => {
-    navigate("/buat-pertanyaan");
+    navigate("add");
   };
 
   const [currentSudahTerjawabPage, setCurrentSudahTerjawabPage] = useState(1);
@@ -23,6 +24,7 @@ function Forum() {
 
   const forum = [
     {
+      id:1,
       status: "Sudah Terjawab",
       judul: "Susah Tidur di Malam Hari",
       user: "Fulan",
@@ -34,6 +36,7 @@ function Forum() {
         "Masalah tidur malam dapat disebabkan oleh berbagai faktor, dan solusinya dapat bervariasi tergantung pada penyebab spesifiknya. Cobalah untuk menjaga jadwal tidur yang tetap, bahkan pada akhir pekan. Hal ini membantu mengatur jam biologis tubuh dan meningkatkan kualitas tidur.",
     },
     {
+      id:2,
       status: "Belum Terjawab",
       judul: "Merasa Lelah di Pagi Hari",
       user: "Werner",
@@ -43,6 +46,7 @@ function Forum() {
       jawaban: "",
     },
     {
+      id:3,
       status: "Belum Terjawab",
       judul: "Merasa Lelah di Pagi Hari",
       user: "Werner",
@@ -52,6 +56,7 @@ function Forum() {
       jawaban: "",
     },
     {
+      id:4,
       status: "Belum Terjawab",
       judul: "Merasa Lelah di Pagi Hari",
       user: "Werner",
@@ -61,6 +66,7 @@ function Forum() {
       jawaban: "",
     },
     {
+      id:5,
       status: "Belum Terjawab",
       judul: "Merasa Lelah di Pagi Hari",
       user: "Werner",
@@ -70,6 +76,7 @@ function Forum() {
       jawaban: "",
     },
     {
+      id:6,
       status: "Belum Terjawab",
       judul: "Merasa Lelah di Pagi Hari",
       user: "Werner",
@@ -79,6 +86,7 @@ function Forum() {
       jawaban: "",
     },
     {
+      id:7,
       status: "Belum Terjawab",
       judul: "Merasa Lelah di Pagi Hari",
       user: "Werner",
@@ -88,6 +96,7 @@ function Forum() {
       jawaban: "",
     },
     {
+      id:8,
       status: "Belum Terjawab",
       judul: "Merasa Lelah di Pagi Hari",
       user: "Werner",
@@ -97,6 +106,7 @@ function Forum() {
       jawaban: "",
     },
     {
+      id:9,
       status: "Belum Terjawab",
       judul: "Merasa Lelah di Pagi Hari",
       user: "Werner",
@@ -106,6 +116,7 @@ function Forum() {
       jawaban: "",
     },
     {
+      id:10,
       status: "Sudah Terjawab",
       judul: "Sering Mual saat Sikat Gigi",
       user: "Kai",
@@ -115,6 +126,7 @@ function Forum() {
       jawaban: "Dijawab",
     },
     {
+      id:11,
       status: "Sudah Terjawab",
       judul: "Sering Mual saat Sikat Gigi",
       user: "Kai",
@@ -124,6 +136,7 @@ function Forum() {
       jawaban: "Dijawab",
     },
     {
+      id:12,
       status: "Sudah Terjawab",
       judul: "Sering Mual saat Sikat Gigi",
       user: "Kai",
@@ -133,6 +146,7 @@ function Forum() {
       jawaban: "Dijawab",
     },
     {
+      id:13,
       status: "Sudah Terjawab",
       judul: "Sering Mual saat Sikat Gigi",
       user: "Kai",
@@ -142,6 +156,7 @@ function Forum() {
       jawaban: "Dijawab",
     },
     {
+      id:14,
       status: "Sudah Terjawab",
       judul: "Sering Mual saat Sikat Gigi",
       user: "Kai",
@@ -151,6 +166,7 @@ function Forum() {
       jawaban: "Dijawab",
     },
     {
+      id:15,
       status: "Sudah Terjawab",
       judul: "Sering Mual saat Sikat Gigi",
       user: "Kai",
@@ -160,6 +176,7 @@ function Forum() {
       jawaban: "Dijawab",
     },
     {
+      id:16,
       status: "Sudah Terjawab",
       judul: "Sering Mual saat Sikat Gigi",
       user: "Kai",
@@ -169,6 +186,7 @@ function Forum() {
       jawaban: "Dijawab",
     },
     {
+      id:17,
       status: "Sudah Terjawab",
       judul: "Sering Mual saat Sikat Gigi",
       user: "Kai",
@@ -243,10 +261,10 @@ function Forum() {
     setCurrentBelumTerjawabPage(pageNumber);
 
   return (
-    <main className="p-4">
+    <main className="p-4 lg:px-24">
       <Backbutton nama="Forum Chat" />
       <button
-        className="bg-red-700 rounded-xl font-medium w-full text-lg text-white p-2 my-4"
+        className={`bg-red-700 rounded-xl font-medium w-full text-lg text-white p-2 my-4 ${role === "dokter"?"hidden":""}`}
         onClick={toBuatPertanyaan}
       >
         Buat Pertanyaan
@@ -259,26 +277,28 @@ function Forum() {
         value={searchTerm}
         onChange={handleSearchChange}
       />
+      <div className={`flex ${role === "dokter"? "flex-col-reverse":"flex-col"}`}>
+        <div>
+          <label className="text-2xl font-bold">Sudah Terjawab</label>
+          {sudahTerjawabContent}
+          <Pagination
+            currentPage={currentSudahTerjawabPage}
+            totalPages={totalSudahTerjawabPages}
+            onPageChange={onSudahTerjawabPageChange}
+          />
+        </div>
 
-      <div>
-        <label className="text-2xl font-bold">Sudah Terjawab</label>
-        {sudahTerjawabContent}
-        <Pagination
-          currentPage={currentSudahTerjawabPage}
-          totalPages={totalSudahTerjawabPages}
-          onPageChange={onSudahTerjawabPageChange}
-        />
+        <div className="mt-4">
+          <span className="text-2xl mt-4 font-bold">Belum Terjawab</span>
+          {belumTerjawabContent}
+          <Pagination
+            currentPage={currentBelumTerjawabPage}
+            totalPages={totalBelumTerjawabPages}
+            onPageChange={onBelumTerjawabPageChange}
+          />
+        </div>
       </div>
 
-      <div className="mt-4">
-        <span className="text-2xl mt-4 font-bold">Belum Terjawab</span>
-        {belumTerjawabContent}
-        <Pagination
-          currentPage={currentBelumTerjawabPage}
-          totalPages={totalBelumTerjawabPages}
-          onPageChange={onBelumTerjawabPageChange}
-        />
-      </div>
     </main>
   );
 }

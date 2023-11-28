@@ -1,12 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Backbutton from "../components/back-button";
+import Backbutton from "../components/backbutton";
 
 function BuatPertanyaan() {
   return (
-    <main className="p-4">
+    <main className="p-4 lg:px-24 flex flex-col items-center grow">
       <Backbutton nama="Buat Pertanyaan" />
-      <div className="mt-4">
+      <div className="mt-4 max-w-xl w-full">
         <span className="text-xl font-bold">Judul Diskusi</span>
         <input
           type="text"
@@ -14,7 +14,7 @@ function BuatPertanyaan() {
           placeholder="Masukkan Judul"
         />
       </div>
-      <div className="mt-4">
+      <div className="mt-4 max-w-xl w-full">
         <span className="text-xl font-bold">Keluhan</span>
         <input
           type="text"
@@ -22,7 +22,7 @@ function BuatPertanyaan() {
           placeholder="Masukkan Keluhan"
         />
       </div>
-      <div className="mt-48">
+      <div className="mt-auto max-w-xl w-full">
         <button className="bg-red-700 rounded-xl font-medium w-full text-lg text-white p-2">
           Kirim
         </button>

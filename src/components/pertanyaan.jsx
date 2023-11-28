@@ -1,6 +1,6 @@
 function Pertanyaan({data}){
     return(
-        <div className="flex flex-col m-4">
+        <div className="flex flex-col m-4 max-w-4xl w-full">
             <span>Kamis, 07 - 09 - 2023, 17:00 WIB</span>
             <span className="text-2xl font-bold">{data.judul}</span>
             <span className="text-lg ">Oleh: {data.user}</span>
