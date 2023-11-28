@@ -26,6 +26,8 @@ import { useState } from "react"
 import ListJanjiPasien from "./pages/list-janji-pasien"
 import HasilUjiLab from "./pages/hasil-ujilab-page.jsx"
 import BuatUjiLab from "./pages/buat-uji-lab"
+import MenuProfile from "./pages/menu-profile-page"
+import EditProfile from "./pages/edit-profile"
 
 function App() {
   const windowWidth = useRef(window.innerWidth);
@@ -65,6 +67,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/gantipass" element={<ChangePassword />} />
         <Route path="/otp" element={<OTPComponent />} />
+        <Route path="/profile" element={<MenuProfile />} />
+        <Route path="/profile/:id" element={<EditProfile />} />
         {windowWidth.current >= 1024 ?
           (<Route path="/doctor/search" element={<CariHasil />} />)
           : (<Route path="/doctor/search" element={<PencarianDokter />} />)}

@@ -22,7 +22,7 @@ const EditProfile = () => {
  };
 
  return (
-    <div>
+    <div className='p-4 lg:px-24'>
          <Backbutton nama= "Edit Profile" />
       <div className="bg-white-100 flex items-center justify-center py-12 px-4 lg:justify-center">
       <div className="max-w-md w-full space-y-4">
