@@ -41,7 +41,7 @@ function App() {
   const windowWidth = useRef(window.innerWidth);
   const windowHeight = useRef(window.innerHeight);
   const [isLogin, setLogin] = useState(true)
-  const [role,setRole]=useState("dokter");
+  const [role,setRole]=useState("dokter2");
 
   useEffect(() => {
     const handleResize = () => {

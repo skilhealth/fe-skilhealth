@@ -1,7 +1,10 @@
 
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import Backbutton from "../components/backbutton"
 function PencarianDokter() {
+    const navigate = useNavigate()
+
     const hari = [["Senin", "Monday"], ["Selasa", "Tuesday"], ["Rabu", "Wednesday"], ["Kamis", "Thursday"], ["Jumat", "Friday"], ["Sabtu", "Satuday"], ["Minggu", "Sunday"]]
     const area = ["DKI Jakarta", "Jawa Tengah", "Jawa Barat", "Banten", "Jawa Timur", "Kalimantan"]
     const rs = ["Skilvul Hospital Jakarta", "Skilvul Hospital Bandung", "Skilvul Hospital Surabaya", "Skilvul Hospital Semarang", "Skilvul Hospital Balikpapan"]
@@ -48,10 +51,11 @@ function PencarianDokter() {
                 ...SearchDoc,
                 Lanjutan: {
                     ...SearchDoc.Lanjutan,
-                    "tipe":METODE,
+                    "tipe": METODE,
                 }
             };
-            console.log(SearchDoc)
+        console.log(SearchDoc)
+        navigate("/doctor")
     }
 
     return (

@@ -3,8 +3,10 @@ import DoctorDetail from "../components/doctor-detail"
 import JadwalDokter from "../components/jadwal-dokter"
 import moment from "moment/moment"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 function DataDokter() {
+    const navigate  = useNavigate()
     const [idJadwal,setIdJadwal] = useState()
     const [harga, useHarga] = useState(0)
     const data = {
@@ -56,6 +58,7 @@ function DataDokter() {
             keterangan:""
         }
         console.log(newBooking)
+        navigate("/booking/pembayaran")
     }
     const { jadwal } = data.data
     return (

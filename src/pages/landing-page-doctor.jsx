@@ -101,7 +101,7 @@ function LandingPageDoctor({role}) {
                             <h3 className="text-lg font-bold lg:text-2xl mb-2">Forum Belum Terjawab</h3>
                             <Link to="/forum" className="font-semibold underline text-base text-red-700">Forum Lainnya</Link>
                         </div>
-                        <div className="flex flex-col border-none lg:flex-row gap-1 flex-wrap border justify-center">
+                        <div className="flex flex-col border-none lg:flex-row flex-wrap border justify-center">
                             {
                                 data.map((item) => (
                                     <ForumCard data={item} />

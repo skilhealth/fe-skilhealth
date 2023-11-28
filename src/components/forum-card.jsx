@@ -10,7 +10,7 @@ function ForumCard({ data }) {
 
   return (
     <section
-      className="bg-slate-100 w-full flex p-4 rounded-xl lg:min-w-[370px] flex-1"
+      className="bg-slate-100 w-full flex p-4 rounded-xl lg:min-w-[370px] flex-1 mb-2"
       onClick={toDiskusi}
     >
       <div className="flex flex-col justify-center">
