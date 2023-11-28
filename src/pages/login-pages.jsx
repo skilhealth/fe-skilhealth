@@ -21,8 +21,6 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setError(validation(values));
-
-    
  };
 
  return (
@@ -69,7 +67,7 @@ const Login = () => {
                  {errors.password && <span className='text-red-600'>{errors.password}</span>}
             </div>
           </div>
-          <div className='flex items-center justify-between'>
+          <div className='flex ml-2 items-center justify-between'>
             <label className="flex items-center cursor-pointer">
                 <input id="customCheckLogin" type="checkbox" className="form-checkbox text-gray-800 ml-1 w-5 h-5 ease-linear transition-all duration-150" defaultChecked />
                 <span className="ml-2 text-lg font-semibold text-black-700 ">Ingat Saya</span>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import imgSkilhealth from "../assets/LogoSkilhealth.png";
+//import {useHistory} from 'react-router-dom'
 
 const OTPComponent = () => {
  const [email, setEmail] = useState('');
@@ -9,10 +10,17 @@ const OTPComponent = () => {
  const handleSubmit = (e) => {
     e.preventDefault();
     // handle the submit logic here
+
  };
 
  const handleVerify = () => {
     // handle the verification logic here
+    // Logic here
+    // Navigate ke "UbahPassword Page"
+
+    // Success message
+    alert('Verifikasi Berhasil')
+
  };
 
  const handleSendCode = () => {
@@ -90,7 +98,6 @@ const OTPComponent = () => {
             </button>
           </div>
 
-          
           <div className="text-center text-sm text-gray-500">
             Belum menerima kode OTP?{' '}
             <button
