@@ -20,10 +20,15 @@ import Login from "./pages/login-pages"
 import Register from "./pages/register.pages";
 import ChangePassword from "./pages/ubah-password-page";
 import OTPComponent from "./pages/ubah-password-otp-pages";
+import LandingPageDoctor from "./pages/landing-page-doctor"
+import LandingPage from "./pages/landing-page"
+import { useState } from "react"
 
 function App() {
   const windowWidth = useRef(window.innerWidth);
   const windowHeight = useRef(window.innerHeight);
+  const [isLogin, setLogin] = useState(true)
+  const [role,setRole]=useState("dokter");
 
   useEffect(() => {
     const handleResize = () => {
@@ -44,8 +49,11 @@ function App() {
   return (
 
     <>
-      <Navbar />
+      <Navbar role={role} isLogin={isLogin} />
       <Routes>
+        {role === "dokter" ?(
+          (<Route path="/" element={<LandingPageDoctor />} />)
+        ):(<Route path="/" element={<LandingPage />} />)}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/gantipass" element={<ChangePassword />} />
