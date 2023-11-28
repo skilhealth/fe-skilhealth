@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import backicon from "../assets/back-button.png"
+import { useNavigate } from "react-router-dom"
+import backicon from "../assets/back-button.png"
 
 function Backbutton({nama}){
     const history = useNavigate()
