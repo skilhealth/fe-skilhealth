@@ -16,13 +16,12 @@ function BuatPertanyaan() {
       </div>
       <div className="mt-4">
         <span className="text-xl font-bold">Keluhan</span>
-        <input
-          type="text"
-          className="bg-white h-72 w-full border-2 border-black rounded-xl px-4 py-2 text-base text-left align-top"
+        <textarea
+          className="bg-white h-72 w-full border-2 border-black rounded-xl px-4 py-2 mt-2 text-base"
           placeholder="Masukkan Keluhan"
         />
       </div>
-      <div className="mt-48">
+      <div className="mt-14">
         <button className="bg-red-700 rounded-xl font-medium w-full text-lg text-white p-2">
           Kirim
         </button>
