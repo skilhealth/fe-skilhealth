@@ -26,34 +26,28 @@ function Forum({role}) {
       "id": 1,
       "user_id": 1,
       "dokter_id": '',
-      "judul": "Susah tidur di malam Hari",
-      "pertanyaan": "Tiap malam susah tidur tae",
+      "judul": "Pusing saat bangun",
+      "pertanyaan": "Mengapa tiap pagi saat bangun tidur kepala saya selalu pusing ya dok?",
       "jawaban": "",
       "status": false,
       "createdAt": "2023-11-29T08:22:46.000Z",
       "updatedAt": "2023-11-29T08:41:49.000Z",
-      "Dokter": {
-        "id": 1,
-        "nama": "Udin",
-        "Spesiali": {
-          "nama": "Ahli Jantung"
-        }
-      },
+      "Dokter": '',
       "User": {
         "id": 1,
         "nama": "Udin"
       }
     },
     {
-      "id": 1,
+      "id": 2,
       "user_id": 1,
       "dokter_id": 1,
       "judul": "Susah tidur di malam Hari",
       "pertanyaan": "Tiap malam susah tidur tae",
-      "jawaban": "Lololol part 2",
+      "jawaban": "Kurangi begadang",
       "status": true,
       "createdAt": "2023-11-29T08:22:46.000Z",
-      "updatedAt": "2023-11-29T08:41:49.000Z",
+      "updatedAt": "2023-11-30T08:41:49.000Z",
       "Dokter": {
         "id": 1,
         "nama": "Udin",

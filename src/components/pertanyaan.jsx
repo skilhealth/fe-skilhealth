@@ -2,7 +2,7 @@ import React from "react";
 
 function Pertanyaan({ data }) {
   const formatDate = (dateString) => {
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true };
     const formattedDate = new Date(dateString).toLocaleDateString('id-ID', options);
     return formattedDate;
   };
