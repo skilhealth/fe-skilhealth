@@ -18,12 +18,12 @@ function ForumCard({ data }) {
           {/* status */}
           <span
             className={
-              data.status === "Sudah Terjawab"
+              data.status
                 ? "text-green-500 font-semibold text-xs"
                 : "text-red-500 font-semibold text-xs"
             }
           >
-            {data.status}
+            {data.status ? "Sudah Terjawab" : "Belum Terjawab"}
           </span>
 
           {/* title */}
@@ -31,11 +31,14 @@ function ForumCard({ data }) {
         </div>
         <div className="flex flex-col">
           {/* sender */}
-          <span className="">Oleh: {data.user}</span>
+          <span className="">Oleh: {data.User.nama}</span>
 
           {/* answer */}
-          
-          <span className={`${data.dokter?"":"hidden"}`}>Dijawab: {data.dokter}</span>
+          {data.status && (
+            <span className={`${data.Dokter ? "" : "hidden"}`}>
+              Dijawab: {data.Dokter.nama}
+            </span>
+          )}
         </div>
       </div>
     </section>

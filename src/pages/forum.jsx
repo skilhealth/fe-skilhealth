@@ -23,184 +23,55 @@ function Forum({role}) {
 
   const forum = [
     {
-      id:1,
-      status: "Sudah Terjawab",
-      judul: "Susah Tidur di Malam Hari",
-      user: "Fulan",
-      dokter: "Dr. Mira Iskandar",
-      spesialis: "Dokter Umum",
-      pertanyaan:
-        "Dok, saya punya masalah soal tidur. Setiap malam, ntah kenapa walaupun saya ngantuk dan berusaha mau tidur, walaupun udah baring berjam-jam ga tidur-tidur dok. Apakah ada solusi?",
-      jawaban:
-        "Masalah tidur malam dapat disebabkan oleh berbagai faktor, dan solusinya dapat bervariasi tergantung pada penyebab spesifiknya. Cobalah untuk menjaga jadwal tidur yang tetap, bahkan pada akhir pekan. Hal ini membantu mengatur jam biologis tubuh dan meningkatkan kualitas tidur.",
+      "id": 1,
+      "user_id": 1,
+      "dokter_id": '',
+      "judul": "Susah tidur di malam Hari",
+      "pertanyaan": "Tiap malam susah tidur tae",
+      "jawaban": "",
+      "status": false,
+      "createdAt": "2023-11-29T08:22:46.000Z",
+      "updatedAt": "2023-11-29T08:41:49.000Z",
+      "Dokter": {
+        "id": 1,
+        "nama": "Udin",
+        "Spesiali": {
+          "nama": "Ahli Jantung"
+        }
+      },
+      "User": {
+        "id": 1,
+        "nama": "Udin"
+      }
     },
     {
-      id:2,
-      status: "Belum Terjawab",
-      judul: "Merasa Lelah di Pagi Hari",
-      user: "Werner",
-      dokter: "",
-      spesialis: "",
-      pertanyaan: "Bertanya",
-      jawaban: "",
-    },
-    {
-      id:3,
-      status: "Belum Terjawab",
-      judul: "Merasa Lelah di Pagi Hari",
-      user: "Werner",
-      dokter: "",
-      spesialis: "",
-      pertanyaan: "Bertanya",
-      jawaban: "",
-    },
-    {
-      id:4,
-      status: "Belum Terjawab",
-      judul: "Merasa Lelah di Pagi Hari",
-      user: "Werner",
-      dokter: "",
-      spesialis: "",
-      pertanyaan: "Bertanya",
-      jawaban: "",
-    },
-    {
-      id:5,
-      status: "Belum Terjawab",
-      judul: "Merasa Lelah di Pagi Hari",
-      user: "Werner",
-      dokter: "",
-      spesialis: "",
-      pertanyaan: "Bertanya",
-      jawaban: "",
-    },
-    {
-      id:6,
-      status: "Belum Terjawab",
-      judul: "Merasa Lelah di Pagi Hari",
-      user: "Werner",
-      dokter: "",
-      spesialis: "",
-      pertanyaan: "Bertanya",
-      jawaban: "",
-    },
-    {
-      id:7,
-      status: "Belum Terjawab",
-      judul: "Merasa Lelah di Pagi Hari",
-      user: "Werner",
-      dokter: "",
-      spesialis: "",
-      pertanyaan: "Bertanya",
-      jawaban: "",
-    },
-    {
-      id:8,
-      status: "Belum Terjawab",
-      judul: "Merasa Lelah di Pagi Hari",
-      user: "Werner",
-      dokter: "",
-      spesialis: "",
-      pertanyaan: "Bertanya",
-      jawaban: "",
-    },
-    {
-      id:9,
-      status: "Belum Terjawab",
-      judul: "Merasa Lelah di Pagi Hari",
-      user: "Werner",
-      dokter: "",
-      spesialis: "",
-      pertanyaan: "Bertanya",
-      jawaban: "",
-    },
-    {
-      id:10,
-      status: "Sudah Terjawab",
-      judul: "Sering Mual saat Sikat Gigi",
-      user: "Kai",
-      dokter: "Dr. Havertz",
-      spesialis: "Dokter Umum",
-      pertanyaan: "Bertanya",
-      jawaban: "",
-    },
-    {
-      id:11,
-      status: "Sudah Terjawab",
-      judul: "Sering Mual saat Sikat Gigi",
-      user: "Kai",
-      dokter: "Dr. Havertz",
-      pertanyaan: "Bertanya",
-      spesialis: "Dokter Umum",
-      jawaban: "",
-    },
-    {
-      id:12,
-      status: "Sudah Terjawab",
-      judul: "Sering Mual saat Sikat Gigi",
-      user: "Kai",
-      dokter: "Dr. Havertz",
-      spesialis: "Dokter Umum",
-      pertanyaan: "Bertanya",
-      jawaban: "",
-    },
-    {
-      id:13,
-      status: "Sudah Terjawab",
-      judul: "Sering Mual saat Sikat Gigi",
-      user: "Kai",
-      dokter: "Dr. Havertz",
-      spesialis: "Dokter Umum",
-      pertanyaan: "Bertanya",
-      jawaban: "",
-    },
-    {
-      id:14,
-      status: "Sudah Terjawab",
-      judul: "Sering Mual saat Sikat Gigi",
-      user: "Kai",
-      dokter: "Dr. Havertz",
-      spesialis: "Dokter Umum",
-      pertanyaan: "Bertanya",
-      jawaban: "",
-    },
-    {
-      id:15,
-      status: "Sudah Terjawab",
-      judul: "Sering Mual saat Sikat Gigi",
-      user: "Kai",
-      dokter: "Dr. Havertz",
-      spesialis: "Dokter Umum",
-      pertanyaan: "Bertanya",
-      jawaban: "",
-    },
-    {
-      id:16,
-      status: "Sudah Terjawab",
-      judul: "Sering Mual saat Sikat Gigi",
-      user: "Kai",
-      dokter: "Dr. Havertz",
-      spesialis: "Dokter Umum",
-      pertanyaan: "Bertanya",
-      jawaban: "",
-    },
-    {
-      id:17,
-      status: "Sudah Terjawab",
-      judul: "Sering Mual saat Sikat Gigi",
-      user: "Kai",
-      dokter: "Dr. Havertz",
-      spesialis: "Dokter Umum",
-      pertanyaan: "Bertanya",
-      jawaban: "",
-    },
+      "id": 1,
+      "user_id": 1,
+      "dokter_id": 1,
+      "judul": "Susah tidur di malam Hari",
+      "pertanyaan": "Tiap malam susah tidur tae",
+      "jawaban": "Lololol part 2",
+      "status": true,
+      "createdAt": "2023-11-29T08:22:46.000Z",
+      "updatedAt": "2023-11-29T08:41:49.000Z",
+      "Dokter": {
+        "id": 1,
+        "nama": "Udin",
+        "Spesiali": {
+          "nama": "Ahli Jantung"
+        }
+      },
+      "User": {
+        "id": 1,
+        "nama": "Udin"
+      }
+    }
   ];
 
-  //sudah terjawab
   const totalSudahTerjawabPages = Math.ceil(
     forum.filter(
       (item) =>
-        item.status === "Sudah Terjawab" &&
+        item.status === true &&
         item.judul.toLowerCase().includes(searchTerm.toLowerCase())
     ).length / forumsPerPage
   );
@@ -211,7 +82,7 @@ function Forum({role}) {
   const currentSudahTerjawabForumsSlice = forum
     .filter(
       (item) =>
-        item.status === "Sudah Terjawab" &&
+        item.status === true &&
         item.judul.toLowerCase().includes(searchTerm.toLowerCase())
     )
     .slice(indexOfFirstSudahTerjawabForum, indexOfLastSudahTerjawabForum);
@@ -220,7 +91,7 @@ function Forum({role}) {
   const totalBelumTerjawabPages = Math.ceil(
     forum.filter(
       (item) =>
-        item.status === "Belum Terjawab" &&
+        item.status === false &&
         item.judul.toLowerCase().includes(searchTerm.toLowerCase())
     ).length / forumsPerPage
   );
@@ -231,7 +102,7 @@ function Forum({role}) {
   const currentBelumTerjawabForumsSlice = forum
     .filter(
       (item) =>
-        item.status === "Belum Terjawab" &&
+        item.status === false &&
         item.judul.toLowerCase().includes(searchTerm.toLowerCase())
     )
     .slice(indexOfFirstBelumTerjawabForum, indexOfLastBelumTerjawabForum);

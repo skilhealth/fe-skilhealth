@@ -35,7 +35,6 @@ import TingkatDarurat from "./pages/tingkat-darurat"
 
 import { Route, Routes } from "react-router-dom"
 import { useRef,useEffect,useState  } from "react"
-import DiskusiDokter from "./pages/diskusi-dokter"
 
 function App() {
   const windowWidth = useRef(window.innerWidth);
