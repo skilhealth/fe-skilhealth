@@ -9,7 +9,7 @@ function Jawaban({ data }) {
   };
 
   return (
-    <div className={`bg-slate-200 w-full h-auto flex flex-col px-4 py-2 mt-2 rounded-xl max-w-4xl ${data.jawaban ? "" : "hidden"}`}>
+    <div className={`bg-slate-200 w-full h-auto flex flex-col px-4 py-2 mt-2 m-4 rounded-xl max-w-4xl ${data.jawaban ? "" : "hidden"}`}>
       <span>{formatDate(data.updatedAt)}</span>
       <div className="flex flex-row gap-2 items-center">
         <img src={Logo} alt="logo" className="w-8 h-8 object-cover" />

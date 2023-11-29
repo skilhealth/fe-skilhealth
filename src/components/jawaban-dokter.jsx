@@ -1,6 +1,6 @@
 function JawabanDokter() {
   return (
-    <div className="w-full h-auto flex flex-col py-2 mt-2">
+    <div className="w-full h-auto flex flex-col py-2 mt-2 m-4">
       <div className="mt-4">
         <span className="text-xl font-bold">Jawaban</span>
         <textarea

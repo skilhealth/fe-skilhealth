@@ -12,7 +12,7 @@ function Pertanyaan({ data }) {
       <span>{formatDate(data.createdAt)}</span>
       <span className="text-2xl font-bold">{data.judul}</span>
       <span className="text-lg">Oleh: {data.User.nama}</span>
-      <p className="mt-4">{data.pertanyaan}</p>
+      <p className="mt-4 border-b border-black">{data.pertanyaan}</p>
     </div>
   );
 }
