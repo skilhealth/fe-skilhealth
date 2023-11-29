@@ -1,21 +1,21 @@
 import refresh from "../assets/refresh.png"
 
-function CheckInCard({data}) {
+function CheckInCard({ data }) {
     return (
         <div className=" shadow-lg w-full flex p-4 items-center bg-slate-200 rounded-lg">
             <div className="grow">
-                <div className="flex gap-4 items-center w-full font-medium">
-                    <div className=" bg-green-400 rounded-lg w-4 h-4"></div>
-                    {data.status}
+                <div className="flex items-center gap-2 text-sm">
+                    <div className={`w-4 h-4 rounded-full ${data.status ? "bg-green-500" : "bg-red-500"} `}></div>
+                    {data.status ? "Aktif" : "Tidak Aktif"}
                 </div>
                 <div className="text-2xl font-bold">
                     {data.nama}
                 </div>
                 <div className="font-medium">
-                    {data.spesialis}
+                    {data.Spesiali.nama}
                 </div>
                 <div className="font-medium">
-                    {data.rs}
+                    {data.Instansi.nama}
                 </div>
             </div>
             <div className="">

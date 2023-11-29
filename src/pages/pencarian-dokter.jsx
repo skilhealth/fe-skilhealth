@@ -20,7 +20,7 @@ function PencarianDokter() {
     const handleSearch = (e) => {
         e.preventDefault()
         let SearchDoc = {}
-        if (NAMA !== "") SearchDoc.nama = NAMA;
+        if (NAMA !== "") SearchDoc.nama = NAMA.toLowerCase();
         if (HARI !== "") SearchDoc.hari = HARI;
         if (AREA !== "")
             SearchDoc = {
@@ -55,7 +55,7 @@ function PencarianDokter() {
                 }
             };
         console.log(SearchDoc)
-        navigate("/doctor")
+        navigate("/doctor", { state: { SearchDoc } })
     }
 
     return (
