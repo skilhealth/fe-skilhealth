@@ -2,13 +2,12 @@ import Backbutton from "../components/backbutton";
 import imgambulancedarurat from "../assets/darurat.png";
 import iconTlpn from "../assets/icontlpn.png";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 
 
 const TingkatDarurat =  () => {
     const [catatan, setCatatan] = useState('');
-
-
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -30,8 +29,10 @@ const TingkatDarurat =  () => {
                      <h5 className="font-bold">3-200-911</h5>
                      </div>
                      <div className="ml-12 mb-6 w-16 h-16 rounded-lg bg-red-700">
+                     <Link to="/statuss">
                          <img className="w-8 h-8 ml-3 mt-4" src={iconTlpn}></img>
                          <p className="font-bold mt-5">Telepon</p>
+                    </Link>
                      </div>
                     
                  </div>
@@ -39,13 +40,15 @@ const TingkatDarurat =  () => {
 
                  
         <div className="relative w-full h-96 px-4 py-4 bg-gray-100 rounded-lg sm:text-sm">
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-2 gap-12">
+          <h5 className="font-bold">Nomor Kendaraan : </h5>
+            <p className="font-semibold"></p>
              <h5 className="font-bold">Tingkat Pelayanan : </h5>
-             <p className="font-semibold">ALS ( Advanced Life Support)</p>
+             <p className="font-semibold"></p>
              <h5 className="font-bold">Paramedis : </h5>
-             <p className="font-semibold">Christopher White,Jessica Martinez,Michael Smith & Emily Davis</p>
+             <p className="font-semibold"></p>
              <h5 className="font-bold">Perlengkapan Ambulance: </h5>
-             <p className="font-semibold">Peralatan Pertolongan Pertama,Perangkat Pernapasan, AED, Perangkat Pemindahan Pasien & Peralatan Tambahan</p>
+             <p className="font-semibold"></p>
           </div>
          </div>
 
