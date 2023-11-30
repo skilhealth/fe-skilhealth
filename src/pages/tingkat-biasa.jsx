@@ -5,6 +5,11 @@ import { useState } from "react";
 
 const TingkatBiasa =  () => {
     const [catatan, setCatatan] = useState('');
+    const [showStatus, setShowStatus] = useState(false);
+
+    const handleButtonClick = () => {
+        setShowStatus(true);
+    };
 
 
 
@@ -28,7 +33,8 @@ const TingkatBiasa =  () => {
                      <h5 className="font-bold">2-200-911</h5>
                      </div>
                      <div className="ml-12 mb-6 w-16 h-16 rounded-lg bg-red-700">
-                         <img className="w-8 h-8 ml-3 mt-4" src={iconTlpn}></img>
+                      <button onClick={handleButtonClick}><img className="w-8 h-8 ml-3 mt-4" src={iconTlpn}></img></button>
+                      {showStatus && <statusAmbulance status="Menuju Lokasi ..."/> }
                          <p className="font-bold mt-8">Telepon</p>
                      </div>
                     
