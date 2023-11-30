@@ -37,15 +37,15 @@ const TingkatBiasa =  () => {
 
                  
          <div className="relative w-full h-96 px-4 py-4 bg-gray-100 rounded-lg sm:text-sm">
-          <div className="grid grid-cols-2 gap-12">
+          <div className="grid grid-cols-2 gap-6">
              <h5 className="font-bold">Nomor Kendaraan : </h5>
-             <p>Nomor Kendaraan  </p>
+             <p className="font-semibold">B 4814 SW</p>
              <h5 className="font-bold">Tingkat Pelayanan : </h5>
-             <p>Nomor Kendaraan  </p>
+             <p className="font-semibold">BLS ( Ambulans Basic Life Support )</p>
              <h5 className="font-bold">Paramedis : </h5>
-             <p>Nomor Kendaraan  </p>
+             <p className="font-semibold">Sarah Johnson, Daniel Brown, David Wilson & Amanda Clark</p>
              <h5 className="font-bold">Perlengkapan Ambulance: </h5>
-             <p>Nomor Kendaraan  </p>
+             <p className="font-semibold">Peralatan Pertolongan Pertama,Perangkat Pernapasan, AED,Perangkat Pemindahan Pasien & Peralatan Tambahan</p>
           </div>
          </div>
 

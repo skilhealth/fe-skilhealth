@@ -23,9 +23,9 @@ const TingkatDarurat =  () => {
                  <div className="grid-cols-3 gap-4 px-4 py-4 items-center lg: flex justify-around">
                      <div>
                      <img className="w-20 h-19 " src={imgambulancedarurat}></img>
-                     <p className="font-bold ml-4">Darurat</p>
+                     <p className="font-bold ml-4 mt-2">Darurat</p>
                      </div>
-                     <div>
+                     <div className="ml-5">
                      <h5 className="font-semibold">Hubungi Kami</h5>
                      <h5 className="font-bold">3-200-911</h5>
                      </div>
@@ -38,16 +38,14 @@ const TingkatDarurat =  () => {
                  <h1 className="text-2xl font-bold mt-16">Detail Ambulance</h1>
 
                  
-         <div className="relative w-full h-96 px-4 py-4 bg-gray-100 rounded-lg sm:text-sm">
-          <div className="grid grid-cols-2 gap-12">
-             <h5 className="font-bold">Nomor Kendaraan : </h5>
-             <p>Nomor Kendaraan  </p>
+        <div className="relative w-full h-96 px-4 py-4 bg-gray-100 rounded-lg sm:text-sm">
+          <div className="grid grid-cols-2 gap-6">
              <h5 className="font-bold">Tingkat Pelayanan : </h5>
-             <p>Nomor Kendaraan  </p>
+             <p className="font-semibold">ALS ( Advanced Life Support)</p>
              <h5 className="font-bold">Paramedis : </h5>
-             <p>Nomor Kendaraan  </p>
+             <p className="font-semibold">Christopher White,Jessica Martinez,Michael Smith & Emily Davis</p>
              <h5 className="font-bold">Perlengkapan Ambulance: </h5>
-             <p>Nomor Kendaraan  </p>
+             <p className="font-semibold">Peralatan Pertolongan Pertama,Perangkat Pernapasan, AED, Perangkat Pemindahan Pasien & Peralatan Tambahan</p>
           </div>
          </div>
 

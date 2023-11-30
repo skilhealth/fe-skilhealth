@@ -1,0 +1,5 @@
+function statusAmbulance() {
+    <div>
+        
+    </div>
+}
