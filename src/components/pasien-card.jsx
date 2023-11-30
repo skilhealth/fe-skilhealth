@@ -2,12 +2,12 @@ import moment from "moment/moment"
 import "moment/locale/id"
 import { useNavigate } from "react-router-dom"
 
-function PasienCard({data}) {
+function PasienCard({ data }) {
     console.log(data)
     const navigate = useNavigate()
-    const toJanjiDetail = (e) =>{
+    const toJanjiDetail = (e) => {
         e.preventDefault()
-        if(!data.ujilab) return navigate(`/janjipasien/${data.id}/add`)
+        if (!data.ujilab) return navigate(`/janjipasien/${data.id}/add`, { state: { data } })
 
         return navigate(`/janjipasien/${data.id}`)
     }
@@ -18,7 +18,7 @@ function PasienCard({data}) {
             </div>
             <div className="flex flex-col">
                 <div className="text-sm flex items-center gap-2">
-                    <div className={` p-1 rounded-lg ${(data.status ==false)?"bg-yellow-400":"bg-slate-400"}`}>{data.status == false?"Belum Mulai":"Selesai"}</div>
+                    <div className={` p-1 rounded-lg ${(data.status == false) ? "bg-yellow-400" : "bg-slate-400"}`}>{data.status == false ? "Belum Mulai" : "Selesai"}</div>
                 </div>
                 <div className="text-xl lg:text-2xl font-bold">{data.User.nama}</div>
                 <div className="lg:text-lg font-medium">{data.Jadwal.tipe} , {moment(data.Jadwal.date).format("DD MMMM YYYY")}</div>

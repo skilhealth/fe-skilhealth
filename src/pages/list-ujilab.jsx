@@ -2,10 +2,38 @@ import Backbutton from "../components/backbutton"
 import UjiLabCard from "../components/ujilab-card"
 import 'moment/locale/id'
 import moment from "moment/moment"
+import { useState } from "react"
+import axios from "axios"
+import { useEffect } from "react"
 // get ujilab by user id
 function ListUjiLab() {
+    const [listuji, setUji] = useState(null)
+    const id = localStorage.getItem("userid")
+    const token = localStorage.getItem("token")
+    const role = localStorage.getItem("role")
     moment.locale('id')
-    const {data} = {
+    const Uji = async () => {
+        try {
+            const response = await axios.get(`http://localhost:4000/ujilab?user=${id}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+            console.log(response.data.data)
+            return response.data.data
+        } catch (err) {
+            console.error(err)
+        }
+    }
+    useEffect(() => {
+        const fetchData = async (id) => {
+            const listuji = await Uji(id);
+            setUji(listuji)
+        }
+        fetchData(id)
+    }, [])
+    console.log(listuji)
+    const { data } = {
         "message": "Menampilkan Ujilab",
         "data": [
             {
@@ -42,16 +70,16 @@ function ListUjiLab() {
             }
         ]
     }
+    if(!listuji)return(
+        <div></div>
+    );
     return (
         <div className="p-4 flex flex-col lg:px-24 items-center">
             <Backbutton nama="Rekam Medis" />
             <div className="flex flex-col max-w-5xl w-full">
-                <form action="" className="w-full mb-4">
-                    <input className="border-2 w-full text-lg rounded-lg p-4 border-black" type="text" name="" id="" placeholder="Cari Nomor Rekam Medis" />
-                </form>
                 <h3 className="text-2xl font-bold mb-4">Riwayat Rekam Medis</h3>
                 {
-                    data.map((item) => (
+                    listuji.map((item) => (
                         <UjiLabCard data={item} />
                     ))
                 }

@@ -8,7 +8,7 @@ export const userContext = createContext()
 function UserProvider({ children }) {
     const [user, setUser] = useState(null);
     const [token, setToken] = useState("");
-    const [role, setRole] = useState("");
+    const [role, setRole] = useState("pasien");
 
     const [id, setId] = useState("");
 

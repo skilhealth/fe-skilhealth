@@ -10,8 +10,8 @@ import axios from "axios"
 function BookingDetailPage() {
     const [dataAntrian, setAntrian] = useState()
     const token = localStorage.getItem("token")
-    moment.locale("id")
     const navigate = useNavigate()
+    moment.locale("id")
     function Kapital(str) {
         return str.charAt(0).toUpperCase() + str.slice(1);
     }
@@ -56,60 +56,60 @@ function BookingDetailPage() {
     //         }
     //     }
     // }
-    const { data, antrian } = {
-        "message": "Antrian Berhasil ditemukan",
-        "data": {
-            "id": 1,
-            "status": true,
-            "token": "QL62FE",
-            "Dokter": {
-                "id": 1,
-                "nama": "Dr. Jane Smith",
-                "status": true,
-                "deskripsi": "Dokter spesialis mata",
-                "skd": "987654321",
-                "pengalaman": "[\"Rumah Sakit Anu\",\"Rumah Sakit Ani\"]",
-                "images": "/images/dokter/doctor1.png",
-                "no_tlp": "0881024656367",
-                "pendidikan": "[\"Universitas XYZ\",\"Universitas ABC\"]",
-                "Instansi": {
-                    "nama": "Skilvul Hospital Jakarta"
-                },
-                "Spesiali": {
-                    "nama": "Ahli Jantung"
-                },
-                "Jadwals": [
-                    {
-                        "date": "2023-11-25T00:00:00.000Z",
-                        "tipe": "daring",
-                        "status": true
-                    },
-                    {
-                        "date": "2023-11-26T00:00:00.000Z",
-                        "tipe": "reguler",
-                        "status": true
-                    },
-                    {
-                        "date": "2023-11-27T00:00:00.000Z",
-                        "tipe": "reguler",
-                        "status": true
-                    },
-                    {
-                        "date": "2023-11-28T00:00:00.000Z",
-                        "tipe": "reguler",
-                        "status": true
-                    }
-                ]
-            },
-            "Jadwal": {
-                "id": 1,
-                "date": "2023-11-25T00:00:00.000Z",
-                "tipe": "reguler",
-                "status": false
-            }
-        },
-        "antrian": 0
-    }
+    // const { data, antrian } = {
+    //     "message": "Antrian Berhasil ditemukan",
+    //     "data": {
+    //         "id": 1,
+    //         "status": true,
+    //         "token": "QL62FE",
+    //         "Dokter": {
+    //             "id": 1,
+    //             "nama": "Dr. Jane Smith",
+    //             "status": true,
+    //             "deskripsi": "Dokter spesialis mata",
+    //             "skd": "987654321",
+    //             "pengalaman": "[\"Rumah Sakit Anu\",\"Rumah Sakit Ani\"]",
+    //             "images": "/images/dokter/doctor1.png",
+    //             "no_tlp": "0881024656367",
+    //             "pendidikan": "[\"Universitas XYZ\",\"Universitas ABC\"]",
+    //             "Instansi": {
+    //                 "nama": "Skilvul Hospital Jakarta"
+    //             },
+    //             "Spesiali": {
+    //                 "nama": "Ahli Jantung"
+    //             },
+    //             "Jadwals": [
+    //                 {
+    //                     "date": "2023-11-25T00:00:00.000Z",
+    //                     "tipe": "daring",
+    //                     "status": true
+    //                 },
+    //                 {
+    //                     "date": "2023-11-26T00:00:00.000Z",
+    //                     "tipe": "reguler",
+    //                     "status": true
+    //                 },
+    //                 {
+    //                     "date": "2023-11-27T00:00:00.000Z",
+    //                     "tipe": "reguler",
+    //                     "status": true
+    //                 },
+    //                 {
+    //                     "date": "2023-11-28T00:00:00.000Z",
+    //                     "tipe": "reguler",
+    //                     "status": true
+    //                 }
+    //             ]
+    //         },
+    //         "Jadwal": {
+    //             "id": 1,
+    //             "date": "2023-11-25T00:00:00.000Z",
+    //             "tipe": "reguler",
+    //             "status": false
+    //         }
+    //     },
+    //     "antrian": 0
+    // }
     const handleEdit = (e) => {
         e.preventDefault()
         navigate("edit")

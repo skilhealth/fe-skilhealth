@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect } from "react"
 import { useState } from "react"
 import { useLocation, useParams } from "react-router-dom";
@@ -13,11 +14,15 @@ function CatatanMedis() {
     const [dataAPI, setData] = useState({})
 
     const location = useLocation();
+    const datatrow= location.state && location.state.data
+    const userid = datatrow.User.id
+    const { id } = useParams()
+    const dokId = localStorage.getItem("userid")
+    const token = localStorage.getItem("token")
 
     const currentPath = location.pathname;
 
     const isAddPath = currentPath.includes("/edit");
-    const { id } = useParams()
     useEffect(() => {
         if (isAddPath) {
             setData({
@@ -54,6 +59,20 @@ function CatatanMedis() {
     useEffect(() => {
         console.log(status)
     }, [status])
+    const addUjiLab = async (data) => {
+        try {
+            const response = await axios.post("http://localhost:4000/ujilab/add", data,{
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+            console.log(response.data.message)
+            return response.data
+        } catch (err) {
+            console.error(err)
+        }
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault()
         if (isAddPath) {
@@ -68,14 +87,16 @@ function CatatanMedis() {
             return console.log("ini Edit", editUjilab);
         }
         const addUjilab = {
-            "antrian_id": 1,
-            "user_id": 2,
-            "dokter_id": 1,
+            "antrian_id": id,
+            "user_id": userid,
+            "dokter_id":dokId ,
             "judul": judul,
             "keluhan": keluhan,
             "diagnosa": diagnosa,
             "catatan": catatan,
         }
+        addUjiLab(addUjilab)
+        
         return console.log("ini add", addUjilab);
     }
     return (
@@ -119,4 +140,5 @@ function CatatanMedis() {
         </main>
     )
 }
+
 export default CatatanMedis
