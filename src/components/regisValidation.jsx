@@ -11,25 +11,25 @@ function Validation(values) {
         error.nama = ""
     }
 
-    if(values.dateOfBirth === "") {
-        error.dateOfBirth = " Tanggal tidak boleh kosong"
+    if(values.tgl_lahir === "") {
+        error.tgl_lahir = " Tanggal tidak boleh kosong"
     }
     else {
-        error.dateOfBirth = ""
+        error.tgl_lahir = ""
     }
 
-    if(values.gender === "") {
-        error.gender = "Jenis Kelamin tidak boleh kosong"
+    if(values.jenis_kelamin === "") {
+        error.jenis_kelamin = "Jenis Kelamin tidak boleh kosong"
     }
     else {
-        error.gender = ""
+        error.jenis_kelamin = ""
     }
 
-    if(values.phoneNumber === "") {
-        error.phoneNumber = "Nomor telephone tidak boleh kosong"
+    if(values.no_tlp === "") {
+        error.no_tlp = "Nomor telephone tidak boleh kosong"
     }
     else {
-        error.phoneNumber = ""
+        error.no_tlp = ""
     }
 
     
@@ -51,13 +51,13 @@ function Validation(values) {
         error.password = ""
     }
 
-    if(values.confirmPassword === "") {
-        error.confirmPassword ="Konfirmasi Password tidak boleh kosong"
+    if(values.confirmasiPassword === "") {
+        error.confirmasiPassword ="Konfirmasi Password tidak boleh kosong"
     }
-    else if(password !== confirmPassword) {
-        error.confirmPassword = "Password tidak sama"
+    else if(password !== confirmasiPassword) {
+        error.confirmasiPassword = "Password tidak sama"
     } else {
-        error.confirmPassword = ""
+        error.confirmasiPassword = ""
     }
     return error;
 }

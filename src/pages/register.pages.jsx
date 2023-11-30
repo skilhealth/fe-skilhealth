@@ -1,30 +1,43 @@
 import React, { useState } from 'react';
 import imgSkilhealth from "../assets/LogoSkilhealth.png";
 import Backbutton from "../components/backbutton";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Validation from '../components/regisValidation';
+import { useContext } from 'react';
+import { userContext } from '../context/user-provider';
 
 
 const Register = () => {
+  const navigate = useNavigate()
+  const {Register} =  useContext(userContext)
   const [values, setValues] = useState({
     nama: '',
-    dateOfBirth: '',
-    gender: '',
-    phoneNumber: '',
+    tgl_lahir: '',
+    no_tlp: '',
     email: '',
     password: '',
-    confirmPassword: ''
+    confirmasiPassword: '',
+    role: 'pasien',
+    images:'/images/users/user.png'
   })
 
   const [errors, setError] = useState({})
 
   const handleInput = (e) => {
-    setValues(prev => ({ ...prev, [e.target.name]: [e.target.value] }))
+    setValues(prev => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setError(Validation(values));
+    const message = Register(values)
+    if(message){
+      alert(message)
+      navigate("/login")
+    }
+    else{
+      alert("Registrasi gagal")
+    }
   }
 
   return (
@@ -55,34 +68,34 @@ const Register = () => {
             <div>
               <h3 className="mt-8 space-y-6 block font-sans text-xl font-bold ">Tanggal Lahir</h3>
               <input
-                id="dateOfBirth"
-                name="dateOfBirth"
+                id="tgl_lahir"
+                name="tgl_lahir"
                 type="date"
-                autoComplete="dateOfBirth"
+                autoComplete="tgl_lahir"
                 className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
                 placeholder="Masukan Tanggal Lahir"
                 onChange={handleInput} />
-              {errors.dateOfBirth && <span className='text-red-600'>{errors.dateOfBirth}</span>}
+              {errors.no_tlp && <span className='text-red-600'>{errors.no_tlp}</span>}
             </div>
             <div>
               <h3 className="mt-8 space-y-6 block font-sans text-xl font-bold">Jenis Kelamin</h3>
-              <select onChange={handleInput} name='jenis kelamin' className='px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm '>
+              <select onChange={handleInput} name='jenis_kelamin' className='px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm '>
                 <option value="">Pilih jenis kelamin</option>
-                <option value="1">Laki-Laki</option>
-                <option value="2">Perempuan</option>
+                <option value="laki-laki">Laki-Laki</option>
+                <option value="perempuan">Perempuan</option>
               </select>
 
               <div>
                 <h3 className="mt-8 space-y-6 block font-sans text-xl font-bold">No.Telepon</h3>
                 <input
-                  id="phoneNumber"
-                  name="phoneNumber"
+                  id="no_tlp"
+                  name="no_tlp"
                   type="tel"
-                  autoComplete="phoneNumber"
+                  autoComplete="no_tlp"
                   className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
                   placeholder="Masukan No.Telepon"
                   onChange={handleInput} />
-                {errors.phoneNumber && <span className='text-red-600'>{errors.phoneNumber}</span>}
+                {errors.no_tlp && <span className='text-red-600'>{errors.no_tlp}</span>}
               </div>
               <div>
                 <h3 className="mt-8 space-y-6 block font-sans text-xl font-bold">Email</h3>
@@ -111,14 +124,14 @@ const Register = () => {
               <div>
                 <h3 className="mt-8 space-y-6 block font-sans text-xl font-bold">Konfirmasi Password</h3>
                 <input
-                  id="confirmPassword"
-                  name="confirmPassword"
+                  id="confirmasiPassword"
+                  name="confirmasiPassword"
                   type="password"
                   autoComplete="new-password"
                   className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
                   placeholder="Konfirmasi Password"
                   onChange={handleInput} />
-                {errors.confirmPassword && <span className='text-red-600'>{errors.confirmPassword}</span>}
+                {errors.confirmasiPassword && <span className='text-red-600'>{errors.confirmasiPassword}</span>}
               </div>
             </div>
 

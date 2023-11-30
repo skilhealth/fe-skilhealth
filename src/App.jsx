@@ -34,36 +34,28 @@ import TingkatBiasa from "./pages/tingkat-biasa"
 import TingkatDarurat from "./pages/tingkat-darurat"
 
 import { Route, Routes } from "react-router-dom"
-import { useRef,useEffect,useState  } from "react"
+import { useEffect, useState } from "react"
+import { useContext } from "react"
+import { userContext } from "./context/user-provider"
 
 function App() {
-  const windowWidth = useRef(window.innerWidth);
-  const windowHeight = useRef(window.innerHeight);
-  const [isLogin, setLogin] = useState(true)
-  const [role,setRole]=useState("dokterr");
-
+  const { user } = useContext(userContext)
+  const windowWidth = window.innerWidth;
+  console.log(user)
+  const [isLogin, setLogin] = useState()
   useEffect(() => {
-    const handleResize = () => {
-      windowWidth.current = window.innerWidth;
-      windowHeight.current = window.innerHeight;
-    };
+    if (user === null) setLogin(false);
+    if (user != null) setLogin(true)
+  }, [user])
+  const [role, setRole] = useState();
 
-    // Tambahkan event listener untuk mendengarkan perubahan ukuran window
-    window.addEventListener('resize', handleResize);
-
-    // Cleanup event listener pada saat komponen di-unmount
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
   return (
-
     <div className="flex flex-col w-full">
       <Navbar role={role} isLogin={isLogin} />
       <Routes>
-        {role === "dokter" ?(
+        {role === "dokter" ? (
           (<Route path="/" element={<LandingPageDoctor role={role} />} />)
-        ):(<Route path="/" element={<LandingPage role={role} />} />)} 
+        ) : (<Route path="/" element={<LandingPage role={role} />} />)}
         <Route path="/janjipasien" element={<ListJanjiPasien />} />
         <Route path="/janjipasien/:id" element={<HasilUjiLab />} />
         <Route path="/janjipasien/:id/add" element={<CatatanMedis />} />
@@ -74,10 +66,10 @@ function App() {
         <Route path="/gantipass" element={<ChangePassword />} />
         <Route path="/otp" element={<OTPComponent />} />
         <Route path="/profile" element={<MenuProfile role={role} />} />
-        {role === "dokter" ?(
+        {role === "dokter" ? (
           (<Route path="/profile/:id" element={<EditProfileDokter />} />)
-        ):(<Route path="/profile/:id" element={<EditProfile />} />)}
-        
+        ) : (<Route path="/profile/:id" element={<EditProfile />} />)}
+
         {windowWidth.current >= 1024 ?
           (<Route path="/doctor/search" element={<CariHasil />} />)
           : (<Route path="/doctor/search" element={<PencarianDokter />} />)}
