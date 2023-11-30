@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import imgSkilhealth from "../assets/LogoSkilhealth.png";
+import imgSkilhealth from "../assets/logoapp.png";
 import Backbutton from '../components/backbutton';
 
 const ChangePassword = () => {
