@@ -90,7 +90,7 @@ function App() {
         <Route path="/rumahsakit" element={<Hospital />} />
 
         <Route path="/forum" element={<Forum role={role} />} />
-        <Route path="/forum/:id" element={<Diskusi role={role} />} />
+        <Route path="/forum/:id" element={<Diskusi />} />
         <Route path="/forum/tanya" element={<BuatPertanyaan />} />
 
         <Route path="/ambulan" element={<MenuAmbulance />} />

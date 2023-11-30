@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Backbutton from "../components/backbutton";
 import ForumCard from "../components/forum-card";
 import Pagination from "../components/pagination";
+import { forumContext } from "../context/forum-provider";
 
-function Forum({role}) {
+function Forum() {
+  const {role,forum} = useContext(forumContext)
   const navigate = useNavigate();
 
   const toBuatPertanyaan = () => {
@@ -21,46 +23,9 @@ function Forum({role}) {
     setSearchTerm(event.target.value);
   };
 
-  const forum = [
-    {
-      "id": 1,
-      "user_id": 1,
-      "dokter_id": '',
-      "judul": "Pusing saat bangun",
-      "pertanyaan": "Mengapa tiap pagi saat bangun tidur kepala saya selalu pusing ya dok?",
-      "jawaban": "",
-      "status": false,
-      "createdAt": "2023-11-29T08:22:46.000Z",
-      "updatedAt": "2023-11-29T08:41:49.000Z",
-      "Dokter": '',
-      "User": {
-        "id": 1,
-        "nama": "Udin"
-      }
-    },
-    {
-      "id": 2,
-      "user_id": 1,
-      "dokter_id": 1,
-      "judul": "Susah tidur di malam Hari",
-      "pertanyaan": "Tiap malam susah tidur tae",
-      "jawaban": "Kurangi begadang",
-      "status": true,
-      "createdAt": "2023-11-29T08:22:46.000Z",
-      "updatedAt": "2023-11-30T08:41:49.000Z",
-      "Dokter": {
-        "id": 1,
-        "nama": "Udin",
-        "Spesiali": {
-          "nama": "Ahli Jantung"
-        }
-      },
-      "User": {
-        "id": 1,
-        "nama": "Udin"
-      }
-    }
-  ];
+  if (!forum) {
+    return <div>Loading...</div>; 
+  }
 
   const totalSudahTerjawabPages = Math.ceil(
     forum.filter(
@@ -123,7 +88,7 @@ function Forum({role}) {
     setCurrentSudahTerjawabPage(pageNumber);
   const onBelumTerjawabPageChange = (pageNumber) =>
     setCurrentBelumTerjawabPage(pageNumber);
-
+    
   return (
     <main className="p-4 lg:px-24 flex flex-col items-center w-full">
       <Backbutton nama="Forum Chat" />

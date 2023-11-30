@@ -4,8 +4,11 @@ import JawabanDokter from "../components/jawaban-dokter";
 
 import Pertanyaan from "../components/pertanyaan";
 import { useLocation } from "react-router-dom";
+import { useContext } from "react";
+import { forumContext } from "../context/forum-provider";
 
-function Diskusi({role}) {
+function Diskusi() {
+  const {forum,role} = useContext(forumContext)
   const location = useLocation();
   const data = location.state && location.state.data;
   return (
