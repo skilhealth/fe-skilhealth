@@ -8,20 +8,32 @@ export const userContext = createContext()
 function UserProvider({ children }) {
     const [user, setUser] = useState(null);
     const [token, setToken] = useState("");
+    const [role, setRole] = useState("");
+
     const [id, setId] = useState("");
 
     useEffect(() => {
         setToken(localStorage.getItem("token"))
         setId(localStorage.getItem("userid"))
+        setRole(localStorage.getItem("role"))
     }, [])
     const fetchData = async (id) => {
         try {
             console.log(id)
-            const response = await axios.get(`http://localhost:4000/user/${id}`, {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            });
+            let response = null
+            if (role === "dokter") {
+                response = await axios.get(`http://localhost:4000/dokter/${id}`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+            } else {
+                response = await axios.get(`http://localhost:4000/user/${id}`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+            }
             console.log(response.data)
             setUser(response.data);
         } catch (error) {
@@ -37,14 +49,14 @@ function UserProvider({ children }) {
     const Login = async (konten) => {
         try {
             const response = await axios.post("http://localhost:4000/auth/login", konten)
+            console.log(response.data.user)
             setUser(response.data.user)
             localStorage.setItem("token", response.data.token)
             localStorage.setItem("userid", response.data.user.id)
             localStorage.setItem("role", response.data.user.role)
-            console.log(response.data.user)
             return response.data.user
         } catch (err) {
-            console.error(err.response.data.message)
+            console.error(err)
         }
     }
     const Register = async (konten) => {
@@ -64,7 +76,7 @@ function UserProvider({ children }) {
         setUser(null)
     }
     return (
-        <userContext.Provider value={{ user, Login, Register, Logout }} >
+        <userContext.Provider value={{ user, role, Login, Register, Logout }} >
             {children}
         </userContext.Provider>
     )

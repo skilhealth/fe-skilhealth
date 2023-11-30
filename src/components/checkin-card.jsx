@@ -1,6 +1,13 @@
 import refresh from "../assets/refresh.png"
 
-function CheckInCard({ data }) {
+function CheckInCard({ data,booking,setCheckin,id }) {
+    const handleRefresh = () =>{
+        const fetchData = async () => {
+            const antrianData = await booking(id);
+            setCheckin(antrianData);
+        };
+        fetchData();
+    }
     return (
         <div className=" shadow-lg w-full flex p-4 items-center bg-slate-200 rounded-lg">
             <div className="grow">
@@ -19,7 +26,7 @@ function CheckInCard({ data }) {
                 </div>
             </div>
             <div className="">
-                <button className="bg-red-700 text-white text-2xl font-medium w-24 rounded-xl aspect-square box-border p-7">
+                <button onClick={handleRefresh} className="bg-red-700 text-white text-2xl font-medium w-24 rounded-xl aspect-square box-border p-7">
                     <img src={refresh} alt="" className="invert" />
                 </button>
             </div>

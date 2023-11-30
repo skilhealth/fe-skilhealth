@@ -8,7 +8,7 @@ import { useLocation } from "react-router-dom";
 function Homecare() {
     moment.locale('id');
     const location = useLocation()
-    const data = location.state && location.state.data
+    const data = location.state && location.state.dataAntrian
     return (
         <div className="p-4 lg:px-24">
             <Backbutton nama="Status Dokter" />

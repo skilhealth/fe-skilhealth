@@ -1,15 +1,42 @@
 import moment from "moment/moment"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import Backbutton from "../components/backbutton"
 import DoctorDetail from "../components/doctor-detail"
 import "moment/locale/id"
+import { useState } from "react"
+import { useEffect } from "react"
+import axios from "axios"
 
 function BookingDetailPage() {
+    const [dataAntrian, setAntrian] = useState()
+    const token = localStorage.getItem("token")
     moment.locale("id")
     const navigate = useNavigate()
     function Kapital(str) {
         return str.charAt(0).toUpperCase() + str.slice(1);
     }
+    const Booking = async (id) => {
+        try {
+            const response = await axios.get(`http://localhost:4000/bookings/${id}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+            console.log(response)
+            return response.data.data
+        } catch (err) {
+            console.error(err)
+        }
+    }
+
+    const { id } = useParams()
+    useEffect(() => {
+        const fetchData = async () => {
+            const antrianData = await Booking(id);
+            setAntrian(antrianData);
+        };
+        fetchData();
+    }, [id]);
     // const { data } = {
     //     data: {
     //         nama: "Dr. Jaydon Schleifer",
@@ -29,7 +56,7 @@ function BookingDetailPage() {
     //         }
     //     }
     // }
-    const { data,antrian } = {
+    const { data, antrian } = {
         "message": "Antrian Berhasil ditemukan",
         "data": {
             "id": 1,
@@ -83,25 +110,24 @@ function BookingDetailPage() {
         },
         "antrian": 0
     }
-    const handleEdit = (e)=>{
+    const handleEdit = (e) => {
         e.preventDefault()
         navigate("edit")
     }
-    const handleRefund = (e)=>{
+    const handleRefund = (e) => {
         e.preventDefault()
         navigate("refund")
     }
     const handleIn = (e) => {
         e.preventDefault()
-        console.log(data.Jadwal.tipe)
-        if (data.Jadwal.tipe === "reguler") {
-            navigate("reguler", { state: { data,antrian } });
+        if (dataAntrian.Jadwal.tipe === "reguler") {
+            navigate("reguler");
         }
-        if (data.Jadwal.tipe === "daring") {
-            navigate("daring", { state: { data,antrian } });
+        if (dataAntrian.Jadwal.tipe === "daring") {
+            navigate("daring", { state: { dataAntrian } });
         }
-        if (data.Jadwal.tipe === "homecare") {
-            navigate("homecare", { state: { data,antrian } });
+        if (dataAntrian.Jadwal.tipe === "homecare") {
+            navigate("homecare", { state: { dataAntrian} });
         }
     }
 
@@ -110,18 +136,21 @@ function BookingDetailPage() {
         if (data.Jadwal.tipe === "daring") return "bg-yellow-500 text-black";
         return "bg-red-800 text-white"
     }
-    const tgl = moment(data.Jadwal.date)
-
+    if (!dataAntrian) {
+        return (
+            <div></div>
+        )
+    }
     return (
         <div className="p-4 lg:px-24 flex flex-col">
             <Backbutton nama="Informasi Jadwal" />
             <div className="flex flex-col lg:flex-row">
-                <DoctorDetail data={data.Dokter} />
+                <DoctorDetail data={dataAntrian.Dokter} />
                 <div className=" shadow-2xl w-full lg:h-min lg:shadow-none lg:max-w-md lg:border-2 border-slate-500 p-4 rounded-xl">
                     <div className="font-medium pb-4 border-b-4">
-                        <div className={`inline p-2 rounded-lg ${tipe(data)}`}>{Kapital(data.Jadwal.tipe)}</div>
-                        <div className="mt-2">{tgl.format('dddd')}, {tgl.format("DD MMMM yyyy")}</div>
-                        <div>{data.Dokter.Instansi.nama}</div>
+                        <div className={`inline p-2 rounded-lg ${tipe(dataAntrian)}`}>{Kapital(dataAntrian.Jadwal.tipe)}</div>
+                        <div className="mt-2">{moment(dataAntrian.Jadwal.date).format('dddd')}, {moment(dataAntrian.Jadwal.date).format("DD MMMM yyyy")}</div>
+                        <div>{dataAntrian.Dokter.Instansi.nama}</div>
                     </div>
                     <div className="flex flex-col gap-1 mt-4 font-bold">
                         <button onClick={handleIn} className="border-4 border-red-700 bg-red-700 p-2 text-white rounded-xl">Masuk</button>

@@ -39,7 +39,7 @@ import { useContext } from "react"
 import { userContext } from "./context/user-provider"
 
 function App() {
-  const { user } = useContext(userContext)
+  const { user,role } = useContext(userContext)
   const windowWidth = window.innerWidth;
   console.log(user)
   const [isLogin, setLogin] = useState()
@@ -47,8 +47,6 @@ function App() {
     if (user === null) setLogin(false);
     if (user != null) setLogin(true)
   }, [user])
-  console.log(user)
-  const [role, setRole] = useState();
 
   return (
     <div className="flex flex-col w-full">

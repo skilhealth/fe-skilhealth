@@ -48,9 +48,7 @@ function HasilCariPage() {
                             <DoctorCard key={index} data={item} />
                         ))
                     )
-
                 }
-
             </div>
         </div>
     )

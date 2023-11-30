@@ -3,65 +3,41 @@ import qrcode from "../assets/qrcode.png"
 import CheckInDetail from "../components/checkin-detail"
 import CheckInCard from "../components/checkin-card"
 import moment from "moment/moment"
-import { useLocation } from "react-router-dom"
+import { useLocation, useParams } from "react-router-dom"
+import { useState } from "react"
+import axios from "axios"
+import { useEffect } from "react"
 
 function CheckIn() {
-    const {data,antrian} = {
-        "message": "Antrian Berhasil ditemukan",
-        "data": {
-            "id": 1,
-            "status": false,
-            "token": "QL62FE",
-            "Dokter": {
-                "id": 1,
-                "nama": "Dr. Jane Smith",
-                "status": false,
-                "deskripsi": "Dokter spesialis mata",
-                "skd": "987654321",
-                "pengalaman": "[\"Rumah Sakit Anu\",\"Rumah Sakit Ani\"]",
-                "images": "url_gambar_dokter",
-                "no_tlp": "081234567891",
-                "pendidikan": "[\"Universitas XYZ\",\"Universitas ABC\"]",
-                "Instansi": {
-                    "nama": "Skilvul Hospital Jakarta"
-                },
-                "Spesiali": {
-                    "nama": "Ahli Jantung"
-                },
-                "Jadwals": [
-                    {
-                        "date": "2023-11-25T00:00:00.000Z",
-                        "tipe": "daring",
-                        "status": true
-                    },
-                    {
-                        "date": "2023-11-26T00:00:00.000Z",
-                        "tipe": "reguler",
-                        "status": true
-                    },
-                    {
-                        "date": "2023-11-27T00:00:00.000Z",
-                        "tipe": "reguler",
-                        "status": true
-                    },
-                    {
-                        "date": "2023-11-28T00:00:00.000Z",
-                        "tipe": "reguler",
-                        "status": true
-                    }
-                ]
-            },
-            "Jadwal": {
-                "id": 1,
-                "date": "2023-11-25T00:00:00.000Z",
-                "tipe": "daring",
-                "status": true
-            }
-        },
-        "antrian": {
-            "sisa": 0,
-            "ke": 1
+    const [checkin, setCheckin] = useState()
+    const token = localStorage.getItem("token")
+    const Booking = async (id) => {
+        try {
+            const response = await axios.get(`http://localhost:4000/bookings/${id}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+            console.log(response.data)
+            return response.data
+        } catch (err) {
+            console.error(err)
         }
+    }
+    const { id } = useParams()
+    useEffect(() => {
+        const fetchData = async () => {
+            const antrianData = await Booking(id);
+            setCheckin(antrianData);
+        };
+        fetchData();
+    }, [id]);
+    console.log(checkin)
+
+    if (!checkin) {
+        return (
+            <div></div>
+        )
     }
     return (
         <div className="p-4 lg:py-10 flex flex-col items-center">
@@ -71,8 +47,8 @@ function CheckIn() {
                     <img src={qrcode} alt="" className="lg:h-[480px]" />
                 </div>
                 <div className="lg:flex-1 lg:flex lg:flex-col-reverse lg:justify-end lg:py-8">
-                    <CheckInDetail antrian={antrian} token={data.token} tgl={moment(data.Jadwal.date)} />
-                    <CheckInCard data={data.Dokter} />
+                    <CheckInDetail antrian={checkin.antrian} token={checkin.data.token} tgl={moment(checkin.data.Jadwal.date)} />
+                    <CheckInCard data={checkin.data.Dokter} booking={Booking} setCheckin={(data)=>setCheckin(data)} id={id}/>
                 </div>
             </div>
         </div>
