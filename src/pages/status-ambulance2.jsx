@@ -2,7 +2,7 @@ import status from "../assets/status.png"
 import { useState } from "react";
 import Backbutton from "../components/backbutton";
 
-const StatusAmbulance = ()  => {
+const StatusAmbulancee = ()  => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -11,7 +11,7 @@ const StatusAmbulance = ()  => {
 
     return (
     <div>
-         <Backbutton  nama= "Biasa" />
+         <Backbutton  nama= "Darurat" />
         <div className="bg-white-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
             <div className="w-full max-w-3xl mx-auto bg-gray-100 rounded-lg p-6">
             <img className="w-40 h-30 mx-auto" src={status}></img>
@@ -27,15 +27,15 @@ const StatusAmbulance = ()  => {
                 <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                         <h5 className="font-bold">Nomor Kendaraan:</h5>
-                        <p className="font-semibold">B 4814 SW</p>
+                        <p className="font-semibold">B 4234 RS</p>
                     </div>
                     <div>
                         <h5 className="font-bold">Tingkat Pelayanan:</h5>
-                        <p className="font-semibold">BLS ( Ambulans Basic Life Support )</p>
+                        <p className="font-semibold">ALS ( Advanced Life Support)</p>
                     </div>
                     <div>
                         <h5 className="font-bold">Paramedis:</h5>
-                        <p className="font-semibold">Sarah Johnson, Daniel Brown, David Wilson & Amanda Clark</p>
+                        <p className="font-semibold">Christopher White,Jessica Martinez,Michael Smith & Emily Davis</p>
                     </div>
                     <div>
                         <h5 className="font-bold">Perlengkapan Ambulance:</h5>
@@ -67,4 +67,4 @@ const StatusAmbulance = ()  => {
     )  
 }
 
-export default StatusAmbulance
+export default StatusAmbulancee

@@ -30,6 +30,8 @@ import Forum from "./pages/forum"
 import Diskusi from "./pages/diskusi"
 import BuatPertanyaan from "./pages/buat-pertanyaan"
 import MenuAmbulance from "./pages/menu-ambulance"
+import StatusAmbulance from "./pages/status-ambulance"
+import StatusAmbulancee from "./pages/status-ambulance2"
 import TingkatBiasa from "./pages/tingkat-biasa"
 import TingkatDarurat from "./pages/tingkat-darurat"
 
@@ -39,7 +41,7 @@ import { useContext } from "react"
 import { userContext } from "./context/user-provider"
 
 function App() {
-  const { user,role } = useContext(userContext)
+  const { user, role } = useContext(userContext)
   const windowWidth = window.innerWidth;
   console.log(user)
   const [isLogin, setLogin] = useState()
@@ -50,7 +52,7 @@ function App() {
 
   return (
     <div className="flex flex-col w-full">
-      <Navbar role={role} isLogin={isLogin} setLogin={(logout)=>setLogin(logout)}/>
+      <Navbar role={role} isLogin={isLogin} setLogin={(logout) => setLogin(logout)} />
       <Routes>
         {role === "dokter" ? (
           (<Route path="/" element={<LandingPageDoctor role={role} />} />)
@@ -95,7 +97,9 @@ function App() {
 
         <Route path="/ambulan" element={<MenuAmbulance />} />
         <Route path="/ambulan/biasa" element={<TingkatBiasa />} />
-        <Route path="/ambulan/darurat" element={<TingkatDarurat />} />
+        <Route path="/ambulan/darurat" element={<TingkatDarurat />}/>
+        <Route path="/ambulan/status" element={<StatusAmbulance />} />
+        <Route path="/ambulan/status2" element={<StatusAmbulancee />} />
       </Routes>
     </div >
   )
