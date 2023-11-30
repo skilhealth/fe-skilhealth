@@ -1,9 +1,12 @@
 import { useEffect } from "react"
+import { useContext } from "react"
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import { userContext } from "../context/user-provider"
 import Logo from "/LogoSkilHealth.png"
-function Navbar({ role, isLogin }) {
+function Navbar({ role, isLogin,setLogin }) {
     const [navbar, setNav] = useState(false)
+    const {Logout} = useContext(userContext)
 
     useEffect(() => {
         handleNavbar()
@@ -11,6 +14,12 @@ function Navbar({ role, isLogin }) {
     }, [])
     const handleNavbar = (e) => {
         (navbar) ? setNav(false) : setNav(true)
+    }
+    const handleLogout = () => {
+        if(isLogin){
+            Logout()
+            setLogin(false)
+        }
     }
     return (
         <nav className=" bg-red-700 w-full h-20 text-lg lg:text-base font-bold lg:px-24 lg:flex z-50">
@@ -41,7 +50,7 @@ function Navbar({ role, isLogin }) {
                     <li className="py-4 lg:px-4 lg:py-2 text-center border-slate-200 lg:border-2 lg:rounded-lg lg:bg-white lg:text-red-700 border-b-2">{(isLogin) ? "Profile" : "Register"}</li>
                 </Link>
                 <Link to={`${isLogin ? "/" : "/login"}`}>
-                    <li className="py-4 lg:px-4 lg:py-2 text-center border-slate-200 lg:border-2 lg:rounded-lg border-b-2">{(isLogin) ? "Logout" : "Login"}</li>
+                    <li onClick={handleLogout} className="py-4 lg:px-4 lg:py-2 text-center border-slate-200 lg:border-2 lg:rounded-lg border-b-2">{(isLogin) ? "Logout" : "Login"}</li>
                 </Link>
             </ul>
         </nav>

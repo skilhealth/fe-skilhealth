@@ -7,6 +7,8 @@ import axios from "axios"
 import { useEffect } from "react"
 function DataDokter() {
     const navigate = useNavigate()
+    const idUser = localStorage.getItem("userid")
+    const token = localStorage.getItem("token")
     const [dataDokter, setDataDokter] = useState()
     const [idJadwal, setIdJadwal] = useState()
     const [harga, useHarga] = useState(0)
@@ -33,107 +35,25 @@ function DataDokter() {
         };
         fetchData();
     }, [id]);
-    // const data = {
-    //     data: {
-    //         id:1,
-    //         nama: "Dr. Jaydon Schleifer",
-    //         status: "Sedang Dirumah Sakit",
-    //         spesialis: "Ahli Jantung",
-    //         rs: "Skilvul Hospital Jakarta",
-    //         keterangan: "Dr. Jaydon Schleifer adalah seorang spesialis jantung berpengalaman dengan lebih dari 15 tahun praktik medis.Saat ini Beliau praktik di skilvul Hospital Jakarta.",
-    //         skd: 10297361028361,
-    //         pengalaman: ["RSD UNI", "RSU ANU"],
-    //         pendidikan: ["Universitas Singaperbangsa Karawang"],
-    //         img: "/images/dokter/doctor1.png",
-    //         jadwal: [{
-    //             id:1,
-    //             hari: "Senin",
-    //             tgl: moment("2023-12-14").format("DD-MM-YYYY"),
-    //             tipe: "Regular",
-    //             harga: 60000
-    //         }, {
-    //             id:2,
-    //             hari: "Rabu",
-    //             tgl: moment("2023-12-15").format("DD-MM-YYYY"),
-    //             tipe: "Homecare",
-    //             harga: 80000
-    //         },
-    //         {
-    //             id:3,
-    //             hari: "Sabtu",
-    //             tgl: moment("2023-12-17").format("DD-MM-YYYY"),
-    //             tipe: "Daring",
-    //             harga: 30000
-    //         }, {
-    //             id:4,
-    //             hari: "Minggu",
-    //             tgl: moment("2023-12-18").format("DD-MM-YYYY"),
-    //             tipe: "Regular",
-    //             harga: 60000
-    //         }]
-    //     }
-    // }
-
-    // const { data } = {
-    //     "message": "Dokter Berhasil ditemukan",
-    //     "data": {
-    //         "nama": "Dr. Jane Smith",
-    //         "id": 1,
-    //         "status": false,
-    //         "deskripsi": "Dr. Jaydon Schleifer adalah seorang spesialis jantung berpengalaman dengan lebih dari 15 tahun praktik medis.Saat ini Beliau praktik di skilvul Hospital Jakarta.",
-    //         "skd": "987654321",
-    //         "pengalaman": "[\"Rumah Sakit Anu\",\"Rumah Sakit Ani\"]",
-    //         "images": "/images/dokter/doctor1.png",
-    //         "pendidikan": "[\"Universitas XYZ\",\"Universitas ABC\"]",
-    //         "Instansi": {
-    //             "nama": "Skilvul Hospital Jakarta"
-    //         },
-    //         "Spesiali": {
-    //             "nama": "Ahli Jantung"
-    //         },
-    //         "Jadwals": [
-    //             {
-    //                 "id": 1,
-    //                 "date": "2023-11-25T00:00:00.000Z",
-    //                 "tipe": "daring",
-    //                 "status": true,
-    //                 "harga": 30000
-    //             },
-    //             {
-    //                 "id": 2,
-    //                 "date": "2023-11-26T00:00:00.000Z",
-    //                 "tipe": "reguler",
-    //                 "status": true,
-    //                 "harga": 50000
-    //             },
-    //             {
-    //                 "id": 3,
-    //                 "date": "2023-11-27T00:00:00.000Z",
-    //                 "tipe": "reguler",
-    //                 "status": true,
-    //                 "harga": 50000
-    //             },
-    //             {
-    //                 "id": 4,
-    //                 "date": "2023-11-28T00:00:00.000Z",
-    //                 "tipe": "reguler",
-    //                 "status": true,
-    //                 "harga": 50000
-    //             }
-    //         ]
-    //     }
-    // }
-    const handleBooking = (e) => {
+    const handleBooking = async (e) => {
         e.preventDefault()
         const newBooking = {
-            dokter_id: data.id,
-            user_id: 1,
+            doctor_id: dataDokter.id,
+            user_id: +idUser,
             jadwal_id: idJadwal,
             keterangan: ""
         }
         console.log(newBooking)
         console.log(Payment)
-        // pake post booking/
+        const addBooking = async (newBooking) => {
+            const response = await axios.post("http://localhost:4000/bookings", newBooking, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+            console.log(response.data.message)
+        }
+        await addBooking(newBooking)
         navigate("/booking/pembayaran", { state: { via: Payment, harga: harga }, })
     }
     if (!dataDokter) {

@@ -52,7 +52,7 @@ function App() {
 
   return (
     <div className="flex flex-col w-full">
-      <Navbar role={role} isLogin={isLogin} />
+      <Navbar role={role} isLogin={isLogin} setLogin={(logout)=>setLogin(logout)}/>
       <Routes>
         {role === "dokter" ? (
           (<Route path="/" element={<LandingPageDoctor role={role} />} />)

@@ -22,15 +22,16 @@ function UserProvider({ children }) {
                     Authorization: `Bearer ${token}`
                 }
             });
-            console.log(response.data.user)
-            setUser(response.data.user);
+            console.log(response.data)
+            setUser(response.data);
         } catch (error) {
             console.error('Error fetching user data:', error);
         }
     }
-    if (token) {
+    useEffect(() => {
         fetchData(id)
-    }
+    }, [token])
+    console.log(user)
 
 
     const Login = async (konten) => {
@@ -56,8 +57,14 @@ function UserProvider({ children }) {
             console.error(err.response.data.message)
         }
     }
+    const Logout = () => {
+        localStorage.removeItem("token")
+        localStorage.removeItem("userid")
+        localStorage.removeItem("role")
+        setUser(null)
+    }
     return (
-        <userContext.Provider value={{ user, Login, Register }} >
+        <userContext.Provider value={{ user, Login, Register, Logout }} >
             {children}
         </userContext.Provider>
     )
