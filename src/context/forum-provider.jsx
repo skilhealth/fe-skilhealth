@@ -19,7 +19,7 @@ function ForumProvider({ children }) {
     }, [])
     const fetchData = async () => {
         try {
-            const response = await axios.get(`http://localhost:4000/forum`, {
+            const response = await axios.get(`http://be-skilhealth.up.railway.app/forum`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -36,7 +36,7 @@ function ForumProvider({ children }) {
 
     const AddForum = async (konten) => {
         try {
-            const response = await axios.post("http://localhost:4000/forum", konten, {
+            const response = await axios.post("http://be-skilhealth.up.railway.app/forum", konten, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -50,7 +50,7 @@ function ForumProvider({ children }) {
     }
     const JawabForum = async (konten,forumid) => {
         try {
-            const response = await axios.put(`http://localhost:4000/forum/${forumid}`, konten, {
+            const response = await axios.put(`http://be-skilhealth.up.railway.app/forum/${forumid}`, konten, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

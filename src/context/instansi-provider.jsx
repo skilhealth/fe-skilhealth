@@ -11,7 +11,7 @@ function InstansiProvider({ children }) {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:4000/instansi`);
+                const response = await axios.get(`http://be-skilhealth.up.railway.app/instansi`);
                 setInstansi(response.data);
             } catch (error) {
                 console.error('Error fetching user data:', error);

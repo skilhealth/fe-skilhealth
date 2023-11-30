@@ -12,7 +12,7 @@ function HasilUjiLab() {
     moment.locale('id')
     const Booking = async (id) => {
         try {
-            const response = await axios.get(`http://localhost:4000/bookings/${id}`, {
+            const response = await axios.get(`http://be-skilhealth.up.railway.app/bookings/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -36,7 +36,7 @@ function HasilUjiLab() {
     console.log(data)
     const toggle = async (data) => {
         try {
-            const response = await axios.patch(`http://localhost:4000/bookings/${id}/toggle`,{status:data} ,{
+            const response = await axios.patch(`http://be-skilhealth.up.railway.app/bookings/${id}/toggle`,{status:data} ,{
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

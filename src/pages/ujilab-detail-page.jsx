@@ -11,7 +11,7 @@ function UjilabDetail() {
     moment.locale('id')
     const Booking = async (id) => {
         try {
-            const response = await axios.get(`http://localhost:4000/ujilab/${id}`, {
+            const response = await axios.get(`http://be-skilhealth.up.railway.app/ujilab/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

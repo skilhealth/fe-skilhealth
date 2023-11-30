@@ -11,7 +11,7 @@ function HasilCariPage() {
     const [listdokter,setList] = useState(null)
     const Doctor = async (data) => {
         try {
-            const response = await axios.post("http://localhost:4000/doctors/search",data)
+            const response = await axios.post("http://be-skilhealth.up.railway.app/doctors/search",data)
             console.log(response.data.data)
             return response.data.data
         } catch (err) {

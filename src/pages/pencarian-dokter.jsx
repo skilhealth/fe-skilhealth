@@ -12,7 +12,7 @@ function PencarianDokter() {
 
     const Spesialis = async()=>{
         try{
-            const response = await axios.get(`http://localhost:4000/spesialis/`)
+            const response = await axios.get(`http://be-skilhealth.up.railway.app/spesialis/`)
             console.log(response.data.data)
             return response.data.data
         }catch(err){
