@@ -31,12 +31,12 @@ function ForumCard({ data }) {
         </div>
         <div className="flex flex-col">
           {/* sender */}
-          <span className="">Oleh: {data.User.nama}</span>
+          <span className="">Oleh: {data.User && data.User.nama}</span>
 
           {/* answer */}
           {data.status && (
             <span className={`${data.Dokter ? "" : "hidden"}`}>
-              Dijawab: {data.Dokter.nama}
+              Dijawab: {data.Dokter && data.Dokter.nama}
             </span>
           )}
         </div>
