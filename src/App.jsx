@@ -47,6 +47,7 @@ function App() {
     if (user === null) setLogin(false);
     if (user != null) setLogin(true)
   }, [user])
+  console.log(user)
   const [role, setRole] = useState();
 
   return (

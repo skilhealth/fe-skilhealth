@@ -1,13 +1,14 @@
 
+import { useContext } from "react"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Backbutton from "../components/backbutton"
+import { instansiContext } from "../context/instansi-provider"
 function PencarianDokter() {
     const navigate = useNavigate()
+    const { instansi } = useContext(instansiContext)
 
     const hari = [["Senin", "Monday"], ["Selasa", "Tuesday"], ["Rabu", "Wednesday"], ["Kamis", "Thursday"], ["Jumat", "Friday"], ["Sabtu", "Satuday"], ["Minggu", "Sunday"]]
-    const area = ["DKI Jakarta", "Jawa Tengah", "Jawa Barat", "Banten", "Jawa Timur", "Kalimantan"]
-    const rs = ["Skilvul Hospital Jakarta", "Skilvul Hospital Bandung", "Skilvul Hospital Surabaya", "Skilvul Hospital Semarang", "Skilvul Hospital Balikpapan"]
     const spesialist = ["Ahli Jantung", "Ahli Kandungan", "Dokter Umum", "Ahli THT"]
 
     const [NAMA, setNAMA] = useState("")
@@ -54,10 +55,11 @@ function PencarianDokter() {
                     "tipe": METODE,
                 }
             };
-        console.log(SearchDoc)
         navigate("/doctor", { state: { SearchDoc } })
     }
-
+    if (!instansi) return (
+        <div>blom ada</div>
+    )
     return (
         <div className="p-4 lg:px-24 flex-col flex items-center">
             <Backbutton nama="Pencarian Dokter" />
@@ -84,8 +86,8 @@ function PencarianDokter() {
                     <select name="area" id="area" className="bg-white border-2 font-regular border-black rounded-lg p-2 px-4 text-base" onChange={(e) => setAREA(e.target.value)}>
                         <option value="">Pilih Area</option>
                         {
-                            area.map((item, index) => (
-                                <option key={index} value={item}>{item}</option>
+                            instansi.map((item, index) => (
+                                <option key={index} value={item.area}>{item.area}</option>
                             ))
                         }
                     </select>
@@ -97,8 +99,8 @@ function PencarianDokter() {
                     <select name="rs" id="rs" className="bg-white border-2 font-regular border-black rounded-lg p-2 px-4 text-base" onChange={(e) => setRS(e.target.value)}>
                         <option value="">Pilih Rumah Sakit</option>
                         {
-                            rs.map((item, index) => (
-                                <option key={index} value={item}>{item}</option>
+                            instansi.map((item, index) => (
+                                <option key={index} value={item.nama}>{item.nama}</option>
                             ))
                         }
                     </select>

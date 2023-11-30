@@ -1,3 +1,6 @@
+import axios from "axios"
+import { useEffect } from "react"
+import { useState } from "react"
 import { useLocation } from "react-router-dom"
 import Backbutton from "../components/backbutton"
 import DoctorCard from "../components/doctor-card"
@@ -5,49 +8,31 @@ function HasilCariPage() {
     const location = useLocation()
     const filterdata = location.state && location.state.SearchDoc
     console.log(filterdata)
-// pake post doctor/search
-
-    const {data} =
-    {
-        "message": "Dokter Berhasil ditemukan",
-        "data": [
-            {
-                "dokter_id": 1,
-                "Dokter": {
-                    "nama": "Dr. Jane Smith",
-                    "id": 1,
-                    "status": false,
-                    "images": "/images/dokter/doctor1.png",
-                    "Instansi": {
-                        "nama": "Skilvul Hospital Jakarta"
-                    },
-                    "Spesiali": {
-                        "nama": "Ahli Jantung"
-                    }
-                }
-            }
-        ]
+    const [listdokter,setList] = useState(null)
+    // pake post doctor/search
+    const Doctor = async (data) => {
+        try {
+            const response = await axios.post(`http://localhost:4000/doctors/search`,data)
+            console.log(response.data.data)
+            return response.data.data
+        } catch (err) {
+            console.error(err)
+        }
     }
-
-    // const data = {
-    //     message: "Hallo",
-    //     dokters: [
-    //         {
-    //             status: "Sedang Dirumah Sakit",
-    //             img: "/images/dokter/doctor1.png",
-    //             nama: "Dr. Jaydon Schleifer",
-    //             spesialis: "Ahli Jantung",
-    //             rs: "Skilvul Hospital jakarta"
-    //         },
-    //         {
-    //             status: "Sedang Libur",
-    //             img: "/images/dokter/doctor1.png",
-    //             nama: "Dr. Zain Mango",
-    //             spesialis: "Ahli Jantung",
-    //             rs: "Skilvul Hospital Surabaya"
-    //         },
-    //     ]
-    // }
+    useEffect(() => {
+        const fetchData = async (filterdata) => {
+            const doctorData = await Doctor(filterdata);
+            setList(doctorData);
+        };
+        fetchData();
+    }, []);
+    console.log(listdokter)
+    const data = listdokter
+    if(!listdokter){
+        return(
+            <div>Tunggu</div>
+        )
+    }
     return (
         <div className="p-4">
             <Backbutton nama="Hasil Pencarian Dokter " />

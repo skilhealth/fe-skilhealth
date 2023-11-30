@@ -1,8 +1,6 @@
 
 
 function DoctorDetail({ data }) {
-    data.pengalaman = JSON.parse(data.pengalaman)
-    data.pendidikan = JSON.parse(data.pendidikan)
 
     return (
         <div className="w-full max-w-5xl bg-slate-200 lg:bg-transparent">

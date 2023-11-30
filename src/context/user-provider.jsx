@@ -14,9 +14,24 @@ function UserProvider({ children }) {
         setToken(localStorage.getItem("token"))
         setId(localStorage.getItem("userid"))
     }, [])
+    const fetchData = async (id) => {
+        try {
+            console.log(id)
+            const response = await axios.get(`http://localhost:4000/user/${id}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            console.log(response.data.user)
+            setUser(response.data.user);
+        } catch (error) {
+            console.error('Error fetching user data:', error);
+        }
+    }
+    if (token) {
+        fetchData(id)
+    }
 
-    console.log(token)
-    console.log(id)
 
     const Login = async (konten) => {
         try {
