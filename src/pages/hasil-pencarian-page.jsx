@@ -9,10 +9,9 @@ function HasilCariPage() {
     const filterdata = location.state && location.state.SearchDoc
     console.log(filterdata)
     const [listdokter,setList] = useState(null)
-    // pake post doctor/search
     const Doctor = async (data) => {
         try {
-            const response = await axios.post(`http://localhost:4000/doctors/search`,data)
+            const response = await axios.post("http://localhost:4000/doctors/search",data)
             console.log(response.data.data)
             return response.data.data
         } catch (err) {
@@ -24,13 +23,13 @@ function HasilCariPage() {
             const doctorData = await Doctor(filterdata);
             setList(doctorData);
         };
-        fetchData();
+        fetchData(filterdata);
     }, []);
     console.log(listdokter)
     const data = listdokter
     if(!listdokter){
         return(
-            <div>Tunggu</div>
+            <div></div>
         )
     }
     return (

@@ -1,5 +1,6 @@
 
-import { useContext } from "react"
+import axios from "axios"
+import { useContext, useEffect } from "react"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Backbutton from "../components/backbutton"
@@ -7,10 +8,28 @@ import { instansiContext } from "../context/instansi-provider"
 function PencarianDokter() {
     const navigate = useNavigate()
     const { instansi } = useContext(instansiContext)
+    const [listSp,setSP] = useState()
+
+    const Spesialis = async()=>{
+        try{
+            const response = await axios.get(`http://localhost:4000/spesialis/`)
+            console.log(response.data.data)
+            return response.data.data
+        }catch(err){
+            console.error(err)
+        }
+    }
+    useEffect(()=>{
+        const fetchData = async()=>{
+            const spesialis = await Spesialis();
+            console.log(spesialis)
+            setSP(spesialis)
+        }
+        fetchData();
+    },[])
 
     const hari = [["Senin", "Monday"], ["Selasa", "Tuesday"], ["Rabu", "Wednesday"], ["Kamis", "Thursday"], ["Jumat", "Friday"], ["Sabtu", "Satuday"], ["Minggu", "Sunday"]]
-    const spesialist = ["Ahli Jantung", "Ahli Kandungan", "Dokter Umum", "Ahli THT"]
-
+    
     const [NAMA, setNAMA] = useState("")
     const [HARI, setHARI] = useState("")
     const [AREA, setAREA] = useState("")
@@ -44,7 +63,7 @@ function PencarianDokter() {
                 ...SearchDoc,
                 Lanjutan: {
                     ...SearchDoc.Lanjutan,
-                    "$Dokter.Spesiali.nama$": "Ahli Jantung",
+                    "$Dokter.Spesiali.nama$":SPESIALIS,
                 }
             };
         if (METODE !== "")
@@ -57,7 +76,8 @@ function PencarianDokter() {
             };
         navigate("/doctor", { state: { SearchDoc } })
     }
-    if (!instansi) return (
+    console.log(listSp)
+    if (!instansi||!listSp) return (
         <div>blom ada</div>
     )
     return (
@@ -112,8 +132,8 @@ function PencarianDokter() {
                     <select name="specialist" id="specialist" className="bg-white border-2 font-regular border-black rounded-lg p-2 px-4 text-base" onChange={(e) => setSPESIALIS(e.target.value)}>
                         <option value="">Pilih Specialist</option>
                         {
-                            spesialist.map((item, index) => (
-                                <option key={index} value={item}>{item}</option>
+                            listSp.map((item, index) => (
+                                <option key={index} value={item.nama}>{item.nama}</option>
                             ))
                         }
                     </select>
