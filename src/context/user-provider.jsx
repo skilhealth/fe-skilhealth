@@ -22,13 +22,13 @@ function UserProvider({ children }) {
             console.log(id)
             let response = null
             if (role === "dokter") {
-                response = await axios.get(`http://be-skilhealth.up.railway.app/dokter/${id}`, {
+                response = await axios.get(`https://be-skilhealth.up.railway.app/dokter/${id}`, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
                 });
             } else {
-                response = await axios.get(`http://be-skilhealth.up.railway.app/user/${id}`, {
+                response = await axios.get(`https://be-skilhealth.up.railway.app/user/${id}`, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
@@ -48,7 +48,7 @@ function UserProvider({ children }) {
 
     const Login = async (konten) => {
         try {
-            const response = await axios.post("http://be-skilhealth.up.railway.app/auth/login", konten)
+            const response = await axios.post("https://be-skilhealth.up.railway.app/auth/login", konten)
             console.log(response.data.user)
             setUser(response.data.user)
             localStorage.setItem("token", response.data.token)
@@ -62,7 +62,7 @@ function UserProvider({ children }) {
     const Register = async (konten) => {
         try {
             console.log(konten)
-            const response = await axios.post("http://be-skilhealth.up.railway.app/auth/register", konten)
+            const response = await axios.post("https://be-skilhealth.up.railway.app/auth/register", konten)
             console.log(response.data.message)
             return response.data.message
         } catch (err) {
