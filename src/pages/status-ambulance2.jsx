@@ -4,8 +4,6 @@ import Backbutton from "../components/backbutton";
 
 const StatusAmbulancee = ()  => {
 
-    const [catatan, setCatatan] = useState('');
-
     const handleSubmit = (e) => {
         e.preventDefault();
         // Perform validation and API calls here
@@ -51,11 +49,10 @@ const StatusAmbulancee = ()  => {
                         id="catatan"
                         name="catat"
                         type="text"
-                        required
+                        disabled
                         className="px-4 py-3 placeholder-gray-400 bg-gray-50 rounded-lg border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm mt-4"
                         placeholder="Masukan Catatan"
-                        value={catatan}
-                        onChange={(e) => setCatatan(e.target.value)}
+                        value="Pasien Memiliki alergi terhadap obat-obatan yang mengandung ibuprofen"
                     />
                     <button
                         type="submit"
