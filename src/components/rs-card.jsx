@@ -1,4 +1,4 @@
- import imghospital from "../assets/Low-Fi placeholder.png"
+ import imghospital from "../assets/rs.png"
  
  function HospitalCard ({jarak, name, area, alamat}) {
     return (
