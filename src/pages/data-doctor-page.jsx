@@ -20,7 +20,7 @@ function DataDokter() {
     };
     const Doctor = async (id) => {
         try {
-            const response = await axios.get(`http://be-skilhealth.up.railway.app/doctors/${id}`)
+            const response = await axios.get(`https://be-skilhealth.up.railway.app/doctors/${id}`)
             console.log(response.data.data)
             return response.data.data
         } catch (err) {
@@ -46,7 +46,7 @@ function DataDokter() {
         console.log(newBooking)
         console.log(Payment)
         const addBooking = async (newBooking) => {
-            const response = await axios.post("http://be-skilhealth.up.railway.app/bookings", newBooking, {
+            const response = await axios.post("https://be-skilhealth.up.railway.app/bookings", newBooking, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

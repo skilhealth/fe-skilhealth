@@ -11,7 +11,7 @@ function ListBooking() {
     const token = localStorage.getItem("token")
     const booking = async (id) => {
         try {
-            const response = await axios.get(`http://be-skilhealth.up.railway.app/bookings?user=${id}`,{
+            const response = await axios.get(`https://be-skilhealth.up.railway.app/bookings?user=${id}`,{
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
