@@ -61,7 +61,7 @@ function CatatanMedis() {
     }, [status])
     const addUjiLab = async (data) => {
         try {
-            const response = await axios.post("http://be-skilhealth.up.railway.app/ujilab/add", data,{
+            const response = await axios.post("https://be-skilhealth.up.railway.app/ujilab/add", data,{
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
