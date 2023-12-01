@@ -33,9 +33,9 @@ function HasilCariPage() {
         )
     }
     return (
-        <div className="p-4">
+        <div className="p-4 lg:px-24 flex flex-col items-center">
             <Backbutton nama="Hasil Pencarian Dokter " />
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2 max-w-4xl w-full">
                 {
                     data === undefined || data.length === 0 ? (
                         <div className="w-full h-full flex justify-center items-center">

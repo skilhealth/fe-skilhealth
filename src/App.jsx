@@ -12,7 +12,6 @@ import Editbooking from "./pages/editbooking"
 import Refund from "./pages/refund-page"
 import ListUjiLab from "./pages/list-ujilab"
 import UjilabDetail from "./pages/ujilab-detail-page"
-import CariHasil from "./pages/cari-hasil-doctor"
 import Login from "./pages/login-pages"
 import Register from "./pages/register.pages";
 import ChangePassword from "./pages/ubah-password-page";
@@ -35,28 +34,31 @@ import StatusAmbulancee from "./pages/status-ambulance2"
 import TingkatBiasa from "./pages/tingkat-biasa"
 import TingkatDarurat from "./pages/tingkat-darurat"
 
-import { Route, Routes } from "react-router-dom"
+import { Route, Routes, useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { useContext } from "react"
 import { userContext } from "./context/user-provider"
 
 function App() {
   const { user, role } = useContext(userContext)
-  const windowWidth = window.innerWidth;
   console.log(user)
   const [isLogin, setLogin] = useState()
+  
   useEffect(() => {
-    if (user === null) setLogin(false);
-    if (user != null) setLogin(true)
-  }, [user])
+    if (user === null) {
+      setLogin(false);
+    }
+
+    if (user !== null) {
+      setLogin(true);
+    }
+  }, [user]);
 
   return (
     <div className="flex flex-col w-full">
       <Navbar role={role} isLogin={isLogin} setLogin={(logout) => setLogin(logout)} />
       <Routes>
-        {role === "dokter" ? (
-          (<Route path="/" element={<LandingPageDoctor role={role} />} />)
-        ) : (<Route path="/" element={<LandingPage role={role} />} />)}
+        <Route path="/" element={role === "dokter"? <LandingPageDoctor role={role} /> : <LandingPage role={role} />} />
         <Route path="/janjipasien" element={<ListJanjiPasien />} />
         <Route path="/janjipasien/:id" element={<HasilUjiLab />} />
         <Route path="/janjipasien/:id/add" element={<CatatanMedis />} />
@@ -71,9 +73,7 @@ function App() {
           (<Route path="/profile/:id" element={<EditProfileDokter />} />)
         ) : (<Route path="/profile/:id" element={<EditProfile />} />)}
 
-        {windowWidth.current >= 1024 ?
-          (<Route path="/doctor/search" element={<CariHasil />} />)
-          : (<Route path="/doctor/search" element={<PencarianDokter />} />)}
+        <Route path="/doctor/search" element={<PencarianDokter />} />
         <Route path="/doctor/" element={<HasilCariPage />} />
         <Route path="/doctor/:id" element={<DataDokter />} />
         <Route path="/booking/pembayaran" element={<Pembayaran />} />
@@ -97,7 +97,7 @@ function App() {
 
         <Route path="/ambulan" element={<MenuAmbulance />} />
         <Route path="/ambulan/biasa" element={<TingkatBiasa />} />
-        <Route path="/ambulan/darurat" element={<TingkatDarurat />}/>
+        <Route path="/ambulan/darurat" element={<TingkatDarurat />} />
         <Route path="/ambulan/status" element={<StatusAmbulance />} />
         <Route path="/ambulan/status2" element={<StatusAmbulancee />} />
       </Routes>
