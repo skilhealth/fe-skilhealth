@@ -11,7 +11,7 @@ function ListBooking() {
     const token = localStorage.getItem("token")
     const booking = async (id) => {
         try {
-            const response = await axios.get(`https://be-skilhealth.up.railway.app/bookings?user=${id}`,{
+            const response = await axios.get(`https://be-skilhealth.up.railway.app/bookings?user=${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -22,18 +22,27 @@ function ListBooking() {
             console.error(err)
         }
     }
-    useEffect(()=>{
-        const fetchData = async (id) =>{
+    useEffect(() => {
+        const fetchData = async (id) => {
             const listbooking = await booking(id);
             setList(listbooking)
         }
         fetchData(id)
-    },[])
+    }, [])
     console.log(listJanji)
-    
-    if(!listJanji){
-        return(
-            <div>Tidak ada Dokter</div>
+
+    if (!listJanji) {
+        return (
+            <div className="p-4 lg:px-24">
+                <Backbutton nama="Janji pasien " />
+                <div className="flex flex-col gap-2">
+                    <div className="w-full h-full flex justify-center items-center">
+                        <div className="text-lg font-semibold text-slate-300 absolute top-1/2 -translate-y-1/2">
+                            Tidak ada Dokter
+                        </div>
+                    </div>
+                </div>
+            </div>
         )
     }
     return (
