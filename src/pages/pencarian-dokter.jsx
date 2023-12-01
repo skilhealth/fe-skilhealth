@@ -8,28 +8,28 @@ import { instansiContext } from "../context/instansi-provider"
 function PencarianDokter() {
     const navigate = useNavigate()
     const { instansi } = useContext(instansiContext)
-    const [listSp,setSP] = useState()
+    const [listSp, setSP] = useState()
 
-    const Spesialis = async()=>{
-        try{
+    const Spesialis = async () => {
+        try {
             const response = await axios.get(`https://be-skilhealth.up.railway.app/spesialis/`)
             console.log(response.data.data)
             return response.data.data
-        }catch(err){
+        } catch (err) {
             console.error(err)
         }
     }
-    useEffect(()=>{
-        const fetchData = async()=>{
+    useEffect(() => {
+        const fetchData = async () => {
             const spesialis = await Spesialis();
             console.log(spesialis)
             setSP(spesialis)
         }
         fetchData();
-    },[])
+    }, [])
 
     const hari = [["Senin", "Monday"], ["Selasa", "Tuesday"], ["Rabu", "Wednesday"], ["Kamis", "Thursday"], ["Jumat", "Friday"], ["Sabtu", "Satuday"], ["Minggu", "Sunday"]]
-    
+
     const [NAMA, setNAMA] = useState("")
     const [HARI, setHARI] = useState("")
     const [AREA, setAREA] = useState("")
@@ -63,7 +63,7 @@ function PencarianDokter() {
                 ...SearchDoc,
                 Lanjutan: {
                     ...SearchDoc.Lanjutan,
-                    "$Dokter.Spesiali.nama$":SPESIALIS,
+                    "$Dokter.Spesiali.nama$": SPESIALIS,
                 }
             };
         if (METODE !== "")
@@ -77,8 +77,12 @@ function PencarianDokter() {
         navigate("/doctor", { state: { SearchDoc } })
     }
     console.log(listSp)
-    if (!instansi||!listSp) return (
-        <div>blom ada</div>
+    if (!instansi || !listSp) return (
+        <div className="p-4 lg:px-24 flex flex-col w-full items-center">
+            <div className="text-center text:lg lg:text-4xl font-semibold text-slate-400 absolute top-1/2 -translate-y-1/2">
+                Loading
+            </div>
+        </div>
     )
     return (
         <div className="p-4 lg:px-24 flex-col flex items-center">

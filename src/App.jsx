@@ -38,6 +38,7 @@ import { Route, Routes, useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { useContext } from "react"
 import { userContext } from "./context/user-provider"
+import NotFound from "./pages/notfound"
 
 function App() {
   const { user, role } = useContext(userContext)
@@ -100,6 +101,7 @@ function App() {
         <Route path="/ambulan/darurat" element={<TingkatDarurat />} />
         <Route path="/ambulan/status" element={<StatusAmbulance />} />
         <Route path="/ambulan/status2" element={<StatusAmbulancee />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div >
   )

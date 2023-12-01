@@ -6,7 +6,7 @@ import Pagination from "../components/pagination";
 import { forumContext } from "../context/forum-provider";
 
 function Forum() {
-  const {role,forum} = useContext(forumContext)
+  const { role, forum } = useContext(forumContext)
   const navigate = useNavigate();
 
   const toBuatPertanyaan = () => {
@@ -24,7 +24,11 @@ function Forum() {
   };
 
   if (!forum) {
-    return <div>Loading...</div>; 
+    return <div className="p-4 lg:px-24 flex flex-col w-full items-center">
+      <div className="text-center text:lg lg:text-4xl font-semibold text-slate-400 absolute top-1/2 -translate-y-1/2">
+        Loading
+      </div>
+    </div>;
   }
 
   const totalSudahTerjawabPages = Math.ceil(
@@ -88,12 +92,12 @@ function Forum() {
     setCurrentSudahTerjawabPage(pageNumber);
   const onBelumTerjawabPageChange = (pageNumber) =>
     setCurrentBelumTerjawabPage(pageNumber);
-    
+
   return (
     <main className="p-4 lg:px-24 flex flex-col items-center w-full">
       <Backbutton nama="Forum Chat" />
       <button
-        className={`bg-red-700 rounded-xl font-medium w-full  max-w-3xl text-lg text-white p-2 my-4 ${role === "dokter"?"hidden":""}`}
+        className={`bg-red-700 rounded-xl font-medium w-full  max-w-3xl text-lg text-white p-2 my-4 ${role === "dokter" ? "hidden" : ""}`}
         onClick={toBuatPertanyaan}
       >
         Buat Pertanyaan
@@ -106,7 +110,7 @@ function Forum() {
         value={searchTerm}
         onChange={handleSearchChange}
       />
-      <div className={`flex w-full max-w-3xl ${role === "dokter"? "flex-col-reverse":"flex-col"}`}>
+      <div className={`flex w-full max-w-3xl ${role === "dokter" ? "flex-col-reverse" : "flex-col"}`}>
         <div>
           <label className="text-2xl font-bold">Sudah Terjawab</label>
           {sudahTerjawabContent}

@@ -36,7 +36,11 @@ function CheckIn() {
 
     if (!checkin) {
         return (
-            <div></div>
+            <div className="p-4 lg:px-24 flex flex-col w-full items-center">
+                <div className="text-center text:lg lg:text-4xl font-semibold text-slate-400 absolute top-1/2 -translate-y-1/2">
+                    Loading
+                </div>
+            </div>
         )
     }
     return (

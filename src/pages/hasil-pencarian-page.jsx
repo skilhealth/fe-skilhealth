@@ -8,10 +8,10 @@ function HasilCariPage() {
     const location = useLocation()
     const filterdata = location.state && location.state.SearchDoc
     console.log(filterdata)
-    const [listdokter,setList] = useState(null)
+    const [listdokter, setList] = useState(null)
     const Doctor = async (data) => {
         try {
-            const response = await axios.post("https://be-skilhealth.up.railway.app/doctors/search",data)
+            const response = await axios.post("https://be-skilhealth.up.railway.app/doctors/search", data)
             console.log(response.data.data)
             return response.data.data
         } catch (err) {
@@ -27,9 +27,14 @@ function HasilCariPage() {
     }, []);
     console.log(listdokter)
     const data = listdokter
-    if(!listdokter){
-        return(
-            <div></div>
+    if (!listdokter) {
+        return (
+            <div className="p-4 lg:px-24 flex flex-col w-full items-center">
+                <Backbutton nama="Hasil Pencarian Dokter " />
+                <div className="text-center text:lg lg:text-4xl font-semibold text-slate-400 absolute top-1/2 -translate-y-1/2">
+                    Loading
+                </div>
+            </div>
         )
     }
     return (
