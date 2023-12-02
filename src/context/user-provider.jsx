@@ -7,16 +7,23 @@ export const userContext = createContext()
 
 function UserProvider({ children }) {
     const [user, setUser] = useState(null);
+    const [isLogin, setLogin] = useState(false)
     const [token, setToken] = useState("");
-    const [role, setRole] = useState("pasien");
-
+    const [role, setRole] = useState();
     const [id, setId] = useState("");
 
     useEffect(() => {
         setToken(localStorage.getItem("token"))
         setId(localStorage.getItem("userid"))
-        setRole(localStorage.getItem("role"))
+        if (role !== localStorage.getItem("role") && localStorage.getItem("role")) {
+            setRole(localStorage.getItem("role"))
+        }
     }, [])
+    useEffect(()=>{
+        if(!localStorage.getItem("role")){
+            setRole("noLogin")
+        }
+    })
     const fetchData = async (id) => {
         try {
             console.log(id)
@@ -40,20 +47,23 @@ function UserProvider({ children }) {
             console.error('Error fetching user data:', error);
         }
     }
+    console.log(role)
     useEffect(() => {
         fetchData(id)
     }, [token])
-    console.log(user)
 
 
     const Login = async (konten) => {
         try {
+            setRole("")
             const response = await axios.post("https://be-skilhealth.up.railway.app/auth/login", konten)
             console.log(response.data.user)
             setUser(response.data.user)
+            setLogin(true)
             localStorage.setItem("token", response.data.token)
             localStorage.setItem("userid", response.data.user.id)
             localStorage.setItem("role", response.data.user.role)
+            setRole(response.data.user.role)
             return response.data.user
         } catch (err) {
             console.error(err)
@@ -74,9 +84,10 @@ function UserProvider({ children }) {
         localStorage.removeItem("userid")
         localStorage.removeItem("role")
         setUser(null)
+        setLogin(false)
     }
     return (
-        <userContext.Provider value={{ user, role, Login, Register, Logout }} >
+        <userContext.Provider value={{ user, role, isLogin, Login, Register, Logout }} >
             {children}
         </userContext.Provider>
     )

@@ -5,8 +5,18 @@ import moment from "moment/moment"
 import { useState } from "react"
 import axios from "axios"
 import { useEffect } from "react"
+import { useContext } from "react"
+import { userContext } from "../context/user-provider"
+import { useNavigate } from "react-router-dom"
 // get ujilab by user id
 function ListUjiLab() {
+    const {isLogin} = useContext(userContext)
+    const navigate = useNavigate()
+    useEffect(() => {
+        if (!isLogin) {
+            navigate("/login")
+        }
+    }, [isLogin])
     const [listuji, setUji] = useState(null)
     const id = localStorage.getItem("userid")
     const token = localStorage.getItem("token")

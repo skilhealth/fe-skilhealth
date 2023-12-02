@@ -1,12 +1,20 @@
 import Backbutton from "../components/backbutton"
 import DoctorDetail from "../components/doctor-detail"
 import JadwalDokter from "../components/jadwal-dokter"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import axios from "axios"
 import { useEffect } from "react"
+import { userContext } from "../context/user-provider"
 function DataDokter() {
     const navigate = useNavigate()
+    const { isLogin } = useContext(userContext)
+    useEffect(() => {
+        if (!isLogin) {
+            navigate("/login")
+        }
+    }, [isLogin])
+
     const idUser = localStorage.getItem("userid")
     const token = localStorage.getItem("token")
     const [dataDokter, setDataDokter] = useState()
