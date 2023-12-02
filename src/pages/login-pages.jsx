@@ -77,11 +77,11 @@ const Login = () => {
               </div>
             </div>
             <div className='flex ml-2 items-center justify-between'>
-              <label className="flex items-center cursor-pointer">
+              {/* <label className="flex items-center cursor-pointer">
                 <input id="customCheckLogin" type="checkbox" className="form-checkbox text-gray-800 ml-1 w-5 h-5 ease-linear transition-all duration-150" defaultChecked />
                 <span className="ml-2 text-lg font-semibold text-black-700 ">Ingat Saya</span>
               </label>
-              <a href="../ubah-password" className="text-lg">Lupa password?</a>
+              <a href="../gantipass" className="text-lg">Lupa password?</a> */}
             </div>
 
             <div>

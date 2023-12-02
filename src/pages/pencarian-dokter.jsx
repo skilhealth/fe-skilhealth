@@ -71,7 +71,7 @@ function PencarianDokter() {
                 ...SearchDoc,
                 Lanjutan: {
                     ...SearchDoc.Lanjutan,
-                    "$Jadwal.tipe$": METODE,
+                    "$Jadwals.tipe$": METODE,
                 }
             };
         navigate("/doctor", { state: { SearchDoc } })
