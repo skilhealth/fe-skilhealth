@@ -9,75 +9,23 @@ import BannerRS from "/src/assets/hospital-banner.png"
 import FooterLanding from "../components/footer"
 import { Link } from "react-router-dom"
 import ForumCard from "../components/forum-card"
+import { useContext } from "react"
+import { forumContext } from "../context/forum-provider"
 
-function LandingPage({role}) {
-    const forum = [
-        {
-          id:1,
-          status: "Sudah Terjawab",
-          judul: "Susah Tidur di Malam Hari",
-          user: "Fulan",
-          dokter: "Dr. Mira Iskandar",
-          spesialis: "Dokter Umum",
-          pertanyaan:
-            "Dok, saya punya masalah soal tidur. Setiap malam, ntah kenapa walaupun saya ngantuk dan berusaha mau tidur, walaupun udah baring berjam-jam ga tidur-tidur dok. Apakah ada solusi?",
-          jawaban:
-            "Masalah tidur malam dapat disebabkan oleh berbagai faktor, dan solusinya dapat bervariasi tergantung pada penyebab spesifiknya. Cobalah untuk menjaga jadwal tidur yang tetap, bahkan pada akhir pekan. Hal ini membantu mengatur jam biologis tubuh dan meningkatkan kualitas tidur.",
-        },
-        {
-          id:2,
-          status: "Belum Terjawab",
-          judul: "Merasa Lelah di Pagi Hari",
-          user: "Werner",
-          dokter: "",
-          spesialis: "",
-          pertanyaan: "Bertanya",
-          jawaban: "",
-        },
-        {
-          id:3,
-          status: "Belum Terjawab",
-          judul: "Merasa Lelah di Pagi Hari",
-          user: "Werner",
-          dokter: "",
-          spesialis: "",
-          pertanyaan: "Bertanya",
-          jawaban: "",
-        },
-        {
-          id:4,
-          status: "Belum Terjawab",
-          judul: "Merasa Lelah di Pagi Hari",
-          user: "Werner",
-          dokter: "",
-          spesialis: "",
-          pertanyaan: "Bertanya",
-          jawaban: "",
-        },
-        {
-          id:5,
-          status: "Belum Terjawab",
-          judul: "Merasa Lelah di Pagi Hari",
-          user: "Werner",
-          dokter: "",
-          spesialis: "",
-          pertanyaan: "Bertanya",
-          jawaban: "",
-        },
-        {
-          id:6,
-          status: "Belum Terjawab",
-          judul: "Merasa Lelah di Pagi Hari",
-          user: "Werner",
-          dokter: "",
-          spesialis: "",
-          pertanyaan: "Bertanya",
-          jawaban: "",
-        },
-      ];
-    const akun = {
-        nama: "Ariel Zakly Pratama",
-        role: role,
+function LandingPage({ role }) {
+    const { forum } = useContext(forumContext)
+    if (!forum) {
+        return (
+            <div className="p-4 lg:px-24">
+                <div className="flex flex-col gap-2">
+                    <div className="w-full h-full flex justify-center items-center">
+                        <div className="text-lg font-semibold text-slate-300 absolute top-1/2 -translate-y-1/2">
+                            Loading
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
     }
     return (
         <div className="">
@@ -155,9 +103,9 @@ function LandingPage({role}) {
                     <h3 className="text-xl font-bold lg:text-center lg:text-2xl mb-2">Topik Baru Baru Ini</h3>
                     <div className="flex flex-col border-none lg:flex-row gap-1 flex-wrap border justify-center">
                         {
-                            forum.map((item) => (
-                                <ForumCard data={item} />
-                            ))
+                            forum.slice(0, 3).map((item) => {
+                                return <ForumCard data={item} />
+                            })
                         }
                     </div>
                 </div>

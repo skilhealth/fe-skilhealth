@@ -38,25 +38,20 @@ import { Route, Routes, useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { useContext } from "react"
 import { userContext } from "./context/user-provider"
+import NotFound from "./pages/notfound"
 
 function App() {
-  const { user, role } = useContext(userContext)
-  console.log(user)
-  const [isLogin, setLogin] = useState()
-  
-  useEffect(() => {
-    if (user === null) {
-      setLogin(false);
-    }
-
-    if (user !== null) {
-      setLogin(true);
-    }
-  }, [user]);
-
+  const { isLogin, role, } = useContext(userContext)
+  if(!role){
+    return(
+      <div>
+        Loading
+      </div>
+    )
+  }
   return (
     <div className="flex flex-col w-full">
-      <Navbar role={role} isLogin={isLogin} setLogin={(logout) => setLogin(logout)} />
+      <Navbar />
       <Routes>
         <Route path="/" element={role === "dokter"? <LandingPageDoctor role={role} /> : <LandingPage role={role} />} />
         <Route path="/janjipasien" element={<ListJanjiPasien />} />
@@ -100,6 +95,7 @@ function App() {
         <Route path="/ambulan/darurat" element={<TingkatDarurat />} />
         <Route path="/ambulan/status" element={<StatusAmbulance />} />
         <Route path="/ambulan/status2" element={<StatusAmbulancee />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div >
   )

@@ -4,9 +4,9 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 import { userContext } from "../context/user-provider"
 import Logo from "/LogoSkilHealth.png"
-function Navbar({ role, isLogin,setLogin }) {
+function Navbar() {
     const [navbar, setNav] = useState(false)
-    const {Logout} = useContext(userContext)
+    const {role,Logout,isLogin} = useContext(userContext)
 
     useEffect(() => {
         handleNavbar()

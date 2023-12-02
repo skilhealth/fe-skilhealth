@@ -1,11 +1,21 @@
 import axios from "axios"
 import moment from "moment/moment"
+import { useContext } from "react"
 import { useEffect } from "react"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import Backbutton from "../components/backbutton"
 import BookingCard from "../components/booking-card"
+import { userContext } from "../context/user-provider"
 // pake localhost:4000/bookings?user=1
 function ListBooking() {
+    const {isLogin} = useContext(userContext)
+    const navigate = useNavigate()
+    useEffect(() => {
+        if (!isLogin) {
+            navigate("/login")
+        }
+    }, [isLogin])
     const [listJanji, setList] = useState(null)
     const id = localStorage.getItem("userid")
     const token = localStorage.getItem("token")
