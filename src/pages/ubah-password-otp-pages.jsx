@@ -1,12 +1,13 @@
+import axios from 'axios';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import imgSkilhealth from "../assets/logoapp.png";
 import Backbutton from '../components/backbutton';
 //import {useHistory} from 'react-router-dom'
 
 const OTPComponent = () => {
   const [email, setEmail] = useState('');
-  const [otp, setOtp] = useState('');
-  const [otpError, setOtpError] = useState(false);
+  const navigate = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,9 +15,27 @@ const OTPComponent = () => {
 
   };
 
-  const handleVerify = () => {
-    console.log(email)
-    alert('Verifikasi Berhasil')
+  const handleVerify = async () => {
+    try {
+      const sendmail = {
+        email: email
+      }
+      const send = async (data) => {
+        const response = await axios.post("https://be-skilhealth.up.railway.app/users/email-send", data)
+        console.log(response)
+        return response.data.message
+      }
+      const message = await send(sendmail)
+      console.log(message)
+      if (message === "Email Terdaftar") {
+        navigate("/gantipass",{state:{sendmail}})
+      } else {
+        alert(message)
+      }
+    } catch (err) {
+      console.error(err)
+    }
+
 
   };
 

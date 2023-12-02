@@ -19,8 +19,8 @@ function UserProvider({ children }) {
             setRole(localStorage.getItem("role"))
         }
     }, [])
-    useEffect(()=>{
-        if(!localStorage.getItem("role")){
+    useEffect(() => {
+        if (!localStorage.getItem("role")) {
             setRole("noLogin")
         }
     })
@@ -59,7 +59,9 @@ function UserProvider({ children }) {
             const response = await axios.post("https://be-skilhealth.up.railway.app/auth/login", konten)
             console.log(response.data.user)
             setUser(response.data.user)
-            setLogin(true)
+            if (response.data.user) {
+                setLogin(true)
+            }
             localStorage.setItem("token", response.data.token)
             localStorage.setItem("userid", response.data.user.id)
             localStorage.setItem("role", response.data.user.role)

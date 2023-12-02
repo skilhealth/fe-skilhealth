@@ -29,6 +29,8 @@ const Login = () => {
     Login(values)
     if ((user !==null||user!==undefined)) {
       navigate("/")
+    }else{
+      alert("Login gagal")
     }
   };
 
@@ -59,7 +61,7 @@ const Login = () => {
                   autoFocus
                   className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
                   placeholder="Masukan Username/Email"
-                  onChange={handleInput} />
+                  onChange={handleInput} required/>
                 {errors.email && <span className='text-red-600'>{errors.email}</span>}
               </div>
               <div>
@@ -72,16 +74,12 @@ const Login = () => {
                   autoFocus
                   className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
                   placeholder="Masukan Password"
-                  onChange={handleInput} />
+                  onChange={handleInput} required />
                 {errors.password && <span className='text-red-600'>{errors.password}</span>}
               </div>
             </div>
-            <div className='flex ml-2 items-center justify-between'>
-              {/* <label className="flex items-center cursor-pointer">
-                <input id="customCheckLogin" type="checkbox" className="form-checkbox text-gray-800 ml-1 w-5 h-5 ease-linear transition-all duration-150" defaultChecked />
-                <span className="ml-2 text-lg font-semibold text-black-700 ">Ingat Saya</span>
-              </label>
-              <a href="../gantipass" className="text-lg">Lupa password?</a> */}
+            <div className='flex ml-2 items-center justify-end'>
+              <a href="../gantipass" className="text-lg">Lupa password?</a>
             </div>
 
             <div>
