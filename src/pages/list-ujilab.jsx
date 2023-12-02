@@ -71,7 +71,16 @@ function ListUjiLab() {
         ]
     }
     if(!listuji)return(
-        <div></div>
+        <div className="p-4 lg:px-24">
+                <Backbutton nama="Janji pasien " />
+                <div className="flex flex-col gap-2">
+                    <div className="w-full h-full flex justify-center items-center">
+                        <div className="text-lg font-semibold text-slate-300 absolute top-1/2 -translate-y-1/2">
+                            Tidak ada Hasil Uji Lab
+                        </div>
+                    </div>
+                </div>
+            </div>
     );
     return (
         <div className="p-4 flex flex-col lg:px-24 items-center">
