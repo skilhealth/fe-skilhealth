@@ -47,7 +47,7 @@ function PencarianDokter() {
                 ...SearchDoc,
                 Lanjutan: {
                     ...SearchDoc.Lanjutan,
-                    "$Dokter.Instansi.area$": AREA,
+                    "$Instansi.area$": AREA,
                 }
             };
         if (RS !== "")
@@ -55,7 +55,7 @@ function PencarianDokter() {
                 ...SearchDoc,
                 Lanjutan: {
                     ...SearchDoc.Lanjutan,
-                    "$Dokter.Instansi.nama$": RS,
+                    "$Instansi.nama$": RS,
                 }
             };
         if (SPESIALIS !== "")
@@ -63,7 +63,7 @@ function PencarianDokter() {
                 ...SearchDoc,
                 Lanjutan: {
                     ...SearchDoc.Lanjutan,
-                    "$Dokter.Spesiali.nama$": SPESIALIS,
+                    "$Spesiali.nama$": SPESIALIS,
                 }
             };
         if (METODE !== "")
@@ -71,7 +71,7 @@ function PencarianDokter() {
                 ...SearchDoc,
                 Lanjutan: {
                     ...SearchDoc.Lanjutan,
-                    "tipe": METODE,
+                    "$Jadwal.tipe$": METODE,
                 }
             };
         navigate("/doctor", { state: { SearchDoc } })
