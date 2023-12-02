@@ -26,6 +26,7 @@ function HasilCariPage() {
         fetchData(filterdata);
     }, []);
     const data = listdokter
+    console.log(data)
     if (!listdokter) {
         return (
             <div className="p-4 lg:px-24">
