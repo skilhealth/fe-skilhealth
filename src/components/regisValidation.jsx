@@ -50,11 +50,12 @@ function Validation(values) {
     } else {
         error.password = ""
     }
-
+    console.log(values.confirmasiPassword)
+    console.log(values.password)
     if(values.confirmasiPassword === "") {
         error.confirmasiPassword ="Konfirmasi Password tidak boleh kosong"
     }
-    else if(password !== confirmasiPassword) {
+    else if(values.confirmasiPassword !== values.password) {
         error.confirmasiPassword = "Password tidak sama"
     } else {
         error.confirmasiPassword = ""

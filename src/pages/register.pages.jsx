@@ -5,11 +5,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import Validation from '../components/regisValidation';
 import { useContext } from 'react';
 import { userContext } from '../context/user-provider';
+import { useEffect } from 'react';
 
 
 const Register = () => {
   const navigate = useNavigate()
-  const {Register} =  useContext(userContext)
+  const { Register } = useContext(userContext)
   const [values, setValues] = useState({
     nama: '',
     tgl_lahir: '',
@@ -18,7 +19,7 @@ const Register = () => {
     password: '',
     confirmasiPassword: '',
     role: 'pasien',
-    images:'/images/users/user.png'
+    images: '/images/users/user.png'
   })
 
   const [errors, setError] = useState({})
@@ -26,16 +27,21 @@ const Register = () => {
   const handleInput = (e) => {
     setValues(prev => ({ ...prev, [e.target.name]: e.target.value }))
   }
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  useEffect(() => {
     setError(Validation(values));
-    const message = Register(values)
-    if(message){
+    console.log(values.password)
+    console.log(values.confirmasiPassword)
+  }, [values])
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const message = await Register(values)
+    console.log(message)
+    if (message) {
       alert(message)
       navigate("/login")
     }
-    else{
+    else {
       alert("Registrasi gagal")
     }
   }
@@ -62,7 +68,8 @@ const Register = () => {
                 autoFocus
                 className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
                 placeholder="Masukan Nama"
-                onChange={handleInput} />
+                onChange={handleInput}
+                required />
               {errors.nama && <span className='text-red-600'>{errors.nama}</span>}
             </div>
             <div>
@@ -74,8 +81,9 @@ const Register = () => {
                 autoComplete="tgl_lahir"
                 className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
                 placeholder="Masukan Tanggal Lahir"
-                onChange={handleInput} />
-              {errors.no_tlp && <span className='text-red-600'>{errors.no_tlp}</span>}
+                onChange={handleInput}
+                required />
+              {errors.tgl_lahir && <span className='text-red-600'>{errors.tgl_lahir}</span>}
             </div>
             <div>
               <h3 className="mt-8 space-y-6 block font-sans text-xl font-bold">Jenis Kelamin</h3>
@@ -84,6 +92,7 @@ const Register = () => {
                 <option value="laki-laki">Laki-Laki</option>
                 <option value="perempuan">Perempuan</option>
               </select>
+              {errors.jenis_kelamin && <span className='text-red-600'>{errors.jenis_kelamin}</span>}
 
               <div>
                 <h3 className="mt-8 space-y-6 block font-sans text-xl font-bold">No.Telepon</h3>
@@ -94,7 +103,8 @@ const Register = () => {
                   autoComplete="no_tlp"
                   className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
                   placeholder="Masukan No.Telepon"
-                  onChange={handleInput} />
+                  onChange={handleInput}
+                  required />
                 {errors.no_tlp && <span className='text-red-600'>{errors.no_tlp}</span>}
               </div>
               <div>
@@ -106,7 +116,8 @@ const Register = () => {
                   autoComplete="off"
                   className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
                   placeholder="Masukan Email"
-                  onChange={handleInput} />
+                  onChange={handleInput}
+                  required />
                 {errors.email && <span className='text-red-600'>{errors.email}</span>}
               </div>
               <div>
@@ -118,7 +129,8 @@ const Register = () => {
                   autoComplete="new-password"
                   className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
                   placeholder="Masukan Password"
-                  onChange={handleInput} />
+                  onChange={handleInput}
+                  required />
                 {errors.password && <span className='text-red-600'>{errors.password}</span>}
               </div>
               <div>
@@ -130,7 +142,8 @@ const Register = () => {
                   autoComplete="new-password"
                   className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
                   placeholder="Konfirmasi Password"
-                  onChange={handleInput} />
+                  onChange={handleInput}
+                  required />
                 {errors.confirmasiPassword && <span className='text-red-600'>{errors.confirmasiPassword}</span>}
               </div>
             </div>
