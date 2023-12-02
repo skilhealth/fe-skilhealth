@@ -10,7 +10,7 @@ import { userContext } from '../context/user-provider';
 
 const Login = () => {
   const navigate = useNavigate()
-  const { Login,user,isLogin } = useContext(userContext)
+  const { Login,user } = useContext(userContext)
   const [values, setValues] = useState({
     email: '',
     password: ''
@@ -27,7 +27,7 @@ const Login = () => {
     console.log(values)
     setError(validation(values));
     Login(values)
-    if ((user !==null||user!==undefined) && isLogin == true) {
+    if ((user !==null||user!==undefined)) {
       navigate("/")
     }
   };
