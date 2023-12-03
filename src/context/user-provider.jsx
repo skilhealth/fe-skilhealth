@@ -51,7 +51,14 @@ function UserProvider({ children }) {
     useEffect(() => {
         fetchData(id)
     }, [token])
-
+    useEffect(()=>{
+        if(user!==null ||user!==undefined ||user!=='noLogin'){
+            setLogin(true)
+        }
+        if(user===null ||user===undefined || user==='noLogin'){
+            setLogin(false)
+        }
+    },[user,token])
 
     const Login = async (konten) => {
         try {
