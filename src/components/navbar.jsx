@@ -18,7 +18,6 @@ function Navbar() {
     const handleLogout = () => {
         if(isLogin){
             Logout()
-            setLogin(false)
         }
     }
     return (
