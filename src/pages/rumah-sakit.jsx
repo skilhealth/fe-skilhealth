@@ -18,7 +18,7 @@ function Hospital() {
             </div>
         </div>
     )
-    const list = instansi.filter((item)=>item.nama.toLowerCase().includes(searchhospital))
+    const list = instansi.filter((item)=>item.nama.toLowerCase().includes(searchhospital.toLowerCase()))
     return (
         <div className="p-4 lg:px-24">
             <Backbutton nama=" Rumah Sakit" />
