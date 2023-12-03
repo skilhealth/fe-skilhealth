@@ -1,39 +1,39 @@
 import React, { useEffect, useState } from 'react';
 
 
-function SearchHospital () {
-   const [hospital, setHospital] = useState([]);
+function SearchHospital() {
+  const [hospital, setHospital] = useState([]);
 
-    useEffect(() => {
-      async function getListRumahSakit() {
-         const response = await fetch("")
-         const data = await response.json()
-         setHospital(data)
-      }
-        //getListRumahSakit()
-    }, [])
+  useEffect(() => {
+    async function getListRumahSakit() {
+      const response = await fetch("")
+      const data = await response.json()
+      setHospital(data)
+    }
+    //getListRumahSakit()
+  }, [])
 
- const handleChange = (e) => {
+  const handleChange = (e) => {
     setHospital(e.target.value);
- };
+  };
 
- const handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     alert('Hospital name submitted: ' + hospital);
- };
+  };
 
- return (
+  return (
     <div className="container mx-auto">
-      {hospital.length == 0 ? <div></div> : 
-    <div>
-      {hospital.map(item => (
-         <div>
-          
-         </div>
-      ))}
-      </div>
+      {hospital.length == 0 ? <div></div> :
+        <div>
+          {hospital.map(item => (
+            <div>
+
+            </div>
+          ))}
+        </div>
       }
-    <h1>{hospital}</h1>
+      <h1>{hospital}</h1>
       <form onSubmit={handleSubmit} className="w-full max-w-sm mx-auto">
         <div className="rounded-md shadow-sm -space-y-px">
           <input
@@ -44,12 +44,12 @@ function SearchHospital () {
             onChange={handleChange}
           />
         </div>
-        </form>
+      </form>
     </div>
 
 
- );
-        
+  );
+
 };
 
 export default SearchHospital;
