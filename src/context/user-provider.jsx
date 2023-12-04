@@ -10,7 +10,7 @@ function UserProvider({ children }) {
     const [isLogin, setLogin] = useState(false)
     const [token, setToken] = useState("");
     const [role, setRole] = useState();
-    const [id, setId] = useState("");
+    const [id, setId] = useState(0);
 
     useEffect(() => {
         setToken(localStorage.getItem("token"))
@@ -49,6 +49,7 @@ function UserProvider({ children }) {
         }
     }
     console.log(role)
+    console.log(user)
     useEffect(() => {
         fetchData(id)
     }, [token])
