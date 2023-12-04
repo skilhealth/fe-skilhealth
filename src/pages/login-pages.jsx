@@ -10,7 +10,7 @@ import { userContext } from '../context/user-provider';
 
 const Login = () => {
   const navigate = useNavigate()
-  const { Login,user } = useContext(userContext)
+  const { Login, user } = useContext(userContext)
   const [values, setValues] = useState({
     email: '',
     password: ''
@@ -22,15 +22,26 @@ const Login = () => {
     setValues(prev => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(values)
-    setError(validation(values));
-    Login(values)
-    if ((user !==null||user!==undefined)) {
-      navigate("/")
-    }else{
-      alert("Login gagal")
+    try {
+      console.log(values)
+      setError(validation(values));
+      const data = await Login(values)
+      if(!data){
+        return(
+        <>Loading</>
+        )
+      }
+      console.log(data)
+      if (data&& (data.message === null || data.message === undefined)) {
+        navigate("/")
+      } else {
+        console.log("Alert message:", data.message);
+        alert(data.message);
+      }
+    } catch (err) {
+      console.error(err)
     }
   };
 
@@ -61,7 +72,7 @@ const Login = () => {
                   autoFocus
                   className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
                   placeholder="Masukan Username/Email"
-                  onChange={handleInput} required/>
+                  onChange={handleInput} required />
                 {errors.email && <span className='text-red-600'>{errors.email}</span>}
               </div>
               <div>

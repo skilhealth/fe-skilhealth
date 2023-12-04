@@ -53,29 +53,29 @@ function UserProvider({ children }) {
     useEffect(() => {
         fetchData(id)
     }, [token])
-    useEffect(()=>{
-        if(user!==null ||user!==undefined ||user!=='noLogin'){
+    useEffect(() => {
+        if (user !== null || user !== undefined || user !== 'noLogin') {
             setLogin(true)
         }
-        if(user===null ||user===undefined || user==='noLogin'){
+        if (user === null || user === undefined || user === 'noLogin') {
             setLogin(false)
         }
-    },[user,token])
+    }, [user, token])
 
     const Login = async (konten) => {
         try {
             setRole("")
             const response = await axios.post("https://be-skilhealth.up.railway.app/auth/login", konten)
-            console.log(response.data.user)
-            setUser(response.data.user)
             if (response.data.user) {
+                setUser(response.data.user)
                 setLogin(true)
+                localStorage.setItem("token", response.data.token)
+                localStorage.setItem("userid", response.data.user.id)
+                localStorage.setItem("role", response.data.user.role)
+                setRole(response.data.user.role)
             }
-            localStorage.setItem("token", response.data.token)
-            localStorage.setItem("userid", response.data.user.id)
-            localStorage.setItem("role", response.data.user.role)
-            setRole(response.data.user.role)
-            return response.data.user
+            console.log(response.data.message)
+            return response.data
         } catch (err) {
             console.error(err)
         }
