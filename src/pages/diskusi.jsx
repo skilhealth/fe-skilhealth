@@ -8,7 +8,7 @@ import { useContext } from "react";
 import { forumContext } from "../context/forum-provider";
 
 function Diskusi() {
-  const {forum,role} = useContext(forumContext)
+  const { forum, role } = useContext(forumContext)
   const location = useLocation();
   const data = location.state && location.state.data;
   return (
@@ -17,13 +17,13 @@ function Diskusi() {
       <div className="max-w-4xl w-full">
         {data && <Pertanyaan data={data} />}
         {(() => {
-          if (role == "dokter") {
-            if (data.jawaban === "" || data.jawaban === null || data.jawaban === undefined) {
+          if (data.jawaban === "" || data.jawaban === null || data.jawaban === undefined) {
+            if (role == "dokter") {
               return (data && <JawabanDokter data={data} />)
             }
+          } else {
             return (data && <Jawaban data={data} />)
           }
-          return (data && <Jawaban data={data} />)
         })()}
       </div>
     </main>
