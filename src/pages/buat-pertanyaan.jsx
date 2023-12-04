@@ -24,7 +24,7 @@ function BuatPertanyaan() {
     navigate("/forum")
   }
   return (
-    <form onSubmit={handleAdd} className="p-4 lg:px-24 flex flex-col items-center grow">
+    <form className="p-4 lg:px-24 flex flex-col items-center grow">
       <Backbutton nama="Buat Pertanyaan" />
       <div className="mt-4 max-w-xl w-full">
         <span className="text-xl font-bold">Judul Diskusi</span>
@@ -46,7 +46,7 @@ function BuatPertanyaan() {
         />
       </div>
       <div className="mt-12 max-w-xl w-full">
-        <button type="submit" className="bg-red-700 rounded-xl font-medium w-full text-lg text-white p-2">
+        <button onClick={handleAdd} type="submit" className="bg-red-700 rounded-xl font-medium w-full text-lg text-white p-2">
           Kirim
         </button>
       </div>

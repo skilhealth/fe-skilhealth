@@ -32,7 +32,6 @@ function HasilUjiLab() {
         };
         fetchData();
     }, []);
-    const navigate = useNavigate()
     console.log(data)
     const toggle = async (data) => {
         try {
@@ -45,10 +44,6 @@ function HasilUjiLab() {
         } catch (err) {
             console.error(err)
         }
-    }
-    const handleEdit = (e) => {
-        e.preventDefault()
-        navigate(`edit`)
     }
     const handleToggle = (e) => {
         const newStatus = e.target.value === "false"
@@ -98,11 +93,6 @@ function HasilUjiLab() {
                         </p>
                     </div>
                 </div>
-            </div>
-            <div className="mt-8 w-full max-w-5xl">
-                <button onClick={handleEdit} className="bg-red-700 rounded-xl font-medium w-full text-lg text-white p-2">
-                    Edit
-                </button>
             </div>
         </div>
     )
