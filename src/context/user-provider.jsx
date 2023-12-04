@@ -78,6 +78,7 @@ function UserProvider({ children }) {
             return response.data
         } catch (err) {
             console.error(err)
+            alert(err.response.data.message)
         }
     }
     const Register = async (konten) => {
@@ -87,7 +88,8 @@ function UserProvider({ children }) {
             console.log(response.data.message)
             return response.data.message
         } catch (err) {
-            console.error(err.response.data.message)
+            console.error(err)
+            alert(err.response.data.message)
         }
     }
     const Logout = () => {
