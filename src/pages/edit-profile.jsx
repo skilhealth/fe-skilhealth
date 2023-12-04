@@ -17,14 +17,15 @@ const EditProfile = () => {
   const [email, setEmail] = useState(user.email);
   const [nik, setNik] = useState(user.nik);
   const [alamat, setAlamat] = useState(user.alamat);
-  const [imageSrc, setImageSrc] = useState('');
+  const [imageSrc, setImageSrc] = useState(user.images);
 
   const handleImageChange = () => {
     setImageSrc('/path/to/default/image.jpg');
   }
 
-  const handleSubmit = (e) => {
+  const handleEdit = (e) => {
     e.preventDefault();
+    
     // Perform validation and API calls here
   };
   if (!user) {
@@ -39,7 +40,7 @@ const EditProfile = () => {
         <div className="max-w-md w-full space-y-4">
           <div className='flex justify-center'>
             <div className='relative'>
-              <img src={ftUser} alt='' className=' w-24 h-24 rounded-full bg-gray-100' />
+              <img src={imageSrc} alt='' className=' w-24 h-24 rounded-full bg-gray-100' />
             </div>
           </div>
           <div className='flex items-center justify-center'>
@@ -48,7 +49,7 @@ const EditProfile = () => {
             </button>
           </div>
 
-          <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+          <form className="mt-8 space-y-6" onSubmit={handleEdit}>
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="rounded-md shadow-sm -space-y-px"></div>
             <div>
@@ -107,33 +108,6 @@ const EditProfile = () => {
                   placeholder="Masukan Email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                />
-              </div>
-              <div>
-                <h3 className="mt-8 space-y-6 block font-sans text-xl font-bold ">NIK*</h3>
-                <input
-                  id="Nik"
-                  name="nik"
-                  type="text"
-                  autoComplete="off"
-                  required
-                  className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
-                  placeholder="Masukan Nomor Identitas"
-                  value={nik}
-                  onChange={(e) => setNik(e.target.value)}
-                />
-              </div>
-              <div>
-                <h3 className="mt-8 space-y-6 block font-sans text-xl font-bold">Alamat*</h3>
-                <textarea
-                  id="alamat"
-                  name="alamat"
-                  type="text"
-                  required
-                  className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
-                  placeholder="Masukan alamat"
-                  value={alamat}
-                  onChange={(e) => setAlamat(e.target.value)}
                 />
               </div>
             </div>

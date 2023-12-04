@@ -19,6 +19,7 @@ function UserProvider({ children }) {
             setRole(localStorage.getItem("role"))
         }
     }, [])
+    console.log(user)
     useEffect(() => {
         if (!localStorage.getItem("role")) {
             setRole("noLogin")

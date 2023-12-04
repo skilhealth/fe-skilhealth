@@ -4,80 +4,90 @@ import FooterLanding from "../components/footer"
 import ForumCard from "../components/forum-card"
 import { Link } from "react-router-dom"
 import PasienLanding from "../components/pasien-landing"
+import { useContext } from "react"
+import { userContext } from "../context/user-provider"
+import { forumContext } from "../context/forum-provider"
+import { useState } from "react"
+import { useEffect } from "react"
+import axios from "axios"
+import moment from "moment/moment"
+import 'moment/locale/id'
 
-function LandingPageDoctor({role}) {
-    const data = [{
-        status: "Belum Terjawab",
-        user: "fulan",
-        judul: "Mata Kiri Sakit"
-    }, {
-        status: "Belum Terjawab",
-        user: "fuad",
-        judul: "Mata Kanan Sakit"
-    },
-    {
-        status: "Belum Terjawab",
-        user: "fuad",
-        judul: "Mata Kanan Sakit"
-    },
-    ]
-    const akun = {
-        nama: "Dr. Jaydon  Scheleifer",
-        spesialis: "Ahli Jantung",
-        antrian: 8,
-        total_pasien: 243,
-        role: role
+function LandingPageDoctor({ role }) {
+    moment.locale('id')
+    const { user } = useContext(userContext)
+    const { forum } = useContext(forumContext)
+    const [listJanji, setList] = useState(null)
+    const id = localStorage.getItem("userid")
+    const token = localStorage.getItem("token")
+    const janji = async (id) => {
+        try {
+            const response = await axios.get(`https://be-skilhealth.up.railway.app/bookings/doctor?user=${id}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+            console.log(response.data.message)
+            return response.data.data
+        } catch (err) {
+            console.error(err)
+        }
     }
-    const pasien = [
-        {
-            status: "Belum Mulai",
-            img: "/images/dokter/doctor1.png",
-            nama: "Leon Andre",
-            tipe: "Regular",
-            date: "2024-12-14"
-        },
-        {
-            status: "Belum Mulai",
-            img: "/images/dokter/doctor1.png",
-            nama: "Leon Andre",
-            tipe: "Regular",
-            date: "2024-12-14"
-        },
-        {
-            status: "Belum Mulai",
-            img: "/images/dokter/doctor1.png",
-            nama: "Leon Andre",
-            tipe: "Regular",
-            date: "2024-12-14"
-        },
-
-    ]
+    useEffect(() => {
+        const fetchData = async (id) => {
+            const listbooking = await janji(id);
+            setList(listbooking)
+        }
+        fetchData(id)
+    }, [])
+    if (!user || !forum || !listJanji) {
+        return (
+            <div className="p-4 lg:px-24">
+                <div className="flex flex-col gap-2">
+                    <div className="w-full h-full flex justify-center items-center">
+                        <div className="text-lg font-semibold text-slate-300 absolute top-1/2 -translate-y-1/2">
+                            Loading
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+    const JanjiHariIni = () => {
+        if (listJanji) {
+            const today = moment();
+            const todayList = listJanji.filter(item => moment(item.Jadwal.date).isSame(today, 'day'));
+            const totalToday = todayList.length;
+            console.log(totalToday)
+            return totalToday;
+        }
+        return 0;
+    };
     return (
         <div className=" bg-slate-100">
             <div className="p-4 lg:px-24">
                 <div className="w-full flex flex-col lg:flex-row gap-2">
                     <Link to="profile" className="flex w-full p-4 bg-red-700 rounded-lg items-center gap-2 lg:gap-4 h-32 lg:h-60 grow">
                         <div className="rounded-full">
-                            <img src={"/images/dokter/doctor1.png"} alt="" className="rounded-full h-20 lg:h-32 aspect-square" />
+                            <img src={user.images} alt="" className="rounded-full h-20 lg:h-32 aspect-square" />
                         </div>
                         <div className="text-white">
                             <p className="text-sm lg:text-lg">Hallo!,</p>
-                            <h3 className="text-xl font-bold lg:text-4xl">{akun.nama}</h3>
-                            <h4 className="lg:text-xl">{akun.spesialis}</h4>
+                            <h3 className="text-xl font-bold lg:text-4xl">{user.nama}</h3>
                         </div>
                     </Link>
                     <div className="flex gap-2 lg:flex-col w-full lg:max-w-sm">
                         <Link to="/janjipasien" className="h-full max-h-20 lg:max-h-max p-4 w-full rounded-lg bg-red-700 flex gap-2 items-center">
                             <img src={listSvg} alt="" className="h-10" />
                             <div className="text-white">
-                                <h3 className="text-2xl lg:text-3xl font-bold">{akun.antrian}</h3>
+                                <h3 className="text-2xl lg:text-3xl font-bold">{JanjiHariIni()}</h3>
                                 <p className="text-xs lg:text-base">Janji temu hari Ini</p>
                             </div>
                         </Link>
                         <Link to="/janjipasien" className="h-full max-h-20 lg:max-h-max  p-4 w-full rounded-lg bg-red-700 flex gap-2 items-center">
                             <img src={TotalSvg} alt="" className="h-10" />
                             <div className="text-white">
-                                <h3 className="text-2xl lg:text-3xl font-bold">{akun.total_pasien}</h3>
+                                <h3 className="text-2xl lg:text-3xl font-bold">{listJanji.length}</h3>
                                 <p className="text-xs lg:text-base">Total Pasien</p>
                             </div>
                         </Link>
@@ -90,9 +100,12 @@ function LandingPageDoctor({role}) {
                             <Link to="/janjipasien" className="font-semibold underline text-base text-red-700">Jadwal Lainnya</Link>
                         </div>
                         <div>
-                            {pasien.map((item) => (
-                                <PasienLanding pasien={item} />
-                            ))}
+                            {listJanji.map((item) => {
+                                if (moment(item.Jadwal.date).isSame(moment(), 'day')) {
+                                   return <PasienLanding pasien={item} />
+
+                                }
+                            })}
 
                         </div>
                     </div>
@@ -103,7 +116,7 @@ function LandingPageDoctor({role}) {
                         </div>
                         <div className="flex flex-col border-none lg:flex-row flex-wrap border justify-center">
                             {
-                                data.map((item) => (
+                                forum.slice(0, 3).map((item) => (
                                     <ForumCard data={item} />
                                 ))
                             }
@@ -112,7 +125,7 @@ function LandingPageDoctor({role}) {
                 </div>
 
             </div>
-            <FooterLanding role={akun.role} />
+            <FooterLanding role={user.role} />
 
         </div>
     )

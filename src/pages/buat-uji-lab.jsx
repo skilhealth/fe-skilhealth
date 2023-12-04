@@ -1,17 +1,17 @@
 import axios from "axios";
 import { useEffect } from "react"
 import { useState } from "react"
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Backbutton from "../components/backbutton"
 
 function CatatanMedis() {
     // masukin add booking
+    const navigate = useNavigate()
     const [judul, setJudul] = useState("")
     const [keluhan, setKeluhan] = useState("")
     const [diagnosa, setDiagnosa] = useState("")
     const [catatan, setCatatan] = useState("")
     const [status, setStatus] = useState(true)
-    const [dataAPI, setData] = useState({})
 
     const location = useLocation();
     const datatrow= location.state && location.state.data
@@ -20,45 +20,6 @@ function CatatanMedis() {
     const dokId = localStorage.getItem("userid")
     const token = localStorage.getItem("token")
 
-    const currentPath = location.pathname;
-
-    const isAddPath = currentPath.includes("/edit");
-    // useEffect(() => {
-    //     if (isAddPath) {
-    //         setData({
-    //             "message": "Menampilkan Ujilab",
-    //             "data": {
-    //                 "id": 1,
-    //                 "antrian_id": 1,
-    //                 "user_id": 1,
-    //                 "dokter_id": 1,
-    //                 "judul": "Jantung Berdebar debar",
-    //                 "keluhan": "Pasien datang dengan keluhan nyeri perut sebelah kanan bawah yang semakin memburuk selama beberapa hari terakhir Dia juga mengalami mual dan muntah.",
-    //                 "diagnosa": "Setelah melakukan pemeriksaan fisik dan beberapa tes tambahan, termasuk USG abdomen, pasien didiagnosis dengan apendisitis akut.Ini adalah peradangan akut pada usus buntu (apendiks) yang memerlukan tindakan bedah segera",
-    //                 "catatan": "Dengan pertimbangan diagnosa apendisitis akut, tindakan bedah apendektomi darurat direkomendasikan untuk pasien ini.",
-    //                 "dokumen": "[\"Hasil USG abdomen\"]",
-    //                 "createdAt": "2023-11-29T04:18:07.000Z",
-    //                 "Dokter": {
-    //                     "id": 1,
-    //                     "nama": "Dr. Jane Smith"
-    //                 }
-    //             }
-    //         })
-    //     }
-    // }, [])
-    const { data } = dataAPI
-    // ini kalau misalnya url nya /edit dan datanya bukan undefine
-    useEffect(() => {
-        if (data != undefined || data != null) {
-            setJudul(data.judul)
-            setKeluhan(data.keluhan)
-            setDiagnosa(data.diagnosa)
-            setCatatan(data.catatan)
-        }
-    }, [data])
-    useEffect(() => {
-        console.log(status)
-    }, [status])
     const addUjiLab = async (data) => {
         try {
             const response = await axios.post("https://be-skilhealth.up.railway.app/ujilab/add", data,{
@@ -75,17 +36,6 @@ function CatatanMedis() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (isAddPath) {
-            //edit booking per id
-            const editUjilab = {
-                "id": 1,
-                "judul": judul,
-                "keluhan": keluhan,
-                "diagnosa": diagnosa,
-                "catatan": catatan,
-            }
-            return console.log("ini Edit", editUjilab);
-        }
         const addUjilab = {
             "antrian_id": id,
             "user_id": userid,
@@ -96,8 +46,8 @@ function CatatanMedis() {
             "catatan": catatan,
         }
         addUjiLab(addUjilab)
+        navigate("/janjipasien")
         
-        return console.log("ini add", addUjilab);
     }
     return (
         <main className="p-4 flex flex-col items-center">
