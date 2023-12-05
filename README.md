@@ -4,12 +4,12 @@ SKILHEALTH adalah Aplikasi Kesehatan Online yang memberikan pelayanan kepada pas
 
 ## <span style="color:rgb(185 28 28);">Web Link</span>
 
-    hhttps://skilhealthapp.vercel.app/
+https://skilhealthapp.vercel.app/
 
 ### Dokter Andi
-email:      doctor1@gmail.com
+email:      doctor1@gmail.com<br/>
 password:   doctor1
 
 ### Dokter Joko
-email:      doctor8@gmail.com
+email:      doctor8@gmail.com<br/>
 password:   doctor8
