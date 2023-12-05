@@ -29,7 +29,6 @@ function ListUjiLab() {
                     Authorization: `Bearer ${token}`
                 }
             })
-            console.log(response.data.data)
             return response.data.data
         } catch (err) {
             console.error(err)
@@ -42,7 +41,6 @@ function ListUjiLab() {
         }
         fetchData(id)
     }, [])
-    console.log(listuji)
     const { data } = {
         "message": "Menampilkan Ujilab",
         "data": [
@@ -98,8 +96,8 @@ function ListUjiLab() {
             <div className="flex flex-col max-w-5xl w-full">
                 <h3 className="text-2xl font-bold mb-4">Riwayat Rekam Medis</h3>
                 {
-                    listuji.map((item) => (
-                        <UjiLabCard data={item} />
+                    listuji.map((item,index) => (
+                        <UjiLabCard key={index} data={item} />
                     ))
                 }
             </div>

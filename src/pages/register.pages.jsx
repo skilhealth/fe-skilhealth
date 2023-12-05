@@ -29,8 +29,6 @@ const Register = () => {
   }
   useEffect(() => {
     setError(Validation(values));
-    console.log(values.password)
-    console.log(values.confirmasiPassword)
   }, [values])
 
   const handleSubmit = async (e) => {

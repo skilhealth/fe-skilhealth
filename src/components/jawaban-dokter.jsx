@@ -19,7 +19,7 @@ function JawabanDokter() {
     navigate("/forum/")
   }
   return (
-    <form onSubmit={handleAnswer} className="w-full h-auto flex flex-col py-2 mt-2 m-4">
+    <form onSubmit={handleAnswer} className="w-full h-auto flex flex-col py-2 mt-2">
       <div className="mt-4">
         <span className="text-xl font-bold">Jawaban</span>
         <textarea

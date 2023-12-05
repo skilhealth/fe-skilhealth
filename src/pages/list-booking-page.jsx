@@ -39,7 +39,6 @@ function ListBooking() {
         }
         fetchData(id)
     }, [])
-    console.log(listJanji)
 
     if (!listJanji) {
         return (

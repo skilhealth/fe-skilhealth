@@ -13,7 +13,6 @@ function PencarianDokter() {
     const Spesialis = async () => {
         try {
             const response = await axios.get(`https://be-skilhealth.up.railway.app/spesialis/`)
-            console.log(response.data.data)
             return response.data.data
         } catch (err) {
             console.error(err)
@@ -22,7 +21,6 @@ function PencarianDokter() {
     useEffect(() => {
         const fetchData = async () => {
             const spesialis = await Spesialis();
-            console.log(spesialis)
             setSP(spesialis)
         }
         fetchData();
@@ -76,7 +74,6 @@ function PencarianDokter() {
             };
         navigate("/doctor", { state: { SearchDoc } })
     }
-    console.log(listSp)
     if (!instansi || !listSp) return (
         <div className="p-4 lg:px-24">
             <div className="flex flex-col gap-2">

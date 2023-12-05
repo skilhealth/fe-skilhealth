@@ -24,7 +24,6 @@ function ForumProvider({ children }) {
                     Authorization: `Bearer ${token}`
                 }
             });
-            console.log(response.data)
             setForum(response.data.data);
         } catch (error) {
             console.error('Error fetching forum:', error);

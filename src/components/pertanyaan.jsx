@@ -8,7 +8,7 @@ function Pertanyaan({ data }) {
   };
 
   return (
-    <div className="flex flex-col m-4 max-w-4xl w-full">
+    <div className="flex flex-col my-4 max-w-4xl w-full">
       <span>{formatDate(data.createdAt)}</span>
       <span className="text-2xl font-bold">{data.judul}</span>
       <span className="text-lg">Oleh: {data.User.nama}</span>

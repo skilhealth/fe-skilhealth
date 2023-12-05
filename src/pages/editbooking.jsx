@@ -12,7 +12,6 @@ import JadwalDokter from "../components/jadwal-dokter"
 function Editbooking() {
     const[harga,useHarga] = useState()
     const[jadwal,setIdJadwal] = useState()
-    console.log(jadwal)
     const [dataAntrian, setAntrian] = useState()
     const token = localStorage.getItem("token")
     const navigate = useNavigate()
@@ -24,7 +23,6 @@ function Editbooking() {
                     Authorization: `Bearer ${token}`
                 }
             })
-            console.log(response)
             return response.data.data
         } catch (err) {
             console.error(err)
@@ -37,7 +35,6 @@ function Editbooking() {
                     Authorization: `Bearer ${token}`
                 }
             })
-            console.log(response)
             return response.data.message
         } catch (err) {
             console.error(err)

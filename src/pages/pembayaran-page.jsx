@@ -6,7 +6,6 @@ function Pembayaran() {
     const location = useLocation()
     const payment = location.state && location.state.via;
     const harga = location.state && location.state.harga;
-    console.log(payment)
     function generateRandomKode() {
         const randomString = Math.random().toString(36).substring(6, 10);
         return "skill" + randomString;

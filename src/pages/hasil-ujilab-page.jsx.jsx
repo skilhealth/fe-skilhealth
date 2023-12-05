@@ -17,7 +17,6 @@ function HasilUjiLab() {
                     Authorization: `Bearer ${token}`
                 }
             })
-            console.log(response)
             return response.data.data
         } catch (err) {
             console.error(err)
@@ -32,7 +31,6 @@ function HasilUjiLab() {
         };
         fetchData();
     }, []);
-    console.log(data)
     const toggle = async (data) => {
         try {
             const response = await axios.patch(`https://be-skilhealth.up.railway.app/bookings/${id}/toggle`,{status:data} ,{
@@ -40,7 +38,6 @@ function HasilUjiLab() {
                     Authorization: `Bearer ${token}`
                 }
             })
-            console.log(response)
         } catch (err) {
             console.error(err)
         }

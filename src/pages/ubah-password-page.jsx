@@ -8,7 +8,6 @@ const ChangePassword = () => {
   const location = useLocation()
   const { email } = location.state && location.state.sendmail
   const navigate = useNavigate()
-  console.log(email)
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 

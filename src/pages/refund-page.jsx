@@ -13,7 +13,6 @@ function Refund() {
                     Authorization: `Bearer ${token}`
                 }
             })
-            console.log(response)
             return response.data.message
         } catch (err) {
             console.error(err)

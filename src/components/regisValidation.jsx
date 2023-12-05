@@ -50,8 +50,6 @@ function Validation(values) {
     } else {
         error.password = ""
     }
-    console.log(values.confirmasiPassword)
-    console.log(values.password)
     if(values.confirmasiPassword === "") {
         error.confirmasiPassword ="Konfirmasi Password tidak boleh kosong"
     }

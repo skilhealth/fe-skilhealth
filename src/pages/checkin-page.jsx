@@ -18,7 +18,6 @@ function CheckIn() {
                     Authorization: `Bearer ${token}`
                 }
             })
-            console.log(response.data)
             return response.data
         } catch (err) {
             console.error(err)
@@ -32,7 +31,6 @@ function CheckIn() {
         };
         fetchData();
     }, [id]);
-    console.log(checkin)
 
     if (!checkin) {
         return (
