@@ -36,9 +36,6 @@ const Login = () => {
       console.log(data)
       if (data&& (data.message === null || data.message === undefined)) {
         navigate("/")
-      } else {
-        console.log("Alert message:", data.message);
-        alert(data.message);
       }
     } catch (err) {
       console.error(err)
