@@ -7,8 +7,6 @@ function MenungguPanggilan() {
     moment.locale('id');
     const location = useLocation()
     const data = location.state && location.state.dataAntrian 
-    console.log(data)
-
     return (
         <div className="p-4 flex flex-col items-center">
             <Backbutton nama="Menunggu Panggilan" />

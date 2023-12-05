@@ -19,7 +19,6 @@ function ListJanjiPasien() {
                     Authorization: `Bearer ${token}`
                 }
             })
-            console.log(response.data.data)
             return response.data.data
         } catch (err) {
             console.error(err)
@@ -33,7 +32,6 @@ function ListJanjiPasien() {
         fetchData(id)
     }, [])
 
-    console.log(listJanji)
     if (!listJanji) {
         return (
             <div className="p-4 lg:px-24">
@@ -62,7 +60,7 @@ function ListJanjiPasien() {
                     ) : (
 
                         listJanji.map((item, index) => (
-                            <PasienCard data={item} />
+                            <PasienCard key={index} data={item} />
                         ))
                     )
 

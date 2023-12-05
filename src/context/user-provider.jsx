@@ -19,7 +19,6 @@ function UserProvider({ children }) {
             setRole(localStorage.getItem("role"))
         }
     }, [])
-    console.log(user)
     useEffect(() => {
         if (!localStorage.getItem("role")) {
             setRole("noLogin")
@@ -27,7 +26,6 @@ function UserProvider({ children }) {
     })
     const fetchData = async (id) => {
         try {
-            console.log(id)
             let response = null
             if (role === "dokter") {
                 response = await axios.get(`https://be-skilhealth.up.railway.app/dokter/${id}`, {
@@ -42,14 +40,11 @@ function UserProvider({ children }) {
                     }
                 });
             }
-            console.log(response.data)
             setUser(response.data);
         } catch (error) {
             console.error('Error fetching user data:', error);
         }
     }
-    console.log(role)
-    console.log(user)
     useEffect(() => {
         fetchData(id)
     }, [token])
@@ -83,7 +78,6 @@ function UserProvider({ children }) {
     }
     const Register = async (konten) => {
         try {
-            console.log(konten)
             const response = await axios.post("https://be-skilhealth.up.railway.app/auth/register", konten)
             console.log(response.data.message)
             return response.data.message

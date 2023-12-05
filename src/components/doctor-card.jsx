@@ -6,7 +6,7 @@ function DoctorCard({data}) {
     const  toDetail = () =>{
         navigate(`/doctor/${Dokter.id}`)
     }
-    console.log(Dokter)
+
     return (
         <div className="bg-slate-200 w-full h-36 flex p-2 gap-3 rounded-xl" onClick={toDetail}>
             <div className="h-full">

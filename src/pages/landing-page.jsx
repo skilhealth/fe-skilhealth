@@ -3,7 +3,6 @@ import forumPng from "/src/assets/forum.png"
 import Ambulan from "/src/assets/ambulan.png"
 import Ujilab from "/src/assets/uji-lab.png"
 import Cekjadwal from "/src/assets/cek-jadwal.png"
-import Dumb from "../components/dumb-forum-card"
 import BannerImg from "/src/assets/bannerskilhealth.png"
 import BannerRS from "/src/assets/hospital-banner.png"
 import FooterLanding from "../components/footer"
@@ -103,8 +102,8 @@ function LandingPage({ role }) {
                     <h3 className="text-xl font-bold lg:text-center lg:text-2xl mb-2">Topik Baru Baru Ini</h3>
                     <div className="flex flex-col border-none lg:flex-row gap-1 flex-wrap border justify-center">
                         {
-                            forum.slice(0, 3).map((item) => {
-                                return <ForumCard data={item} />
+                            forum.slice(0, 3).map((item,index) => {
+                                return <ForumCard key={index} data={item} />
                             })
                         }
                     </div>

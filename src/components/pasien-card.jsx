@@ -3,7 +3,6 @@ import "moment/locale/id"
 import { useNavigate } from "react-router-dom"
 
 function PasienCard({ data }) {
-    console.log(data)
     const navigate = useNavigate()
     const toJanjiDetail = (e) => {
         e.preventDefault()

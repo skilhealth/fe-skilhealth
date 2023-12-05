@@ -10,7 +10,6 @@ function PasienLanding({pasien}) {
 
         return navigate(`/janjipasien/${pasien.id}`)
     }
-    console.log(pasien)
     return (
         <div className="bg-slate-100 w-full h-24 lg:h-auto flex p-2 gap-3 rounded-xl mb-2" onClick={toJanjiDetail}>
             <div className="h-full">

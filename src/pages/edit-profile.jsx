@@ -10,7 +10,20 @@ import 'moment/locale/id'
 const EditProfile = () => {
   moment.locale('id')
   const { user } = useContext(userContext)
-  const tgl = moment(user.tgl_lahir).format('yyyy-MM-dd')
+  if (!user) {
+    return (
+      <div className="p-4 lg:px-24">
+          <div className="flex flex-col gap-2">
+              <div className="w-full h-full flex justify-center items-center">
+                  <div className="text-lg font-semibold text-slate-300 absolute top-1/2 -translate-y-1/2">
+                      Loading
+                  </div>
+              </div>
+          </div>
+      </div>
+  )
+  }
+  const tgl = moment(user.tgl_lahir).format('yyyy-MM-DD')
   const [namaLengkap, setNamaLengkap] = useState(user.nama);
   const [tanggalLahir, setTanggalLahir] = useState(tgl);
   const [noTelepon, setNoTelepon] = useState(user.no_tlp);
@@ -19,23 +32,11 @@ const EditProfile = () => {
   const [alamat, setAlamat] = useState(user.alamat);
   const [imageSrc, setImageSrc] = useState(user.images);
 
-  const handleImageChange = () => {
-    setImageSrc('/path/to/default/image.jpg');
-  }
 
-  const handleEdit = (e) => {
-    e.preventDefault();
-    
-    // Perform validation and API calls here
-  };
-  if (!user) {
-    return (
-      <div></div>
-    )
-  }
+  
   return (
     <div className='p-4 lg:px-24'>
-      <Backbutton nama="Edit Profile" />
+      <Backbutton nama="Profile Pengguna" />
       <div className="bg-white-100 flex items-center justify-center py-12 px-4 lg:justify-center">
         <div className="max-w-md w-full space-y-4">
           <div className='flex justify-center'>
@@ -43,13 +44,8 @@ const EditProfile = () => {
               <img src={imageSrc} alt='' className=' w-24 h-24 rounded-full bg-gray-100' />
             </div>
           </div>
-          <div className='flex items-center justify-center'>
-            <button onClick={handleImageChange} className="text-center font-sans text-lg lg:text-xl font-bold text-red-600">
-              Edit Picture
-            </button>
-          </div>
 
-          <form className="mt-8 space-y-6" onSubmit={handleEdit}>
+          <form className="mt-8 space-y-6">
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="rounded-md shadow-sm -space-y-px"></div>
             <div>
@@ -96,29 +92,6 @@ const EditProfile = () => {
                   onChange={(e) => setNoTelepon(e.target.value)}
                 />
               </div>
-              <div>
-                <h3 className="mt-8 space-y-6 block font-sans text-xl font-bold">Email*</h3>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="off"
-                  required
-                  className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
-                  placeholder="Masukan Email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </div>
-            </div>
-
-            <div>
-              <button
-                type="submit"
-                className='bg-red-700 text-white text-sm font-bold px-6 py-3 rounded-xl shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150'
-              >
-                Simpan
-              </button>
             </div>
           </form>
 

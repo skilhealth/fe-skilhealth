@@ -25,16 +25,22 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      console.log(values)
       setError(validation(values));
       const data = await Login(values)
-      if(!data){
-        return(
-        <>Loading</>
+      if (!data) {
+        return (
+          <div className="p-4 lg:px-24">
+            <div className="flex flex-col gap-2">
+              <div className="w-full h-full flex justify-center items-center">
+                <div className="text-lg font-semibold text-slate-300 absolute top-1/2 -translate-y-1/2">
+                  Loading
+                </div>
+              </div>
+            </div>
+          </div>
         )
       }
-      console.log(data)
-      if (data&& (data.message === null || data.message === undefined)) {
+      if (data && (data.message === null || data.message === undefined)) {
         navigate("/")
       }
     } catch (err) {

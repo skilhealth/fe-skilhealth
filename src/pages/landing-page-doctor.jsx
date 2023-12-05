@@ -58,7 +58,6 @@ function LandingPageDoctor({ role }) {
             const today = moment();
             const todayList = listJanji.filter(item => moment(item.Jadwal.date).isSame(today, 'day'));
             const totalToday = todayList.length;
-            console.log(totalToday)
             return totalToday;
         }
         return 0;
@@ -100,9 +99,9 @@ function LandingPageDoctor({ role }) {
                             <Link to="/janjipasien" className="font-semibold underline text-base text-red-700">Jadwal Lainnya</Link>
                         </div>
                         <div>
-                            {listJanji.map((item) => {
+                            {listJanji.map((item,index) => {
                                 if (moment(item.Jadwal.date).isSame(moment(), 'day')) {
-                                   return <PasienLanding pasien={item} />
+                                   return <PasienLanding key={index} pasien={item} />
 
                                 }
                             })}
@@ -116,8 +115,8 @@ function LandingPageDoctor({ role }) {
                         </div>
                         <div className="flex flex-col border-none lg:flex-row flex-wrap border justify-center">
                             {
-                                forum.slice(0, 3).map((item) => (
-                                    <ForumCard data={item} />
+                                forum.slice(0, 3).map((item,index) => (
+                                    <ForumCard key={index} data={item} />
                                 ))
                             }
                         </div>

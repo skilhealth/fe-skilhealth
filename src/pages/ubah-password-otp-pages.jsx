@@ -22,7 +22,6 @@ const OTPComponent = () => {
       }
       const send = async (data) => {
         const response = await axios.post("https://be-skilhealth.up.railway.app/users/email-send", data)
-        console.log(response)
         return response.data.message
       }
       const message = await send(sendmail)

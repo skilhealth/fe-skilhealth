@@ -9,6 +9,19 @@ import { instansiContext } from '../context/instansi-provider';
 
 const EditProfileDokter = () => {
   const { user } = useContext(userContext)
+  if (!user) {
+    return (
+      <div className="p-4 lg:px-24">
+          <div className="flex flex-col gap-2">
+              <div className="w-full h-full flex justify-center items-center">
+                  <div className="text-lg font-semibold text-slate-300 absolute top-1/2 -translate-y-1/2">
+                      Loading
+                  </div>
+              </div>
+          </div>
+      </div>
+  )
+  }
   const { instansi } = useContext(instansiContext)
   const [namaLengkap, setNamaLengkap] = useState(user.nama);
   const [status, setStatus] = useState(user.status);
@@ -17,12 +30,6 @@ const EditProfileDokter = () => {
   const [tentang, setTentang] = useState(user.deskripsi);
   const [imageSrc, setImageSrc] = useState(user.images);
 
-  console.log(user)
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Perform validation and API calls here
-  };
   if (!user || !instansi) {
     return (
       <div className="p-4 lg:px-24">
@@ -38,7 +45,7 @@ const EditProfileDokter = () => {
   }
   return (
     <div className='p-4 lg:px-24'>
-      <Backbutton nama="Edit Profile"></Backbutton>
+      <Backbutton nama="Profile Pengguna"></Backbutton>
       <div className='bg-white-100 flex items-center justify-center py-12 px-2 lg:justify-center'>
         <div className="max-w-md w-full space-y-4">
           <div className=' flex justify-center'>
@@ -47,26 +54,9 @@ const EditProfileDokter = () => {
             </div>
           </div>
 
-          <div className='flex items-center justify-center'>
-            <button className="text-center font-sans text-lg lg:text-xl font-bold text-red-600">
-              Edit Picture
-            </button>
-          </div>
-
-          <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+          <form className="mt-8 space-y-6">
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="rounded-md shadow-sm -space-y-px"></div>
-            <div>
-              <h3 className="mt-8 space-y-6 block font-sans text-xl font-bold">Email</h3>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                disabled
-                className="px-4 py-6 bg-gray-200 font-bold rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
-                value="andrewwl@gmail.com"
-              />
-            </div>
 
             <div>
               <h3 className="mt-8 space-y-6 block font-sans text-xl font-bold">Nama Lengkap*</h3>
@@ -134,15 +124,6 @@ const EditProfileDokter = () => {
                   onChange={(e) => setTentang(e.target.value)}
                 />
               </div>
-            </div>
-
-            <div>
-              <button
-                type="submit"
-                className='bg-red-700 text-white text-sm font-bold px-6 py-3 rounded-xl shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150'
-              >
-                Simpan
-              </button>
             </div>
           </form>
         </div>

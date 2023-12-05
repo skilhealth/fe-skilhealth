@@ -34,15 +34,15 @@ function DoctorDetail({ data }) {
                 <div className="mb-2">
                     <h3 className="font-bold">Pengalaman Praktek</h3>
                     <ul className="px-4">
-                        {data.pengalaman.map((item) => (
-                            <li className="list-disc">{item}</li>
+                        {data.pengalaman.map((item,index) => (
+                            <li key={index} className="list-disc">{item}</li>
                         ))}
                     </ul>
                 </div>
                 <div className="mb-2">
                     <h3 className="font-bold">Pendidikan Terakhir</h3>
-                    {data.pendidikan.map((item) => (
-                        <li className="list-disc">{item}</li>
+                    {data.pendidikan.map((item,index) => (
+                        <li key={index} className="list-disc">{item}</li>
                     ))}
                 </div>
             </div>
