@@ -1,8 +1,15 @@
-# React + Vite
+# <font color="rgb(185 28 28)">Skilhealth</font>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+SKILHEALTH adalah Aplikasi Kesehatan Online yang memberikan pelayanan kepada pasien, dimana tujuan utamanya adalah, pasien dapat melakukan reservasi jadwal bersama dokter tanpa harus secara langsung ke rumah sakit.
 
-Currently, two official plugins are available:
+## <span style="color:rgb(185 28 28);">Web Link</span>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+    hhttps://skilhealthapp.vercel.app/
+
+### Dokter Andi
+email:      doctor1@gmail.com
+password:   doctor1
+
+### Dokter Joko
+email:      doctor8@gmail.com
+password:   doctor8
