@@ -93,7 +93,7 @@ const Login = () => {
               </div>
             </div>
             <div className='flex ml-2 items-center justify-end'>
-              <a href="../gantipass" className="text-lg">Lupa password?</a>
+              <Link to="/otp" className="text-lg">Lupa password?</Link>
             </div>
 
             <div>

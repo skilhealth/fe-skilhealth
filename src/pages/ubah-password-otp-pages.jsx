@@ -9,12 +9,6 @@ const OTPComponent = () => {
   const [email, setEmail] = useState('');
   const navigate = useNavigate()
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // handle the submit logic here
-
-  };
-
   const handleVerify = async () => {
     try {
       const sendmail = {
@@ -38,14 +32,6 @@ const OTPComponent = () => {
 
   };
 
-  const handleSendCode = () => {
-    // handle the send code logic here
-  };
-
-  const handleResend = () => {
-    // handle the resend logic here
-  };
-
   return (
     <div className="mb-12 lg:mb-44 flex flex-col items-center justify-center bg-white-100 py-12 px-4 sm:px-6 lg:px-8">
       <Backbutton />
@@ -56,7 +42,7 @@ const OTPComponent = () => {
             Ubah Password
           </h2>
         </div>
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+        <form className="mt-8 space-y-6" onSubmit={handleVerify}>
           <div className="rounded-md shadow-sm -space-y-px">
             <div>
               <h3 className="mt-8 space-y-6 block font-sans text-xl font-bold ">Email</h3>
@@ -65,11 +51,11 @@ const OTPComponent = () => {
                 name="email"
                 type="email"
                 autoComplete="off"
-                required
                 className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
                 placeholder="Masukan Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                required
               />
             </div>
             <div>
@@ -82,9 +68,8 @@ const OTPComponent = () => {
 
           <div>
             <button
-              type="button"
+              type="submit"
               className="bg-red-700 text-white text-sm font-bold px-6 py-3 rounded-xl shadow hover:shadow-lg outline-none focus:outline-none w-full ease-linear transition-all duration-150 hover:bg-red-600 "
-              onClick={handleVerify}
             >
               Verify
             </button>
