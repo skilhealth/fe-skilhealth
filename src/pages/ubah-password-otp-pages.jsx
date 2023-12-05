@@ -9,7 +9,8 @@ const OTPComponent = () => {
   const [email, setEmail] = useState('');
   const navigate = useNavigate()
 
-  const handleVerify = async () => {
+  const handleVerify = async (e) => {
+    e.preventDefault()
     try {
       const sendmail = {
         email: email
