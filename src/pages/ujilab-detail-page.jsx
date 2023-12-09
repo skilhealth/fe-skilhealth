@@ -4,6 +4,7 @@ import 'moment/locale/id'
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { useParams } from "react-router-dom"
+import Loading from "../components/loading"
 // get ujilab by id
 function UjilabDetail() {
     const [data, setAntrian] = useState()
@@ -52,9 +53,7 @@ function UjilabDetail() {
     // const tgl = moment(data.createdAt)
     if (!data) {
         return (
-            <div>
-
-            </div>
+            <Loading/>
         )
     }
     return (

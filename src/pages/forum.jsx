@@ -4,6 +4,7 @@ import Backbutton from "../components/backbutton";
 import ForumCard from "../components/forum-card";
 import Pagination from "../components/pagination";
 import { forumContext } from "../context/forum-provider";
+import Loading from "../components/loading";
 
 function Forum() {
   const { role, forum } = useContext(forumContext)
@@ -26,13 +27,7 @@ function Forum() {
   if (!forum) {
     return <div className="p-4 lg:px-24">
       <Backbutton nama="Janji pasien " />
-      <div className="flex flex-col gap-2">
-        <div className="w-full h-full flex justify-center items-center">
-          <div className="text-lg font-semibold text-slate-300 absolute top-1/2 -translate-y-1/2">
-            Loading
-          </div>
-        </div>
-      </div>
+      <Loading/>
     </div>;
   }
 
@@ -102,7 +97,7 @@ function Forum() {
     <main className="p-4 lg:px-24 flex flex-col items-center w-full">
       <Backbutton nama="Forum Chat" />
       <button
-        className={`bg-red-700 rounded-xl font-medium w-full  max-w-3xl text-lg text-white p-2 my-4 ${role === "dokter" ? "hidden" : ""}`}
+        className={`bg-red-700 rounded-xl font-medium w-full  max-w-3xl text-lg text-white p-2 my-4 hover:opacity-70 transition duration-200 ${role === "dokter" ? "hidden" : ""}`}
         onClick={toBuatPertanyaan}
       >
         Buat Pertanyaan

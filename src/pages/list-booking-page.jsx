@@ -1,5 +1,6 @@
 import axios from "axios"
 import moment from "moment/moment"
+import Cekjadwal from "/src/assets/cek-jadwal.png";
 import { useContext } from "react"
 import { useEffect } from "react"
 import { useState } from "react"
@@ -46,8 +47,11 @@ function ListBooking() {
                 <Backbutton nama="Janji pasien " />
                 <div className="flex flex-col gap-2">
                     <div className="w-full h-full flex justify-center items-center">
-                        <div className="text-lg font-semibold text-slate-300 absolute top-1/2 -translate-y-1/2">
-                            Tidak ada Dokter
+                        <div className="text-lg font-semibold text-center text-black  opacity-40 absolute top-1/2 -translate-y-1/2">
+                            <div className="w-80">
+                                <img src={Cekjadwal} alt="" />
+                            </div>
+                            Kamu belum membuat jadwal
                         </div>
                     </div>
                 </div>

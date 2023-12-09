@@ -16,7 +16,7 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
               <button
                 className={`${
                   currentPage === number
-                    ? "bg-red-700 text-white"
+                    ? "bg-red-700 text-white hover:opacity-70"
                     : "bg-white text-red-700 border-red-700 border"
                 } py-2 px-4 rounded focus:outline-none`}
                 onClick={() => onPageChange(number)}

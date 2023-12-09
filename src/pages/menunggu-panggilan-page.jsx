@@ -22,7 +22,7 @@ function MenungguPanggilan() {
                 </div>
                 <div className="w-full lg:text-lg lg:font-normal">
                     Dokter Sudah berada dipanggilan
-                    <button className="bg-red-700 text-white p-4 w-full rounded-lg mt-2"><a href={` https://wa.me/${data.Dokter.no_tlp}`} target="_blank" rel="noopener noreferrer"> Masuk Panggilan</a></button>
+                    <button className="bg-red-700 text-white p-4 w-full rounded-lg mt-2 hover:opacity-70 transition duration-200"><a href={` https://wa.me/${data.Dokter.no_tlp}`} target="_blank" rel="noopener noreferrer"> Masuk Panggilan</a></button>
                 </div>
             </div>
         </div>

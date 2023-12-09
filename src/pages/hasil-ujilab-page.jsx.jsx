@@ -5,6 +5,7 @@ import { useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { useEffect } from "react"
 import axios from "axios"
+import Loading from "../components/loading"
 
 function HasilUjiLab() {
     const [data, setAntrian] = useState()
@@ -49,9 +50,7 @@ function HasilUjiLab() {
 
     if (!data) {
         return (
-            <div>
-
-            </div>
+            <Loading/>
         )
     }
     return (

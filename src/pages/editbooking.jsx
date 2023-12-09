@@ -6,6 +6,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import Backbutton from "../components/backbutton"
 import DoctorDetail from "../components/doctor-detail"
 import JadwalDokter from "../components/jadwal-dokter"
+import Loading from "../components/loading"
 
 
 // route.patch("/:id/edit",editBooking) atau patch booking/:id/edit  // buat edit janji temu ad di halaman editbooking
@@ -13,6 +14,7 @@ function Editbooking() {
     const[harga,useHarga] = useState()
     const[jadwal,setIdJadwal] = useState()
     const [dataAntrian, setAntrian] = useState()
+    const [error, setError] = useState("");
     const token = localStorage.getItem("token")
     const navigate = useNavigate()
     moment.locale("id")
@@ -51,23 +53,35 @@ function Editbooking() {
     }, [id]);
 
     const handleEdit = async (e) => {
-        e.preventDefault()
-        try{
-            const JadwalId = {
-                jadwal_id:jadwal
-            }
-            const message = await EditBooking(JadwalId)
-            if(message === 'Antrian Berhasil edit'){
-                alert(message)
-                navigate(-1)
-            }else{
-                navigate(-1)
-            }
-        }catch(err){
-            console.error(err)
+        e.preventDefault();
+
+        // Mengecek apakah jadwal sudah dipilih
+        if (!jadwal) {
+            setError("Pilih jadwal terlebih dahulu sebelum mengkonfirmasi");
+            return;
         }
-        navigate("edit")
-    }
+
+        try {
+            if (jadwal === dataAntrian.Jadwal.id) {
+                setError("Jadwal yang baru tidak boleh sama dengan jadwal sebelumnya");
+                return;
+            }
+
+            const JadwalId = {
+                jadwal_id: jadwal
+            };
+            const message = await EditBooking(JadwalId);
+            if (message === 'Antrian Berhasil edit') {
+                navigate(-1);
+            } else {
+                navigate(-1);
+            }
+        } catch (err) {
+            console.error(err);
+        }
+        navigate("edit");
+    };
+
     const handleRefund = (e) => {
         e.preventDefault()
         navigate("refund")
@@ -92,15 +106,7 @@ function Editbooking() {
     }
     if (!dataAntrian) {
         return (
-            <div className="p-4 lg:px-24">
-                <div className="flex flex-col gap-2">
-                    <div className="w-full h-full flex justify-center items-center">
-                        <div className="text-lg font-semibold text-slate-300 absolute top-1/2 -translate-y-1/2">
-                            Loading
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Loading/>
         )
     }
     return (
@@ -108,14 +114,15 @@ function Editbooking() {
             <Backbutton nama="Atur Jadwal Kembali" />
             <div className="flex flex-col lg:flex-row">
                 <DoctorDetail data={dataAntrian.Dokter} />
-                <form className=" max-w-md w-full mt-2 lg:mt-0 lg:p-4 lg:border-2 lg:h-min rounded-lg border-slate-500" onSubmit={handleEdit}>
-                    <JadwalDokter jadwal={dataAntrian.Dokter.Jadwals.filter(schdule => schdule.tipe === dataAntrian.Jadwal.tipe)} useharga={(harga) => useHarga(harga)} useidjadwal ={(idJadwal)=>setIdJadwal(idJadwal)} />
-                    <div className="flex mt-2 w-full border-slate-100 p-2 justify-between gap-2">
-                        <button className="w-full bg-red-700 p-2 rounded-lg text-white " type="submit">Konfirmasi</button>
+                <form className="max-w-md w-full mt-2 lg:mt-0 lg:p-4 lg:border-2 lg:h-min rounded-lg border-slate-500" onSubmit={handleEdit}>
+                    <JadwalDokter jadwal={dataAntrian.Dokter.Jadwals.filter(schedule => schedule.date !== dataAntrian.Jadwal.date)} useharga={(harga) => useHarga(harga)} useidjadwal ={(idJadwal) => setIdJadwal(idJadwal)} />
+                    <div className="flex flex-col mt-2 w-full border-slate-100 p-2 justify-between gap-2">
+                        {error && <span className="text-red-500">{error}</span>}    
+                        <button className="w-full bg-red-700 p-2 rounded-lg text-white hover:opacity-70 transition duration-200" type="submit">Konfirmasi</button>
                     </div>
                 </form>
             </div>
         </div>
-    )
+    );
 }
 export default Editbooking

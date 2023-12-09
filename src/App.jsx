@@ -45,7 +45,7 @@ function App() {
   if(!role){
     return(
       <div>
-        Loading
+        
       </div>
     )
   }

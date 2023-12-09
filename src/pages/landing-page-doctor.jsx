@@ -12,6 +12,7 @@ import { useEffect } from "react"
 import axios from "axios"
 import moment from "moment/moment"
 import 'moment/locale/id'
+import Loading from "../components/loading"
 
 function LandingPageDoctor({ role }) {
     moment.locale('id')
@@ -42,15 +43,7 @@ function LandingPageDoctor({ role }) {
     }, [])
     if (!user || !forum || !listJanji) {
         return (
-            <div className="p-4 lg:px-24">
-                <div className="flex flex-col gap-2">
-                    <div className="w-full h-full flex justify-center items-center">
-                        <div className="text-lg font-semibold text-slate-300 absolute top-1/2 -translate-y-1/2">
-                            Loading
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Loading/>
         )
     }
     const JanjiHariIni = () => {

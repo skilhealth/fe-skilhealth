@@ -16,7 +16,7 @@ function MenuProfile({role}) {
 
                     <div className=" flex flex-row space-x-3 border-b border-black" >
                          <img className="w-8 h-8 ml-1" src={imgout} alt="icon Logout"></img>
-                         <h2 className="font-semibold px-1 "><Link to="/">Keluar</Link></h2>
+                         <h2 className="font-semibold px-1 hover:font-bold "><Link to="/">Keluar</Link></h2>
                     </div>
                </div>
           </div>

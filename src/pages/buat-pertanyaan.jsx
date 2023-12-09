@@ -54,7 +54,7 @@ function BuatPertanyaan() {
         />
       </div>
       <div className="mt-12 max-w-xl w-full">
-        <button onClick={handleAdd} type="submit" className="bg-red-700 rounded-xl font-medium w-full text-lg text-white p-2">
+        <button onClick={handleAdd} type="submit" className="bg-red-700 rounded-xl font-medium w-full text-lg text-white p-2 hover:opacity-70 transition duration-200">
           Kirim
         </button>
       </div>

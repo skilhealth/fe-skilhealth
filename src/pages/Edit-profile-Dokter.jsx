@@ -5,6 +5,7 @@ import { useContext } from 'react';
 import { userContext } from '../context/user-provider';
 import { useEffect } from 'react';
 import { instansiContext } from '../context/instansi-provider';
+import Loading from '../components/loading';
 
 
 const EditProfileDokter = () => {
@@ -32,15 +33,7 @@ const EditProfileDokter = () => {
 
   if (!user || !instansi) {
     return (
-      <div className="p-4 lg:px-24">
-        <div className="flex flex-col gap-2">
-          <div className="w-full h-full flex justify-center items-center">
-            <div className="text-lg font-semibold text-slate-300 absolute top-1/2 -translate-y-1/2">
-              Loading
-            </div>
-          </div>
-        </div>
-      </div>
+      <Loading/>
     )
   }
   return (

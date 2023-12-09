@@ -6,6 +6,7 @@ import "moment/locale/id"
 import { useState } from "react"
 import { useEffect } from "react"
 import axios from "axios"
+import Loading from "../components/loading"
 
 function BookingDetailPage() {
     const [dataAntrian, setAntrian] = useState()
@@ -65,15 +66,7 @@ function BookingDetailPage() {
     }
     if (!dataAntrian) {
         return (
-            <div className="p-4 lg:px-24">
-                <div className="flex flex-col gap-2">
-                    <div className="w-full h-full flex justify-center items-center">
-                        <div className="text-lg font-semibold text-slate-300 absolute top-1/2 -translate-y-1/2">
-                            Loading
-                        </div>
-                    </div>
-                </div>
-            </div>
+           <Loading/>
         )
     }
     return (
@@ -88,9 +81,9 @@ function BookingDetailPage() {
                         <div>{dataAntrian.Dokter.Instansi.nama}</div>
                     </div>
                     <div className="flex flex-col gap-1 mt-4 font-bold">
-                        <button onClick={handleIn} className="border-4 border-red-700 bg-red-700 p-2 text-white rounded-xl">Masuk</button>
-                        <button onClick={handleEdit} className="border-4 border-red-700 p-2 text-red-700 rounded-xl">Ganti Jadwal</button>
-                        <button onClick={handleRefund} className="border-4 border-white p-2 text-red-700 rounded-xl">Batalkan Jadwal</button>
+                        <button onClick={handleIn} className="border-4 border-red-700 bg-red-700 p-2 text-white rounded-xl hover:opacity-70 transition duration-200">Masuk</button>
+                        <button onClick={handleEdit} className="border-4 border-red-700 p-2 text-red-700 rounded-xl hover:opacity-70 transition duration-200">Ganti Jadwal</button>
+                        <button onClick={handleRefund} className="border-4 border-white p-2 text-red-700 rounded-xl hover:opacity-70 transition duration-200">Batalkan Jadwal</button>
                     </div>
                 </div>
             </div>

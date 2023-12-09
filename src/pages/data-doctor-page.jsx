@@ -6,6 +6,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import axios from "axios"
 import { useEffect } from "react"
 import { userContext } from "../context/user-provider"
+import Loading from "../components/loading"
 function DataDokter() {
     const navigate = useNavigate()
     const { isLogin } = useContext(userContext)
@@ -64,13 +65,7 @@ function DataDokter() {
     if (!dataDokter) {
         return <div className="p-4 lg:px-24">
             <Backbutton nama="Janji pasien " />
-            <div className="flex flex-col gap-2">
-                <div className="w-full h-full flex justify-center items-center">
-                    <div className="text-lg font-semibold text-slate-300 absolute top-1/2 -translate-y-1/2">
-                        Loading
-                    </div>
-                </div>
-            </div>
+            <Loading/>
         </div>;
     }
     const { Jadwals } = dataDokter
@@ -83,7 +78,7 @@ function DataDokter() {
                     <JadwalDokter jadwal={Jadwals} useharga={(harga) => useHarga(harga)} useidjadwal={(idJadwal) => setIdJadwal(idJadwal)} />
                     <div className="flex lg:block border-2 mt-2 w-full shadow-lg lg:shadow-none lg:border-0 border-slate-100 p-2 justify-between gap-2">
                         <div className="grow">
-                            <select value={Payment} onChange={handlePayment} name="pembayaran" id="" className="w-full border-2 border-black rounded-md pl-2">
+                            <select value={Payment} onChange={handlePayment} name="pembayaran" id="" className="w-full border-2 border-black rounded-md pl-2 cursor-pointer">
                                 <option value="">Pilih Metode Pembayaran</option>
                                 <option value="QRIS">QRIS</option>
                                 <option value="Bank & Kredit">Bank & Kredit</option>
@@ -92,7 +87,7 @@ function DataDokter() {
                             <h3 className="text-4xl font-semibold">Rp.{harga.toLocaleString()}</h3>
                             <p>Include Fax*</p>
                         </div>
-                        <button type="submit" className="h-full aspect-square lg:w-full lg:h-auto lg:aspect-auto lg:mt-4 bg-red-700 p-2 rounded-2xl text-white ">Konfirmasi</button>
+                        <button type="submit" className="h-full aspect-square hover:opacity-70 transition duration-200 lg:w-full lg:h-auto lg:aspect-auto lg:mt-4 bg-red-700 p-2 rounded-xl text-white ">Konfirmasi</button>
                     </div>
                 </form>
             </div>

@@ -33,7 +33,7 @@ function Pembayaran() {
                     </div>
                 </div>
                 <Link to="/booking" className="w-full">
-                    <button className="bg-red-700 p-4 my-4 text-white text-md rounded-lg w-full">Cek Jadwal</button>
+                    <button className="bg-red-700 p-4 my-4 text-white text-md rounded-lg w-full hover:opacity-70 transition duration-200">Cek Jadwal</button>
                 </Link>
             </div>
         </div>
