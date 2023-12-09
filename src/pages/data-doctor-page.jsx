@@ -87,7 +87,7 @@ function DataDokter() {
                                 <option value="">Pilih Metode Pembayaran</option>
                                 <option value="QRIS">QRIS</option>
                                 <option value="Bank & Kredit">Bank & Kredit</option>
-                                <option value="Alfamaret">Alfamaret</option>
+                                <option value="Alfamaret">Alfamart</option>
                             </select>
                             <h3 className="text-4xl font-semibold">Rp.{harga.toLocaleString()}</h3>
                             <p>Include Fax*</p>

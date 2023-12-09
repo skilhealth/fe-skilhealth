@@ -12,21 +12,21 @@ function FooterLanding({ role }) {
                     <div className="text-2xl  font-bold">Skilhealth</div>
                 </div>
                 <div className="flex-col flex lg:items-center justify-around lg:justify-between items-end lg:flex-row-reverse grow lg:flex-2">
-                    <ul className=" underline">
+                    <ul className="">
                         {
                             role === "dokter" ? (
                                 <div>
-                                    <li><Link to="/janjipasien"> Janji Temu Pasien </Link> </li>
-                                    <li><Link to="/forum"> Forum Konsultasi </Link> </li>
+                                    <li className="hover:underline"><Link to="/janjipasien"> Janji Temu Pasien </Link> </li>
+                                    <li className="hover:underline"><Link to="/forum"> Forum Konsultasi </Link> </li>
                                 </div>
 
                             ) : (
                                 <div>
-                                    <li><Link to="/booking"> Cek Jadwal janji </Link> </li>
-                                    <li><Link to="/doctor/search"> Cari Dokter </Link> </li>
-                                    <li><Link to="/ujilab"> Cek Hasil Ujilab </Link> </li>
-                                    <li><Link to="/ambulan"> Panggil Ambulance </Link> </li>
-                                    <li><Link to="/forum"> Forum Konsultasi </Link> </li>
+                                    <li className="hover:underline"><Link to="/booking"> Cek Jadwal janji </Link> </li>
+                                    <li className="hover:underline"><Link to="/doctor/search"> Cari Dokter </Link> </li>
+                                    <li className="hover:underline"><Link to="/ujilab"> Cek Hasil Ujilab </Link> </li>
+                                    <li className="hover:underline"><Link to="/ambulan"> Panggil Ambulance </Link> </li>
+                                    <li className="hover:underline"><Link to="/forum"> Forum Konsultasi </Link> </li>
                                 </div>
                             )
                         }

@@ -68,7 +68,7 @@ const Register = () => {
                 placeholder="Masukan Nama"
                 onChange={handleInput}
                 required />
-              {errors.nama && <span className='text-red-600'>{errors.nama}</span>}
+              {errors.nama && <span className='text-red-600 hidden'>{errors.nama}</span>}
             </div>
             <div>
               <h3 className="mt-8 space-y-6 block font-sans text-xl font-bold ">Tanggal Lahir</h3>

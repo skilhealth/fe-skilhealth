@@ -71,7 +71,7 @@ function LandingPageDoctor({ role }) {
                             <img src={user.images} alt="" className="rounded-full h-20 lg:h-32 aspect-square" />
                         </div>
                         <div className="text-white">
-                            <p className="text-sm lg:text-lg">Hallo!,</p>
+                            <p className="text-sm lg:text-lg">Halo!,</p>
                             <h3 className="text-xl font-bold lg:text-4xl">{user.nama}</h3>
                         </div>
                     </Link>

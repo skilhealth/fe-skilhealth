@@ -147,7 +147,7 @@ function PencarianDokter() {
                     <label htmlFor="metode" className="text-lg font-medium">
                         Metode
                     </label>
-                    <select name="metode" id="metode" className="bg-white border-2  font-normal border-black rounded-lg p-2 px-4 text-base" onChange={(e) => setMETODE(e.target.value)}>
+                    <select name="metode" id="metode" className="bg-white border-2 font-normal border-black rounded-lg p-2 px-4 text-base" onChange={(e) => setMETODE(e.target.value)}>
                         <option value="">Pilih Metode</option>
                         <option value="daring">Daring</option>
                         <option value="reguler">Reguler</option>

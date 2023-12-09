@@ -1,16 +1,24 @@
 import React from "react";
 import { useState } from "react";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Backbutton from "../components/backbutton";
 import { forumContext } from "../context/forum-provider";
+import { userContext } from "../context/user-provider"
 
 function BuatPertanyaan() {
+  const {isLogin} = useContext(userContext)
+    const navigate = useNavigate()
+    useEffect(() => {
+        if (!isLogin) {
+            navigate("/login")
+        }
+    }, [isLogin])
+
   const { AddForum } = useContext(forumContext)
   const [judul, setJudul] = useState()
   const [keluhan, setKeluhan] = useState()
   const user_id = localStorage.getItem("userid")
-  const navigate  = useNavigate()
 
   const handleAdd = (e) => {
     e.preventDefault()

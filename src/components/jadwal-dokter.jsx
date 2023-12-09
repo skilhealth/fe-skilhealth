@@ -19,7 +19,7 @@ function JadwalDokter({ jadwal, useharga, useidjadwal }) {
             <div className="flex text-xs gap-3">
                 {
                     jadwal.map((item, index) => (
-                        <label key={index} className={`flex flex-col w-max rounded-md p-2 border-2 ${(selectOption === index) ? "border-red-700 bg-red-700 text-white" : "border-black"}`}>
+                        <label key={index} className={`flex flex-col w-max rounded-md p-2 border-2 ${(selectOption === index) ? "transition duration-200 border-red-700 bg-red-700 text-white" : "border-black"}`}>
                             <input type="radio" name="jadwal" value={item.id} className="hidden" onChange={() => handleOption(index, item.harga, item.id)} />
                             <div className="">{Kapital(item.tipe)}</div>
                             <div className="">{(() => {

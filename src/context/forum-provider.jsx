@@ -13,10 +13,17 @@ function ForumProvider({ children }) {
     const [id, setId] = useState("");
 
     useEffect(() => {
-        setToken(localStorage.getItem("token"))
-        setId(localStorage.getItem("userid"))
-        setRole(localStorage.getItem("role"))
-    }, [])
+        setToken((prevToken) => {
+            const newToken = localStorage.getItem("token") || "";
+            if (prevToken !== newToken) {
+                fetchData(id);
+            }
+            return newToken;
+        });
+        setId(localStorage.getItem("userid") || "");
+        setRole(localStorage.getItem("role") || "pasien");
+    }, [id]);
+        
     const fetchData = async () => {
         try {
             const response = await axios.get(`https://be-skilhealth.up.railway.app/forum`, {
