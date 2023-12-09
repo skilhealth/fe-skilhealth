@@ -12,7 +12,7 @@ function Diskusi() {
   const location = useLocation();
   const data = location.state && location.state.data;
   return (
-    <main className="p-4 lg:px-24 flex flex-col items-center border-4 ">
+    <main className="p-4 lg:px-24 flex flex-col items-center ">
       <Backbutton nama="Diskusi" />
       <div className="max-w-4xl w-full">
         {data && <Pertanyaan data={data} />}

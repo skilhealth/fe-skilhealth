@@ -43,6 +43,7 @@ function DataDokter() {
         };
         fetchData();
     }, [id]);
+
     const handleBooking = async (e) => {
         e.preventDefault()
         const newBooking = {
@@ -51,14 +52,25 @@ function DataDokter() {
             jadwal_id: idJadwal,
             keterangan: ""
         }
-        const addBooking = async (newBooking) => {
-            const response = await axios.post("https://be-skilhealth.up.railway.app/bookings", newBooking, {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            })
-            console.log(response.data.message)
+
+        if (!idJadwal || !Payment) {
+            alert("Please select a schedule and payment method.");
+            return;
         }
+
+        const addBooking = async (newBooking) => {
+            try {
+                const response = await axios.post("https://be-skilhealth.up.railway.app/bookings", newBooking, {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+                console.log(response.data.message);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+        
         await addBooking(newBooking)
         navigate("/booking/pembayaran", { state: { via: Payment, harga: harga }, })
     }

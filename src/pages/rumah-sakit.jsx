@@ -16,7 +16,6 @@ function Hospital() {
         <div className="p-4 lg:px-24">
             <Backbutton nama=" Rumah Sakit" />
             {/* <SearchHospital></SearchHospital> */}
-            <h1>Hospital</h1>
             <form className="w-full max-w-sm mx-auto">
                 <div className="rounded-md shadow-sm -space-y-px">
                     <input

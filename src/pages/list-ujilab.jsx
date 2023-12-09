@@ -1,6 +1,7 @@
 import Backbutton from "../components/backbutton"
 import UjiLabCard from "../components/ujilab-card"
 import 'moment/locale/id'
+import Ujilab from "/src/assets/uji-lab.png";
 import moment from "moment/moment"
 import { useState } from "react"
 import axios from "axios"
@@ -8,6 +9,7 @@ import { useEffect } from "react"
 import { useContext } from "react"
 import { userContext } from "../context/user-provider"
 import { useNavigate } from "react-router-dom"
+import Loading from "../components/loading";
 // get ujilab by user id
 function ListUjiLab() {
     const {isLogin} = useContext(userContext)
@@ -18,6 +20,7 @@ function ListUjiLab() {
         }
     }, [isLogin])
     const [listuji, setUji] = useState(null)
+    const [showLoading, setShowLoading] = useState(true);
     const id = localStorage.getItem("userid")
     const token = localStorage.getItem("token")
     const role = localStorage.getItem("role")
@@ -36,11 +39,17 @@ function ListUjiLab() {
     }
     useEffect(() => {
         const fetchData = async (id) => {
+            await new Promise(resolve => setTimeout(resolve, 300));
             const listuji = await Uji(id);
             setUji(listuji)
+            setShowLoading(false)
         }
         fetchData(id)
     }, [])
+
+    if (showLoading) {
+        return <Loading />;
+      }
     const { data } = {
         "message": "Menampilkan Ujilab",
         "data": [
@@ -80,10 +89,13 @@ function ListUjiLab() {
     }
     if(!listuji)return(
         <div className="p-4 lg:px-24">
-                <Backbutton nama="Janji pasien " />
+                <Backbutton nama="Rekam Medis " />
                 <div className="flex flex-col gap-2">
                     <div className="w-full h-full flex justify-center items-center">
-                        <div className="text-lg font-semibold text-slate-300 absolute top-1/2 -translate-y-1/2">
+                        <div className="text-lg text-center font-semibold opacity-25 absolute top-1/2 -translate-y-1/2">
+                            <div className="w-80">
+                                <img src={Ujilab} alt="" />
+                            </div>
                             Tidak ada Hasil Uji Lab
                         </div>
                     </div>
