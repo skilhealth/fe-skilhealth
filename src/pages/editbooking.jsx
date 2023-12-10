@@ -115,7 +115,7 @@ function Editbooking() {
             <div className="flex flex-col lg:flex-row">
                 <DoctorDetail data={dataAntrian.Dokter} />
                 <form className="max-w-md w-full mt-2 lg:mt-0 lg:p-4 lg:border-2 lg:h-min rounded-lg border-slate-500" onSubmit={handleEdit}>
-                    <JadwalDokter jadwal={dataAntrian.Dokter.Jadwals.filter(schedule => schedule.date !== dataAntrian.Jadwal.date)} useharga={(harga) => useHarga(harga)} useidjadwal ={(idJadwal) => setIdJadwal(idJadwal)} />
+                    <JadwalDokter jadwal={dataAntrian.Dokter.Jadwals.filter(schedule => schedule.tipe === dataAntrian.Jadwal.tipe)} useharga={(harga) => useHarga(harga)} useidjadwal ={(idJadwal) => setIdJadwal(idJadwal)} />
                     <div className="flex flex-col mt-2 w-full border-slate-100 p-2 justify-between gap-2">
                         {error && <span className="text-red-500">{error}</span>}    
                         <button className="w-full bg-red-700 p-2 rounded-lg text-white hover:opacity-70 transition duration-200" type="submit">Konfirmasi</button>

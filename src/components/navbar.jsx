@@ -12,9 +12,14 @@ function Navbar() {
         handleNavbar()
 
     }, [])
-    const handleNavbar = (e) => {
-        (navbar) ? setNav(false) : setNav(true)
+    const handleNavbar = () => {
+        setNav((prevNav) => !prevNav);
     }
+
+    const closeNavbar = () => {
+        setNav(false);
+    }
+
     const handleLogout = () => {
         if(isLogin){
             Logout()
@@ -37,19 +42,19 @@ function Navbar() {
             </div>
             <ul className={`w-full text-red-700 flex-col px-4 absolute bg-white lg:w-auto lg:bg-transparent lg:text-white lg:relative lg:flex lg:flex-row lg:gap-5 lg:items-center ${navbar ? "hidden" : "flex"}`}>
                 <Link to="/" >
-                    <li className="py-4 hover:opacity-70 transition duration-200 lg:px-4 lg:py-2 text-center border-slate-200 lg:border-0 border-b-2">Home</li>
+                    <li onClick={handleNavbar} className="py-4 hover:opacity-70 transition duration-200 lg:px-4 lg:py-2 text-center border-slate-200 lg:border-0 border-b-2">Home</li>
                 </Link>
                 <Link to={`${role === "dokter" ? "/janjipasien" : "/doctor/search"}`}>
-                    <li className="py-4 hover:opacity-70 transition duration-200 lg:px-4 lg:py-2 text-center border-slate-200 lg:border-0 border-b-2">{(role === "dokter") ? "Jadwal Janji Temu" : "Cari Dokter"}</li>
+                    <li onClick={handleNavbar} className="py-4 hover:opacity-70 transition duration-200 lg:px-4 lg:py-2 text-center border-slate-200 lg:border-0 border-b-2">{(role === "dokter") ? "Jadwal Janji Temu" : "Cari Dokter"}</li>
                 </Link>
                 <Link to="/forum">
-                    <li className="py-4 hover:opacity-70 transition duration-200 lg:px-4 lg:py-2 text-center border-slate-200 lg:border-0 border-b-2">Forum</li>
+                    <li onClick={handleNavbar} className="py-4 hover:opacity-70 transition duration-200 lg:px-4 lg:py-2 text-center border-slate-200 lg:border-0 border-b-2">Forum</li>
                 </Link>
                 <Link to={`${isLogin ? "/profile" : "/register"}`}>
-                    <li className="py-4 hover:opacity-70 transition duration-200 lg:px-4 lg:py-2 text-center border-slate-200 lg:border-2 lg:rounded-lg lg:bg-white lg:text-red-700 border-b-2">{(isLogin) ? "Profile" : "Register"}</li>
+                    <li onClick={handleNavbar} className="py-4 hover:opacity-70 transition duration-200 lg:px-4 lg:py-2 text-center border-slate-200 lg:border-2 lg:rounded-lg lg:bg-white lg:text-red-700 border-b-2">{(isLogin) ? "Profile" : "Register"}</li>
                 </Link>
                 <Link to={`${isLogin ? "/" : "/login"}`}>
-                    <li onClick={handleLogout} className="py-4 hover:opacity-70 transition duration-200 lg:px-4 lg:py-2 text-center border-slate-200 lg:border-2 lg:rounded-lg border-b-2">{(isLogin) ? "Logout" : "Login"}</li>
+                    <li onClick={() => {handleLogout(); handleNavbar();}} className="py-4 hover:opacity-70 transition duration-200 lg:px-4 lg:py-2 text-center border-slate-200 lg:border-2 lg:rounded-lg border-b-2">{(isLogin) ? "Logout" : "Login"}</li>
                 </Link>
             </ul>
         </nav>

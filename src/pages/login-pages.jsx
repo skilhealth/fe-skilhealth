@@ -55,7 +55,7 @@ const Login = () => {
         <div className="max-w-md w-full space-y-8">
           <div>
             <h2 className="text-center text-2xl font-bold text-gray-900 font-sans">
-              Selamat Datang di <br></br> Skilhealth !
+              Selamat Datang di <br></br> Skilhealth!
             </h2>
           </div>
           <div className="btn-wrapper justify-center item-center sm:px-10 flex items-center">

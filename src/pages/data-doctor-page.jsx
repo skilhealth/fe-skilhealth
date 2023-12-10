@@ -22,6 +22,7 @@ function DataDokter() {
     const [idJadwal, setIdJadwal] = useState()
     const [harga, useHarga] = useState(0)
     const [Payment, setPayment] = useState('');
+    const [errorMessage, setErrorMessage] = useState('')
     // ini pake get doctor/:id
 
     const handlePayment = (event) => {
@@ -54,7 +55,7 @@ function DataDokter() {
         }
 
         if (!idJadwal || !Payment) {
-            alert("Please select a schedule and payment method.");
+            setErrorMessage("Jadwal dan metode pembayaran harus dipilih");
             return;
         }
 
@@ -98,6 +99,9 @@ function DataDokter() {
                             </select>
                             <h3 className="text-4xl font-semibold">Rp.{harga.toLocaleString()}</h3>
                             <p>Include Fax*</p>
+                        </div>
+                        <div className="mt-2">
+                            {errorMessage && <span className="text-red-500">{errorMessage}</span>}
                         </div>
                         <button type="submit" className="h-full aspect-square hover:opacity-70 transition duration-200 lg:w-full lg:h-auto lg:aspect-auto lg:mt-4 bg-red-700 p-2 rounded-xl text-white ">Konfirmasi</button>
                     </div>

@@ -148,7 +148,7 @@ function PencarianDokter() {
                     </select>
                 </div>
                 <div className="mt-2">
-                    <button className="bg-red-700 rounded-xl font-medium w-full text-lg text-white p-2" type="submit">Cari</button>
+                    <button className="bg-red-700 rounded-xl font-medium w-full text-lg text-white p-2 hover:opacity-70 transition duration-200" type="submit">Cari</button>
                 </div>
             </form>
         </div>

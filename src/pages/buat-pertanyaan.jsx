@@ -18,19 +18,29 @@ function BuatPertanyaan() {
   const { AddForum } = useContext(forumContext)
   const [judul, setJudul] = useState()
   const [keluhan, setKeluhan] = useState()
+  const [errorMessage, setErrorMessage] = useState("");
   const user_id = localStorage.getItem("userid")
 
   const handleAdd = (e) => {
-    e.preventDefault()
+    e.preventDefault();
+  
+    // Periksa apakah data kosong
+    if (!judul || !keluhan) {
+      setErrorMessage("Judul dan keluhan harus diisi.");
+      return;
+    }
+
     const newForum = {
       user_id: user_id,
       judul: judul,
       pertanyaan: keluhan,
       status: false,
-    }
-    AddForum(newForum)
-    navigate("/forum")
-  }
+    };
+  
+    AddForum(newForum);
+    navigate("/forum");
+  };
+
   return (
     <form className="p-4 lg:px-24 flex flex-col items-center grow">
       <Backbutton nama="Buat Pertanyaan" />
@@ -54,6 +64,9 @@ function BuatPertanyaan() {
         />
       </div>
       <div className="mt-12 max-w-xl w-full">
+        <div className="flex justify-center pb-4 font-bold">
+          {errorMessage && <span className="text-red-500 text-center">{errorMessage}</span>}
+        </div>
         <button onClick={handleAdd} type="submit" className="bg-red-700 rounded-xl font-medium w-full text-lg text-white p-2 hover:opacity-70 transition duration-200">
           Kirim
         </button>

@@ -26,7 +26,7 @@ function CheckInCard({ data,booking,setCheckin,id }) {
                 </div>
             </div>
             <div className="">
-                <button onClick={handleRefresh} className="bg-red-700 text-white text-2xl font-medium w-24 rounded-xl aspect-square box-border p-7">
+                <button onClick={handleRefresh} className="bg-red-700 text-white text-2xl font-medium w-24 rounded-xl aspect-square box-border p-7 hover:opacity-70 transition duration-200">
                     <img src={refresh} alt="" className="invert" />
                 </button>
             </div>
