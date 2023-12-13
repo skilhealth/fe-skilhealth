@@ -69,7 +69,6 @@ function UserProvider({ children }) {
                 localStorage.setItem("role", response.data.user.role)
                 setRole(response.data.user.role)
             }
-            console.log(response.data.message)
             return response.data
         } catch (err) {
             console.error(err)
@@ -93,8 +92,23 @@ function UserProvider({ children }) {
         setUser(null)
         setLogin(false)
     }
+    const Edit = async (konten) => {
+        try {
+            const response = await axios.put(`https://be-skilhealth.up.railway.app/user/${id}`,konten, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            console.log(response.data.message)
+            await fetchData(id)
+            return response.data.message
+        }catch (err) {
+            console.error(err)
+            alert(err.response.data.message)
+        }
+    }
     return (
-        <userContext.Provider value={{ user, role, isLogin, Login, Register, Logout }} >
+        <userContext.Provider value={{ user, role, isLogin, Login, Register, Logout,Edit }} >
             {children}
         </userContext.Provider>
     )

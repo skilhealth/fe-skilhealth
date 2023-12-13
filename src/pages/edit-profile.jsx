@@ -5,23 +5,17 @@ import { useContext } from 'react';
 import { userContext } from '../context/user-provider';
 import moment from 'moment/moment';
 import 'moment/locale/id'
+import Loading from "../components/loading";
+
 
 
 const EditProfile = () => {
   moment.locale('id')
-  const { user } = useContext(userContext)
+  const { user, Edit } = useContext(userContext)
   if (!user) {
     return (
-      <div className="p-4 lg:px-24">
-          <div className="flex flex-col gap-2">
-              <div className="w-full h-full flex justify-center items-center">
-                  <div className="text-lg font-semibold text-slate-300 absolute top-1/2 -translate-y-1/2">
-                      Loading
-                  </div>
-              </div>
-          </div>
-      </div>
-  )
+      <Loading />
+    )
   }
   const tgl = moment(user.tgl_lahir).format('yyyy-MM-DD')
   const [namaLengkap, setNamaLengkap] = useState(user.nama);
@@ -31,9 +25,19 @@ const EditProfile = () => {
   const [nik, setNik] = useState(user.nik);
   const [alamat, setAlamat] = useState(user.alamat);
   const [imageSrc, setImageSrc] = useState(user.images);
+  const editProfile = async (e) => {
+    e.preventDefault()
+    const editData = {
+      nama: namaLengkap,
+      tgl_lahir: tanggalLahir,
+      no_tlp: noTelepon,
+      alamat: alamat
+    }
+    let message = await Edit(editData)
+    alert(message)
+  }
 
 
-  
   return (
     <div className='p-4 lg:px-24'>
       <Backbutton nama="Profil Pengguna" />
@@ -92,6 +96,27 @@ const EditProfile = () => {
                   onChange={(e) => setNoTelepon(e.target.value)}
                 />
               </div>
+            </div>
+            <div>
+
+              <div>
+                <h3 className="mt-8 space-y-6 block font-sans text-xl font-bold">Alamat*</h3>
+                <textarea
+                  id="alamatUser"
+                  name="alamatUser"
+                  type="tel"
+                  autoComplete="alamatUser"
+                  required
+                  className="px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm"
+                  placeholder="Masukan Alamat"
+                  value={alamat}
+                  rows={4}
+                  onChange={(e) => setAlamat(e.target.value)}
+                ></textarea>
+              </div>
+            </div>
+            <div>
+              <button className='bg-red-700 rounded-xl font-medium w-full text-lg text-white p-2' onClick={editProfile}>Edit Profile</button>
             </div>
           </form>
 
