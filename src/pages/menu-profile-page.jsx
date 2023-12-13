@@ -11,7 +11,6 @@ function MenuProfile({ role }) {
      const navigate = useNavigate()
      const handleLogout = () => {
           if (isLogin) {
-               console.log("test")
                Logout()
                navigate("/")
           }
