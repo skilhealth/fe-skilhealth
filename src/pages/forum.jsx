@@ -38,7 +38,7 @@ function Forum() {
     return <Loading />;
   }
 
-  if (!forum) {
+  if (!forum||!role) {
     return (
       <div className="p-4 lg:px-24">
         <Backbutton nama="Janji pasien " />
