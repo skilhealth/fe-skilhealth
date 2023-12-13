@@ -6,9 +6,11 @@ import Pagination from "../components/pagination";
 import { forumContext } from "../context/forum-provider";
 import Loading from "../components/loading";
 import forumPng from "/src/assets/forum.png";
+import { userContext } from "../context/user-provider";
 
 function Forum() {
-  const { role, forum } = useContext(forumContext);
+  const {forum } = useContext(forumContext);
+  const {role} = useContext(userContext)
   const navigate = useNavigate();
 
   const toBuatPertanyaan = () => {
