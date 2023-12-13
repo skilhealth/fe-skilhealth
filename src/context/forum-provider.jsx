@@ -8,7 +8,6 @@ export const forumContext = createContext()
 function ForumProvider({ children }) {
     const [forum, setForum] = useState(null);
     const [token, setToken] = useState("");
-    const [role, setRole] = useState("pasien");
 
     const [id, setId] = useState("");
 
@@ -21,7 +20,6 @@ function ForumProvider({ children }) {
             return newToken;
         });
         setId(localStorage.getItem("userid") || "");
-        setRole(localStorage.getItem("role") || "pasien");
     }, [id]);
         
     const fetchData = async () => {
@@ -69,7 +67,7 @@ function ForumProvider({ children }) {
         }
     }
     return (
-        <forumContext.Provider value={{ role, forum, AddForum, setForum,JawabForum }}>
+        <forumContext.Provider value={{ forum, AddForum, setForum,JawabForum }}>
             {children}
         </forumContext.Provider>
     )
