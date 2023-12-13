@@ -6,9 +6,11 @@ import Pertanyaan from "../components/pertanyaan";
 import { useLocation } from "react-router-dom";
 import { useContext } from "react";
 import { forumContext } from "../context/forum-provider";
+import { userContext } from "../context/user-provider";
 
 function Diskusi() {
-  const { forum, role } = useContext(forumContext)
+  const { forum } = useContext(forumContext)
+  const {role} = useContext(userContext)
   const location = useLocation();
   const data = location.state && location.state.data;
   return (

@@ -28,7 +28,6 @@ function LandingPageDoctor({ role }) {
                     Authorization: `Bearer ${token}`
                 }
             })
-            console.log(response.data.message)
             return response.data.data
         } catch (err) {
             console.error(err)
