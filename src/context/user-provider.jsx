@@ -18,12 +18,13 @@ function UserProvider({ children }) {
         if (role !== localStorage.getItem("role") && localStorage.getItem("role")) {
             setRole(localStorage.getItem("role"))
         }
-    }, [])
+    }, [role])
     useEffect(() => {
         if (!localStorage.getItem("role")) {
             setRole("noLogin")
         }
-    })
+    },[])
+    // console.log(role)
     const fetchData = async (id) => {
         try {
             let response = null
