@@ -20,9 +20,8 @@ const EditProfile = () => {
   const tgl = moment(user.tgl_lahir).format('yyyy-MM-DD')
   const [namaLengkap, setNamaLengkap] = useState(user.nama);
   const [tanggalLahir, setTanggalLahir] = useState(tgl);
+  const [jenisKelamin, setJenis] = useState(user.jenis_kelamin);
   const [noTelepon, setNoTelepon] = useState(user.no_tlp);
-  const [email, setEmail] = useState(user.email);
-  const [nik, setNik] = useState(user.nik);
   const [alamat, setAlamat] = useState(user.alamat);
   const [imageSrc, setImageSrc] = useState(user.images);
   const editProfile = async (e) => {
@@ -81,6 +80,14 @@ const EditProfile = () => {
               />
             </div>
             <div>
+              <h3 className="mt-8 space-y-6 block font-sans text-xl font-bold ">Jenis Kelamin*</h3>
+              <input type="text" value={jenisKelamin}
+              className='px-4 py-4 placeholder-gray-400 bg-white rounded-xl  border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm' 
+              disabled
+              />
+
+            </div>
+            <div>
 
               <div>
                 <h3 className="mt-8 space-y-6 block font-sans text-xl font-bold">No.Telepon*</h3>
@@ -116,7 +123,7 @@ const EditProfile = () => {
               </div>
             </div>
             <div>
-              <button className='bg-red-700 rounded-xl font-medium w-full text-lg text-white p-2' onClick={editProfile}>Edit Profile</button>
+              <button type='submit' className='bg-red-700 rounded-xl font-medium w-full text-lg text-white p-2' onClick={editProfile}>Edit Profile</button>
             </div>
           </form>
 

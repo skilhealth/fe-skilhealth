@@ -9,7 +9,7 @@ import { userContext } from "../context/user-provider"
 import Loading from "../components/loading"
 function DataDokter() {
     const navigate = useNavigate()
-    const { isLogin } = useContext(userContext)
+    const { isLogin, user } = useContext(userContext)
     useEffect(() => {
         if (!isLogin) {
             navigate("/login")
@@ -54,8 +54,16 @@ function DataDokter() {
             keterangan: ""
         }
 
-        if (!idJadwal || !Payment) {
-            setErrorMessage("Jadwal dan metode pembayaran harus dipilih");
+        if (!idJadwal) {
+            setErrorMessage("Jadwal harus dipilih");
+            return;
+        }
+        if (!Payment) {
+            setErrorMessage("Metode pembayaran harus dipilih");
+            return;
+        }
+        if (!user.alamat) {
+            setErrorMessage("Lengkapi Profile dahulu");
             return;
         }
 
@@ -71,14 +79,14 @@ function DataDokter() {
                 console.error(error);
             }
         };
-        
+
         await addBooking(newBooking)
         navigate("/booking/pembayaran", { state: { via: Payment, harga: harga }, })
     }
     if (!dataDokter) {
         return <div className="p-4 lg:px-24">
             <Backbutton nama="Janji pasien " />
-            <Loading/>
+            <Loading />
         </div>;
     }
     const { Jadwals } = dataDokter
@@ -97,11 +105,11 @@ function DataDokter() {
                                 <option value="Bank & Kredit">Bank & Kredit</option>
                                 <option value="Alfamaret">Alfamart</option>
                             </select>
+                            <div className="mt-2">
+                                {errorMessage && <span className="text-red-500">{errorMessage}</span>}
+                            </div>
                             <h3 className="text-4xl font-semibold">Rp.{harga.toLocaleString()}</h3>
                             <p>Include Fax*</p>
-                        </div>
-                        <div className="mt-2">
-                            {errorMessage && <span className="text-red-500">{errorMessage}</span>}
                         </div>
                         <button type="submit" className="h-full aspect-square hover:opacity-70 transition duration-200 lg:w-full lg:h-auto lg:aspect-auto lg:mt-4 bg-red-700 p-2 rounded-xl text-white ">Konfirmasi</button>
                     </div>

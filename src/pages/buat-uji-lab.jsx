@@ -14,7 +14,7 @@ function CatatanMedis() {
     const [status, setStatus] = useState(true)
 
     const location = useLocation();
-    const datatrow= location.state && location.state.data
+    const datatrow = location.state && location.state.data
     const userid = datatrow.User.id
     const { id } = useParams()
     const dokId = localStorage.getItem("userid")
@@ -22,7 +22,7 @@ function CatatanMedis() {
 
     const addUjiLab = async (data) => {
         try {
-            const response = await axios.post("https://be-skilhealth.up.railway.app/ujilab/add", data,{
+            const response = await axios.post("https://be-skilhealth.up.railway.app/ujilab/add", data, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -39,7 +39,7 @@ function CatatanMedis() {
         const addUjilab = {
             "antrian_id": id,
             "user_id": userid,
-            "dokter_id":dokId ,
+            "dokter_id": dokId,
             "judul": judul,
             "keluhan": keluhan,
             "diagnosa": diagnosa,
@@ -47,7 +47,7 @@ function CatatanMedis() {
         }
         addUjiLab(addUjilab)
         navigate("/janjipasien")
-        
+
     }
     return (
         <main className="p-4 flex flex-col items-center">
@@ -59,6 +59,25 @@ function CatatanMedis() {
                         <option value="false">Belum Mulai</option>
                         <option value="true">Sudah Selesai</option>
                     </select>
+                </div>
+                <div className="mt-4 flex flex-col gap-2">
+                    <span className="text-xl font-bold">Identitas Pasien</span>
+                    <div className="flex">
+                        <table className="font-medium">
+                            <tr>
+                                <td>Nama</td>
+                                <td> : {datatrow.User.nama}</td>
+                            </tr>
+                            <tr>
+                                <td>Alamat</td>
+                                <td> : {datatrow.User.alamat}</td>
+                            </tr>
+                            <tr>
+                                <td>Nomor Telepon</td>
+                                <td> : {datatrow.User.no_tlp}</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
                 <div className="mt-4">
                     <span className="text-xl font-bold">Judul Diskusi</span>
