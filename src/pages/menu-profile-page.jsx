@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { userContext } from "../context/user-provider";
 
 function MenuProfile({ role }) {
-     const { isLogin, Logout } = useContext(userContext)
+     const { isLogin, Logout,user } = useContext(userContext)
      const navigate = useNavigate()
      const handleLogout = () => {
           if (isLogin) {
@@ -21,7 +21,7 @@ function MenuProfile({ role }) {
                <div className=" flex flex-col space-y-2 max-w-md w-full">
                     <div className="flex flex-row space-x-3 border-b border-black items-center" >
                          <img className="w-10 h-10" src={imgplus} alt="icon plus"></img>
-                         <h2 className="font-semibold hover:font-bold"><Link to="1">Profile {role}</Link></h2>
+                         <h2 className="font-semibold hover:font-bold"><Link to={localStorage.getItem("userid")}>Profile {role}</Link></h2>
                     </div>
 
                     <div className=" flex flex-row space-x-3 border-b border-black" onClick={handleLogout}>

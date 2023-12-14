@@ -68,6 +68,8 @@ function HasilUjiLab() {
                     <div className=" text-sm lg:text-base">{`Hari ${moment(data.ujilab.createdAt).format('dddd')}, ${moment(data.ujilab.createdAt).format('DD-MM-YYYY')} / ${data.ujilab.id}`}</div>
                     <h1 className="text-xl lg:text-2xl font-bold">{data.ujilab.judul}</h1>
                     <div className="text-sm lg:text-base">{data.User.nama}</div>
+                    <div className="text-sm lg:text-base">{data.User.no_tlp}</div>
+                    <div className="text-sm lg:text-base">{data.User.alamat}</div>
                 </div>
                 <div className="py-4">
                     <div className="mb-4">
