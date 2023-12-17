@@ -35,7 +35,7 @@ const StatusAmbulancee = () => {
                 console.log("no respon")
             }
         } catch (err) {
-            console.log(err)
+            console.error(err)
         }
     }
     useEffect(() => {

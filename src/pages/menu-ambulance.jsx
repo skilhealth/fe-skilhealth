@@ -13,9 +13,6 @@ function MenuAmbulance() {
     const navigate = useNavigate()
     const [Rs,setRS] = useState(0)
     const { instansi } = useContext(instansiContext)
-    useEffect(()=>{
-        console.log(Rs)
-    },[Rs])
     const ToDarurat = (e) =>{
         e.preventDefault()
         if(Rs==0){
