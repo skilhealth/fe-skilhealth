@@ -20,7 +20,6 @@ const OTPComponent = () => {
         return response.data.message
       }
       const message = await send(sendmail)
-      console.log(message)
       if (message === "Email Terdaftar") {
         navigate("/gantipass",{state:{sendmail}})
       } else {

@@ -54,7 +54,6 @@ function InstansiAmbulance() {
             const ambulance = await getAmbulance(id);
             setList(ambulance.data)
             const takerequest = await getRequest(id)
-            console.log(takerequest)
             if (takerequest.message == "Request tidak ditemukan") {
                 setRequest("tidak ada")
             } else {
@@ -120,7 +119,6 @@ function InstansiAmbulance() {
 
         },
     ]
-    console.log(request)
     return (
         <div className="p-4 lg:px-24 lg:flex lg:justify-center">
             <form action="" onSubmit={handlesubmit} className="max-w-4xl w-full">

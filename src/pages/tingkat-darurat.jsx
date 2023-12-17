@@ -18,7 +18,6 @@ const TingkatDarurat = () => {
     const location = useLocation()
     const navigate = useNavigate()
     const Rs_id = location.state && location.state.Rs;
-    console.log(Rs_id)
     const call = async (konten) => {
         try {
             const response = await axios.post("https://be-skilhealth.up.railway.app/respon", konten)
