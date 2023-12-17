@@ -39,6 +39,7 @@ import { useEffect, useState } from "react"
 import { useContext } from "react"
 import { userContext } from "./context/user-provider"
 import NotFound from "./pages/notfound"
+import InstansiAmbulance from "./pages/instansi-ambulance.jsx"
 
 function App() {
   const { isLogin, role, } = useContext(userContext)
@@ -53,7 +54,7 @@ function App() {
     <div className="flex flex-col w-full">
       <Navbar />
       <Routes>
-        <Route path="/" element={role === "dokter"? <LandingPageDoctor role={role} /> : <LandingPage role={role} />} />
+        <Route path="/" element={role === "dokter"? <LandingPageDoctor role={role} /> : role==="instansi"?<InstansiAmbulance/>:<LandingPage role={role} />} />
         <Route path="/janjipasien" element={<ListJanjiPasien />} />
         <Route path="/janjipasien/:id" element={<HasilUjiLab />} />
         <Route path="/janjipasien/:id/add" element={<CatatanMedis />} />

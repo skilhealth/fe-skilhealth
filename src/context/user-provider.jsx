@@ -26,21 +26,25 @@ function UserProvider({ children }) {
     })
     const fetchData = async (id) => {
         try {
-            let response = null
+            let response
             if (role === "dokter") {
                 response = await axios.get(`https://be-skilhealth.up.railway.app/dokter/${id}`, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
                 });
-            } else {
+            } if (role === "instansi") {
+                response = await axios.get(`https://be-skilhealth.up.railway.app/instansi/${id}`)
+            } if (role === 'pasien') {
                 response = await axios.get(`https://be-skilhealth.up.railway.app/user/${id}`, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
                 });
             }
-            setUser(response.data);
+            if (response) {
+                setUser(response.data);
+            }
         } catch (error) {
             console.error('Error fetching user data:', error);
         }
@@ -95,7 +99,7 @@ function UserProvider({ children }) {
     }
     const Edit = async (konten) => {
         try {
-            const response = await axios.put(`https://be-skilhealth.up.railway.app/user/${id}`,konten, {
+            const response = await axios.put(`https://be-skilhealth.up.railway.app/user/${id}`, konten, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -103,13 +107,13 @@ function UserProvider({ children }) {
             console.log(response.data.message)
             await fetchData(id)
             return response.data.message
-        }catch (err) {
+        } catch (err) {
             console.error(err)
             alert(err.response.data.message)
         }
     }
     return (
-        <userContext.Provider value={{ user, role, isLogin, Login, Register, Logout,Edit }} >
+        <userContext.Provider value={{ user, role, isLogin, Login, Register, Logout, Edit }} >
             {children}
         </userContext.Provider>
     )

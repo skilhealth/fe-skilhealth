@@ -1,6 +1,6 @@
-import imghospital from "../assets/rs.png"
 
-function HospitalCard({ jarak, name, area, alamat }) {
+
+function HospitalCard({ jarak, name, area, alamat,imghospital }) {
     return (
         <div className='w-full flex px-5 py-3 bg-gray-100 rounded-md shadow-sm mt-8 space-y-px border border-gray-200 cursor-pointer hover:bg-gray-200 transition duration-200 sm:px-6 lg:px-6'>
             <img className='w-26 h-28 border mt-5 sm:w-32 sm:h-36' src={imghospital} alt="" />

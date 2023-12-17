@@ -1,4 +1,5 @@
 import SearchHospital from "../components/search";
+import imghospital from "../assets/rs.png"
 import Backbutton from '../components/backbutton';
 import HospitalCard from "../components/rs-card";
 import { useContext } from "react";
@@ -29,7 +30,7 @@ function Hospital() {
             </form>
             {
                 list.map((item, index) => (
-                    <HospitalCard key={index} name={item.nama} area={item.area} imghospital="{imghospital}" alamat={item.alamat} />
+                    <HospitalCard key={index} name={item.nama} area={item.area} imghospital={imghospital} alamat={item.alamat} />
                 ))
             }
         </div>
