@@ -102,23 +102,6 @@ function InstansiAmbulance() {
         fetchData()
 
     }
-    const list = [
-        {
-            id: 1,
-            nama: "Skilvul Jakarta 1",
-            plat: "3344 KXS",
-            spesialis: "Darurat",
-            image: "/src/assets/ambulan1.png"
-        },
-        {
-            id: 2,
-            nama: "Skilvul Jakarta 2",
-            plat: "3544 KXS",
-            spesialis: "Gawat Darurat",
-            image: "/src/assets/ambulan2.png"
-
-        },
-    ]
     return (
         <div className="p-4 lg:px-24 lg:flex lg:justify-center">
             <form action="" onSubmit={handlesubmit} className="max-w-4xl w-full">

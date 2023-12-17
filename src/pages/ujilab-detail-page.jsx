@@ -30,26 +30,6 @@ function UjilabDetail() {
         };
         fetchData();
     }, [id]);
-    // const { data } = {
-    //     "message": "Menampilkan Ujilab",
-    //     "data": {
-    //         "id": 3,
-    //         "antrian_id": 1,
-    //         "user_id": 2,
-    //         "dokter_id": 1,
-    //         "judul": "Jantung Berdebar debar",
-    //         "keluhan": "Pasien datang dengan keluhan nyeri perut sebelah kanan bawah yang semakin memburuk selama beberapa hari terakhir Dia juga mengalami mual dan muntah.",
-    //         "diagnosa": "Setelah melakukan pemeriksaan fisik dan beberapa tes tambahan, termasuk USG abdomen, pasien didiagnosis dengan apendisitis akut.Ini adalah peradangan akut pada usus buntu (apendiks) yang memerlukan tindakan bedah segera",
-    //         "catatan": "Dengan pertimbangan diagnosa apendisitis akut, tindakan bedah apendektomi darurat direkomendasikan untuk pasien ini.",
-    //         "dokumen": "[\"Hasil USG abdomen\"]",
-    //         "createdAt": "2023-11-29T04:18:50.000Z",
-    //         "Dokter": {
-    //             "id": 1,
-    //             "nama": "Dr. Jane Smith"
-    //         }
-    //     }
-    // }
-    // const tgl = moment(data.createdAt)
     if (!data) {
         return (
             <Loading/>
