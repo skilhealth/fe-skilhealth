@@ -10,9 +10,9 @@ function Pertanyaan({ data }) {
   return (
     <div className="flex flex-col my-4 max-w-4xl w-full">
       <span>{formatDate(data.createdAt)}</span>
-      <span className="text-2xl font-bold">{data.judul}</span>
-      <span className="text-lg">Oleh: {data.User.nama}</span>
-      <p className="mt-4 border-b border-black">{data.pertanyaan}</p>
+      <span className="text-2xl font-bold my-2">{data.judul}</span>
+      <span className="text-md font-semibold">Oleh: {data.User.nama}</span>
+      <p className="py-4 border-b border-black">{data.pertanyaan}</p>
     </div>
   );
 }

@@ -17,9 +17,9 @@ function DoctorCard({data}) {
                     <div className={`w-4 h-4 rounded-full ${Dokter.status?"bg-green-500":"bg-red-500"} `}></div>
                     {Dokter.status?"Aktif":"Tidak Aktif"}
                 </div>
-                <div className="text-xl font-bold">{Dokter.nama}</div>
-                <div className="text-base font-medium">{Dokter.Instansi.nama}</div>
-                <div className="text-base font-regular">{Dokter.Spesiali.nama}</div>
+                <div className="text-md md:text-xl lg:text-2xl font-bold">{Dokter.nama}</div>
+                <div className="text-sm md:text-base lg:text-md font-medium">{Dokter.Instansi.nama}</div>
+                <div className="text-sm md:text-base lg:text-md font-regular">{Dokter.Spesiali.nama}</div>
             </div>
         </div>
     )
