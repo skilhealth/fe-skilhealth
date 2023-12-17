@@ -30,14 +30,14 @@ function LandingPage({ role }) {
       <div className="p-4 lg:px-24 lg:py-7">
         <div className="flex w-full pl-4 bg-red-700 rounded-lg items-center  h-60 lg:pl-20 lg:h-80 justify-between overflow-hidden">
           <div className="text-white w-full max-w-[168px] lg:max-w-lg flex flex-col gap-4">
-            {
+            {/* {
               user ? (<div className="text-white flex gap-2 text-base lg:text-3xl">
                 <p className="font-bold align-text-bottom">
                   Halo
                 </p>
                 <h3 className="font-bold">{user.nama} !</h3>
               </div>) : ("")
-            }
+            } */}
             <p className="text-lg font-semibold lg:text-4xl lg:leading-relaxed">
               Atur Janji Temu Dokter Skilvul Hospital di SkilHealth
             </p>
