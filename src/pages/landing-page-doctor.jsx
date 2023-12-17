@@ -91,7 +91,7 @@ function LandingPageDoctor({ role }) {
                             <Link to="/janjipasien" className="font-semibold underline text-base text-red-700">Jadwal Lainnya</Link>
                         </div>
                         <div>
-                            {listJanji.map((item,index) => {
+                            {listJanji.slice(0,3).map((item,index) => {
                                 if (moment(item.Jadwal.date).isSame(moment(), 'day')) {
                                    return <PasienLanding key={index} pasien={item} />
 
