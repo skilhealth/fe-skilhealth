@@ -1,70 +1,108 @@
 import status from "../assets/status.png"
-import { useState } from "react";
+import rs from "../assets/hospital-banner.png"
+import { useEffect, useState } from "react";
 import Backbutton from "../components/backbutton";
+import { useLocation } from "react-router-dom";
+import axios from "axios";
 
-const StatusAmbulance = ()  => {
+const StatusAmbulance = () => {
+    const location = useLocation()
+    const data = location.state && location.state.data
+    const [ambulan, setAmbulan] = useState()
+    const getRespon = async (id) => {
+        try {
+            const response = await axios.get(`https://be-skilhealth.up.railway.app/respon/${id}`)
+            return response.data
+        } catch (err) {
+            console.error(err)
+        }
+    }
+    const getAmbulan = async (id) => {
+        try {
+            const response = await axios.get(`https://be-skilhealth.up.railway.app/ambulances/${id}`)
+            return response.data
+        } catch (err) {
+            console.error(err)
+        }
+    }
+    const fetchData = async (e) => {
+        try {
+            const respon = await getRespon(data.id)
+            if (respon.data.ambulan_id) {
+                const accRespon = await getAmbulan(respon.data.ambulan_id)
+                setAmbulan(accRespon.data)
+            } else {
+                console.log("no respon")
+            }
+        } catch (err) {
+            console.log(err)
+        }
+    }
+    useEffect(() => {
+        fetchData()
+    },[])
+    const handleRefresh = async (e) => {
+        try {
+            e.preventDefault();
+            fetchData()
+        } catch (err) {
+            console.error(err)
+        }
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Perform validation and API calls here
-     };
-
+    };
+    console.log(ambulan)
     return (
-    <div>
-         <Backbutton  nama= "Biasa" />
-        <div className="bg-white-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-            <div className="w-full max-w-3xl mx-auto bg-gray-100 rounded-lg p-6">
-            <img className="w-40 h-30 mx-auto" src={status}></img>
-             <div className="flex justify-center items-center">
-             <p className=" font-bold text-center mr-2">Masih dalam perjalanan </p>
-            <div className="flex space-x-2">
-                <div className="w-2 h-2 bg-black rounded-full animate-bounce mt-2"></div>
-                <div className="w-2 h-2 bg-black rounded-full animate-bounce mt-2"></div>
-                <div className="w-2 h-2 bg-black rounded-full animate-bounce mt-2"></div>
-            </div>
-            </div>
-             <h1 className="text-2xl font-bold mt-8 text-center">Detail Ambulance</h1>
-                <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                        <h5 className="font-bold">Nomor Kendaraan:</h5>
-                        <p className="font-semibold">B 4814 SW</p>
-                    </div>
-                    <div>
-                        <h5 className="font-bold">Tingkat Pelayanan:</h5>
-                        <p className="font-semibold">BLS ( Ambulans Basic Life Support )</p>
-                    </div>
-                    <div>
-                        <h5 className="font-bold">Paramedis:</h5>
-                        <p className="font-semibold">Sarah Johnson, Daniel Brown, David Wilson & Amanda Clark</p>
-                    </div>
-                    <div>
-                        <h5 className="font-bold">Perlengkapan Ambulance:</h5>
-                        <p className="font-semibold">Peralatan Pertolongan Pertama, Perangkat Pernapasan, AED, Perangkat Pemindahan Pasien & Peralatan Tambahan</p>
-                    </div>
-                </div>
+        <div className="p-4 lg:px-24">
+            <Backbutton nama="Biasa" />
+            <div className="bg-white-100 flex items-center justify-center py-4 px-4 sm:px-6 lg:px-8">
+                <div className="w-full max-w-3xl mx-auto bg-gray-100 rounded-lg p-6">
+                    {ambulan ? (<img className="w-40 h-30 mx-auto" src={status}></img>) :
+                        (<img className="w-40 h-30 mx-auto" src={rs}></img>)}
 
-                <h1 className="mt-8 font-sans font-bold text-xl text-center">Catatan</h1>
-                <form onSubmit={handleSubmit}>
-                    <textarea
-                        id="catatan"
-                        name="catat"
-                        type="text"
-                        disabled
-                        className="px-4 py-3 placeholder-gray-400 bg-gray-50 rounded-lg border-black text-sm shadow focus:outline-black-200 focus:shadow-outline- w-full focus:z-10 sm:text-sm mt-4"
-                        placeholder="Masukan Catatan"
-                        value="Pasien Memiliki alergi terhadap obat-obatan yang mengandung ibuprofen"
-                    />
-                    <button
-                        type="submit"
-                        className='bg-red-700 text-white text-sm font-bold px-6 py-3 rounded-lg shadow hover:shadow-lg outline-none focus:outline-none w-full mt-4'
-                    >
-                        Kirim
-                    </button>
-                </form>
-           </div>
-        </div>  
-     </div>
-    )  
+                    <div className="flex justify-center items-center">
+                        <p className=" font-bold text-center mr-2">{ambulan ? "Masih dalam perjalanan" : "Menunggu Respon rumah sakit"}</p>
+                        <div className="flex space-x-2">
+                            <div className="w-2 h-2 bg-black rounded-full animate-bounce mt-2"></div>
+                            <div className="w-2 h-2 bg-black rounded-full animate-bounce mt-2"></div>
+                            <div className="w-2 h-2 bg-black rounded-full animate-bounce mt-2"></div>
+                        </div>
+                    </div>
+
+                    {
+                        ambulan ? (
+                            <div>
+                                <h1 className="text-2xl font-bold mt-8 text-center">Detail Ambulance</h1>
+                                <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <h5 className="font-bold">Nomor Kendaraan:</h5>
+                                        <p className="font-semibold">{ambulan.plat}</p>
+                                    </div>
+                                    <div>
+                                        <h5 className="font-bold">Tingkat Pelayanan:</h5>
+                                        <p className="font-semibold">{ambulan.tingkat}</p>
+                                    </div>
+                                    <div>
+                                        <h5 className="font-bold">Paramedis:</h5>
+                                        <p className="font-semibold">{ambulan.paramedis}</p>
+                                    </div>
+                                    <div>
+                                        <h5 className="font-bold">Perlengkapan Ambulance:</h5>
+                                        <p className="font-semibold">{ambulan.peralatan}</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        ) : (
+                            <div className="mt-6 text-white font-medium">
+                                <button className="bg-red-600 w-full p-2 rounded-lg" onClick={handleRefresh}>Refresh</button>
+                            </div>
+                        )
+                    }
+
+                </div>
+            </div>
+        </div>
+    )
 }
 
 export default StatusAmbulance

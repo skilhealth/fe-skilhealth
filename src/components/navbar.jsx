@@ -45,10 +45,10 @@ function Navbar() {
                     <li onClick={handleNavbar} className="py-4 hover:opacity-70 transition duration-200 lg:px-4 lg:py-2 text-center border-slate-200 lg:border-0 border-b-2">Home</li>
                 </Link>
                 <Link to={`${role === "dokter" ? "/janjipasien" : "/doctor/search"}`}>
-                    <li onClick={handleNavbar} className="py-4 hover:opacity-70 transition duration-200 lg:px-4 lg:py-2 text-center border-slate-200 lg:border-0 border-b-2">{(role === "dokter") ? "Jadwal Janji Temu" : "Cari Dokter"}</li>
+                    <li onClick={handleNavbar} className={`py-4 hover:opacity-70 transition duration-200 lg:px-4 lg:py-2 text-center border-slate-200 lg:border-0 border-b-2 ${role === "instansi"?"hidden":""}`}>{(role === "dokter") ? "Jadwal Janji Temu" : "Cari Dokter"}</li>
                 </Link>
                 <Link to="/forum">
-                    <li onClick={handleNavbar} className="py-4 hover:opacity-70 transition duration-200 lg:px-4 lg:py-2 text-center border-slate-200 lg:border-0 border-b-2">Forum</li>
+                    <li onClick={handleNavbar} className={`py-4 hover:opacity-70 transition duration-200 lg:px-4 lg:py-2 text-center border-slate-200 lg:border-0 border-b-2 ${role === "instansi"?"hidden":""}`}>Forum</li>
                 </Link>
                 <Link to={`${isLogin ? "/profile" : "/register"}`}>
                     <li onClick={handleNavbar} className="py-4 hover:opacity-70 transition duration-200 lg:px-4 lg:py-2 text-center border-slate-200 lg:border-2 lg:rounded-lg lg:bg-white lg:text-red-700 border-b-2">{(isLogin) ? "Profile" : "Register"}</li>
