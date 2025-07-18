@@ -36,7 +36,7 @@
 - **Frontend:** [React.js](https://reactjs.org/) + [Tailwind CSS](https://tailwindcss.com/)
 - **State Management:** [Redux](https://redux.js.org/)
 - **Deployment:** [Vercel](https://vercel.com/)
-- **Backend:** Tersedia di repository terpisah → [Link Backend](#) *(tambahkan link repo backend di sini)*
+- **Backend:** Tersedia di repository terpisah → [Link Backend](https://github.com/skilhealth/be-skilhealth.git)
 
 ---
 
@@ -92,20 +92,11 @@ Password: doctor8
 
 Aplikasi ini di-deploy menggunakan **Vercel**. Setiap push ke branch `main` akan otomatis terdeploy.
 
----
-
-## 🖼 **Preview**
-
-*(Tambahkan screenshot di sini)*
-
-```markdown
-![Skilhealth Screenshot](./preview.png)
-```
 
 ---
 
 ## 📚 **Backend**
 
 Proyek ini memiliki backend terpisah:\
-🔗 [**Skilhealth Backend Repository**](#) *(isi link repo backend)*
+🔗 [**Skilhealth Backend Repository**](https://github.com/skilhealth/be-skilhealth.git)
 
